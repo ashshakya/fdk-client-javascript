@@ -182,6 +182,7 @@ export class PaymentValidator {
     static addBeneficiaryDetails(): any;
     static getUserOrderBeneficiaries(): any;
     static getUserBeneficiaries(): any;
+    static confirmPayment(): any;
 }
 export class OrderValidator {
     static trackShipmentPlatform(): any;
@@ -193,14 +194,14 @@ export class OrderValidator {
     static getShipmentTrackDetails(): any;
 }
 export class CatalogValidator {
-    static deleteSearchKeywords(): any;
-    static updateSearchKeywords(): any;
     static getSearchKeywords(): any;
+    static updateSearchKeywords(): any;
+    static deleteSearchKeywords(): any;
     static createCustomKeyword(): any;
     static getAllSearchKeyword(): any;
-    static deleteAutocompleteKeyword(): any;
-    static updateAutocompleteKeyword(): any;
     static getAutocompleteKeywordDetail(): any;
+    static updateAutocompleteKeyword(): any;
+    static deleteAutocompleteKeyword(): any;
     static createCustomAutocompleteRule(): any;
     static getAutocompleteConfig(): any;
     static getCatalogConfiguration(): any;
@@ -212,8 +213,8 @@ export class CatalogValidator {
     static createCollection(): any;
     static getAllCollections(): any;
     static getCollectionDetail(): any;
-    static deleteCollection(): any;
     static updateCollection(): any;
+    static deleteCollection(): any;
     static addCollectionItems(): any;
     static getCollectionItems(): any;
     static getCatalogInsights(): any;
@@ -222,6 +223,7 @@ export class CatalogValidator {
     static getCategories(): any;
     static getAppicationProducts(): any;
     static getProductDetailBySlug(): any;
+    static getAppProducts(): any;
 }
 export class FileStorageValidator {
     static appStartUpload(): any;
@@ -269,6 +271,9 @@ export class CartValidator {
     static getCouponById(): any;
     static updateCoupon(): any;
     static updateCouponPartially(): any;
+    static fetchAndvalidateCartItems(): any;
+    static checkCartServiceability(): any;
+    static checkoutCart(): any;
 }
 export class RewardsValidator {
     static getGiveaways(): any;

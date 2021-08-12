@@ -711,6 +711,18 @@ describe("Order test cases", () => {
   it("getPosOrderById testing", async () => {
     expect(true).toBeTruthy();
   });
+
+  it("getCustomerDetailsByShipmentId testing", async () => {
+    expect(true).toBeTruthy();
+  });
+
+  it("sendOtpToShipmentCustomer testing", async () => {
+    expect(true).toBeTruthy();
+  });
+
+  it("verifyOtpShipmentCustomer testing", async () => {
+    expect(true).toBeTruthy();
+  });
 });
 
 describe("Rewards test cases", () => {
