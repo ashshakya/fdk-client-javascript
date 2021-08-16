@@ -520,10 +520,10 @@ declare class Catalog {
      *   products, brands, or collections.* @param {string} arg.collectionId -
      *   The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Follow an entity (product/brand/collection)
-     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+     * @summary: Unfollow an entity (product/brand/collection)
+     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
      */
-    followById({ collectionType, collectionId }?: {
+    unfollowById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -533,10 +533,10 @@ declare class Catalog {
      *   products, brands, or collections.* @param {string} arg.collectionId -
      *   The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Unfollow an entity (product/brand/collection)
-     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+     * @summary: Follow an entity (product/brand/collection)
+     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
      */
-    unfollowById({ collectionType, collectionId }?: {
+    followById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -2154,6 +2154,16 @@ declare class Payment {
      * @description: Use this API to save the bank details for a returned or cancelled order to refund the amount.
      */
     addBeneficiaryDetails({ body }?: {
+        body: any;
+    }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @param {AddBeneficiaryDetailsOTPRequest} arg.body
+     * @returns {Promise<RefundAccountResponse>} - Success response
+     * @summary: Save bank details for cancelled/returned order
+     * @description: Use this API to save bank details for returned/cancelled order to refund amount in his account.
+     */
+    addRefundBankAccountUsingOTP({ body }?: {
         body: any;
     }): Promise<any>;
     /**

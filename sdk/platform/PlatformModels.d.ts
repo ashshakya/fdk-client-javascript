@@ -90,15 +90,15 @@ export class CatalogValidator {
     static updateCategory(): any;
     static createProduct(): any;
     static getProducts(): any;
+    static deleteProduct(): any;
     static getProduct(): any;
     static editProduct(): any;
-    static deleteProduct(): any;
     static getProductValidation(): any;
     static getProductSize(): any;
     static updateProductAssetsInBulk(): any;
     static getProductBulkUploadHistory(): any;
-    static createProductsInBulk(): any;
     static deleteProductBulkJob(): any;
+    static createProductsInBulk(): any;
     static getCompanyTags(): any;
     static createProductAssetsInBulk(): any;
     static getProductAssetsInBulk(): any;
@@ -109,8 +109,8 @@ export class CatalogValidator {
     static deleteInventory(): any;
     static createBulkInventoryJob(): any;
     static getInventoryBulkUploadHistory(): any;
-    static createBulkInventory(): any;
     static deleteBulkInventoryJob(): any;
+    static createBulkInventory(): any;
     static createInventoryExportJob(): any;
     static getInventoryExport(): any;
     static exportInventoryConfig(): any;
@@ -121,8 +121,8 @@ export class CatalogValidator {
     static bulkHsnCode(): any;
 }
 export class CompanyProfileValidator {
-    static cbsOnboardGet(): any;
     static updateCompany(): any;
+    static cbsOnboardGet(): any;
     static getCompanyMetrics(): any;
     static editBrand(): any;
     static getBrand(): any;
