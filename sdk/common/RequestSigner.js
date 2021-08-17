@@ -265,7 +265,9 @@ class RequestSigner {
     let path = this.request.path || "/";
 
     // So if there are non-reserved chars (and it's not already all % encoded), just encode them all
-    if (/[^0-9A-Za-z;,/?:@&=+$\-_.!~*'()#%]/.test(path)) {
+    if (this.request.encodePath === false) {
+      path = decodeURI(path);
+    } else {
       path = encodeURI(decodeURI(path));
     }
 
