@@ -1868,6 +1868,16 @@ declare class Configuration {
     }): Paginator;
     /**
      * @param {Object} arg - Arg object.
+     * @param {number} arg.storeId - Store uid
+     * @returns {Promise<OrderingStore>} - Success response
+     * @summary: Get ordering store details
+     * @description: Use this API to retrieve the details of given stores uid (the selling locations where the application will be utilized for placing orders).
+     */
+    getStoreDetailById({ storeId }?: {
+        storeId: number;
+    }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
      * @returns {Promise<AppFeatureResponse>} - Success response
      * @summary: Get features of application
      * @description: Use this API to retrieve the configuration of features such as product detail, landing page, options in the login/registration screen, communication opt-in, cart options and many more.
@@ -1883,8 +1893,8 @@ declare class Configuration {
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<CurrenciesResponse>} - Success response
-     * @summary: Get currencies enabled in the application
-     * @description: Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+     * @summary: Get all currencies list
+     * @description: Use this API to get a list of currencies available. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
      */
     getCurrencies({}?: any): Promise<any>;
     /**
@@ -1897,6 +1907,13 @@ declare class Configuration {
     getCurrencyById({ id }?: {
         id: string;
     }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @returns {Promise<AppCurrencyResponse>} - Success response
+     * @summary: Get currencies enabled in the application
+     * @description: Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+     */
+    getAppCurrencies({}?: any): Promise<any>;
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<LanguageResponse>} - Success response
