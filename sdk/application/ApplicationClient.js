@@ -1109,34 +1109,6 @@ class Catalog {
    *   products, brands, or collections.* @param {string} arg.collectionId -
    *   The ID of the collection type.
    * @returns {Promise<FollowPostResponse>} - Success response
-   * @summary: Unfollow an entity (product/brand/collection)
-   * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
-   */
-  unfollowById({ collectionType, collectionId } = {}) {
-    const { error } = CatalogValidator.unfollowById().validate(
-      { collectionType, collectionId },
-      { abortEarly: false }
-    );
-    if (error) {
-      return Promise.reject(new FDKClientValidationError(error));
-    }
-    const query = {};
-
-    return APIClient.execute(
-      this._conf,
-      "delete",
-      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
-      query,
-      undefined
-    );
-  }
-
-  /**
-   * @param {Object} arg - Arg object.
-   * @param {string} arg.collectionType - Type of collection followed, i.e.
-   *   products, brands, or collections.* @param {string} arg.collectionId -
-   *   The ID of the collection type.
-   * @returns {Promise<FollowPostResponse>} - Success response
    * @summary: Follow an entity (product/brand/collection)
    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
    */
@@ -1153,6 +1125,34 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "post",
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
+      query,
+      undefined
+    );
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {string} arg.collectionType - Type of collection followed, i.e.
+   *   products, brands, or collections.* @param {string} arg.collectionId -
+   *   The ID of the collection type.
+   * @returns {Promise<FollowPostResponse>} - Success response
+   * @summary: Unfollow an entity (product/brand/collection)
+   * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+   */
+  unfollowById({ collectionType, collectionId } = {}) {
+    const { error } = CatalogValidator.unfollowById().validate(
+      { collectionType, collectionId },
+      { abortEarly: false }
+    );
+    if (error) {
+      return Promise.reject(new FDKClientValidationError(error));
+    }
+    const query = {};
+
+    return APIClient.execute(
+      this._conf,
+      "delete",
       `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
       query,
       undefined
@@ -1279,6 +1279,95 @@ class Catalog {
       const pageNo = paginator.pageNo;
       const pageType = "number";
       const data = await this.getStores({
+        pageNo: pageNo,
+        pageSize: pageSize,
+        q: q,
+        city: city,
+        range: range,
+        latitude: latitude,
+        longitude: longitude,
+      });
+      paginator.setPaginator({
+        hasNext: data.page.has_next ? true : false,
+        nextId: data.page.next_id,
+      });
+      return data;
+    };
+    paginator.setCallback(callback);
+    return paginator;
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {number} [arg.pageNo] - The page number to navigate through the
+   *   given set of results.* @param {number} [arg.pageSize] - Number of items
+   *   to retrieve in each page.* @param {string} [arg.q] - Search a store by
+   *   its name or store_code.* @param {string} [arg.city] - Search stores by
+   *   the city in which they are situated.* @param {number} [arg.range] - Use
+   *   this to retrieve stores within a particular range in meters, e.g.
+   *   10000, to indicate a 10km range* @param {number} [arg.latitude] -
+   *   Latitude of the location from where one wants to retreive the nearest
+   *   stores, e.g. 72.8691788* @param {number} [arg.longitude] - Longitude of
+   *   the location from where one wants to retreive the nearest stores, e.g.
+   *   19.1174114
+   * @returns {Promise<ApplicationStoreListing>} - Success response
+   * @summary: Get store meta information.
+   * @description: Use this API to get a list of stores in a specific application.
+   */
+  getAppStores({ pageNo, pageSize, q, city, range, latitude, longitude } = {}) {
+    const { error } = CatalogValidator.getAppStores().validate(
+      { pageNo, pageSize, q, city, range, latitude, longitude },
+      { abortEarly: false }
+    );
+    if (error) {
+      return Promise.reject(new FDKClientValidationError(error));
+    }
+    const query = {};
+    query["page_no"] = pageNo;
+    query["page_size"] = pageSize;
+    query["q"] = q;
+    query["city"] = city;
+    query["range"] = range;
+    query["latitude"] = latitude;
+    query["longitude"] = longitude;
+
+    return APIClient.execute(
+      this._conf,
+      "get",
+      `/service/application/catalog/v1.0/app-locations/`,
+      query,
+      undefined
+    );
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {number} [arg.pageSize] - Number of items to retrieve in each page.
+   * @param {string} [arg.q] - Search a store by its name or store_code.
+   * @param {string} [arg.city] - Search stores by the city in which they are situated.
+   * @param {number} [arg.range] - Use this to retrieve stores within a
+   *   particular range in meters, e.g. 10000, to indicate a 10km range
+   * @param {number} [arg.latitude] - Latitude of the location from where one
+   *   wants to retreive the nearest stores, e.g. 72.8691788
+   * @param {number} [arg.longitude] - Longitude of the location from where
+   *   one wants to retreive the nearest stores, e.g. 19.1174114
+   * @summary: Get store meta information.
+   * @description: Use this API to get a list of stores in a specific application.
+   */
+  getAppStoresPaginator({
+    pageSize,
+    q,
+    city,
+    range,
+    latitude,
+    longitude,
+  } = {}) {
+    const paginator = new Paginator();
+    const callback = async () => {
+      const pageId = paginator.nextId;
+      const pageNo = paginator.pageNo;
+      const pageType = "number";
+      const data = await this.getAppStores({
         pageNo: pageNo,
         pageSize: pageSize,
         q: q,
