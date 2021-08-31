@@ -1314,8 +1314,16 @@ class Catalog {
    * @summary: Get store meta information.
    * @description: Use this API to get a list of stores in a specific application.
    */
-  getAppStores({ pageNo, pageSize, q, city, range, latitude, longitude } = {}) {
-    const { error } = CatalogValidator.getAppStores().validate(
+  getInStockLocations({
+    pageNo,
+    pageSize,
+    q,
+    city,
+    range,
+    latitude,
+    longitude,
+  } = {}) {
+    const { error } = CatalogValidator.getInStockLocations().validate(
       { pageNo, pageSize, q, city, range, latitude, longitude },
       { abortEarly: false }
     );
@@ -1334,7 +1342,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      `/service/application/catalog/v1.0/app-locations/`,
+      `/service/application/catalog/v1.0/in-stock-locations/`,
       query,
       undefined
     );
@@ -1354,7 +1362,7 @@ class Catalog {
    * @summary: Get store meta information.
    * @description: Use this API to get a list of stores in a specific application.
    */
-  getAppStoresPaginator({
+  getInStockLocationsPaginator({
     pageSize,
     q,
     city,
@@ -1367,7 +1375,7 @@ class Catalog {
       const pageId = paginator.nextId;
       const pageNo = paginator.pageNo;
       const pageType = "number";
-      const data = await this.getAppStores({
+      const data = await this.getInStockLocations({
         pageNo: pageNo,
         pageSize: pageSize,
         q: q,

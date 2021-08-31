@@ -629,7 +629,7 @@ declare class Catalog {
      * @summary: Get store meta information.
      * @description: Use this API to get a list of stores in a specific application.
      */
-    getAppStores({ pageNo, pageSize, q, city, range, latitude, longitude }?: {
+    getInStockLocations({ pageNo, pageSize, q, city, range, latitude, longitude, }?: {
         pageNo?: number;
         pageSize?: number;
         q?: string;
@@ -652,7 +652,7 @@ declare class Catalog {
      * @summary: Get store meta information.
      * @description: Use this API to get a list of stores in a specific application.
      */
-    getAppStoresPaginator({ pageSize, q, city, range, latitude, longitude, }?: {
+    getInStockLocationsPaginator({ pageSize, q, city, range, latitude, longitude, }?: {
         pageSize?: number;
         q?: string;
         city?: string;
