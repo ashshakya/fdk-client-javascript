@@ -39018,16 +39018,16 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | user_id | string |  no  | Registered User id |
- | api | string |  no  | Payment gateway api endpoint |
- | merchant_key | string |  no  | Unique merchant key |
  | sdk | boolean |  no  | SDK |
- | pin | string |  no  | Masked pin |
- | secret | string |  yes  | Masked payment gateway api secret |
- | config_type | string |  yes  | Fynd or self payment gateway |
+ | api | string |  no  | Payment gateway api endpoint |
  | merchant_id | string |  no  | Unique merchant id |
- | verify_api | string |  no  | Payment gateway verify payment api endpoint |
+ | config_type | string |  yes  | Fynd or self payment gateway |
+ | secret | string |  yes  | Masked payment gateway api secret |
+ | user_id | string |  no  | Registered User id |
+ | pin | string |  no  | Masked pin |
  | key | string |  yes  | Payment gateway api key |
+ | verify_api | string |  no  | Payment gateway verify payment api endpoint |
+ | merchant_key | string |  no  | Unique merchant key |
 
 ---
 
@@ -39038,15 +39038,15 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mswipe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | juspay | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | mswipe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | success | boolean |  yes  |  |
+ | ccavenue | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | payumoney | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | rupifi | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | env | string |  yes  | Environment i.e Live or Test |
  | stripe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | rupifi | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | payumoney | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | ccavenue | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | razorpay | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | success | boolean |  yes  |  |
  | simpl | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
 
 ---
@@ -39082,10 +39082,10 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name_on_card | string |  no  |  |
- | card_id | string |  yes  | Card token of payment gateway. |
  | nickname | string |  no  |  |
  | refresh | boolean |  no  | Refresh cache flag. |
+ | name_on_card | string |  no  |  |
+ | card_id | string |  yes  | Card token of payment gateway. |
 
 ---
 
@@ -39096,9 +39096,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | string |  no  | Human readable message. |
  | data | string |  yes  | List of cards of customer. |
  | success | boolean |  yes  | Response is successful or not. |
- | message | string |  no  | Human readable message. |
 
 ---
 
@@ -39109,9 +39109,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name. |
  | customer_id | string |  no  | Payment gateway customer id. |
  | api | string |  no  | Payment gateway CARD api endpoint |
+ | aggregator | string |  yes  | Payment gateway name. |
 
 ---
 
@@ -39122,9 +39122,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | boolean |  yes  | Response is successful or not. |
- | cards | [CardPaymentGateway](#CardPaymentGateway) |  yes  | Card's payment gateway with customer id. |
  | message | string |  yes  | Human readable message. |
+ | cards | [CardPaymentGateway](#CardPaymentGateway) |  yes  | Card's payment gateway with customer id. |
+ | success | boolean |  yes  | Response is successful or not. |
 
 ---
 
@@ -39135,22 +39135,22 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | exp_year | number |  no  | exp_year |
+ | card_type | string |  no  | card_type |
+ | nickname | string |  no  | nickname |
+ | aggregator_name | string |  yes  | aggregator_name |
+ | card_isin | string |  no  | card_isin |
+ | card_brand_image | string |  no  | card_brand_image |
+ | card_number | string |  no  | card_number |
+ | card_issuer | string |  no  | card_issuer |
+ | card_brand | string |  no  | card_brand |
+ | card_name | string |  no  | card_name |
+ | card_fingerprint | string |  no  | card_fingerprint |
  | card_id | string |  no  | card_id |
+ | exp_month | number |  no  | exp_month |
  | card_reference | string |  no  | card_reference |
  | expired | boolean |  no  | expired |
- | card_brand_image | string |  no  | card_brand_image |
  | card_token | string |  no  | card_token |
- | card_fingerprint | string |  no  | card_fingerprint |
- | card_number | string |  no  | card_number |
- | exp_month | number |  no  | exp_month |
- | nickname | string |  no  | nickname |
- | card_type | string |  no  | card_type |
- | card_name | string |  no  | card_name |
- | card_brand | string |  no  | card_brand |
- | aggregator_name | string |  yes  | aggregator_name |
- | card_issuer | string |  no  | card_issuer |
- | exp_year | number |  no  | exp_year |
- | card_isin | string |  no  | card_isin |
 
 ---
 
@@ -39161,9 +39161,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | string |  yes  | Human readable message. |
  | data | [[Card](#Card)] |  no  | List of cards of customer. |
  | success | boolean |  yes  | Response is successful or not. |
- | message | string |  yes  | Human readable message. |
 
 ---
 
@@ -39185,8 +39185,8 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | boolean |  yes  | Response is successful or not. |
  | message | string |  no  | Human readable message. |
+ | success | boolean |  yes  | Response is successful or not. |
 
 ---
 
@@ -39197,11 +39197,11 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name in camel case i.e Simpl, Rupifi |
- | merchant_params | string |  yes  | Extra meta fields. |
  | transaction_amount_in_paise | number |  yes  | Payable amount in paise |
- | payload | string |  yes  | Hashed payload string. |
  | phone_number | string |  yes  | User mobile number without country code. |
+ | aggregator | string |  yes  | Payment gateway name in camel case i.e Simpl, Rupifi |
+ | payload | string |  yes  | Hashed payload string. |
+ | merchant_params | string |  yes  | Extra meta fields. |
 
 ---
 
@@ -39212,9 +39212,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | string |  yes  | Error or success message. |
  | data | string |  yes  | Payment gateway response data |
  | success | boolean |  yes  | Response is successful or not |
- | message | string |  yes  | Error or success message. |
 
 ---
 
@@ -39225,11 +39225,11 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
- | verified | boolean |  no  | Already Verified flag from payment gateway i.e Mswipe |
  | order_id | string |  yes  | Unique order id. |
- | transaction_token | string |  no  | Transaction token of payment gateway. |
+ | verified | boolean |  no  | Already Verified flag from payment gateway i.e Mswipe |
  | amount | number |  yes  | Chargable amount of order. |
+ | transaction_token | string |  no  | Transaction token of payment gateway. |
+ | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
 
 ---
 
@@ -39240,13 +39240,13 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
- | cart_id | string |  no  | Cart id of customer |
- | message | string |  yes  | Human readable message. |
  | status | string |  yes  | Status of charged payment. |
- | delivery_address_id | string |  no  | Delivery adddress id of customer |
  | order_id | string |  yes  | Unique order id. |
+ | message | string |  yes  | Human readable message. |
  | success | boolean |  yes  | Response is successful or not. |
+ | cart_id | string |  no  | Cart id of customer |
+ | delivery_address_id | string |  no  | Delivery adddress id of customer |
+ | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
 
 ---
 
@@ -39257,15 +39257,15 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name |
- | method | string |  yes  | Payment method |
+ | customer_id | string |  yes  | Payment gateway customer id. |
+ | polling_url | string |  yes  | Polling url to check payment status |
+ | virtual_id | string |  no  | Bharat QR code virtual id |
+ | timeout | number |  yes  | Payment polling timeout if not recieved response |
  | merchant_order_id | string |  yes  | Unique fynd order id |
  | razorpay_payment_id | string |  yes  | Payment gateway payment id |
- | polling_url | string |  yes  | Polling url to check payment status |
  | aggregator_order_id | string |  yes  | Payment gateway order id |
- | virtual_id | string |  no  | Bharat QR code virtual id |
- | customer_id | string |  yes  | Payment gateway customer id. |
- | timeout | number |  yes  | Payment polling timeout if not recieved response |
+ | method | string |  yes  | Payment method |
+ | aggregator | string |  yes  | Payment gateway name |
 
 ---
 
@@ -39276,21 +39276,21 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name |
- | merchant_order_id | string |  yes  | order id |
- | method | string |  yes  | Payment method |
- | vpa | string |  no  | Customer vpa address |
- | razorpay_payment_id | string |  no  | Payment  id. |
- | amount | number |  no  | Payable amount. |
- | polling_url | string |  yes  | Polling url. |
  | status | string |  no  | Status of payment. |
- | bqr_image | string |  no  | Bharath qr image url. |
- | aggregator_order_id | string |  no  | Payment order id |
  | currency | string |  no  | Currency code. |
- | virtual_id | string |  no  | Payment virtual address. |
  | customer_id | string |  no  | Payment gateway customer id. |
- | success | boolean |  yes  | Response is successful or not. |
+ | polling_url | string |  yes  | Polling url. |
+ | vpa | string |  no  | Customer vpa address |
+ | virtual_id | string |  no  | Payment virtual address. |
  | timeout | number |  no  | timeout. |
+ | merchant_order_id | string |  yes  | order id |
+ | success | boolean |  yes  | Response is successful or not. |
+ | razorpay_payment_id | string |  no  | Payment  id. |
+ | bqr_image | string |  no  | Bharath qr image url. |
+ | amount | number |  no  | Payable amount. |
+ | aggregator_order_id | string |  no  | Payment order id |
+ | method | string |  yes  | Payment method |
+ | aggregator | string |  yes  | Payment gateway name |
 
 ---
 
@@ -39301,17 +39301,17 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | string |  yes  | Payment gateway name |
- | customer_id | string |  yes  | Payment gateway customer id. |
- | method | string |  yes  | Payment method |
- | merchant_order_id | string |  yes  | Unique fynd order id |
- | vpa | string |  yes  | Customer vpa address |
  | status | string |  yes  | Status of payment. |
- | currency | string |  yes  | Currency code. |
  | order_id | string |  yes  | Payment gateway order id |
- | contact | string |  yes  | Customer valid mobile number |
+ | currency | string |  yes  | Currency code. |
+ | customer_id | string |  yes  | Payment gateway customer id. |
+ | vpa | string |  yes  | Customer vpa address |
  | email | string |  yes  | Customer valid email |
+ | merchant_order_id | string |  yes  | Unique fynd order id |
  | amount | number |  yes  | Payable amount. |
+ | method | string |  yes  | Payment method |
+ | contact | string |  yes  | Customer valid mobile number |
+ | aggregator | string |  yes  | Payment gateway name |
 
 ---
 
@@ -39323,8 +39323,8 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | retry | boolean |  yes  | Response is successful or not. |
- | status | string |  yes  | Payment status |
  | aggregator_name | string |  yes  | Payment gateway name |
+ | status | string |  yes  | Payment status |
 
 ---
 
@@ -39335,9 +39335,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | payment_flow | string |  no  | payment_flow |
- | data | string |  no  | Data |
  | api_link | string |  no  | api_link |
+ | data | string |  no  | Data |
+ | payment_flow | string |  no  | payment_flow |
 
 ---
 
@@ -39348,16 +39348,16 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | payubiz | [AggregatorRoute](#AggregatorRoute) |  no  | Payubiz |
  | juspay | [AggregatorRoute](#AggregatorRoute) |  no  | Juspay |
  | upi_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | UPI_Razorpay |
- | stripe | [AggregatorRoute](#AggregatorRoute) |  no  | Stripe |
- | rupifi | [AggregatorRoute](#AggregatorRoute) |  no  | Rupifi |
- | bqr_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | BQR_Razorpay |
  | fynd | [AggregatorRoute](#AggregatorRoute) |  no  | Fynd |
- | payubiz | [AggregatorRoute](#AggregatorRoute) |  no  | Payubiz |
- | msipe | [AggregatorRoute](#AggregatorRoute) |  no  | mswipe |
  | ccavenue | [AggregatorRoute](#AggregatorRoute) |  no  | Ccavenue |
+ | rupifi | [AggregatorRoute](#AggregatorRoute) |  no  | Rupifi |
+ | stripe | [AggregatorRoute](#AggregatorRoute) |  no  | Stripe |
+ | bqr_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | BQR_Razorpay |
  | razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | Razorpay |
+ | msipe | [AggregatorRoute](#AggregatorRoute) |  no  | mswipe |
  | simpl | [AggregatorRoute](#AggregatorRoute) |  no  | simpl |
 
 ---
@@ -39369,8 +39369,8 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | small | string |  yes  | smalll |
  | large | string |  yes  | large |
+ | small | string |  yes  | smalll |
 
 ---
 
@@ -39381,33 +39381,33 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | card_number | string |  no  | card_number |
- | name | string |  no  | name |
- | card_id | string |  no  | card_id |
- | intent_flow | string |  no  | intent_flow |
- | card_fingerprint | string |  no  | card_fingerprint |
- | exp_month | number |  no  | exp_month |
- | card_name | string |  no  | card_name |
- | display_name | string |  no  | display name |
- | retry_count | number |  no  | retry_count |
- | logo_url | [PaymentModeLogo](#PaymentModeLogo) |  no  | Logo |
- | expired | boolean |  no  | expired |
- | merchant_code | string |  no  | merchant code |
- | timeout | number |  no  | timeout |
  | fynd_vpa | string |  no  | fynd_vpa |
- | code | string |  no  | code |
- | card_brand_image | string |  no  | card_brand_image |
- | nickname | string |  no  | nickname |
- | card_type | string |  no  | card_type |
+ | merchant_code | string |  no  | merchant code |
  | aggregator_name | string |  yes  | aggregator_name |
- | card_issuer | string |  no  | card_issuer |
+ | retry_count | number |  no  | retry_count |
  | card_isin | string |  no  | card_isin |
- | card_reference | string |  no  | card_reference |
- | card_token | string |  no  | card_token |
- | card_brand | string |  no  | card_brand |
+ | card_number | string |  no  | card_number |
+ | exp_month | number |  no  | exp_month |
+ | expired | boolean |  no  | expired |
  | display_priority | number |  no  | Dispaly Priority |
  | intent_app_error_list | [string] |  no  | intent_app_error_list |
+ | card_issuer | string |  no  | card_issuer |
+ | card_brand | string |  no  | card_brand |
+ | logo_url | [PaymentModeLogo](#PaymentModeLogo) |  no  | Logo |
+ | card_brand_image | string |  no  | card_brand_image |
+ | card_id | string |  no  | card_id |
+ | intent_flow | string |  no  | intent_flow |
+ | card_reference | string |  no  | card_reference |
+ | card_token | string |  no  | card_token |
  | exp_year | number |  no  | exp_year |
+ | card_type | string |  no  | card_type |
+ | nickname | string |  no  | nickname |
+ | name | string |  no  | name |
+ | display_name | string |  no  | display name |
+ | timeout | number |  no  | timeout |
+ | card_fingerprint | string |  no  | card_fingerprint |
+ | code | string |  no  | code |
+ | card_name | string |  no  | card_name |
 
 ---
 
@@ -39418,13 +39418,13 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | add_card_enabled | boolean |  no  | Annonymous card flag |
- | list | [[PaymentModeList](#PaymentModeList)] |  no  | Payment mode |
  | anonymous_enable | boolean |  no  | Annonymous card flag |
+ | list | [[PaymentModeList](#PaymentModeList)] |  no  | Payment mode |
  | display_name | string |  yes  | Payment mode display name |
- | aggregator_name | string |  no  | Dispaly Priority |
- | display_priority | number |  yes  | Dispaly Priority |
  | name | string |  yes  | Payment mode name |
+ | aggregator_name | string |  no  | Dispaly Priority |
+ | add_card_enabled | boolean |  no  | Annonymous card flag |
+ | display_priority | number |  yes  | Dispaly Priority |
 
 ---
 
@@ -39483,11 +39483,11 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | display_name | boolean |  no  | Beneficiary Display Name |
+ | name | string |  yes  |  Beneficiary Name |
+ | logo_large | string |  yes  | Beneficiary large Logo |
  | logo_small | string |  yes  | Beneficiary small Logo |
  | id | string |  yes  |   |
- | display_name | boolean |  no  | Beneficiary Display Name |
- | logo_large | string |  yes  | Beneficiary large Logo |
- | name | string |  yes  |  Beneficiary Name |
 
 ---
 
@@ -39521,8 +39521,8 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | enable | boolean |  yes  | True for enabling the Transfer Mode |
  | transfer_mode | string |  yes  | Transfer Mode of the Beneficiary to be added |
+ | enable | boolean |  yes  | True for enabling the Transfer Mode |
 
 ---
 
@@ -39544,25 +39544,25 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mobile | boolean |  no  | MObile no of User |
- | title | string |  yes  | Title Of Account |
- | account_no | string |  yes  | Account Number |
- | delights_user_name | string |  yes  | User Id Who filled the Beneficiary  |
- | modified_on | string |  yes  | MOdification Date of Beneficiary |
- | subtitle | string |  yes  | SHort Title Of Account |
  | created_on | string |  yes  | Creation Date of Beneficiary |
- | id | number |  yes  |   |
- | display_name | string |  yes  | Display Name Of Account |
- | branch_name | boolean |  no  | Branch Name Of Account |
- | address | string |  yes  | Address of User |
  | account_holder | string |  yes  | Account Holder Name |
- | ifsc_code | string |  yes  | Ifsc Code Of Account |
- | transfer_mode | string |  yes  | Transfer Mode Of Account |
- | comment | boolean |  no  | Remarks |
- | is_active | boolean |  yes  | Boolean Flag whether Beneficiary set or not |
- | bank_name | string |  yes  | Bank Name Of Account |
- | beneficiary_id | string |  yes  | Benenficiary Id |
  | email | string |  yes  | EMail of User |
+ | title | string |  yes  | Title Of Account |
+ | address | string |  yes  | Address of User |
+ | subtitle | string |  yes  | SHort Title Of Account |
+ | comment | boolean |  no  | Remarks |
+ | id | number |  yes  |   |
+ | is_active | boolean |  yes  | Boolean Flag whether Beneficiary set or not |
+ | ifsc_code | string |  yes  | Ifsc Code Of Account |
+ | mobile | boolean |  no  | MObile no of User |
+ | bank_name | string |  yes  | Bank Name Of Account |
+ | branch_name | boolean |  no  | Branch Name Of Account |
+ | display_name | string |  yes  | Display Name Of Account |
+ | transfer_mode | string |  yes  | Transfer Mode Of Account |
+ | modified_on | string |  yes  | MOdification Date of Beneficiary |
+ | delights_user_name | string |  yes  | User Id Who filled the Beneficiary  |
+ | account_no | string |  yes  | Account Number |
+ | beneficiary_id | string |  yes  | Benenficiary Id |
 
 ---
 
@@ -39586,8 +39586,8 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | description | string |  yes  | Not Found |
- | success | boolean |  yes  | Response is successful or not |
  | code | string |  yes  | Bad Request Data |
+ | success | boolean |  yes  | Response is successful or not |
 
 ---
 
@@ -39612,8 +39612,8 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | description | string |  yes  | Error human understandable description. |
- | success | boolean |  yes  | Response is successful or not |
  | code | string |  yes  | Error descrption code. |
+ | success | boolean |  yes  | Response is successful or not |
 
 ---
 
@@ -39625,8 +39625,8 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | hash_key | string |  yes  | Hash key of the beneficiary Id |
- | otp | string |  yes  | Otp sent to the given Mobile No |
  | request_id | string |  yes  | Request Id sent in  |
+ | otp | string |  yes  | Otp sent to the given Mobile No |
 
 ---
 
@@ -39638,8 +39638,8 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | hash_key | string |  yes  | Hash key of the beneficiary Id |
- | otp | string |  yes  | Otp sent to the given Mobile No |
  | request_id | string |  yes  | Request Id of the otp  |
+ | otp | string |  yes  | Otp sent to the given Mobile No |
 
 ---
 
@@ -39662,17 +39662,17 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | account_holder | string |  yes  | Name of the Account Holder |
- | vpa | string |  no  |  |
  | ifsc_code | string |  yes  | Ifsc Code of the Account |
- | bank_name | string |  yes  | Bank Name of the Account |
  | mobile | string |  yes  | Moblie Number of the User |
+ | vpa | string |  no  |  |
  | account_no | string |  yes  | Account NUmber of the Account Holder |
- | email | string |  yes  | Email of the Account Holder |
- | comment | string |  no  | Remarks added by The user |
  | branch_name | string |  yes  | Branch Name of the Account |
- | wallet | string |  no  |  |
+ | account_holder | string |  yes  | Name of the Account Holder |
+ | bank_name | string |  yes  | Bank Name of the Account |
+ | email | string |  yes  | Email of the Account Holder |
  | address | string |  no  | Address of the User |
+ | comment | string |  no  | Remarks added by The user |
+ | wallet | string |  no  |  |
 
 ---
 
@@ -39683,13 +39683,13 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | otp | string |  no  |  |
- | transfer_mode | string |  yes  | Transfer Mode of the Beneficiary to be added |
- | delights | boolean |  yes  | True if  beneficiary to be added by delights or False if by User |
- | request_id | string |  no  |  |
  | order_id | string |  yes  | Merchant Order Id |
  | details | [BeneficiaryModeDetails](#BeneficiaryModeDetails) |  yes  | Beneficiary bank details |
+ | request_id | string |  no  |  |
  | shipment_id | string |  yes  | Shipment Id of the respective Merchant Order Id |
+ | delights | boolean |  yes  | True if  beneficiary to be added by delights or False if by User |
+ | transfer_mode | string |  yes  | Transfer Mode of the Beneficiary to be added |
+ | otp | string |  no  |  |
 
 ---
 
@@ -39700,9 +39700,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | string |  yes  | Response message |
  | data | string |  no  | Refund account data. |
  | success | boolean |  yes  | Success or failure flag. |
- | message | string |  yes  | Response message |
 
 ---
 
@@ -39713,11 +39713,11 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | account_holder | string |  yes  |  |
  | ifsc_code | string |  yes  |  |
- | bank_name | string |  yes  |  |
- | account_no | string |  yes  |  |
  | branch_name | string |  yes  |  |
+ | account_no | string |  yes  |  |
+ | account_holder | string |  yes  |  |
+ | bank_name | string |  yes  |  |
 
 ---
 
@@ -39752,9 +39752,9 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | boolean |  no  | Response is successful or not |
- | is_verified_flag | string |  yes  | Boolean Flag whether OTP Validation is already done or not |
  | request_id | string |  yes  | request id  |
+ | is_verified_flag | string |  yes  | Boolean Flag whether OTP Validation is already done or not |
+ | success | boolean |  no  | Response is successful or not |
 
 ---
 
