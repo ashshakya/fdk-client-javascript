@@ -12,6 +12,7 @@ class PlatformConfig {
     this.domain = config.domain || "https://api.fyndx0.de";
     this.apiKey = config.apiKey;
     this.apiSecret = config.apiSecret;
+    this.printCurl = config.printCurl || false;
     this.oauthClient = new OauthClient(this);
   }
   async getAccessToken() {

@@ -20,6 +20,7 @@ class APIClient {
       headers: {
         Authorization: "Bearer " + token,
       },
+      printCurl: conf.printCurl,
     };
 
     return fdkAxios.request(rawRequest);
