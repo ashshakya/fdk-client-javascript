@@ -1,7 +1,6 @@
 const combineURLs = require("axios/lib/helpers/combineURLs");
 const isAbsoluteURL = require("axios/lib/helpers/isAbsoluteURL");
 const axios = require("axios");
-const CurlHelper = require("./CurlHelper");
 const querystring = require("query-string");
 const { sign } = require("./RequestSigner");
 const { FDKServerResponseError } = require("./FDKError");
@@ -37,12 +36,12 @@ function requestInterceptorFn() {
     }
     const { host, pathname, search } = new URL(url);
     const { data, headers, method, params } = config;
+    let querySearchObj = querystring.parse(search);
+    querySearchObj = { ...querySearchObj, ...params };
     let queryParam = "";
-    if (params && Object.keys(params).length) {
-      if (search && search.trim() !== "") {
-        queryParam = `&${querystring.stringify(params)}`;
-      } else {
-        queryParam = `?${querystring.stringify(params)}`;
+    if (querySearchObj && Object.keys(querySearchObj).length) {
+      if (querystring.stringify(querySearchObj).trim() !== "") {
+        queryParam = `?${querystring.stringify(querySearchObj)}`;
       }
     }
     let transformedData;
@@ -69,21 +68,11 @@ function requestInterceptorFn() {
       path: pathname + search + queryParam,
       body: transformedData,
       headers: headersToSign,
-      encodePath: config.encodePath,
     };
-    const signedObj = sign(signingOptions);
+    sign(signingOptions);
 
     config.headers["x-fp-date"] = signingOptions.headers["x-fp-date"];
     config.headers["x-fp-signature"] = signingOptions.headers["x-fp-signature"];
-    // generate curl and print it out
-    if (config.printCurl) {
-      const curl = new CurlHelper(config, signedObj.path);
-      config.curlObject = curl;
-      config.curlCommand = curl.generateCommand();
-      console.log("********Curl**********");
-      console.log(config.curlCommand);
-      console.log("***********************");
-    }
     // config.headers["fp-sdk-version"] = version;
     return config;
   };

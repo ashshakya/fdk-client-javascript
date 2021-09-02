@@ -16,7 +16,6 @@ class APIClient {
 
     const rawRequest = {
       baseURL: conf.domain,
-      encodePath: conf.encodePath,
       method: method,
       url: url,
       params: query,
@@ -24,7 +23,6 @@ class APIClient {
       headers: {
         Authorization: "Bearer " + token,
       },
-      printCurl: conf.printCurl,
     };
 
     return fdkAxios.request(rawRequest);

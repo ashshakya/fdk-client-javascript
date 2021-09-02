@@ -348,10 +348,10 @@ Get a product
 
 ```javascript
 // Promise
-const promise = catalog.getProductDetailBySlug( {  slug : value });
+const promise = catalog.getProductDetailBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getProductDetailBySlug( {  slug : value });
+const data = await catalog.getProductDetailBySlug({  slug : value });
 ```
 
 
@@ -522,11 +522,11 @@ Get the sizes of a product
 
 ```javascript
 // Promise
-const promise = catalog.getProductSizesBySlug( {  slug : value,
+const promise = catalog.getProductSizesBySlug({  slug : value,
  storeId : value });
 
 // Async/Await
-const data = await catalog.getProductSizesBySlug( {  slug : value,
+const data = await catalog.getProductSizesBySlug({  slug : value,
  storeId : value });
 ```
 
@@ -614,13 +614,13 @@ Get the price of a product size at a PIN Code
 
 ```javascript
 // Promise
-const promise = catalog.getProductPriceBySlug( {  slug : value,
+const promise = catalog.getProductPriceBySlug({  slug : value,
  size : value,
  pincode : value,
  storeId : value });
 
 // Async/Await
-const data = await catalog.getProductPriceBySlug( {  slug : value,
+const data = await catalog.getProductPriceBySlug({  slug : value,
  size : value,
  pincode : value,
  storeId : value });
@@ -756,7 +756,7 @@ Get the sellers of a product size at a PIN Code
 
 ```javascript
 // Promise
-const promise = catalog.getProductSellersBySlug( {  slug : value,
+const promise = catalog.getProductSellersBySlug({  slug : value,
  size : value,
  pincode : value,
  strategy : value,
@@ -764,7 +764,7 @@ const promise = catalog.getProductSellersBySlug( {  slug : value,
  pageSize : value });
 
 // Async/Await
-const data = await catalog.getProductSellersBySlug( {  slug : value,
+const data = await catalog.getProductSellersBySlug({  slug : value,
  size : value,
  pincode : value,
  strategy : value,
@@ -919,10 +919,10 @@ Compare products
 
 ```javascript
 // Promise
-const promise = catalog.getProductComparisonBySlugs( {  slug : value });
+const promise = catalog.getProductComparisonBySlugs({  slug : value });
 
 // Async/Await
-const data = await catalog.getProductComparisonBySlugs( {  slug : value });
+const data = await catalog.getProductComparisonBySlugs({  slug : value });
 ```
 
 
@@ -1208,10 +1208,10 @@ Get comparison between similar products
 
 ```javascript
 // Promise
-const promise = catalog.getSimilarComparisonProductBySlug( {  slug : value });
+const promise = catalog.getSimilarComparisonProductBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getSimilarComparisonProductBySlug( {  slug : value });
+const data = await catalog.getSimilarComparisonProductBySlug({  slug : value });
 ```
 
 
@@ -1265,10 +1265,10 @@ Get comparison between frequently compared products with the given product
 
 ```javascript
 // Promise
-const promise = catalog.getComparedFrequentlyProductBySlug( {  slug : value });
+const promise = catalog.getComparedFrequentlyProductBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getComparedFrequentlyProductBySlug( {  slug : value });
+const data = await catalog.getComparedFrequentlyProductBySlug({  slug : value });
 ```
 
 
@@ -1547,11 +1547,11 @@ Get similar products
 
 ```javascript
 // Promise
-const promise = catalog.getProductSimilarByIdentifier( {  slug : value,
+const promise = catalog.getProductSimilarByIdentifier({  slug : value,
  similarType : value });
 
 // Async/Await
-const data = await catalog.getProductSimilarByIdentifier( {  slug : value,
+const data = await catalog.getProductSimilarByIdentifier({  slug : value,
  similarType : value });
 ```
 
@@ -1721,10 +1721,10 @@ Get variant of a particular product
 
 ```javascript
 // Promise
-const promise = catalog.getProductVariantsBySlug( {  slug : value });
+const promise = catalog.getProductVariantsBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getProductVariantsBySlug( {  slug : value });
+const data = await catalog.getProductVariantsBySlug({  slug : value });
 ```
 
 
@@ -1812,14 +1812,14 @@ Get the stock of a product
 
 ```javascript
 // Promise
-const promise = catalog.getProductStockByIds( {  itemId : value,
+const promise = catalog.getProductStockByIds({  itemId : value,
  alu : value,
  skuCode : value,
  ean : value,
  upc : value });
 
 // Async/Await
-const data = await catalog.getProductStockByIds( {  itemId : value,
+const data = await catalog.getProductStockByIds({  itemId : value,
  alu : value,
  skuCode : value,
  ean : value,
@@ -2574,12 +2574,12 @@ Get the stock of a product
 
 ```javascript
 // Promise
-const promise = catalog.getProductStockForTimeByIds( {  timestamp : value,
+const promise = catalog.getProductStockForTimeByIds({  timestamp : value,
  pageSize : value,
  pageId : value });
 
 // Async/Await
-const data = await catalog.getProductStockForTimeByIds( {  timestamp : value,
+const data = await catalog.getProductStockForTimeByIds({  timestamp : value,
  pageSize : value,
  pageId : value });
 ```
@@ -2637,7 +2637,7 @@ Get all the products
 
 ```javascript
 // Promise
-const promise = catalog.getProducts( {  q : value,
+const promise = catalog.getProducts({  q : value,
  f : value,
  filters : value,
  sortOn : value,
@@ -2647,7 +2647,7 @@ const promise = catalog.getProducts( {  q : value,
  pageType : value });
 
 // Async/Await
-const data = await catalog.getProducts( {  q : value,
+const data = await catalog.getProducts({  q : value,
  f : value,
  filters : value,
  sortOn : value,
@@ -3330,12 +3330,12 @@ Get all the brands
 
 ```javascript
 // Promise
-const promise = catalog.getBrands( {  department : value,
+const promise = catalog.getBrands({  department : value,
  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await catalog.getBrands( {  department : value,
+const data = await catalog.getBrands({  department : value,
  pageNo : value,
  pageSize : value });
 ```
@@ -3431,10 +3431,10 @@ Get metadata of a brand
 
 ```javascript
 // Promise
-const promise = catalog.getBrandDetailBySlug( {  slug : value });
+const promise = catalog.getBrandDetailBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getBrandDetailBySlug( {  slug : value });
+const data = await catalog.getBrandDetailBySlug({  slug : value });
 ```
 
 
@@ -3505,10 +3505,10 @@ List all the categories
 
 ```javascript
 // Promise
-const promise = catalog.getCategories( {  department : value });
+const promise = catalog.getCategories({  department : value });
 
 // Async/Await
-const data = await catalog.getCategories( {  department : value });
+const data = await catalog.getCategories({  department : value });
 ```
 
 
@@ -3650,10 +3650,10 @@ Get metadata of a category
 
 ```javascript
 // Promise
-const promise = catalog.getCategoryDetailBySlug( {  slug : value });
+const promise = catalog.getCategoryDetailBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getCategoryDetailBySlug( {  slug : value });
+const data = await catalog.getCategoryDetailBySlug({  slug : value });
 ```
 
 
@@ -3725,12 +3725,12 @@ List the products
 
 ```javascript
 // Promise
-const promise = catalog.getHomeProducts( {  sortOn : value,
+const promise = catalog.getHomeProducts({  sortOn : value,
  pageId : value,
  pageSize : value });
 
 // Async/Await
-const data = await catalog.getHomeProducts( {  sortOn : value,
+const data = await catalog.getHomeProducts({  sortOn : value,
  pageId : value,
  pageSize : value });
 ```
@@ -4927,10 +4927,10 @@ List all the departments
 
 ```javascript
 // Promise
-const promise = catalog.getDepartments( {  });
+const promise = catalog.getDepartments();
 
 // Async/Await
-const data = await catalog.getDepartments( {  });
+const data = await catalog.getDepartments();
 ```
 
 
@@ -5082,10 +5082,10 @@ Get relevant suggestions for a search query
 
 ```javascript
 // Promise
-const promise = catalog.getSearchResults( {  q : value });
+const promise = catalog.getSearchResults({  q : value });
 
 // Async/Await
-const data = await catalog.getSearchResults( {  q : value });
+const data = await catalog.getSearchResults({  q : value });
 ```
 
 
@@ -5139,12 +5139,12 @@ List all the collections
 
 ```javascript
 // Promise
-const promise = catalog.getCollections( {  pageNo : value,
+const promise = catalog.getCollections({  pageNo : value,
  pageSize : value,
  tag : value });
 
 // Async/Await
-const data = await catalog.getCollections( {  pageNo : value,
+const data = await catalog.getCollections({  pageNo : value,
  pageSize : value,
  tag : value });
 ```
@@ -5325,7 +5325,7 @@ Get the items in a collection
 
 ```javascript
 // Promise
-const promise = catalog.getCollectionItemsBySlug( {  slug : value,
+const promise = catalog.getCollectionItemsBySlug({  slug : value,
  f : value,
  filters : value,
  sortOn : value,
@@ -5333,7 +5333,7 @@ const promise = catalog.getCollectionItemsBySlug( {  slug : value,
  pageSize : value });
 
 // Async/Await
-const data = await catalog.getCollectionItemsBySlug( {  slug : value,
+const data = await catalog.getCollectionItemsBySlug({  slug : value,
  f : value,
  filters : value,
  sortOn : value,
@@ -5726,10 +5726,10 @@ Get a particular collection
 
 ```javascript
 // Promise
-const promise = catalog.getCollectionDetailBySlug( {  slug : value });
+const promise = catalog.getCollectionDetailBySlug({  slug : value });
 
 // Async/Await
-const data = await catalog.getCollectionDetailBySlug( {  slug : value });
+const data = await catalog.getCollectionDetailBySlug({  slug : value });
 ```
 
 
@@ -5830,12 +5830,12 @@ Get a list of followed Products, Brands, Collections
 
 ```javascript
 // Promise
-const promise = catalog.getFollowedListing( {  collectionType : value,
+const promise = catalog.getFollowedListing({  collectionType : value,
  pageId : value,
  pageSize : value });
 
 // Async/Await
-const data = await catalog.getFollowedListing( {  collectionType : value,
+const data = await catalog.getFollowedListing({  collectionType : value,
  pageId : value,
  pageSize : value });
 ```
@@ -6209,11 +6209,11 @@ Follow an entity (product/brand/collection)
 
 ```javascript
 // Promise
-const promise = catalog.followById( {  collectionType : value,
+const promise = catalog.followById({  collectionType : value,
  collectionId : value });
 
 // Async/Await
-const data = await catalog.followById( {  collectionType : value,
+const data = await catalog.followById({  collectionType : value,
  collectionId : value });
 ```
 
@@ -6272,11 +6272,11 @@ Unfollow an entity (product/brand/collection)
 
 ```javascript
 // Promise
-const promise = catalog.unfollowById( {  collectionType : value,
+const promise = catalog.unfollowById({  collectionType : value,
  collectionId : value });
 
 // Async/Await
-const data = await catalog.unfollowById( {  collectionType : value,
+const data = await catalog.unfollowById({  collectionType : value,
  collectionId : value });
 ```
 
@@ -6335,11 +6335,11 @@ Get Follow Count
 
 ```javascript
 // Promise
-const promise = catalog.getFollowerCountById( {  collectionType : value,
+const promise = catalog.getFollowerCountById({  collectionType : value,
  collectionId : value });
 
 // Async/Await
-const data = await catalog.getFollowerCountById( {  collectionType : value,
+const data = await catalog.getFollowerCountById({  collectionType : value,
  collectionId : value });
 ```
 
@@ -6397,10 +6397,10 @@ Get the IDs of followed products, brands and collections.
 
 ```javascript
 // Promise
-const promise = catalog.getFollowIds( {  collectionType : value });
+const promise = catalog.getFollowIds({  collectionType : value });
 
 // Async/Await
-const data = await catalog.getFollowIds( {  collectionType : value });
+const data = await catalog.getFollowIds({  collectionType : value });
 ```
 
 
@@ -6478,7 +6478,7 @@ Get store meta information.
 
 ```javascript
 // Promise
-const promise = catalog.getStores( {  pageNo : value,
+const promise = catalog.getStores({  pageNo : value,
  pageSize : value,
  q : value,
  city : value,
@@ -6487,7 +6487,7 @@ const promise = catalog.getStores( {  pageNo : value,
  longitude : value });
 
 // Async/Await
-const data = await catalog.getStores( {  pageNo : value,
+const data = await catalog.getStores({  pageNo : value,
  pageSize : value,
  q : value,
  city : value,
@@ -6582,7 +6582,7 @@ Get store meta information.
 
 ```javascript
 // Promise
-const promise = catalog.getInStockLocations( {  pageNo : value,
+const promise = catalog.getInStockLocations({  pageNo : value,
  pageSize : value,
  q : value,
  city : value,
@@ -6591,7 +6591,7 @@ const promise = catalog.getInStockLocations( {  pageNo : value,
  longitude : value });
 
 // Async/Await
-const data = await catalog.getInStockLocations( {  pageNo : value,
+const data = await catalog.getInStockLocations({  pageNo : value,
  pageSize : value,
  q : value,
  city : value,
@@ -6716,10 +6716,10 @@ Get store meta information.
 
 ```javascript
 // Promise
-const promise = catalog.getLocationDetailsById( {  locationId : value });
+const promise = catalog.getLocationDetailsById({  locationId : value });
 
 // Async/Await
-const data = await catalog.getLocationDetailsById( {  locationId : value });
+const data = await catalog.getLocationDetailsById({  locationId : value });
 ```
 
 
@@ -6901,13 +6901,13 @@ Fetch all items added to the cart
 
 ```javascript
 // Promise
-const promise = cart.getCart( {  id : value,
+const promise = cart.getCart({  id : value,
  i : value,
  b : value,
  assignCardId : value });
 
 // Async/Await
-const data = await cart.getCart( {  id : value,
+const data = await cart.getCart({  id : value,
  i : value,
  b : value,
  assignCardId : value });
@@ -7133,10 +7133,10 @@ Fetch last-modified timestamp
 
 ```javascript
 // Promise
-const promise = cart.getCartLastModified( {  id : value });
+const promise = cart.getCartLastModified({  id : value });
 
 // Async/Await
-const data = await cart.getCartLastModified( {  id : value });
+const data = await cart.getCartLastModified({  id : value });
 ```
 
 
@@ -7171,12 +7171,12 @@ Add items to cart
 
 ```javascript
 // Promise
-const promise = cart.addItems( {  body : value,
+const promise = cart.addItems({  body : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await cart.addItems( {  body : value,
+const data = await cart.addItems({  body : value,
  i : value,
  b : value });
 ```
@@ -7187,7 +7187,7 @@ const data = await cart.addItems( {  body : value,
 | --------- | -----  | -------- | ----------- |  
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [AddCartRequest](#AddCartRequest) | no | Request body |
+| body | [AddCartRequest](#AddCartRequest) | yes | Request body |
 
 
 Use this API to add items to the cart.
@@ -7866,13 +7866,13 @@ Update items in the cart
 
 ```javascript
 // Promise
-const promise = cart.updateCart( {  body : value,
+const promise = cart.updateCart({  body : value,
  id : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await cart.updateCart( {  body : value,
+const data = await cart.updateCart({  body : value,
  id : value,
  i : value,
  b : value });
@@ -7885,7 +7885,7 @@ const data = await cart.updateCart( {  body : value,
 | id | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [UpdateCartRequest](#UpdateCartRequest) | no | Request body |
+| body | [UpdateCartRequest](#UpdateCartRequest) | yes | Request body |
 
 
 Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/{slug}/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/{identifier}​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
@@ -8293,10 +8293,10 @@ Count items in the cart
 
 ```javascript
 // Promise
-const promise = cart.getItemCount( {  id : value });
+const promise = cart.getItemCount({  id : value });
 
 // Async/Await
-const data = await cart.getItemCount( {  id : value });
+const data = await cart.getItemCount({  id : value });
 ```
 
 
@@ -8352,10 +8352,10 @@ Fetch Coupon
 
 ```javascript
 // Promise
-const promise = cart.getCoupons( {  id : value });
+const promise = cart.getCoupons({  id : value });
 
 // Async/Await
-const data = await cart.getCoupons( {  id : value });
+const data = await cart.getCoupons({  id : value });
 ```
 
 
@@ -8445,14 +8445,14 @@ Apply Coupon
 
 ```javascript
 // Promise
-const promise = cart.applyCoupon( {  body : value,
+const promise = cart.applyCoupon({  body : value,
  i : value,
  b : value,
  p : value,
  id : value });
 
 // Async/Await
-const data = await cart.applyCoupon( {  body : value,
+const data = await cart.applyCoupon({  body : value,
  i : value,
  b : value,
  p : value,
@@ -8467,7 +8467,7 @@ const data = await cart.applyCoupon( {  body : value,
 | b | boolean | no |  |    
 | p | boolean | no |  |    
 | id | string | no |  |  
-| body | [ApplyCouponRequest](#ApplyCouponRequest) | no | Request body |
+| body | [ApplyCouponRequest](#ApplyCouponRequest) | yes | Request body |
 
 
 Use this API to apply coupons on items in the cart.
@@ -9049,10 +9049,10 @@ Remove Coupon Applied
 
 ```javascript
 // Promise
-const promise = cart.removeCoupon( {  id : value });
+const promise = cart.removeCoupon({  id : value });
 
 // Async/Await
-const data = await cart.removeCoupon( {  id : value });
+const data = await cart.removeCoupon({  id : value });
 ```
 
 
@@ -9263,13 +9263,13 @@ Get discount offers based on quantity
 
 ```javascript
 // Promise
-const promise = cart.getBulkDiscountOffers( {  itemId : value,
+const promise = cart.getBulkDiscountOffers({  itemId : value,
  articleId : value,
  uid : value,
  slug : value });
 
 // Async/Await
-const data = await cart.getBulkDiscountOffers( {  itemId : value,
+const data = await cart.getBulkDiscountOffers({  itemId : value,
  articleId : value,
  uid : value,
  slug : value });
@@ -9400,13 +9400,13 @@ Apply reward points at cart
 
 ```javascript
 // Promise
-const promise = cart.applyRewardPoints( {  body : value,
+const promise = cart.applyRewardPoints({  body : value,
  id : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await cart.applyRewardPoints( {  body : value,
+const data = await cart.applyRewardPoints({  body : value,
  id : value,
  i : value,
  b : value });
@@ -9419,7 +9419,7 @@ const data = await cart.applyRewardPoints( {  body : value,
 | id | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [RewardPointRequest](#RewardPointRequest) | no | Request body |
+| body | [RewardPointRequest](#RewardPointRequest) | yes | Request body |
 
 
 Use this API to redeem a fixed no. of reward points by applying it to the cart.
@@ -9631,14 +9631,14 @@ Fetch address
 
 ```javascript
 // Promise
-const promise = cart.getAddresses( {  cartId : value,
+const promise = cart.getAddresses({  cartId : value,
  mobileNo : value,
  checkoutMode : value,
  tags : value,
  isDefault : value });
 
 // Async/Await
-const data = await cart.getAddresses( {  cartId : value,
+const data = await cart.getAddresses({  cartId : value,
  mobileNo : value,
  checkoutMode : value,
  tags : value,
@@ -9730,17 +9730,17 @@ Add address to an account
 
 ```javascript
 // Promise
-const promise = cart.addAddress( {  body : value });
+const promise = cart.addAddress({  body : value });
 
 // Async/Await
-const data = await cart.addAddress( {  body : value });
+const data = await cart.addAddress({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [Address](#Address) | no | Request body |
+| body | [Address](#Address) | yes | Request body |
 
 
 Use this API to add an address to an account.
@@ -9790,7 +9790,7 @@ Fetch a single address by its ID
 
 ```javascript
 // Promise
-const promise = cart.getAddressById( {  id : value,
+const promise = cart.getAddressById({  id : value,
  cartId : value,
  mobileNo : value,
  checkoutMode : value,
@@ -9798,7 +9798,7 @@ const promise = cart.getAddressById( {  id : value,
  isDefault : value });
 
 // Async/Await
-const data = await cart.getAddressById( {  id : value,
+const data = await cart.getAddressById({  id : value,
  cartId : value,
  mobileNo : value,
  checkoutMode : value,
@@ -9889,11 +9889,11 @@ Update address added to an account
 
 ```javascript
 // Promise
-const promise = cart.updateAddress( {  id : value,
+const promise = cart.updateAddress({  id : value,
  body : value });
 
 // Async/Await
-const data = await cart.updateAddress( {  id : value,
+const data = await cart.updateAddress({  id : value,
  body : value });
 ```
 
@@ -9902,7 +9902,7 @@ const data = await cart.updateAddress( {  id : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | id | string | yes | ID allotted to the selected address |  
-| body | [Address](#Address) | no | Request body |
+| body | [Address](#Address) | yes | Request body |
 
 
 Use this API to update an existing address in the account. Request object should contain attributes mentioned in  <font color="blue">Address </font> can be updated. These attributes are:</p> <ul> <li> <font color="monochrome">is_default_address</font></li> <li> <font color="monochrome">landmark</font></li> <li> <font color="monochrome">area</font></li> <li> <font color="monochrome">pincode</font></li> <li> <font color="monochrome">email</font></li> <li> <font color="monochrome">address_type</font></li> <li> <font color="monochrome">name</font></li> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">address</font></li> </ul>
@@ -9953,10 +9953,10 @@ Remove address associated with an account
 
 ```javascript
 // Promise
-const promise = cart.removeAddress( {  id : value });
+const promise = cart.removeAddress({  id : value });
 
 // Async/Await
-const data = await cart.removeAddress( {  id : value });
+const data = await cart.removeAddress({  id : value });
 ```
 
 
@@ -10013,13 +10013,13 @@ Select an address from available addresses
 
 ```javascript
 // Promise
-const promise = cart.selectAddress( {  body : value,
+const promise = cart.selectAddress({  body : value,
  cartId : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await cart.selectAddress( {  body : value,
+const data = await cart.selectAddress({  body : value,
  cartId : value,
  i : value,
  b : value });
@@ -10032,7 +10032,7 @@ const data = await cart.selectAddress( {  body : value,
 | cartId | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [SelectCartAddressRequest](#SelectCartAddressRequest) | no | Request body |
+| body | [SelectCartAddressRequest](#SelectCartAddressRequest) | yes | Request body |
 
 
 <p>Select Address from all addresses associated with the account in order to ship the cart items to that address, otherwise default address will be selected implicitly. See `SelectCartAddressRequest` in schema of request body for the list of attributes needed to select Address from account. On successful request, this API returns a Cart object. Below address attributes are required. <ul> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">billing_address_id</font></li> <li> <font color="monochrome">uid</font></li> </ul>
@@ -10333,11 +10333,11 @@ Update cart payment
 
 ```javascript
 // Promise
-const promise = cart.selectPaymentMode( {  body : value,
+const promise = cart.selectPaymentMode({  body : value,
  id : value });
 
 // Async/Await
-const data = await cart.selectPaymentMode( {  body : value,
+const data = await cart.selectPaymentMode({  body : value,
  id : value });
 ```
 
@@ -10346,7 +10346,7 @@ const data = await cart.selectPaymentMode( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | id | string | no |  |  
-| body | [UpdateCartPaymentRequest](#UpdateCartPaymentRequest) | no | Request body |
+| body | [UpdateCartPaymentRequest](#UpdateCartPaymentRequest) | yes | Request body |
 
 
 Use this API to update cart payment.
@@ -10659,7 +10659,7 @@ Verify the coupon eligibility against the payment mode
 
 ```javascript
 // Promise
-const promise = cart.validateCouponForPayment( {  id : value,
+const promise = cart.validateCouponForPayment({  id : value,
  addressId : value,
  paymentMode : value,
  paymentIdentifier : value,
@@ -10667,7 +10667,7 @@ const promise = cart.validateCouponForPayment( {  id : value,
  merchantCode : value });
 
 // Async/Await
-const data = await cart.validateCouponForPayment( {  id : value,
+const data = await cart.validateCouponForPayment({  id : value,
  addressId : value,
  paymentMode : value,
  paymentIdentifier : value,
@@ -10741,13 +10741,13 @@ Get delivery date and options before checkout
 
 ```javascript
 // Promise
-const promise = cart.getShipments( {  p : value,
+const promise = cart.getShipments({  p : value,
  id : value,
  addressId : value,
  areaCode : value });
 
 // Async/Await
-const data = await cart.getShipments( {  p : value,
+const data = await cart.getShipments({  p : value,
  id : value,
  addressId : value,
  areaCode : value });
@@ -11447,17 +11447,17 @@ Checkout all items in the cart
 
 ```javascript
 // Promise
-const promise = cart.checkoutCart( {  body : value });
+const promise = cart.checkoutCart({  body : value });
 
 // Async/Await
-const data = await cart.checkoutCart( {  body : value });
+const data = await cart.checkoutCart({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [CartCheckoutDetailRequest](#CartCheckoutDetailRequest) | no | Request body |
+| body | [CartCheckoutDetailRequest](#CartCheckoutDetailRequest) | yes | Request body |
 
 
 Use this API to checkout all items in the cart for payment and order generation. For COD, order will be directly generated, whereas for other checkout modes, user will be redirected to a payment gateway.
@@ -11883,11 +11883,11 @@ Update the cart meta
 
 ```javascript
 // Promise
-const promise = cart.updateCartMeta( {  body : value,
+const promise = cart.updateCartMeta({  body : value,
  id : value });
 
 // Async/Await
-const data = await cart.updateCartMeta( {  body : value,
+const data = await cart.updateCartMeta({  body : value,
  id : value });
 ```
 
@@ -11896,7 +11896,7 @@ const data = await cart.updateCartMeta( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | id | string | no | The unique identifier of the cart |  
-| body | [CartMetaRequest](#CartMetaRequest) | no | Request body |
+| body | [CartMetaRequest](#CartMetaRequest) | yes | Request body |
 
 
 Use this API to update cart meta like checkout_mode and gstin.
@@ -11944,17 +11944,17 @@ Generate token for sharing the cart
 
 ```javascript
 // Promise
-const promise = cart.getCartShareLink( {  body : value });
+const promise = cart.getCartShareLink({  body : value });
 
 // Async/Await
-const data = await cart.getCartShareLink( {  body : value });
+const data = await cart.getCartShareLink({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [GetShareCartLinkRequest](#GetShareCartLinkRequest) | no | Request body |
+| body | [GetShareCartLinkRequest](#GetShareCartLinkRequest) | yes | Request body |
 
 
 Use this API to generate a shared cart snapshot and return a shortlink token. The link can be shared with other users for getting the same items in their cart.
@@ -12011,10 +12011,10 @@ Get details of a shared cart
 
 ```javascript
 // Promise
-const promise = cart.getCartSharedItems( {  token : value });
+const promise = cart.getCartSharedItems({  token : value });
 
 // Async/Await
-const data = await cart.getCartSharedItems( {  token : value });
+const data = await cart.getCartSharedItems({  token : value });
 ```
 
 
@@ -12344,11 +12344,11 @@ Merge or replace existing cart
 
 ```javascript
 // Promise
-const promise = cart.updateCartWithSharedItems( {  token : value,
+const promise = cart.updateCartWithSharedItems({  token : value,
  action : value });
 
 // Async/Await
-const data = await cart.updateCartWithSharedItems( {  token : value,
+const data = await cart.updateCartWithSharedItems({  token : value,
  action : value });
 ```
 
@@ -12693,11 +12693,11 @@ Get countries, states, cities
 
 ```javascript
 // Promise
-const promise = common.getLocations( {  locationType : value,
+const promise = common.getLocations({  locationType : value,
  id : value });
 
 // Async/Await
-const data = await common.getLocations( {  locationType : value,
+const data = await common.getLocations({  locationType : value,
  id : value });
 ```
 
@@ -12759,10 +12759,10 @@ Get Ticket with the specific id
 
 ```javascript
 // Promise
-const promise = lead.getTicket( {  id : value });
+const promise = lead.getTicket({  id : value });
 
 // Async/Await
-const data = await lead.getTicket( {  id : value });
+const data = await lead.getTicket({  id : value });
 ```
 
 
@@ -13015,11 +13015,11 @@ Create history for specific Ticket
 
 ```javascript
 // Promise
-const promise = lead.createHistory( {  id : value,
+const promise = lead.createHistory({  id : value,
  body : value });
 
 // Async/Await
-const data = await lead.createHistory( {  id : value,
+const data = await lead.createHistory({  id : value,
  body : value });
 ```
 
@@ -13028,7 +13028,7 @@ const data = await lead.createHistory( {  id : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | id | string | yes | Ticket ID for which history is created |  
-| body | [TicketHistoryPayload](#TicketHistoryPayload) | no | Request body |
+| body | [TicketHistoryPayload](#TicketHistoryPayload) | yes | Request body |
 
 
 Create history for specific Ticket, this history is seen on ticket detail page, this can be comment, log or rating.
@@ -13116,17 +13116,17 @@ Create Ticket
 
 ```javascript
 // Promise
-const promise = lead.createTicket( {  body : value });
+const promise = lead.createTicket({  body : value });
 
 // Async/Await
-const data = await lead.createTicket( {  body : value });
+const data = await lead.createTicket({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [AddTicketPayload](#AddTicketPayload) | no | Request body |
+| body | [AddTicketPayload](#AddTicketPayload) | yes | Request body |
 
 
 This is used to Create Ticket.
@@ -13371,10 +13371,10 @@ Get specific Custom Form using it's slug
 
 ```javascript
 // Promise
-const promise = lead.getCustomForm( {  slug : value });
+const promise = lead.getCustomForm({  slug : value });
 
 // Async/Await
-const data = await lead.getCustomForm( {  slug : value });
+const data = await lead.getCustomForm({  slug : value });
 ```
 
 
@@ -13480,11 +13480,11 @@ Submit Response for a specific Custom Form using it's slug
 
 ```javascript
 // Promise
-const promise = lead.submitCustomForm( {  slug : value,
+const promise = lead.submitCustomForm({  slug : value,
  body : value });
 
 // Async/Await
-const data = await lead.submitCustomForm( {  slug : value,
+const data = await lead.submitCustomForm({  slug : value,
  body : value });
 ```
 
@@ -13493,7 +13493,7 @@ const data = await lead.submitCustomForm( {  slug : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | slug | string | yes | Slug of form whose response is getting submitted |  
-| body | [CustomFormSubmissionPayload](#CustomFormSubmissionPayload) | no | Request body |
+| body | [CustomFormSubmissionPayload](#CustomFormSubmissionPayload) | yes | Request body |
 
 
 Submit Response for a specific Custom Form using it's slug, this response is then used to create a ticket on behalf of the user.
@@ -13740,10 +13740,10 @@ Get participants of a specific Video Room using it's unique name
 
 ```javascript
 // Promise
-const promise = lead.getParticipantsInsideVideoRoom( {  uniqueName : value });
+const promise = lead.getParticipantsInsideVideoRoom({  uniqueName : value });
 
 // Async/Await
-const data = await lead.getParticipantsInsideVideoRoom( {  uniqueName : value });
+const data = await lead.getParticipantsInsideVideoRoom({  uniqueName : value });
 ```
 
 
@@ -13807,10 +13807,10 @@ Get Token to join a specific Video Room using it's unqiue name
 
 ```javascript
 // Promise
-const promise = lead.getTokenForVideoRoom( {  uniqueName : value });
+const promise = lead.getTokenForVideoRoom({  uniqueName : value });
 
 // Async/Await
-const data = await lead.getTokenForVideoRoom( {  uniqueName : value });
+const data = await lead.getTokenForVideoRoom({  uniqueName : value });
 ```
 
 
@@ -13880,10 +13880,10 @@ Get all pages of a theme
 
 ```javascript
 // Promise
-const promise = theme.getAllPages( {  themeId : value });
+const promise = theme.getAllPages({  themeId : value });
 
 // Async/Await
-const data = await theme.getAllPages( {  themeId : value });
+const data = await theme.getAllPages({  themeId : value });
 ```
 
 
@@ -13945,11 +13945,11 @@ Get page of a theme
 
 ```javascript
 // Promise
-const promise = theme.getPage( {  themeId : value,
+const promise = theme.getPage({  themeId : value,
  pageValue : value });
 
 // Async/Await
-const data = await theme.getPage( {  themeId : value,
+const data = await theme.getPage({  themeId : value,
  pageValue : value });
 ```
 
@@ -14013,10 +14013,10 @@ Get the theme currently applied to an application
 
 ```javascript
 // Promise
-const promise = theme.getAppliedTheme( {  });
+const promise = theme.getAppliedTheme();
 
 // Async/Await
-const data = await theme.getAppliedTheme( {  });
+const data = await theme.getAppliedTheme();
 ```
 
 
@@ -14073,10 +14073,10 @@ Get a theme for a preview
 
 ```javascript
 // Promise
-const promise = theme.getThemeForPreview( {  themeId : value });
+const promise = theme.getThemeForPreview({  themeId : value });
 
 // Async/Await
-const data = await theme.getThemeForPreview( {  themeId : value });
+const data = await theme.getThemeForPreview({  themeId : value });
 ```
 
 
@@ -14144,11 +14144,11 @@ Login or Register using Facebook
 
 ```javascript
 // Promise
-const promise = user.loginWithFacebook( {  body : value,
+const promise = user.loginWithFacebook({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.loginWithFacebook( {  body : value,
+const data = await user.loginWithFacebook({  body : value,
  platform : value });
 ```
 
@@ -14157,7 +14157,7 @@ const data = await user.loginWithFacebook( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [OAuthRequestSchema](#OAuthRequestSchema) | no | Request body |
+| body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
 
 
 Use this API to login or register using Facebook credentials.
@@ -14211,11 +14211,11 @@ Login or Register using Google
 
 ```javascript
 // Promise
-const promise = user.loginWithGoogle( {  body : value,
+const promise = user.loginWithGoogle({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.loginWithGoogle( {  body : value,
+const data = await user.loginWithGoogle({  body : value,
  platform : value });
 ```
 
@@ -14224,7 +14224,7 @@ const data = await user.loginWithGoogle( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [OAuthRequestSchema](#OAuthRequestSchema) | no | Request body |
+| body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
 
 
 Use this API to login or register using Google Account credentials.
@@ -14278,11 +14278,11 @@ Login or Register using Google on Android
 
 ```javascript
 // Promise
-const promise = user.loginWithGoogleAndroid( {  body : value,
+const promise = user.loginWithGoogleAndroid({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.loginWithGoogleAndroid( {  body : value,
+const data = await user.loginWithGoogleAndroid({  body : value,
  platform : value });
 ```
 
@@ -14291,7 +14291,7 @@ const data = await user.loginWithGoogleAndroid( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [OAuthRequestSchema](#OAuthRequestSchema) | no | Request body |
+| body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
 
 
 Use this API to login or register in Android app using Google Account credentials.
@@ -14345,11 +14345,11 @@ Login or Register using Google on iOS
 
 ```javascript
 // Promise
-const promise = user.loginWithGoogleIOS( {  body : value,
+const promise = user.loginWithGoogleIOS({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.loginWithGoogleIOS( {  body : value,
+const data = await user.loginWithGoogleIOS({  body : value,
  platform : value });
 ```
 
@@ -14358,7 +14358,7 @@ const data = await user.loginWithGoogleIOS( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [OAuthRequestSchema](#OAuthRequestSchema) | no | Request body |
+| body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
 
 
 Use this API to login or register in iOS app using Google Account credentials.
@@ -14412,11 +14412,11 @@ Login or Register with OTP
 
 ```javascript
 // Promise
-const promise = user.loginWithOTP( {  body : value,
+const promise = user.loginWithOTP({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.loginWithOTP( {  body : value,
+const data = await user.loginWithOTP({  body : value,
  platform : value });
 ```
 
@@ -14425,7 +14425,7 @@ const data = await user.loginWithOTP( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [SendOtpRequestSchema](#SendOtpRequestSchema) | no | Request body |
+| body | [SendOtpRequestSchema](#SendOtpRequestSchema) | yes | Request body |
 
 
 Use this API to login or register with a One-time Password (OTP) sent via Email or SMS.
@@ -14479,17 +14479,17 @@ Login or Register with password
 
 ```javascript
 // Promise
-const promise = user.loginWithEmailAndPassword( {  body : value });
+const promise = user.loginWithEmailAndPassword({  body : value });
 
 // Async/Await
-const data = await user.loginWithEmailAndPassword( {  body : value });
+const data = await user.loginWithEmailAndPassword({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [PasswordLoginRequestSchema](#PasswordLoginRequestSchema) | no | Request body |
+| body | [PasswordLoginRequestSchema](#PasswordLoginRequestSchema) | yes | Request body |
 
 
 Use this API to login or register using an email address and password.
@@ -14543,11 +14543,11 @@ Reset Password
 
 ```javascript
 // Promise
-const promise = user.sendResetPasswordEmail( {  body : value,
+const promise = user.sendResetPasswordEmail({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.sendResetPasswordEmail( {  body : value,
+const data = await user.sendResetPasswordEmail({  body : value,
  platform : value });
 ```
 
@@ -14556,7 +14556,7 @@ const data = await user.sendResetPasswordEmail( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [SendResetPasswordEmailRequestSchema](#SendResetPasswordEmailRequestSchema) | no | Request body |
+| body | [SendResetPasswordEmailRequestSchema](#SendResetPasswordEmailRequestSchema) | yes | Request body |
 
 
 Use this API to reset a password using the link sent on email.
@@ -14604,17 +14604,17 @@ Forgot Password
 
 ```javascript
 // Promise
-const promise = user.forgotPassword( {  body : value });
+const promise = user.forgotPassword({  body : value });
 
 // Async/Await
-const data = await user.forgotPassword( {  body : value });
+const data = await user.forgotPassword({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [ForgotPasswordRequestSchema](#ForgotPasswordRequestSchema) | no | Request body |
+| body | [ForgotPasswordRequestSchema](#ForgotPasswordRequestSchema) | yes | Request body |
 
 
 Use this API to reset a password using the code sent on email or SMS.
@@ -14668,17 +14668,17 @@ Reset Password using token
 
 ```javascript
 // Promise
-const promise = user.sendResetToken( {  body : value });
+const promise = user.sendResetToken({  body : value });
 
 // Async/Await
-const data = await user.sendResetToken( {  body : value });
+const data = await user.sendResetToken({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | no | Request body |
+| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | yes | Request body |
 
 
 Use this API to send code to reset password.
@@ -14726,17 +14726,17 @@ Login or Register with token
 
 ```javascript
 // Promise
-const promise = user.loginWithToken( {  body : value });
+const promise = user.loginWithToken({  body : value });
 
 // Async/Await
-const data = await user.loginWithToken( {  body : value });
+const data = await user.loginWithToken({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [TokenRequestBodySchema](#TokenRequestBodySchema) | no | Request body |
+| body | [TokenRequestBodySchema](#TokenRequestBodySchema) | yes | Request body |
 
 
 Use this API to login or register using a token for authentication.
@@ -14790,11 +14790,11 @@ Registration using a form
 
 ```javascript
 // Promise
-const promise = user.registerWithForm( {  body : value,
+const promise = user.registerWithForm({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.registerWithForm( {  body : value,
+const data = await user.registerWithForm({  body : value,
  platform : value });
 ```
 
@@ -14803,7 +14803,7 @@ const data = await user.registerWithForm( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [FormRegisterRequestSchema](#FormRegisterRequestSchema) | no | Request body |
+| body | [FormRegisterRequestSchema](#FormRegisterRequestSchema) | yes | Request body |
 
 
 Use this API to perform user registration by sending form data in the request body.
@@ -14860,17 +14860,17 @@ Verify email
 
 ```javascript
 // Promise
-const promise = user.verifyEmail( {  body : value });
+const promise = user.verifyEmail({  body : value });
 
 // Async/Await
-const data = await user.verifyEmail( {  body : value });
+const data = await user.verifyEmail({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | no | Request body |
+| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | yes | Request body |
 
 
 Use this API to send a verification code to verify an email.
@@ -14918,17 +14918,17 @@ Verify mobile
 
 ```javascript
 // Promise
-const promise = user.verifyMobile( {  body : value });
+const promise = user.verifyMobile({  body : value });
 
 // Async/Await
-const data = await user.verifyMobile( {  body : value });
+const data = await user.verifyMobile({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | no | Request body |
+| body | [CodeRequestBodySchema](#CodeRequestBodySchema) | yes | Request body |
 
 
 Use this API to send a verification code to verify a mobile number.
@@ -14976,10 +14976,10 @@ Check password
 
 ```javascript
 // Promise
-const promise = user.hasPassword( {  });
+const promise = user.hasPassword();
 
 // Async/Await
-const data = await user.hasPassword( {  });
+const data = await user.hasPassword();
 ```
 
 
@@ -15028,17 +15028,17 @@ Update user password
 
 ```javascript
 // Promise
-const promise = user.updatePassword( {  body : value });
+const promise = user.updatePassword({  body : value });
 
 // Async/Await
-const data = await user.updatePassword( {  body : value });
+const data = await user.updatePassword({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema) | no | Request body |
+| body | [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema) | yes | Request body |
 
 
 Use this API to update the password.
@@ -15086,10 +15086,10 @@ Logs out currently logged in user
 
 ```javascript
 // Promise
-const promise = user.logout( {  });
+const promise = user.logout();
 
 // Async/Await
-const data = await user.logout( {  });
+const data = await user.logout();
 ```
 
 
@@ -15138,11 +15138,11 @@ Send OTP on mobile
 
 ```javascript
 // Promise
-const promise = user.sendOTPOnMobile( {  body : value,
+const promise = user.sendOTPOnMobile({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.sendOTPOnMobile( {  body : value,
+const data = await user.sendOTPOnMobile({  body : value,
  platform : value });
 ```
 
@@ -15151,7 +15151,7 @@ const data = await user.sendOTPOnMobile( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [SendMobileOtpRequestSchema](#SendMobileOtpRequestSchema) | no | Request body |
+| body | [SendMobileOtpRequestSchema](#SendMobileOtpRequestSchema) | yes | Request body |
 
 
 Use this API to send an OTP to a mobile number.
@@ -15205,11 +15205,11 @@ Verify OTP on mobile
 
 ```javascript
 // Promise
-const promise = user.verifyMobileOTP( {  body : value,
+const promise = user.verifyMobileOTP({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.verifyMobileOTP( {  body : value,
+const data = await user.verifyMobileOTP({  body : value,
  platform : value });
 ```
 
@@ -15218,7 +15218,7 @@ const data = await user.verifyMobileOTP( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [VerifyOtpRequestSchema](#VerifyOtpRequestSchema) | no | Request body |
+| body | [VerifyOtpRequestSchema](#VerifyOtpRequestSchema) | yes | Request body |
 
 
 Use this API to verify the OTP received on a mobile number.
@@ -15272,11 +15272,11 @@ Send OTP on email
 
 ```javascript
 // Promise
-const promise = user.sendOTPOnEmail( {  body : value,
+const promise = user.sendOTPOnEmail({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.sendOTPOnEmail( {  body : value,
+const data = await user.sendOTPOnEmail({  body : value,
  platform : value });
 ```
 
@@ -15285,7 +15285,7 @@ const data = await user.sendOTPOnEmail( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [SendEmailOtpRequestSchema](#SendEmailOtpRequestSchema) | no | Request body |
+| body | [SendEmailOtpRequestSchema](#SendEmailOtpRequestSchema) | yes | Request body |
 
 
 Use this API to send an OTP to an email ID.
@@ -15333,11 +15333,11 @@ Verify OTP on email
 
 ```javascript
 // Promise
-const promise = user.verifyEmailOTP( {  body : value,
+const promise = user.verifyEmailOTP({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.verifyEmailOTP( {  body : value,
+const data = await user.verifyEmailOTP({  body : value,
  platform : value });
 ```
 
@@ -15346,7 +15346,7 @@ const data = await user.verifyEmailOTP( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [VerifyEmailOtpRequestSchema](#VerifyEmailOtpRequestSchema) | no | Request body |
+| body | [VerifyEmailOtpRequestSchema](#VerifyEmailOtpRequestSchema) | yes | Request body |
 
 
 Use this API to verify the OTP received on an email ID.
@@ -15400,10 +15400,10 @@ Get logged in user
 
 ```javascript
 // Promise
-const promise = user.getLoggedInUser( {  });
+const promise = user.getLoggedInUser();
 
 // Async/Await
-const data = await user.getLoggedInUser( {  });
+const data = await user.getLoggedInUser();
 ```
 
 
@@ -15460,10 +15460,10 @@ Get list of sessions
 
 ```javascript
 // Promise
-const promise = user.getListOfActiveSessions( {  });
+const promise = user.getListOfActiveSessions();
 
 // Async/Await
-const data = await user.getListOfActiveSessions( {  });
+const data = await user.getListOfActiveSessions();
 ```
 
 
@@ -15517,10 +15517,10 @@ Get platform configurations
 
 ```javascript
 // Promise
-const promise = user.getPlatformConfig( {  name : value });
+const promise = user.getPlatformConfig({  name : value });
 
 // Async/Await
-const data = await user.getPlatformConfig( {  name : value });
+const data = await user.getPlatformConfig({  name : value });
 ```
 
 
@@ -15639,11 +15639,11 @@ Edit Profile Details
 
 ```javascript
 // Promise
-const promise = user.updateProfile( {  body : value,
+const promise = user.updateProfile({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.updateProfile( {  body : value,
+const data = await user.updateProfile({  body : value,
  platform : value });
 ```
 
@@ -15652,7 +15652,7 @@ const data = await user.updateProfile( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [EditProfileRequestSchema](#EditProfileRequestSchema) | no | Request body |
+| body | [EditProfileRequestSchema](#EditProfileRequestSchema) | yes | Request body |
 
 
 Use this API to update details in the user profile. Details can be first name, last name, gender, email, phone number, or profile picture.
@@ -15706,11 +15706,11 @@ Add mobile number to profile
 
 ```javascript
 // Promise
-const promise = user.addMobileNumber( {  body : value,
+const promise = user.addMobileNumber({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.addMobileNumber( {  body : value,
+const data = await user.addMobileNumber({  body : value,
  platform : value });
 ```
 
@@ -15719,7 +15719,7 @@ const data = await user.addMobileNumber( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [EditMobileRequestSchema](#EditMobileRequestSchema) | no | Request body |
+| body | [EditMobileRequestSchema](#EditMobileRequestSchema) | yes | Request body |
 
 
 Use this API to add a new mobile number to a profile.
@@ -15773,7 +15773,7 @@ Delete mobile number from profile
 
 ```javascript
 // Promise
-const promise = user.deleteMobileNumber( {  active : value,
+const promise = user.deleteMobileNumber({  active : value,
  primary : value,
  verified : value,
  countryCode : value,
@@ -15781,7 +15781,7 @@ const promise = user.deleteMobileNumber( {  active : value,
  platform : value });
 
 // Async/Await
-const data = await user.deleteMobileNumber( {  active : value,
+const data = await user.deleteMobileNumber({  active : value,
  primary : value,
  verified : value,
  countryCode : value,
@@ -15853,17 +15853,17 @@ Set mobile as primary
 
 ```javascript
 // Promise
-const promise = user.setMobileNumberAsPrimary( {  body : value });
+const promise = user.setMobileNumberAsPrimary({  body : value });
 
 // Async/Await
-const data = await user.setMobileNumberAsPrimary( {  body : value });
+const data = await user.setMobileNumberAsPrimary({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [SendVerificationLinkMobileRequestSchema](#SendVerificationLinkMobileRequestSchema) | no | Request body |
+| body | [SendVerificationLinkMobileRequestSchema](#SendVerificationLinkMobileRequestSchema) | yes | Request body |
 
 
 Use this API to set a mobile number as primary. Primary number is a verified number used for all future communications.
@@ -15917,11 +15917,11 @@ Send verification link to mobile
 
 ```javascript
 // Promise
-const promise = user.sendVerificationLinkToMobile( {  body : value,
+const promise = user.sendVerificationLinkToMobile({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.sendVerificationLinkToMobile( {  body : value,
+const data = await user.sendVerificationLinkToMobile({  body : value,
  platform : value });
 ```
 
@@ -15930,7 +15930,7 @@ const data = await user.sendVerificationLinkToMobile( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [SendVerificationLinkMobileRequestSchema](#SendVerificationLinkMobileRequestSchema) | no | Request body |
+| body | [SendVerificationLinkMobileRequestSchema](#SendVerificationLinkMobileRequestSchema) | yes | Request body |
 
 
 Use this API to send a verification link to a mobile number
@@ -15984,11 +15984,11 @@ Add email to profile
 
 ```javascript
 // Promise
-const promise = user.addEmail( {  body : value,
+const promise = user.addEmail({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.addEmail( {  body : value,
+const data = await user.addEmail({  body : value,
  platform : value });
 ```
 
@@ -15997,7 +15997,7 @@ const data = await user.addEmail( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | no | Request body |
+| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | yes | Request body |
 
 
 Use this API to add a new email address to a profile
@@ -16051,14 +16051,14 @@ Delete email from profile
 
 ```javascript
 // Promise
-const promise = user.deleteEmail( {  active : value,
+const promise = user.deleteEmail({  active : value,
  primary : value,
  verified : value,
  email : value,
  platform : value });
 
 // Async/Await
-const data = await user.deleteEmail( {  active : value,
+const data = await user.deleteEmail({  active : value,
  primary : value,
  verified : value,
  email : value,
@@ -16128,17 +16128,17 @@ Set email as primary
 
 ```javascript
 // Promise
-const promise = user.setEmailAsPrimary( {  body : value });
+const promise = user.setEmailAsPrimary({  body : value });
 
 // Async/Await
-const data = await user.setEmailAsPrimary( {  body : value });
+const data = await user.setEmailAsPrimary({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | no | Request body |
+| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | yes | Request body |
 
 
 Use this API to set an email address as primary. Primary email ID is a email address used for all future communications.
@@ -16192,11 +16192,11 @@ Send verification link to email
 
 ```javascript
 // Promise
-const promise = user.sendVerificationLinkToEmail( {  body : value,
+const promise = user.sendVerificationLinkToEmail({  body : value,
  platform : value });
 
 // Async/Await
-const data = await user.sendVerificationLinkToEmail( {  body : value,
+const data = await user.sendVerificationLinkToEmail({  body : value,
  platform : value });
 ```
 
@@ -16205,7 +16205,7 @@ const data = await user.sendVerificationLinkToEmail( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | no | Request body |
+| body | [EditEmailRequestSchema](#EditEmailRequestSchema) | yes | Request body |
 
 
 Use this API to send verification link to an email address.
@@ -16257,10 +16257,10 @@ Get live announcements
 
 ```javascript
 // Promise
-const promise = content.getAnnouncements( {  });
+const promise = content.getAnnouncements();
 
 // Async/Await
-const data = await content.getAnnouncements( {  });
+const data = await content.getAnnouncements();
 ```
 
 
@@ -16331,11 +16331,11 @@ Get a blog
 
 ```javascript
 // Promise
-const promise = content.getBlog( {  slug : value,
+const promise = content.getBlog({  slug : value,
  rootId : value });
 
 // Async/Await
-const data = await content.getBlog( {  slug : value,
+const data = await content.getBlog({  slug : value,
  rootId : value });
 ```
 
@@ -16399,11 +16399,11 @@ Get a list of blogs
 
 ```javascript
 // Promise
-const promise = content.getBlogs( {  pageNo : value,
+const promise = content.getBlogs({  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await content.getBlogs( {  pageNo : value,
+const data = await content.getBlogs({  pageNo : value,
  pageSize : value });
 ```
 
@@ -16467,10 +16467,10 @@ Get a list of FAQs
 
 ```javascript
 // Promise
-const promise = content.getFaqs( {  });
+const promise = content.getFaqs();
 
 // Async/Await
-const data = await content.getFaqs( {  });
+const data = await content.getFaqs();
 ```
 
 
@@ -16527,10 +16527,10 @@ Get a list of FAQ categories
 
 ```javascript
 // Promise
-const promise = content.getFaqCategories( {  });
+const promise = content.getFaqCategories();
 
 // Async/Await
-const data = await content.getFaqCategories( {  });
+const data = await content.getFaqCategories();
 ```
 
 
@@ -16592,10 +16592,10 @@ Get an FAQ
 
 ```javascript
 // Promise
-const promise = content.getFaqBySlug( {  slug : value });
+const promise = content.getFaqBySlug({  slug : value });
 
 // Async/Await
-const data = await content.getFaqBySlug( {  slug : value });
+const data = await content.getFaqBySlug({  slug : value });
 ```
 
 
@@ -16655,10 +16655,10 @@ Get the FAQ category
 
 ```javascript
 // Promise
-const promise = content.getFaqCategoryBySlug( {  slug : value });
+const promise = content.getFaqCategoryBySlug({  slug : value });
 
 // Async/Await
-const data = await content.getFaqCategoryBySlug( {  slug : value });
+const data = await content.getFaqCategoryBySlug({  slug : value });
 ```
 
 
@@ -16729,10 +16729,10 @@ Get FAQs using the slug of FAQ category
 
 ```javascript
 // Promise
-const promise = content.getFaqsByCategorySlug( {  slug : value });
+const promise = content.getFaqsByCategorySlug({  slug : value });
 
 // Async/Await
-const data = await content.getFaqsByCategorySlug( {  slug : value });
+const data = await content.getFaqsByCategorySlug({  slug : value });
 ```
 
 
@@ -16796,10 +16796,10 @@ Get the landing page
 
 ```javascript
 // Promise
-const promise = content.getLandingPage( {  });
+const promise = content.getLandingPage();
 
 // Async/Await
-const data = await content.getLandingPage( {  });
+const data = await content.getLandingPage();
 ```
 
 
@@ -16856,10 +16856,10 @@ Get legal information
 
 ```javascript
 // Promise
-const promise = content.getLegalInformation( {  });
+const promise = content.getLegalInformation();
 
 // Async/Await
-const data = await content.getLegalInformation( {  });
+const data = await content.getLegalInformation();
 ```
 
 
@@ -16916,11 +16916,11 @@ Get the navigation
 
 ```javascript
 // Promise
-const promise = content.getNavigations( {  pageNo : value,
+const promise = content.getNavigations({  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await content.getNavigations( {  pageNo : value,
+const data = await content.getNavigations({  pageNo : value,
  pageSize : value });
 ```
 
@@ -16984,11 +16984,11 @@ Get a page
 
 ```javascript
 // Promise
-const promise = content.getPage( {  slug : value,
+const promise = content.getPage({  slug : value,
  rootId : value });
 
 // Async/Await
-const data = await content.getPage( {  slug : value,
+const data = await content.getPage({  slug : value,
  rootId : value });
 ```
 
@@ -17052,11 +17052,11 @@ Get all pages
 
 ```javascript
 // Promise
-const promise = content.getPages( {  pageNo : value,
+const promise = content.getPages({  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await content.getPages( {  pageNo : value,
+const data = await content.getPages({  pageNo : value,
  pageSize : value });
 ```
 
@@ -17120,10 +17120,10 @@ Get the SEO of an application
 
 ```javascript
 // Promise
-const promise = content.getSEOConfiguration( {  });
+const promise = content.getSEOConfiguration();
 
 // Async/Await
-const data = await content.getSEOConfiguration( {  });
+const data = await content.getSEOConfiguration();
 ```
 
 
@@ -17180,11 +17180,11 @@ Get the slideshows
 
 ```javascript
 // Promise
-const promise = content.getSlideshows( {  pageNo : value,
+const promise = content.getSlideshows({  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await content.getSlideshows( {  pageNo : value,
+const data = await content.getSlideshows({  pageNo : value,
  pageSize : value });
 ```
 
@@ -17248,10 +17248,10 @@ Get a slideshow
 
 ```javascript
 // Promise
-const promise = content.getSlideshow( {  slug : value });
+const promise = content.getSlideshow({  slug : value });
 
 // Async/Await
-const data = await content.getSlideshow( {  slug : value });
+const data = await content.getSlideshow({  slug : value });
 ```
 
 
@@ -17313,10 +17313,10 @@ Get the support information
 
 ```javascript
 // Promise
-const promise = content.getSupportInformation( {  });
+const promise = content.getSupportInformation();
 
 // Async/Await
-const data = await content.getSupportInformation( {  });
+const data = await content.getSupportInformation();
 ```
 
 
@@ -17373,10 +17373,10 @@ Get the tags associated with an application
 
 ```javascript
 // Promise
-const promise = content.getTags( {  });
+const promise = content.getTags();
 
 // Async/Await
-const data = await content.getTags( {  });
+const data = await content.getTags();
 ```
 
 
@@ -17447,10 +17447,10 @@ Get communication consent
 
 ```javascript
 // Promise
-const promise = communication.getCommunicationConsent( {  });
+const promise = communication.getCommunicationConsent();
 
 // Async/Await
-const data = await communication.getCommunicationConsent( {  });
+const data = await communication.getCommunicationConsent();
 ```
 
 
@@ -17507,10 +17507,10 @@ Upsert communication consent
 
 ```javascript
 // Promise
-const promise = communication.upsertCommunicationConsent( {  body : value });
+const promise = communication.upsertCommunicationConsent({  body : value });
 
 // Async/Await
-const data = await communication.upsertCommunicationConsent( {  body : value });
+const data = await communication.upsertCommunicationConsent({  body : value });
 ```
 
 
@@ -17571,10 +17571,10 @@ Upsert push token of a user
 
 ```javascript
 // Promise
-const promise = communication.upsertAppPushtoken( {  body : value });
+const promise = communication.upsertAppPushtoken({  body : value });
 
 // Async/Await
-const data = await communication.upsertAppPushtoken( {  body : value });
+const data = await communication.upsertAppPushtoken({  body : value });
 ```
 
 
@@ -17661,10 +17661,10 @@ Create QR Code of an app
 
 ```javascript
 // Promise
-const promise = share.getApplicationQRCode( {  });
+const promise = share.getApplicationQRCode();
 
 // Async/Await
-const data = await share.getApplicationQRCode( {  });
+const data = await share.getApplicationQRCode();
 ```
 
 
@@ -17716,10 +17716,10 @@ Create QR Code of a product
 
 ```javascript
 // Promise
-const promise = share.getProductQRCodeBySlug( {  slug : value });
+const promise = share.getProductQRCodeBySlug({  slug : value });
 
 // Async/Await
-const data = await share.getProductQRCodeBySlug( {  slug : value });
+const data = await share.getProductQRCodeBySlug({  slug : value });
 ```
 
 
@@ -17776,10 +17776,10 @@ Create QR Code of a collection
 
 ```javascript
 // Promise
-const promise = share.getCollectionQRCodeBySlug( {  slug : value });
+const promise = share.getCollectionQRCodeBySlug({  slug : value });
 
 // Async/Await
-const data = await share.getCollectionQRCodeBySlug( {  slug : value });
+const data = await share.getCollectionQRCodeBySlug({  slug : value });
 ```
 
 
@@ -17836,10 +17836,10 @@ Create QR Code of a URL
 
 ```javascript
 // Promise
-const promise = share.getUrlQRCode( {  url : value });
+const promise = share.getUrlQRCode({  url : value });
 
 // Async/Await
-const data = await share.getUrlQRCode( {  url : value });
+const data = await share.getUrlQRCode({  url : value });
 ```
 
 
@@ -17896,17 +17896,17 @@ Create a short link
 
 ```javascript
 // Promise
-const promise = share.createShortLink( {  body : value });
+const promise = share.createShortLink({  body : value });
 
 // Async/Await
-const data = await share.createShortLink( {  body : value });
+const data = await share.createShortLink({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [ShortLinkReq](#ShortLinkReq) | no | Request body |
+| body | [ShortLinkReq](#ShortLinkReq) | yes | Request body |
 
 
 Use this API to create a short link that is easy to write/share/read as compared to long URLs.
@@ -17990,10 +17990,10 @@ Get short link by hash
 
 ```javascript
 // Promise
-const promise = share.getShortLinkByHash( {  hash : value });
+const promise = share.getShortLinkByHash({  hash : value });
 
 // Async/Await
-const data = await share.getShortLinkByHash( {  hash : value });
+const data = await share.getShortLinkByHash({  hash : value });
 ```
 
 
@@ -18085,10 +18085,10 @@ Get original link by hash
 
 ```javascript
 // Promise
-const promise = share.getOriginalShortLinkByHash( {  hash : value });
+const promise = share.getOriginalShortLinkByHash({  hash : value });
 
 // Async/Await
-const data = await share.getOriginalShortLinkByHash( {  hash : value });
+const data = await share.getOriginalShortLinkByHash({  hash : value });
 ```
 
 
@@ -18186,11 +18186,11 @@ Initiates an upload and returns a storage link that is valid for 30 minutes. You
 
 ```javascript
 // Promise
-const promise = filestorage.startUpload( {  namespace : value,
+const promise = filestorage.startUpload({  namespace : value,
  body : value });
 
 // Async/Await
-const data = await filestorage.startUpload( {  namespace : value,
+const data = await filestorage.startUpload({  namespace : value,
  body : value });
 ```
 
@@ -18199,7 +18199,7 @@ const data = await filestorage.startUpload( {  namespace : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | string | yes | Name of the bucket created for storing objects. |  
-| body | [StartRequest](#StartRequest) | no | Request body |
+| body | [StartRequest](#StartRequest) | yes | Request body |
 
 
 Use this API to perform the first step of uploading (i.e. **Start**) an arbitrarily sized buffer or blob.
@@ -18263,11 +18263,11 @@ Completes the upload process. After successfully uploading a file, call this API
 
 ```javascript
 // Promise
-const promise = filestorage.completeUpload( {  namespace : value,
+const promise = filestorage.completeUpload({  namespace : value,
  body : value });
 
 // Async/Await
-const data = await filestorage.completeUpload( {  namespace : value,
+const data = await filestorage.completeUpload({  namespace : value,
  body : value });
 ```
 
@@ -18276,7 +18276,7 @@ const data = await filestorage.completeUpload( {  namespace : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | string | yes | Name of the bucket created for storing objects. |  
-| body | [StartResponse](#StartResponse) | no | Request body |
+| body | [StartResponse](#StartResponse) | yes | Request body |
 
 
 Use this API to perform the third step of uploading (i.e. **Complete**) an arbitrarily sized buffer or blob.
@@ -18346,10 +18346,10 @@ Get current application details
 
 ```javascript
 // Promise
-const promise = configuration.getApplication( {  });
+const promise = configuration.getApplication();
 
 // Async/Await
-const data = await configuration.getApplication( {  });
+const data = await configuration.getApplication();
 ```
 
 
@@ -18461,10 +18461,10 @@ Get application, owner and seller information
 
 ```javascript
 // Promise
-const promise = configuration.getOwnerInfo( {  });
+const promise = configuration.getOwnerInfo();
 
 // Async/Await
-const data = await configuration.getOwnerInfo( {  });
+const data = await configuration.getOwnerInfo();
 ```
 
 
@@ -18614,10 +18614,10 @@ Get basic application details
 
 ```javascript
 // Promise
-const promise = configuration.getBasicDetails( {  });
+const promise = configuration.getBasicDetails();
 
 // Async/Await
-const data = await configuration.getBasicDetails( {  });
+const data = await configuration.getBasicDetails();
 ```
 
 
@@ -18706,10 +18706,10 @@ Get integration tokens
 
 ```javascript
 // Promise
-const promise = configuration.getIntegrationTokens( {  });
+const promise = configuration.getIntegrationTokens();
 
 // Async/Await
-const data = await configuration.getIntegrationTokens( {  });
+const data = await configuration.getIntegrationTokens();
 ```
 
 
@@ -18827,12 +18827,12 @@ Get deployment stores
 
 ```javascript
 // Promise
-const promise = configuration.getOrderingStores( {  pageNo : value,
+const promise = configuration.getOrderingStores({  pageNo : value,
  pageSize : value,
  q : value });
 
 // Async/Await
-const data = await configuration.getOrderingStores( {  pageNo : value,
+const data = await configuration.getOrderingStores({  pageNo : value,
  pageSize : value,
  q : value });
 ```
@@ -18890,10 +18890,10 @@ Get ordering store details
 
 ```javascript
 // Promise
-const promise = configuration.getStoreDetailById( {  storeId : value });
+const promise = configuration.getStoreDetailById({  storeId : value });
 
 // Async/Await
-const data = await configuration.getStoreDetailById( {  storeId : value });
+const data = await configuration.getStoreDetailById({  storeId : value });
 ```
 
 
@@ -18955,10 +18955,10 @@ Get features of application
 
 ```javascript
 // Promise
-const promise = configuration.getFeatures( {  });
+const promise = configuration.getFeatures();
 
 // Async/Await
-const data = await configuration.getFeatures( {  });
+const data = await configuration.getFeatures();
 ```
 
 
@@ -19103,10 +19103,10 @@ Get application information
 
 ```javascript
 // Promise
-const promise = configuration.getContactInfo( {  });
+const promise = configuration.getContactInfo();
 
 // Async/Await
-const data = await configuration.getContactInfo( {  });
+const data = await configuration.getContactInfo();
 ```
 
 
@@ -19270,10 +19270,10 @@ Get all currencies list
 
 ```javascript
 // Promise
-const promise = configuration.getCurrencies( {  });
+const promise = configuration.getCurrencies();
 
 // Async/Await
-const data = await configuration.getCurrencies( {  });
+const data = await configuration.getCurrencies();
 ```
 
 
@@ -19335,10 +19335,10 @@ Get currency by its ID
 
 ```javascript
 // Promise
-const promise = configuration.getCurrencyById( {  id : value });
+const promise = configuration.getCurrencyById({  id : value });
 
 // Async/Await
-const data = await configuration.getCurrencyById( {  id : value });
+const data = await configuration.getCurrencyById({  id : value });
 ```
 
 
@@ -19401,10 +19401,10 @@ Get currencies enabled in the application
 
 ```javascript
 // Promise
-const promise = configuration.getAppCurrencies( {  });
+const promise = configuration.getAppCurrencies();
 
 // Async/Await
-const data = await configuration.getAppCurrencies( {  });
+const data = await configuration.getAppCurrencies();
 ```
 
 
@@ -19471,10 +19471,10 @@ Get list of languages
 
 ```javascript
 // Promise
-const promise = configuration.getLanguages( {  });
+const promise = configuration.getLanguages();
 
 // Async/Await
-const data = await configuration.getLanguages( {  });
+const data = await configuration.getLanguages();
 ```
 
 
@@ -19538,17 +19538,17 @@ Get an Ordering Store signed cookie on selection of ordering store.
 
 ```javascript
 // Promise
-const promise = configuration.getOrderingStoreCookie( {  body : value });
+const promise = configuration.getOrderingStoreCookie({  body : value });
 
 // Async/Await
-const data = await configuration.getOrderingStoreCookie( {  body : value });
+const data = await configuration.getOrderingStoreCookie({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [OrderingStoreSelectRequest](#OrderingStoreSelectRequest) | no | Request body |
+| body | [OrderingStoreSelectRequest](#OrderingStoreSelectRequest) | yes | Request body |
 
 
 Use this API to get an Ordering Store signed cookie upon selecting an ordering store. This will be used by the cart service to verify a coupon against the selected ordering store in cart.
@@ -19594,10 +19594,10 @@ Unset the Ordering Store signed cookie.
 
 ```javascript
 // Promise
-const promise = configuration.removeOrderingStoreCookie( {  });
+const promise = configuration.removeOrderingStoreCookie();
 
 // Async/Await
-const data = await configuration.removeOrderingStoreCookie( {  });
+const data = await configuration.removeOrderingStoreCookie();
 ```
 
 
@@ -19646,12 +19646,12 @@ Get a list of staff.
 
 ```javascript
 // Promise
-const promise = configuration.getAppStaffs( {  orderIncent : value,
+const promise = configuration.getAppStaffs({  orderIncent : value,
  orderingStore : value,
  user : value });
 
 // Async/Await
-const data = await configuration.getAppStaffs( {  orderIncent : value,
+const data = await configuration.getAppStaffs({  orderIncent : value,
  orderingStore : value,
  user : value });
 ```
@@ -19715,11 +19715,11 @@ Get payment gateway keys
 
 ```javascript
 // Promise
-const promise = payment.getAggregatorsConfig( {  xApiToken : value,
+const promise = payment.getAggregatorsConfig({  xApiToken : value,
  refresh : value });
 
 // Async/Await
-const data = await payment.getAggregatorsConfig( {  xApiToken : value,
+const data = await payment.getAggregatorsConfig({  xApiToken : value,
  refresh : value });
 ```
 
@@ -19811,17 +19811,17 @@ Attach a saved card to customer.
 
 ```javascript
 // Promise
-const promise = payment.attachCardToCustomer( {  body : value });
+const promise = payment.attachCardToCustomer({  body : value });
 
 // Async/Await
-const data = await payment.attachCardToCustomer( {  body : value });
+const data = await payment.attachCardToCustomer({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [AttachCardRequest](#AttachCardRequest) | no | Request body |
+| body | [AttachCardRequest](#AttachCardRequest) | yes | Request body |
 
 
 Use this API to attach a customer's saved card at the payment gateway, such as Stripe, Juspay.
@@ -19896,10 +19896,10 @@ Fetch active payment gateway for card payments
 
 ```javascript
 // Promise
-const promise = payment.getActiveCardAggregator( {  refresh : value });
+const promise = payment.getActiveCardAggregator({  refresh : value });
 
 // Async/Await
-const data = await payment.getActiveCardAggregator( {  refresh : value });
+const data = await payment.getActiveCardAggregator({  refresh : value });
 ```
 
 
@@ -19961,10 +19961,10 @@ Fetch the list of cards saved by the user
 
 ```javascript
 // Promise
-const promise = payment.getActiveUserCards( {  forceRefresh : value });
+const promise = payment.getActiveUserCards({  forceRefresh : value });
 
 // Async/Await
-const data = await payment.getActiveUserCards( {  forceRefresh : value });
+const data = await payment.getActiveUserCards({  forceRefresh : value });
 ```
 
 
@@ -20041,17 +20041,17 @@ Delete a card
 
 ```javascript
 // Promise
-const promise = payment.deleteUserCard( {  body : value });
+const promise = payment.deleteUserCard({  body : value });
 
 // Async/Await
-const data = await payment.deleteUserCard( {  body : value });
+const data = await payment.deleteUserCard({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [DeletehCardRequest](#DeletehCardRequest) | no | Request body |
+| body | [DeletehCardRequest](#DeletehCardRequest) | yes | Request body |
 
 
 Use this API to delete a card added by a user on the payment gateway and clear the cache.
@@ -20099,17 +20099,17 @@ Validate customer for payment
 
 ```javascript
 // Promise
-const promise = payment.verifyCustomerForPayment( {  body : value });
+const promise = payment.verifyCustomerForPayment({  body : value });
 
 // Async/Await
-const data = await payment.verifyCustomerForPayment( {  body : value });
+const data = await payment.verifyCustomerForPayment({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [ValidateCustomerRequest](#ValidateCustomerRequest) | no | Request body |
+| body | [ValidateCustomerRequest](#ValidateCustomerRequest) | yes | Request body |
 
 
 Use this API to check if the customer is eligible to use credit-line facilities such as Simpl Pay Later and Rupifi.
@@ -20167,17 +20167,17 @@ Verify and charge payment
 
 ```javascript
 // Promise
-const promise = payment.verifyAndChargePayment( {  body : value });
+const promise = payment.verifyAndChargePayment({  body : value });
 
 // Async/Await
-const data = await payment.verifyAndChargePayment( {  body : value });
+const data = await payment.verifyAndChargePayment({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [ChargeCustomerRequest](#ChargeCustomerRequest) | no | Request body |
+| body | [ChargeCustomerRequest](#ChargeCustomerRequest) | yes | Request body |
 
 
 Use this API to verify and check the status of a payment transaction (server-to-server) made through aggregators like Simpl and Mswipe.
@@ -20231,17 +20231,17 @@ Initialize a payment (server-to-server) for UPI and BharatQR
 
 ```javascript
 // Promise
-const promise = payment.initialisePayment( {  body : value });
+const promise = payment.initialisePayment({  body : value });
 
 // Async/Await
-const data = await payment.initialisePayment( {  body : value });
+const data = await payment.initialisePayment({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [PaymentInitializationRequest](#PaymentInitializationRequest) | no | Request body |
+| body | [PaymentInitializationRequest](#PaymentInitializationRequest) | yes | Request body |
 
 
 PUse this API to inititate payment using UPI, BharatQR, wherein the UPI requests are send to the app and QR code is displayed on the screen.
@@ -20299,17 +20299,17 @@ Performs continuous polling to check status of payment on the server
 
 ```javascript
 // Promise
-const promise = payment.checkAndUpdatePaymentStatus( {  body : value });
+const promise = payment.checkAndUpdatePaymentStatus({  body : value });
 
 // Async/Await
-const data = await payment.checkAndUpdatePaymentStatus( {  body : value });
+const data = await payment.checkAndUpdatePaymentStatus({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [PaymentStatusUpdateRequest](#PaymentStatusUpdateRequest) | no | Request body |
+| body | [PaymentStatusUpdateRequest](#PaymentStatusUpdateRequest) | yes | Request body |
 
 
 Use this API to perform continuous polling at intervals to check the status of payment until timeout.
@@ -20359,7 +20359,7 @@ Get applicable payment options
 
 ```javascript
 // Promise
-const promise = payment.getPaymentModeRoutes( {  amount : value,
+const promise = payment.getPaymentModeRoutes({  amount : value,
  cartId : value,
  pincode : value,
  checkoutMode : value,
@@ -20368,7 +20368,7 @@ const promise = payment.getPaymentModeRoutes( {  amount : value,
  userDetails : value });
 
 // Async/Await
-const data = await payment.getPaymentModeRoutes( {  amount : value,
+const data = await payment.getPaymentModeRoutes({  amount : value,
  cartId : value,
  pincode : value,
  checkoutMode : value,
@@ -20804,7 +20804,7 @@ Get applicable payment options for Point-of-Sale (POS)
 
 ```javascript
 // Promise
-const promise = payment.getPosPaymentModeRoutes( {  amount : value,
+const promise = payment.getPosPaymentModeRoutes({  amount : value,
  cartId : value,
  pincode : value,
  checkoutMode : value,
@@ -20814,7 +20814,7 @@ const promise = payment.getPosPaymentModeRoutes( {  amount : value,
  userDetails : value });
 
 // Async/Await
-const data = await payment.getPosPaymentModeRoutes( {  amount : value,
+const data = await payment.getPosPaymentModeRoutes({  amount : value,
  cartId : value,
  pincode : value,
  checkoutMode : value,
@@ -21037,10 +21037,10 @@ Get CreditLine Offer
 
 ```javascript
 // Promise
-const promise = payment.getRupifiBannerDetails( {  });
+const promise = payment.getRupifiBannerDetails();
 
 // Async/Await
-const data = await payment.getRupifiBannerDetails( {  });
+const data = await payment.getRupifiBannerDetails();
 ```
 
 
@@ -21095,10 +21095,10 @@ Lists the mode of refund
 
 ```javascript
 // Promise
-const promise = payment.getActiveRefundTransferModes( {  });
+const promise = payment.getActiveRefundTransferModes();
 
 // Async/Await
-const data = await payment.getActiveRefundTransferModes( {  });
+const data = await payment.getActiveRefundTransferModes();
 ```
 
 
@@ -21162,17 +21162,17 @@ Enable/Disable a mode for transferring a refund
 
 ```javascript
 // Promise
-const promise = payment.enableOrDisableRefundTransferMode( {  body : value });
+const promise = payment.enableOrDisableRefundTransferMode({  body : value });
 
 // Async/Await
-const data = await payment.enableOrDisableRefundTransferMode( {  body : value });
+const data = await payment.enableOrDisableRefundTransferMode({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [UpdateRefundTransferModeRequest](#UpdateRefundTransferModeRequest) | no | Request body |
+| body | [UpdateRefundTransferModeRequest](#UpdateRefundTransferModeRequest) | yes | Request body |
 
 
 Activate or Deactivate Transfer Mode to collect Beneficiary Details for Refund
@@ -21220,10 +21220,10 @@ Lists the beneficiary of a refund
 
 ```javascript
 // Promise
-const promise = payment.getUserBeneficiariesDetail( {  orderId : value });
+const promise = payment.getUserBeneficiariesDetail({  orderId : value });
 
 // Async/Await
-const data = await payment.getUserBeneficiariesDetail( {  orderId : value });
+const data = await payment.getUserBeneficiariesDetail({  orderId : value });
 ```
 
 
@@ -21302,10 +21302,10 @@ Verify IFSC Code
 
 ```javascript
 // Promise
-const promise = payment.verifyIfscCode( {  ifscCode : value });
+const promise = payment.verifyIfscCode({  ifscCode : value });
 
 // Async/Await
-const data = await payment.verifyIfscCode( {  ifscCode : value });
+const data = await payment.verifyIfscCode({  ifscCode : value });
 ```
 
 
@@ -21379,10 +21379,10 @@ Lists the beneficiary of a refund
 
 ```javascript
 // Promise
-const promise = payment.getOrderBeneficiariesDetail( {  orderId : value });
+const promise = payment.getOrderBeneficiariesDetail({  orderId : value });
 
 // Async/Await
-const data = await payment.getOrderBeneficiariesDetail( {  orderId : value });
+const data = await payment.getOrderBeneficiariesDetail({  orderId : value });
 ```
 
 
@@ -21460,17 +21460,17 @@ Verify the beneficiary details using OTP
 
 ```javascript
 // Promise
-const promise = payment.verifyOtpAndAddBeneficiaryForBank( {  body : value });
+const promise = payment.verifyOtpAndAddBeneficiaryForBank({  body : value });
 
 // Async/Await
-const data = await payment.verifyOtpAndAddBeneficiaryForBank( {  body : value });
+const data = await payment.verifyOtpAndAddBeneficiaryForBank({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [AddBeneficiaryViaOtpVerificationRequest](#AddBeneficiaryViaOtpVerificationRequest) | no | Request body |
+| body | [AddBeneficiaryViaOtpVerificationRequest](#AddBeneficiaryViaOtpVerificationRequest) | yes | Request body |
 
 
 Use this API to perform an OTP validation before saving the beneficiary details added for a refund.
@@ -21520,17 +21520,17 @@ Save bank details for cancelled/returned order
 
 ```javascript
 // Promise
-const promise = payment.addBeneficiaryDetails( {  body : value });
+const promise = payment.addBeneficiaryDetails({  body : value });
 
 // Async/Await
-const data = await payment.addBeneficiaryDetails( {  body : value });
+const data = await payment.addBeneficiaryDetails({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [AddBeneficiaryDetailsRequest](#AddBeneficiaryDetailsRequest) | no | Request body |
+| body | [AddBeneficiaryDetailsRequest](#AddBeneficiaryDetailsRequest) | yes | Request body |
 
 
 Use this API to save the bank details for a returned or cancelled order to refund the amount.
@@ -21580,17 +21580,17 @@ Save bank details for cancelled/returned order
 
 ```javascript
 // Promise
-const promise = payment.addRefundBankAccountUsingOTP( {  body : value });
+const promise = payment.addRefundBankAccountUsingOTP({  body : value });
 
 // Async/Await
-const data = await payment.addRefundBankAccountUsingOTP( {  body : value });
+const data = await payment.addRefundBankAccountUsingOTP({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [AddBeneficiaryDetailsOTPRequest](#AddBeneficiaryDetailsOTPRequest) | no | Request body |
+| body | [AddBeneficiaryDetailsOTPRequest](#AddBeneficiaryDetailsOTPRequest) | yes | Request body |
 
 
 Use this API to save bank details for returned/cancelled order to refund amount in his account.
@@ -21640,17 +21640,17 @@ Send OTP on adding a wallet beneficiary
 
 ```javascript
 // Promise
-const promise = payment.verifyOtpAndAddBeneficiaryForWallet( {  body : value });
+const promise = payment.verifyOtpAndAddBeneficiaryForWallet({  body : value });
 
 // Async/Await
-const data = await payment.verifyOtpAndAddBeneficiaryForWallet( {  body : value });
+const data = await payment.verifyOtpAndAddBeneficiaryForWallet({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [WalletOtpRequest](#WalletOtpRequest) | no | Request body |
+| body | [WalletOtpRequest](#WalletOtpRequest) | yes | Request body |
 
 
 Use this API to send an OTP while adding a wallet beneficiary by mobile no. verification.
@@ -21700,17 +21700,17 @@ Set a default beneficiary for a refund
 
 ```javascript
 // Promise
-const promise = payment.updateDefaultBeneficiary( {  body : value });
+const promise = payment.updateDefaultBeneficiary({  body : value });
 
 // Async/Await
-const data = await payment.updateDefaultBeneficiary( {  body : value });
+const data = await payment.updateDefaultBeneficiary({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [SetDefaultBeneficiaryRequest](#SetDefaultBeneficiaryRequest) | no | Request body |
+| body | [SetDefaultBeneficiaryRequest](#SetDefaultBeneficiaryRequest) | yes | Request body |
 
 
 Use this API to set a default beneficiary for getting a refund.
@@ -21765,14 +21765,14 @@ Get all orders
 
 ```javascript
 // Promise
-const promise = order.getOrders( {  pageNo : value,
+const promise = order.getOrders({  pageNo : value,
  pageSize : value,
  fromDate : value,
  toDate : value,
  status : value });
 
 // Async/Await
-const data = await order.getOrders( {  pageNo : value,
+const data = await order.getOrders({  pageNo : value,
  pageSize : value,
  fromDate : value,
  toDate : value,
@@ -21834,10 +21834,10 @@ Get details of an order
 
 ```javascript
 // Promise
-const promise = order.getOrderById( {  orderId : value });
+const promise = order.getOrderById({  orderId : value });
 
 // Async/Await
-const data = await order.getOrderById( {  orderId : value });
+const data = await order.getOrderById({  orderId : value });
 ```
 
 
@@ -21891,10 +21891,10 @@ Get details of a shipment
 
 ```javascript
 // Promise
-const promise = order.getShipmentById( {  shipmentId : value });
+const promise = order.getShipmentById({  shipmentId : value });
 
 // Async/Await
-const data = await order.getShipmentById( {  shipmentId : value });
+const data = await order.getShipmentById({  shipmentId : value });
 ```
 
 
@@ -21948,10 +21948,10 @@ Get reasons behind full or partial cancellation of a shipment
 
 ```javascript
 // Promise
-const promise = order.getShipmentReasons( {  shipmentId : value });
+const promise = order.getShipmentReasons({  shipmentId : value });
 
 // Async/Await
-const data = await order.getShipmentReasons( {  shipmentId : value });
+const data = await order.getShipmentReasons({  shipmentId : value });
 ```
 
 
@@ -22005,11 +22005,11 @@ Update the shipment status
 
 ```javascript
 // Promise
-const promise = order.updateShipmentStatus( {  shipmentId : value,
+const promise = order.updateShipmentStatus({  shipmentId : value,
  body : value });
 
 // Async/Await
-const data = await order.updateShipmentStatus( {  shipmentId : value,
+const data = await order.updateShipmentStatus({  shipmentId : value,
  body : value });
 ```
 
@@ -22064,10 +22064,10 @@ Track shipment
 
 ```javascript
 // Promise
-const promise = order.trackShipment( {  shipmentId : value });
+const promise = order.trackShipment({  shipmentId : value });
 
 // Async/Await
-const data = await order.trackShipment( {  shipmentId : value });
+const data = await order.trackShipment({  shipmentId : value });
 ```
 
 
@@ -22121,10 +22121,10 @@ Get POS Order
 
 ```javascript
 // Promise
-const promise = order.getPosOrderById( {  orderId : value });
+const promise = order.getPosOrderById({  orderId : value });
 
 // Async/Await
-const data = await order.getPosOrderById( {  orderId : value });
+const data = await order.getPosOrderById({  orderId : value });
 ```
 
 
@@ -22178,11 +22178,11 @@ Get Customer Details by Shipment Id
 
 ```javascript
 // Promise
-const promise = order.getCustomerDetailsByShipmentId( {  orderId : value,
+const promise = order.getCustomerDetailsByShipmentId({  orderId : value,
  shipmentId : value });
 
 // Async/Await
-const data = await order.getCustomerDetailsByShipmentId( {  orderId : value,
+const data = await order.getCustomerDetailsByShipmentId({  orderId : value,
  shipmentId : value });
 ```
 
@@ -22238,11 +22238,11 @@ Send and Resend Otp code to Order-Shipment customer
 
 ```javascript
 // Promise
-const promise = order.sendOtpToShipmentCustomer( {  orderId : value,
+const promise = order.sendOtpToShipmentCustomer({  orderId : value,
  shipmentId : value });
 
 // Async/Await
-const data = await order.sendOtpToShipmentCustomer( {  orderId : value,
+const data = await order.sendOtpToShipmentCustomer({  orderId : value,
  shipmentId : value });
 ```
 
@@ -22298,12 +22298,12 @@ Verify Otp code
 
 ```javascript
 // Promise
-const promise = order.verifyOtpShipmentCustomer( {  orderId : value,
+const promise = order.verifyOtpShipmentCustomer({  orderId : value,
  shipmentId : value,
  body : value });
 
 // Async/Await
-const data = await order.verifyOtpShipmentCustomer( {  orderId : value,
+const data = await order.verifyOtpShipmentCustomer({  orderId : value,
  shipmentId : value,
  body : value });
 ```
@@ -22366,10 +22366,10 @@ Get the eligibility of reward points on a product
 
 ```javascript
 // Promise
-const promise = rewards.getPointsOnProduct( {  body : value });
+const promise = rewards.getPointsOnProduct({  body : value });
 
 // Async/Await
-const data = await rewards.getPointsOnProduct( {  body : value });
+const data = await rewards.getPointsOnProduct({  body : value });
 ```
 
 
@@ -22422,10 +22422,10 @@ Get offer by name
 
 ```javascript
 // Promise
-const promise = rewards.getOfferByName( {  name : value });
+const promise = rewards.getOfferByName({  name : value });
 
 // Async/Await
-const data = await rewards.getOfferByName( {  name : value });
+const data = await rewards.getOfferByName({  name : value });
 ```
 
 
@@ -22479,10 +22479,10 @@ Calculates the discount on order-amount
 
 ```javascript
 // Promise
-const promise = rewards.getOrderDiscount( {  body : value });
+const promise = rewards.getOrderDiscount({  body : value });
 
 // Async/Await
-const data = await rewards.getOrderDiscount( {  body : value });
+const data = await rewards.getOrderDiscount({  body : value });
 ```
 
 
@@ -22535,10 +22535,10 @@ Get reward points available with a user
 
 ```javascript
 // Promise
-const promise = rewards.getUserPoints( {  });
+const promise = rewards.getUserPoints();
 
 // Async/Await
-const data = await rewards.getUserPoints( {  });
+const data = await rewards.getUserPoints();
 ```
 
 
@@ -22587,11 +22587,11 @@ Get all transactions of reward points
 
 ```javascript
 // Promise
-const promise = rewards.getUserPointsHistory( {  pageId : value,
+const promise = rewards.getUserPointsHistory({  pageId : value,
  pageSize : value });
 
 // Async/Await
-const data = await rewards.getUserPointsHistory( {  pageId : value,
+const data = await rewards.getUserPointsHistory({  pageId : value,
  pageSize : value });
 ```
 
@@ -22647,10 +22647,10 @@ Get referral details of a user
 
 ```javascript
 // Promise
-const promise = rewards.getUserReferralDetails( {  });
+const promise = rewards.getUserReferralDetails();
 
 // Async/Await
-const data = await rewards.getUserReferralDetails( {  });
+const data = await rewards.getUserReferralDetails();
 ```
 
 
@@ -22699,10 +22699,10 @@ Redeems a referral code and credits reward points to users
 
 ```javascript
 // Promise
-const promise = rewards.redeemReferralCode( {  body : value });
+const promise = rewards.redeemReferralCode({  body : value });
 
 // Async/Await
-const data = await rewards.redeemReferralCode( {  body : value });
+const data = await rewards.redeemReferralCode({  body : value });
 ```
 
 
@@ -22761,10 +22761,10 @@ Post a new abuse request
 
 ```javascript
 // Promise
-const promise = feedback.createAbuseReport( {  body : value });
+const promise = feedback.createAbuseReport({  body : value });
 
 // Async/Await
-const data = await feedback.createAbuseReport( {  body : value });
+const data = await feedback.createAbuseReport({  body : value });
 ```
 
 
@@ -22817,10 +22817,10 @@ Update abuse details
 
 ```javascript
 // Promise
-const promise = feedback.updateAbuseReport( {  body : value });
+const promise = feedback.updateAbuseReport({  body : value });
 
 // Async/Await
-const data = await feedback.updateAbuseReport( {  body : value });
+const data = await feedback.updateAbuseReport({  body : value });
 ```
 
 
@@ -22873,14 +22873,14 @@ Get a list of abuse data
 
 ```javascript
 // Promise
-const promise = feedback.getAbuseReports( {  entityId : value,
+const promise = feedback.getAbuseReports({  entityId : value,
  entityType : value,
  id : value,
  pageId : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getAbuseReports( {  entityId : value,
+const data = await feedback.getAbuseReports({  entityId : value,
  entityType : value,
  id : value,
  pageId : value,
@@ -22942,11 +22942,11 @@ Get a list of attribute data
 
 ```javascript
 // Promise
-const promise = feedback.getAttributes( {  pageNo : value,
+const promise = feedback.getAttributes({  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getAttributes( {  pageNo : value,
+const data = await feedback.getAttributes({  pageNo : value,
  pageSize : value });
 ```
 
@@ -23002,10 +23002,10 @@ Add a new attribute request
 
 ```javascript
 // Promise
-const promise = feedback.createAttribute( {  body : value });
+const promise = feedback.createAttribute({  body : value });
 
 // Async/Await
-const data = await feedback.createAttribute( {  body : value });
+const data = await feedback.createAttribute({  body : value });
 ```
 
 
@@ -23058,10 +23058,10 @@ Get data of a single attribute
 
 ```javascript
 // Promise
-const promise = feedback.getAttribute( {  slug : value });
+const promise = feedback.getAttribute({  slug : value });
 
 // Async/Await
-const data = await feedback.getAttribute( {  slug : value });
+const data = await feedback.getAttribute({  slug : value });
 ```
 
 
@@ -23115,11 +23115,11 @@ Update details of an attribute
 
 ```javascript
 // Promise
-const promise = feedback.updateAttribute( {  slug : value,
+const promise = feedback.updateAttribute({  slug : value,
  body : value });
 
 // Async/Await
-const data = await feedback.updateAttribute( {  slug : value,
+const data = await feedback.updateAttribute({  slug : value,
  body : value });
 ```
 
@@ -23174,10 +23174,10 @@ Post a new comment
 
 ```javascript
 // Promise
-const promise = feedback.createComment( {  body : value });
+const promise = feedback.createComment({  body : value });
 
 // Async/Await
-const data = await feedback.createComment( {  body : value });
+const data = await feedback.createComment({  body : value });
 ```
 
 
@@ -23230,10 +23230,10 @@ Update the status of a comment
 
 ```javascript
 // Promise
-const promise = feedback.updateComment( {  body : value });
+const promise = feedback.updateComment({  body : value });
 
 // Async/Await
-const data = await feedback.updateComment( {  body : value });
+const data = await feedback.updateComment({  body : value });
 ```
 
 
@@ -23286,7 +23286,7 @@ Get a list of comments
 
 ```javascript
 // Promise
-const promise = feedback.getComments( {  entityType : value,
+const promise = feedback.getComments({  entityType : value,
  id : value,
  entityId : value,
  userId : value,
@@ -23294,7 +23294,7 @@ const promise = feedback.getComments( {  entityType : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getComments( {  entityType : value,
+const data = await feedback.getComments({  entityType : value,
  id : value,
  entityId : value,
  userId : value,
@@ -23358,11 +23358,11 @@ Checks eligibility to rate and review, and shows the cloud media configuration
 
 ```javascript
 // Promise
-const promise = feedback.checkEligibility( {  entityType : value,
+const promise = feedback.checkEligibility({  entityType : value,
  entityId : value });
 
 // Async/Await
-const data = await feedback.checkEligibility( {  entityType : value,
+const data = await feedback.checkEligibility({  entityType : value,
  entityId : value });
 ```
 
@@ -23418,10 +23418,10 @@ Delete Media
 
 ```javascript
 // Promise
-const promise = feedback.deleteMedia( {  ids : value });
+const promise = feedback.deleteMedia({  ids : value });
 
 // Async/Await
-const data = await feedback.deleteMedia( {  ids : value });
+const data = await feedback.deleteMedia({  ids : value });
 ```
 
 
@@ -23475,10 +23475,10 @@ Add Media
 
 ```javascript
 // Promise
-const promise = feedback.createMedia( {  body : value });
+const promise = feedback.createMedia({  body : value });
 
 // Async/Await
-const data = await feedback.createMedia( {  body : value });
+const data = await feedback.createMedia({  body : value });
 ```
 
 
@@ -23531,10 +23531,10 @@ Update Media
 
 ```javascript
 // Promise
-const promise = feedback.updateMedia( {  body : value });
+const promise = feedback.updateMedia({  body : value });
 
 // Async/Await
-const data = await feedback.updateMedia( {  body : value });
+const data = await feedback.updateMedia({  body : value });
 ```
 
 
@@ -23587,7 +23587,7 @@ Get Media
 
 ```javascript
 // Promise
-const promise = feedback.getMedias( {  entityType : value,
+const promise = feedback.getMedias({  entityType : value,
  entityId : value,
  id : value,
  type : value,
@@ -23595,7 +23595,7 @@ const promise = feedback.getMedias( {  entityType : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getMedias( {  entityType : value,
+const data = await feedback.getMedias({  entityType : value,
  entityId : value,
  id : value,
  type : value,
@@ -23659,14 +23659,14 @@ Get a review summary
 
 ```javascript
 // Promise
-const promise = feedback.getReviewSummaries( {  entityType : value,
+const promise = feedback.getReviewSummaries({  entityType : value,
  entityId : value,
  id : value,
  pageId : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getReviewSummaries( {  entityType : value,
+const data = await feedback.getReviewSummaries({  entityType : value,
  entityId : value,
  id : value,
  pageId : value,
@@ -23728,10 +23728,10 @@ Add customer reviews
 
 ```javascript
 // Promise
-const promise = feedback.createReview( {  body : value });
+const promise = feedback.createReview({  body : value });
 
 // Async/Await
-const data = await feedback.createReview( {  body : value });
+const data = await feedback.createReview({  body : value });
 ```
 
 
@@ -23784,10 +23784,10 @@ Update customer reviews
 
 ```javascript
 // Promise
-const promise = feedback.updateReview( {  body : value });
+const promise = feedback.updateReview({  body : value });
 
 // Async/Await
-const data = await feedback.updateReview( {  body : value });
+const data = await feedback.updateReview({  body : value });
 ```
 
 
@@ -23840,7 +23840,7 @@ Get list of customer reviews
 
 ```javascript
 // Promise
-const promise = feedback.getReviews( {  entityType : value,
+const promise = feedback.getReviews({  entityType : value,
  entityId : value,
  id : value,
  userId : value,
@@ -23855,7 +23855,7 @@ const promise = feedback.getReviews( {  entityType : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getReviews( {  entityType : value,
+const data = await feedback.getReviews({  entityType : value,
  entityId : value,
  id : value,
  userId : value,
@@ -23933,12 +23933,12 @@ Get the feedback templates for a product or l3
 
 ```javascript
 // Promise
-const promise = feedback.getTemplates( {  templateId : value,
+const promise = feedback.getTemplates({  templateId : value,
  entityId : value,
  entityType : value });
 
 // Async/Await
-const data = await feedback.getTemplates( {  templateId : value,
+const data = await feedback.getTemplates({  templateId : value,
  entityId : value,
  entityType : value });
 ```
@@ -23996,10 +23996,10 @@ Create a new question
 
 ```javascript
 // Promise
-const promise = feedback.createQuestion( {  body : value });
+const promise = feedback.createQuestion({  body : value });
 
 // Async/Await
-const data = await feedback.createQuestion( {  body : value });
+const data = await feedback.createQuestion({  body : value });
 ```
 
 
@@ -24052,10 +24052,10 @@ Update a question
 
 ```javascript
 // Promise
-const promise = feedback.updateQuestion( {  body : value });
+const promise = feedback.updateQuestion({  body : value });
 
 // Async/Await
-const data = await feedback.updateQuestion( {  body : value });
+const data = await feedback.updateQuestion({  body : value });
 ```
 
 
@@ -24108,7 +24108,7 @@ Get a list of QnA
 
 ```javascript
 // Promise
-const promise = feedback.getQuestionAndAnswers( {  entityType : value,
+const promise = feedback.getQuestionAndAnswers({  entityType : value,
  entityId : value,
  id : value,
  userId : value,
@@ -24117,7 +24117,7 @@ const promise = feedback.getQuestionAndAnswers( {  entityType : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getQuestionAndAnswers( {  entityType : value,
+const data = await feedback.getQuestionAndAnswers({  entityType : value,
  entityId : value,
  id : value,
  userId : value,
@@ -24183,13 +24183,13 @@ Get a list of votes
 
 ```javascript
 // Promise
-const promise = feedback.getVotes( {  id : value,
+const promise = feedback.getVotes({  id : value,
  refType : value,
  pageNo : value,
  pageSize : value });
 
 // Async/Await
-const data = await feedback.getVotes( {  id : value,
+const data = await feedback.getVotes({  id : value,
  refType : value,
  pageNo : value,
  pageSize : value });
@@ -24249,10 +24249,10 @@ Create a new vote
 
 ```javascript
 // Promise
-const promise = feedback.createVote( {  body : value });
+const promise = feedback.createVote({  body : value });
 
 // Async/Await
-const data = await feedback.createVote( {  body : value });
+const data = await feedback.createVote({  body : value });
 ```
 
 
@@ -24305,10 +24305,10 @@ Update a vote
 
 ```javascript
 // Promise
-const promise = feedback.updateVote( {  body : value });
+const promise = feedback.updateVote({  body : value });
 
 // Async/Await
-const data = await feedback.updateVote( {  body : value });
+const data = await feedback.updateVote({  body : value });
 ```
 
 
@@ -24367,13 +24367,13 @@ Fetch all items added to the cart
 
 ```javascript
 // Promise
-const promise = poscart.getCart( {  id : value,
+const promise = poscart.getCart({  id : value,
  i : value,
  b : value,
  assignCardId : value });
 
 // Async/Await
-const data = await poscart.getCart( {  id : value,
+const data = await poscart.getCart({  id : value,
  i : value,
  b : value,
  assignCardId : value });
@@ -24599,10 +24599,10 @@ Fetch last-modified timestamp
 
 ```javascript
 // Promise
-const promise = poscart.getCartLastModified( {  id : value });
+const promise = poscart.getCartLastModified({  id : value });
 
 // Async/Await
-const data = await poscart.getCartLastModified( {  id : value });
+const data = await poscart.getCartLastModified({  id : value });
 ```
 
 
@@ -24637,12 +24637,12 @@ Add items to cart
 
 ```javascript
 // Promise
-const promise = poscart.addItems( {  body : value,
+const promise = poscart.addItems({  body : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await poscart.addItems( {  body : value,
+const data = await poscart.addItems({  body : value,
  i : value,
  b : value });
 ```
@@ -24653,7 +24653,7 @@ const data = await poscart.addItems( {  body : value,
 | --------- | -----  | -------- | ----------- |  
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [AddCartRequest](#AddCartRequest) | no | Request body |
+| body | [AddCartRequest](#AddCartRequest) | yes | Request body |
 
 
 Use this API to add items to the cart.
@@ -25332,13 +25332,13 @@ Update items in the cart
 
 ```javascript
 // Promise
-const promise = poscart.updateCart( {  body : value,
+const promise = poscart.updateCart({  body : value,
  id : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await poscart.updateCart( {  body : value,
+const data = await poscart.updateCart({  body : value,
  id : value,
  i : value,
  b : value });
@@ -25351,7 +25351,7 @@ const data = await poscart.updateCart( {  body : value,
 | id | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [UpdateCartRequest](#UpdateCartRequest) | no | Request body |
+| body | [UpdateCartRequest](#UpdateCartRequest) | yes | Request body |
 
 
 Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/{slug}/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/{identifier}​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
@@ -25759,10 +25759,10 @@ Count items in the cart
 
 ```javascript
 // Promise
-const promise = poscart.getItemCount( {  id : value });
+const promise = poscart.getItemCount({  id : value });
 
 // Async/Await
-const data = await poscart.getItemCount( {  id : value });
+const data = await poscart.getItemCount({  id : value });
 ```
 
 
@@ -25818,10 +25818,10 @@ Fetch Coupon
 
 ```javascript
 // Promise
-const promise = poscart.getCoupons( {  id : value });
+const promise = poscart.getCoupons({  id : value });
 
 // Async/Await
-const data = await poscart.getCoupons( {  id : value });
+const data = await poscart.getCoupons({  id : value });
 ```
 
 
@@ -25911,14 +25911,14 @@ Apply Coupon
 
 ```javascript
 // Promise
-const promise = poscart.applyCoupon( {  body : value,
+const promise = poscart.applyCoupon({  body : value,
  i : value,
  b : value,
  p : value,
  id : value });
 
 // Async/Await
-const data = await poscart.applyCoupon( {  body : value,
+const data = await poscart.applyCoupon({  body : value,
  i : value,
  b : value,
  p : value,
@@ -25933,7 +25933,7 @@ const data = await poscart.applyCoupon( {  body : value,
 | b | boolean | no |  |    
 | p | boolean | no |  |    
 | id | string | no |  |  
-| body | [ApplyCouponRequest](#ApplyCouponRequest) | no | Request body |
+| body | [ApplyCouponRequest](#ApplyCouponRequest) | yes | Request body |
 
 
 Use this API to apply coupons on items in the cart.
@@ -26515,10 +26515,10 @@ Remove Coupon Applied
 
 ```javascript
 // Promise
-const promise = poscart.removeCoupon( {  id : value });
+const promise = poscart.removeCoupon({  id : value });
 
 // Async/Await
-const data = await poscart.removeCoupon( {  id : value });
+const data = await poscart.removeCoupon({  id : value });
 ```
 
 
@@ -26729,13 +26729,13 @@ Get discount offers based on quantity
 
 ```javascript
 // Promise
-const promise = poscart.getBulkDiscountOffers( {  itemId : value,
+const promise = poscart.getBulkDiscountOffers({  itemId : value,
  articleId : value,
  uid : value,
  slug : value });
 
 // Async/Await
-const data = await poscart.getBulkDiscountOffers( {  itemId : value,
+const data = await poscart.getBulkDiscountOffers({  itemId : value,
  articleId : value,
  uid : value,
  slug : value });
@@ -26866,13 +26866,13 @@ Apply reward points at cart
 
 ```javascript
 // Promise
-const promise = poscart.applyRewardPoints( {  body : value,
+const promise = poscart.applyRewardPoints({  body : value,
  id : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await poscart.applyRewardPoints( {  body : value,
+const data = await poscart.applyRewardPoints({  body : value,
  id : value,
  i : value,
  b : value });
@@ -26885,7 +26885,7 @@ const data = await poscart.applyRewardPoints( {  body : value,
 | id | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [RewardPointRequest](#RewardPointRequest) | no | Request body |
+| body | [RewardPointRequest](#RewardPointRequest) | yes | Request body |
 
 
 Use this API to redeem a fixed no. of reward points by applying it to the cart.
@@ -27097,14 +27097,14 @@ Fetch address
 
 ```javascript
 // Promise
-const promise = poscart.getAddresses( {  cartId : value,
+const promise = poscart.getAddresses({  cartId : value,
  mobileNo : value,
  checkoutMode : value,
  tags : value,
  isDefault : value });
 
 // Async/Await
-const data = await poscart.getAddresses( {  cartId : value,
+const data = await poscart.getAddresses({  cartId : value,
  mobileNo : value,
  checkoutMode : value,
  tags : value,
@@ -27196,17 +27196,17 @@ Add address to an account
 
 ```javascript
 // Promise
-const promise = poscart.addAddress( {  body : value });
+const promise = poscart.addAddress({  body : value });
 
 // Async/Await
-const data = await poscart.addAddress( {  body : value });
+const data = await poscart.addAddress({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [Address](#Address) | no | Request body |
+| body | [Address](#Address) | yes | Request body |
 
 
 Use this API to add an address to an account.
@@ -27256,7 +27256,7 @@ Fetch a single address by its ID
 
 ```javascript
 // Promise
-const promise = poscart.getAddressById( {  id : value,
+const promise = poscart.getAddressById({  id : value,
  cartId : value,
  mobileNo : value,
  checkoutMode : value,
@@ -27264,7 +27264,7 @@ const promise = poscart.getAddressById( {  id : value,
  isDefault : value });
 
 // Async/Await
-const data = await poscart.getAddressById( {  id : value,
+const data = await poscart.getAddressById({  id : value,
  cartId : value,
  mobileNo : value,
  checkoutMode : value,
@@ -27355,11 +27355,11 @@ Update address added to an account
 
 ```javascript
 // Promise
-const promise = poscart.updateAddress( {  id : value,
+const promise = poscart.updateAddress({  id : value,
  body : value });
 
 // Async/Await
-const data = await poscart.updateAddress( {  id : value,
+const data = await poscart.updateAddress({  id : value,
  body : value });
 ```
 
@@ -27368,7 +27368,7 @@ const data = await poscart.updateAddress( {  id : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | id | string | yes | ID allotted to the selected address |  
-| body | [Address](#Address) | no | Request body |
+| body | [Address](#Address) | yes | Request body |
 
 
 Use this API to update an existing address in the account. Request object should contain attributes mentioned in  <font color="blue">Address </font> can be updated. These attributes are:</p> <ul> <li> <font color="monochrome">is_default_address</font></li> <li> <font color="monochrome">landmark</font></li> <li> <font color="monochrome">area</font></li> <li> <font color="monochrome">pincode</font></li> <li> <font color="monochrome">email</font></li> <li> <font color="monochrome">address_type</font></li> <li> <font color="monochrome">name</font></li> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">address</font></li> </ul>
@@ -27419,10 +27419,10 @@ Remove address associated with an account
 
 ```javascript
 // Promise
-const promise = poscart.removeAddress( {  id : value });
+const promise = poscart.removeAddress({  id : value });
 
 // Async/Await
-const data = await poscart.removeAddress( {  id : value });
+const data = await poscart.removeAddress({  id : value });
 ```
 
 
@@ -27479,13 +27479,13 @@ Select an address from available addresses
 
 ```javascript
 // Promise
-const promise = poscart.selectAddress( {  body : value,
+const promise = poscart.selectAddress({  body : value,
  cartId : value,
  i : value,
  b : value });
 
 // Async/Await
-const data = await poscart.selectAddress( {  body : value,
+const data = await poscart.selectAddress({  body : value,
  cartId : value,
  i : value,
  b : value });
@@ -27498,7 +27498,7 @@ const data = await poscart.selectAddress( {  body : value,
 | cartId | string | no |  |    
 | i | boolean | no |  |    
 | b | boolean | no |  |  
-| body | [SelectCartAddressRequest](#SelectCartAddressRequest) | no | Request body |
+| body | [SelectCartAddressRequest](#SelectCartAddressRequest) | yes | Request body |
 
 
 <p>Select Address from all addresses associated with the account in order to ship the cart items to that address, otherwise default address will be selected implicitly. See `SelectCartAddressRequest` in schema of request body for the list of attributes needed to select Address from account. On successful request, this API returns a Cart object. Below address attributes are required. <ul> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">billing_address_id</font></li> <li> <font color="monochrome">uid</font></li> </ul>
@@ -27799,11 +27799,11 @@ Update cart payment
 
 ```javascript
 // Promise
-const promise = poscart.selectPaymentMode( {  body : value,
+const promise = poscart.selectPaymentMode({  body : value,
  id : value });
 
 // Async/Await
-const data = await poscart.selectPaymentMode( {  body : value,
+const data = await poscart.selectPaymentMode({  body : value,
  id : value });
 ```
 
@@ -27812,7 +27812,7 @@ const data = await poscart.selectPaymentMode( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | id | string | no |  |  
-| body | [UpdateCartPaymentRequest](#UpdateCartPaymentRequest) | no | Request body |
+| body | [UpdateCartPaymentRequest](#UpdateCartPaymentRequest) | yes | Request body |
 
 
 Use this API to update cart payment.
@@ -28125,7 +28125,7 @@ Verify the coupon eligibility against the payment mode
 
 ```javascript
 // Promise
-const promise = poscart.validateCouponForPayment( {  id : value,
+const promise = poscart.validateCouponForPayment({  id : value,
  addressId : value,
  paymentMode : value,
  paymentIdentifier : value,
@@ -28133,7 +28133,7 @@ const promise = poscart.validateCouponForPayment( {  id : value,
  merchantCode : value });
 
 // Async/Await
-const data = await poscart.validateCouponForPayment( {  id : value,
+const data = await poscart.validateCouponForPayment({  id : value,
  addressId : value,
  paymentMode : value,
  paymentIdentifier : value,
@@ -28207,7 +28207,7 @@ Get delivery date and options before checkout
 
 ```javascript
 // Promise
-const promise = poscart.getShipments( {  pickAtStoreUid : value,
+const promise = poscart.getShipments({  pickAtStoreUid : value,
  orderingStoreId : value,
  p : value,
  id : value,
@@ -28216,7 +28216,7 @@ const promise = poscart.getShipments( {  pickAtStoreUid : value,
  orderType : value });
 
 // Async/Await
-const data = await poscart.getShipments( {  pickAtStoreUid : value,
+const data = await poscart.getShipments({  pickAtStoreUid : value,
  orderingStoreId : value,
  p : value,
  id : value,
@@ -28922,7 +28922,7 @@ Update shipment delivery type and quantity before checkout
 
 ```javascript
 // Promise
-const promise = poscart.updateShipments( {  body : value,
+const promise = poscart.updateShipments({  body : value,
  i : value,
  p : value,
  id : value,
@@ -28930,7 +28930,7 @@ const promise = poscart.updateShipments( {  body : value,
  orderType : value });
 
 // Async/Await
-const data = await poscart.updateShipments( {  body : value,
+const data = await poscart.updateShipments({  body : value,
  i : value,
  p : value,
  id : value,
@@ -28947,7 +28947,7 @@ const data = await poscart.updateShipments( {  body : value,
 | id | string | no | The unique identifier of the cart |    
 | addressId | string | no | ID allotted to an address |    
 | orderType | string | no | The order type of shipment HomeDelivery - If the customer wants the order home-delivered PickAtStore - If the customer wants the handover of an order at the store itself. |  
-| body | [UpdateCartShipmentRequest](#UpdateCartShipmentRequest) | no | Request body |
+| body | [UpdateCartShipmentRequest](#UpdateCartShipmentRequest) | yes | Request body |
 
 
 Use this API to update the delivery type and quantity as per customer's preference for either store pick-up or home-delivery.
@@ -29634,11 +29634,11 @@ Checkout all items in the cart
 
 ```javascript
 // Promise
-const promise = poscart.checkoutCart( {  body : value,
+const promise = poscart.checkoutCart({  body : value,
  id : value });
 
 // Async/Await
-const data = await poscart.checkoutCart( {  body : value,
+const data = await poscart.checkoutCart({  body : value,
  id : value });
 ```
 
@@ -29647,7 +29647,7 @@ const data = await poscart.checkoutCart( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | id | string | no |  |  
-| body | [CartPosCheckoutDetailRequest](#CartPosCheckoutDetailRequest) | no | Request body |
+| body | [CartPosCheckoutDetailRequest](#CartPosCheckoutDetailRequest) | yes | Request body |
 
 
 Use this API to checkout all items in the cart for payment and order generation. For COD, order will be generated directly, whereas for other checkout modes, user will be redirected to a payment gateway.
@@ -30073,11 +30073,11 @@ Update the cart meta
 
 ```javascript
 // Promise
-const promise = poscart.updateCartMeta( {  body : value,
+const promise = poscart.updateCartMeta({  body : value,
  id : value });
 
 // Async/Await
-const data = await poscart.updateCartMeta( {  body : value,
+const data = await poscart.updateCartMeta({  body : value,
  id : value });
 ```
 
@@ -30086,7 +30086,7 @@ const data = await poscart.updateCartMeta( {  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | id | string | no | The unique identifier of the cart |  
-| body | [CartMetaRequest](#CartMetaRequest) | no | Request body |
+| body | [CartMetaRequest](#CartMetaRequest) | yes | Request body |
 
 
 Use this API to update cart meta like checkout_mode and gstin.
@@ -30134,11 +30134,11 @@ Get available delivery modes for cart
 
 ```javascript
 // Promise
-const promise = poscart.getAvailableDeliveryModes( {  areaCode : value,
+const promise = poscart.getAvailableDeliveryModes({  areaCode : value,
  id : value });
 
 // Async/Await
-const data = await poscart.getAvailableDeliveryModes( {  areaCode : value,
+const data = await poscart.getAvailableDeliveryModes({  areaCode : value,
  id : value });
 ```
 
@@ -30202,10 +30202,10 @@ Get list of stores for give uids
 
 ```javascript
 // Promise
-const promise = poscart.getStoreAddressByUid( {  storeUid : value });
+const promise = poscart.getStoreAddressByUid({  storeUid : value });
 
 // Async/Await
-const data = await poscart.getStoreAddressByUid( {  storeUid : value });
+const data = await poscart.getStoreAddressByUid({  storeUid : value });
 ```
 
 
@@ -30283,17 +30283,17 @@ Generate token for sharing the cart
 
 ```javascript
 // Promise
-const promise = poscart.getCartShareLink( {  body : value });
+const promise = poscart.getCartShareLink({  body : value });
 
 // Async/Await
-const data = await poscart.getCartShareLink( {  body : value });
+const data = await poscart.getCartShareLink({  body : value });
 ```
 
 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [GetShareCartLinkRequest](#GetShareCartLinkRequest) | no | Request body |
+| body | [GetShareCartLinkRequest](#GetShareCartLinkRequest) | yes | Request body |
 
 
 Use this API to generate a shared cart snapshot and return a shortlink token. The link can be shared with other users for getting the same items in their cart.
@@ -30350,10 +30350,10 @@ Get details of a shared cart
 
 ```javascript
 // Promise
-const promise = poscart.getCartSharedItems( {  token : value });
+const promise = poscart.getCartSharedItems({  token : value });
 
 // Async/Await
-const data = await poscart.getCartSharedItems( {  token : value });
+const data = await poscart.getCartSharedItems({  token : value });
 ```
 
 
@@ -30683,11 +30683,11 @@ Merge or replace existing cart
 
 ```javascript
 // Promise
-const promise = poscart.updateCartWithSharedItems( {  token : value,
+const promise = poscart.updateCartWithSharedItems({  token : value,
  action : value });
 
 // Async/Await
-const data = await poscart.updateCartWithSharedItems( {  token : value,
+const data = await poscart.updateCartWithSharedItems({  token : value,
  action : value });
 ```
 
@@ -31032,10 +31032,10 @@ Get TAT of a product
 
 ```javascript
 // Promise
-const promise = logistic.getTatProduct( {  body : value });
+const promise = logistic.getTatProduct({  body : value });
 
 // Async/Await
-const data = await logistic.getTatProduct( {  body : value });
+const data = await logistic.getTatProduct({  body : value });
 ```
 
 
@@ -31088,10 +31088,10 @@ Get city from PIN Code
 
 ```javascript
 // Promise
-const promise = logistic.getPincodeCity( {  pincode : value });
+const promise = logistic.getPincodeCity({  pincode : value });
 
 // Async/Await
-const data = await logistic.getPincodeCity( {  pincode : value });
+const data = await logistic.getPincodeCity({  pincode : value });
 ```
 
 

@@ -123,7 +123,7 @@ class RequestSigner {
     let kCredentials = "1234567";
     let strTosign = this.stringToSign();
     // console.log(strTosign);
-    return `v1:${hmac(kCredentials, strTosign, "hex")}`;
+    return `v1.1:${hmac(kCredentials, strTosign, "hex")}`;
   }
 
   stringToSign() {
@@ -264,14 +264,16 @@ class RequestSigner {
   parsePath() {
     let path = this.request.path || "/";
 
-    if (this.request.encodePath === false) {
-      path = decodeURI(path);
-    } else {
-      // So if there are non-reserved chars (and it's not already all % encoded), just encode them all
-      if (/[^0-9A-Za-z;,/?:@&=+$\-_.!~*'()#%]/.test(path)) {
-        path = encodeURI(decodeURI(path));
-      }
-    }
+    path = path
+      .split("/")
+      .map((t) => {
+        if (!t.startsWith("?")) {
+          return encodeURIComponent(decodeURIComponent(t));
+        } else {
+          return t;
+        }
+      })
+      .join("/");
 
     let queryIx = path.indexOf("?");
     let query = null;
