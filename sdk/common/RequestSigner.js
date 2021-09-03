@@ -204,9 +204,6 @@ class RequestSigner {
       this.signedHeaders(),
       bodyHash,
     ].join("\n");
-    // console.log("====================");
-    // console.log(canonicalReq);
-    // console.log("====================");
     return canonicalReq;
   }
 
@@ -263,18 +260,6 @@ class RequestSigner {
 
   parsePath() {
     let path = this.request.path || "/";
-
-    path = path
-      .split("/")
-      .map((t) => {
-        if (!t.startsWith("?")) {
-          return encodeURIComponent(decodeURIComponent(t));
-        } else {
-          return t;
-        }
-      })
-      .join("/");
-
     let queryIx = path.indexOf("?");
     let query = null;
 
@@ -282,6 +267,12 @@ class RequestSigner {
       query = querystring.parse(path.slice(queryIx + 1));
       path = path.slice(0, queryIx);
     }
+    path = path
+      .split("/")
+      .map((t) => {
+        return encodeURIComponent(decodeURIComponent(t));
+      })
+      .join("/");
 
     this.parsedPath = {
       path: path,
