@@ -17,6 +17,7 @@ declare class PlatformConfig {
     domain: string;
     apiKey: string;
     apiSecret: string;
+    printCurl: any;
     oauthClient: OauthClient;
     getAccessToken(): Promise<any>;
 }
