@@ -1417,7 +1417,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      `/service/application/catalog/v1.0/in-stock/locations/${locationId}/`,
+      `/service/application/catalog/v1.0/locations/${locationId}/`,
       query,
       undefined
     );

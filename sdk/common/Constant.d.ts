@@ -38,6 +38,9 @@ export namespace AVAILABLE_PAGE_TYPE {
     const WISHLIST: string;
     const SECTIONS: string;
     const FORM: string;
+    const CART_DELIVERY: string;
+    const CART_PAYMENT: string;
+    const CART_REVIEW: string;
 }
 export const NAVIGATORS: {
     "about-us": {
@@ -259,5 +262,17 @@ export const NAVIGATORS: {
             key: string;
             required: boolean;
         }[];
+    };
+    "cart-delivery": {
+        name: string;
+        link: string;
+    };
+    "cart-payment": {
+        name: string;
+        link: string;
+    };
+    "cart-review": {
+        name: string;
+        link: string;
     };
 };

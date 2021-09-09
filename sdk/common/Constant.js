@@ -38,6 +38,9 @@ const AVAILABLE_PAGE_TYPE = {
   WISHLIST: "wishlist",
   SECTIONS: "sections",
   FORM: "form",
+  CART_DELIVERY: "cart-delivery",
+  CART_PAYMENT: "cart-payment",
+  CART_REVIEW: "cart-review",
 };
 
 Object.freeze(AVAILABLE_PAGE_TYPE);
@@ -294,6 +297,18 @@ const NAVIGATORS = {
         required: true,
       },
     ],
+  },
+  "cart-delivery": {
+    name: "Cart Delivery",
+    link: "/cart/delivery",
+  },
+  "cart-payment": {
+    name: "Cart Payment Information",
+    link: "/cart/payment-info",
+  },
+  "cart-review": {
+    name: "Cart Order Review",
+    link: "/cart/order-review",
   },
 };
 
