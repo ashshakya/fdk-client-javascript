@@ -1112,34 +1112,6 @@ class Catalog {
    *   products, brands, or collections.
    * @param {string} arg.collectionId - The ID of the collection type.
    * @returns {Promise<FollowPostResponse>} - Success response
-   * @summary: Unfollow an entity (product/brand/collection)
-   * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
-   */
-  unfollowById({ collectionType, collectionId } = {}) {
-    const { error } = CatalogValidator.unfollowById().validate(
-      { collectionType, collectionId },
-      { abortEarly: false }
-    );
-    if (error) {
-      return Promise.reject(new FDKClientValidationError(error));
-    }
-    const query = {};
-
-    return APIClient.execute(
-      this._conf,
-      "delete",
-      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
-      query,
-      undefined
-    );
-  }
-
-  /**
-   * @param {Object} arg - Arg object.
-   * @param {string} arg.collectionType - Type of collection followed, i.e.
-   *   products, brands, or collections.
-   * @param {string} arg.collectionId - The ID of the collection type.
-   * @returns {Promise<FollowPostResponse>} - Success response
    * @summary: Follow an entity (product/brand/collection)
    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
    */
@@ -1156,6 +1128,34 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "post",
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
+      query,
+      undefined
+    );
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {string} arg.collectionType - Type of collection followed, i.e.
+   *   products, brands, or collections.
+   * @param {string} arg.collectionId - The ID of the collection type.
+   * @returns {Promise<FollowPostResponse>} - Success response
+   * @summary: Unfollow an entity (product/brand/collection)
+   * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+   */
+  unfollowById({ collectionType, collectionId } = {}) {
+    const { error } = CatalogValidator.unfollowById().validate(
+      { collectionType, collectionId },
+      { abortEarly: false }
+    );
+    if (error) {
+      return Promise.reject(new FDKClientValidationError(error));
+    }
+    const query = {};
+
+    return APIClient.execute(
+      this._conf,
+      "delete",
       `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
       query,
       undefined
@@ -4778,28 +4778,41 @@ class Configuration {
 
   /**
    * @param {Object} arg - Arg object.
+   * @param {number} [arg.pageNo] - Current page no
+   * @param {number} [arg.pageSize] - Current request items count
    * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
    *   `true` to retrieve the staff members eligible for getting incentives on orders.
    * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
    *   retrieving staff members working at a particular ordering store.
    * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
    *   the details of a particular staff member.
+   * @param {string} [arg.permission] - Get Staff members with specific permissions
    * @returns {Promise<AppStaffResponse>} - Success response
    * @summary: Get a list of staff.
    * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
    */
-  getAppStaffs({ orderIncent, orderingStore, user } = {}) {
+  getAppStaffs({
+    pageNo,
+    pageSize,
+    orderIncent,
+    orderingStore,
+    user,
+    permission,
+  } = {}) {
     const { error } = ConfigurationValidator.getAppStaffs().validate(
-      { orderIncent, orderingStore, user },
+      { pageNo, pageSize, orderIncent, orderingStore, user, permission },
       { abortEarly: false }
     );
     if (error) {
       return Promise.reject(new FDKClientValidationError(error));
     }
     const query = {};
+    query["page_no"] = pageNo;
+    query["page_size"] = pageSize;
     query["order_incent"] = orderIncent;
     query["ordering_store"] = orderingStore;
     query["user"] = user;
+    query["permission"] = permission;
 
     return APIClient.execute(
       this._conf,
@@ -4808,6 +4821,49 @@ class Configuration {
       query,
       undefined
     );
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {number} [arg.pageSize] - Current request items count
+   * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
+   *   `true` to retrieve the staff members eligible for getting incentives on orders.
+   * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
+   *   retrieving staff members working at a particular ordering store.
+   * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
+   *   the details of a particular staff member.
+   * @param {string} [arg.permission] - Get Staff members with specific permissions
+   * @summary: Get a list of staff.
+   * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
+   */
+  getAppStaffsPaginator({
+    pageSize,
+    orderIncent,
+    orderingStore,
+    user,
+    permission,
+  } = {}) {
+    const paginator = new Paginator();
+    const callback = async () => {
+      const pageId = paginator.nextId;
+      const pageNo = paginator.pageNo;
+      const pageType = "number";
+      const data = await this.getAppStaffs({
+        pageNo: pageNo,
+        pageSize: pageSize,
+        orderIncent: orderIncent,
+        orderingStore: orderingStore,
+        user: user,
+        permission: permission,
+      });
+      paginator.setPaginator({
+        hasNext: data.page.has_next ? true : false,
+        nextId: data.page.next_id,
+      });
+      return data;
+    };
+    paginator.setCallback(callback);
+    return paginator;
   }
 }
 

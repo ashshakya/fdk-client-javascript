@@ -533,10 +533,10 @@ declare class Catalog {
      *   products, brands, or collections.
      * @param {string} arg.collectionId - The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Unfollow an entity (product/brand/collection)
-     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+     * @summary: Follow an entity (product/brand/collection)
+     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
      */
-    unfollowById({ collectionType, collectionId }?: {
+    followById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -546,10 +546,10 @@ declare class Catalog {
      *   products, brands, or collections.
      * @param {string} arg.collectionId - The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Follow an entity (product/brand/collection)
-     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+     * @summary: Unfollow an entity (product/brand/collection)
+     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
      */
-    followById({ collectionType, collectionId }?: {
+    unfollowById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -2062,21 +2062,47 @@ declare class Configuration {
     removeOrderingStoreCookie({}?: any): Promise<any>;
     /**
      * @param {Object} arg - Arg object.
+     * @param {number} [arg.pageNo] - Current page no
+     * @param {number} [arg.pageSize] - Current request items count
      * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
      *   `true` to retrieve the staff members eligible for getting incentives on orders.
      * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
      *   retrieving staff members working at a particular ordering store.
      * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
      *   the details of a particular staff member.
+     * @param {string} [arg.permission] - Get Staff members with specific permissions
      * @returns {Promise<AppStaffResponse>} - Success response
      * @summary: Get a list of staff.
      * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
      */
-    getAppStaffs({ orderIncent, orderingStore, user }?: {
+    getAppStaffs({ pageNo, pageSize, orderIncent, orderingStore, user, permission, }?: {
+        pageNo?: number;
+        pageSize?: number;
         orderIncent?: boolean;
         orderingStore?: number;
         user?: string;
+        permission?: string;
     }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @param {number} [arg.pageSize] - Current request items count
+     * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
+     *   `true` to retrieve the staff members eligible for getting incentives on orders.
+     * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
+     *   retrieving staff members working at a particular ordering store.
+     * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
+     *   the details of a particular staff member.
+     * @param {string} [arg.permission] - Get Staff members with specific permissions
+     * @summary: Get a list of staff.
+     * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
+     */
+    getAppStaffsPaginator({ pageSize, orderIncent, orderingStore, user, permission, }?: {
+        pageSize?: number;
+        orderIncent?: boolean;
+        orderingStore?: number;
+        user?: string;
+        permission?: string;
+    }): Paginator;
 }
 declare class Payment {
     constructor(_conf: any);
