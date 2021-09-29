@@ -1,6 +1,8 @@
 name: Pull Request CI
 
 on:
+  push:
+    branches: [ fyndx0 ]
   pull_request:
     branches: [ main ]
 
