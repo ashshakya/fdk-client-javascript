@@ -6420,7 +6420,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | from | string |  no  |  |
+ | redirect_from | string |  no  |  |
  | redirect_to | string |  no  |  |
  | type | string |  no  |  |
 

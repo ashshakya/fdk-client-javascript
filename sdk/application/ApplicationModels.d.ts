@@ -77,6 +77,8 @@ export class ThemeValidator {
 export class UserValidator {
     static loginWithFacebook(): any;
     static loginWithGoogle(): any;
+    static loginWithGoogleOauth(): any;
+    static loginWithGoogleAndRedirect(): any;
     static loginWithGoogleAndroid(): any;
     static loginWithGoogleIOS(): any;
     static loginWithOTP(): any;

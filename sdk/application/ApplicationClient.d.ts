@@ -1187,6 +1187,26 @@ declare class User {
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.platform] - ID of the application
+     * @returns {Promise<AuthSuccess>} - Success response
+     * @summary: Login or Register using Google
+     * @description: Use this API to login or register using Google Account credentials.
+     */
+    loginWithGoogleOauth({ platform }?: {
+        platform?: string;
+    }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @param {string} [arg.platform] - ID of the application
+     * @returns {Promise<AuthSuccess>} - Success response
+     * @summary: Login or Register using Google
+     * @description: Use this API to login or register using Google Account credentials.
+     */
+    loginWithGoogleAndRedirect({ platform }?: {
+        platform?: string;
+    }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @param {string} [arg.platform] - ID of the application
      * @param {OAuthRequestSchema} arg.body
      * @returns {Promise<AuthSuccess>} - Success response
      * @summary: Login or Register using Google on Android

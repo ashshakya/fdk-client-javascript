@@ -8,6 +8,8 @@
 Authentication Service
 * [loginWithFacebook](#loginwithfacebook)
 * [loginWithGoogle](#loginwithgoogle)
+* [loginWithGoogleOauth](#loginwithgoogleoauth)
+* [loginWithGoogleAndRedirect](#loginwithgoogleandredirect)
 * [loginWithGoogleAndroid](#loginwithgoogleandroid)
 * [loginWithGoogleIOS](#loginwithgoogleios)
 * [loginWithOTP](#loginwithotp)
@@ -129,6 +131,130 @@ const data = await user.loginWithGoogle({  body : value,
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
 | body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
+
+
+Use this API to login or register using Google Account credentials.
+
+*Returned Response:*
+
+
+
+
+[AuthSuccess](#AuthSuccess)
+
+Success. Returns a JSON object with the user details. Check the example shown below or refer `AuthSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/AuthSuccess"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### loginWithGoogleOauth
+Login or Register using Google
+
+
+
+```javascript
+// Promise
+const promise = user.loginWithGoogleOauth({  platform : value });
+
+// Async/Await
+const data = await user.loginWithGoogleOauth({  platform : value });
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| platform | string | no | ID of the application |  
+
+
+
+Use this API to login or register using Google Account credentials.
+
+*Returned Response:*
+
+
+
+
+[AuthSuccess](#AuthSuccess)
+
+Success. Returns a google url and redirect to same
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/AuthSuccess"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### loginWithGoogleAndRedirect
+Login or Register using Google
+
+
+
+```javascript
+// Promise
+const promise = user.loginWithGoogleAndRedirect({  platform : value });
+
+// Async/Await
+const data = await user.loginWithGoogleAndRedirect({  platform : value });
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| platform | string | no | ID of the application |  
+
 
 
 Use this API to login or register using Google Account credentials.

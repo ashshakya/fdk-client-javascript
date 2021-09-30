@@ -6322,7 +6322,7 @@ class Validator {
 
   static ApplicationRedirections() {
     return Joi.object({
-      from: Joi.string().allow(""),
+      redirect_from: Joi.string().allow(""),
 
       redirect_to: Joi.string().allow(""),
 
@@ -10127,6 +10127,18 @@ class UserValidator {
       platform: Joi.string().allow(""),
       body: Validator.OAuthRequestSchema().required(),
     }).required();
+  }
+
+  static loginWithGoogleOauth() {
+    return Joi.object({
+      platform: Joi.string().allow(""),
+    });
+  }
+
+  static loginWithGoogleAndRedirect() {
+    return Joi.object({
+      platform: Joi.string().allow(""),
+    });
   }
 
   static loginWithGoogleAndroid() {

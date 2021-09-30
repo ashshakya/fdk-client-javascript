@@ -2183,7 +2183,7 @@ Success. Check the example shown below or refer `AppStaffResponse` for more deta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | from | string |  no  |  |
+ | redirect_from | string |  no  |  |
  | redirect_to | string |  no  |  |
  | type | string |  no  |  |
 
