@@ -48,6 +48,8 @@ Content System
 * [updatePage](#updatepage)
 * [deletePage](#deletepage)
 * [getPageBySlug](#getpagebyslug)
+* [updatePathRedirectionRules](#updatepathredirectionrules)
+* [getPathRedirectionRules](#getpathredirectionrules)
 * [getSEOConfiguration](#getseoconfiguration)
 * [updateSEOConfiguration](#updateseoconfiguration)
 * [getSlideshows](#getslideshows)
@@ -2443,12 +2445,10 @@ Get page meta
 
 ```javascript
 // Promise
-const promise = client.application("<APPLICATION_ID>").content.getPageMeta({  pageType : value,
- cartPages : value });
+const promise = client.application("<APPLICATION_ID>").content.getPageMeta();
 
 // Async/Await
-const data = await client.application("<APPLICATION_ID>").content.getPageMeta({  pageType : value,
- cartPages : value });
+const data = await client.application("<APPLICATION_ID>").content.getPageMeta();
 ```
 
 
@@ -2456,9 +2456,7 @@ const data = await client.application("<APPLICATION_ID>").content.getPageMeta({ 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |    
-| pageType | string | no | Fetch meta by page type. Acceptable values are: system, custom and all |    
-| cartPages | boolean | no | Pass this param value as `true` to fetch meta with cart pages |  
+| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -3028,6 +3026,131 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
 ```json
 {
   "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updatePathRedirectionRules
+Save path based redirection rules
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.updatePathRedirectionRules({  body : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.updatePathRedirectionRules({  body : value });
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
+
+
+Use this API to add, update or delete path-based redirection rules
+
+*Returned Response:*
+
+
+
+
+[PathMappingSchema](#PathMappingSchema)
+
+Success. Refer `PathMappingSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "redirections": [
+    {
+      "redirect_from": "test.hostfynd.dev/redirect_from",
+      "redirect_to": "/redirect_to"
+    }
+  ]
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPathRedirectionRules
+Get path based redirection rules
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.getPathRedirectionRules();
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.getPathRedirectionRules();
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+
+
+
+Use this API to get path based redirection rules.
+
+*Returned Response:*
+
+
+
+
+[PathMappingSchema](#PathMappingSchema)
+
+Success. Refer `PathMappingSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PathMapping"
 }
 ```
 </details>
@@ -4147,6 +4270,33 @@ Success.
  | ---------- | ---- | -------- | ----------- |
  | question | string |  no  |  |
  | answer | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PathMappingSchema](#PathMappingSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | application | string |  no  |  |
+ | redirections | [[RedirectionSchema](#RedirectionSchema)] |  no  |  |
+ | _id | string |  no  |  |
+ | updated_at | string |  no  |  |
+ | created_at | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RedirectionSchema](#RedirectionSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirect_from | string |  no  |  |
+ | redirect_to | string |  no  |  |
 
 ---
 

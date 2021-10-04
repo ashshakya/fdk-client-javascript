@@ -1195,6 +1195,33 @@ Success. Returns a JSON object containing all the tags injected in the applicati
 
  
  
+ #### [PathMappingSchema](#PathMappingSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | application | string |  no  |  |
+ | redirections | [[RedirectionSchema](#RedirectionSchema)] |  no  |  |
+ | _id | string |  no  |  |
+ | updated_at | string |  no  |  |
+ | created_at | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RedirectionSchema](#RedirectionSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirect_from | string |  no  |  |
+ | redirect_to | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [SeoComponent](#SeoComponent)
 
  | Properties | Type | Nullable | Description |
