@@ -56,10 +56,8 @@ getProductDetails();
 const { PlatformConfig, PlatformClient } = require("fdk-client-javascript");
 
 let platformConfig = new PlatformConfig({
-  companyId: "COMPANY_ID",
-  apiKey: "API_KEY", 
-  apiSecret: "API_SECRET", 
-  domain: "DOMAIN",
+  companyId: 1,
+  domain: "api.fyndx0.de",
 });
 
 async function getData() {
