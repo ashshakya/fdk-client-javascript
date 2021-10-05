@@ -39,9 +39,10 @@ const data = await client.inventory.getJobsByCompany({  pageNo : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |    
+| --------- | -----  | -------- | ----------- |  
 | pageNo | number | no | Page Number |    
 | pageSize | number | no | Page Size |  
 
@@ -95,9 +96,10 @@ const data = await client.inventory.updateJob({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |  
+| --------- | -----  | -------- | ----------- |
 | body | [JobConfigDTO](#JobConfigDTO) | yes | Request body |
 
 
@@ -149,9 +151,10 @@ const data = await client.inventory.createJob({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |  
+| --------- | -----  | -------- | ----------- |
 | body | [JobConfigDTO](#JobConfigDTO) | yes | Request body |
 
 
@@ -203,9 +206,10 @@ const data = await client.inventory.getJobSteps({  jobId : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | jobId | number | yes | Job Id |  
 
 
@@ -262,9 +266,10 @@ const data = await client.inventory.getJobByCompanyAndIntegration({  integration
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | integrationId | string | yes | Integration Id |    
 | pageNo | number | no | Page Number |    
 | pageSize | number | no | Page Size |  
@@ -319,9 +324,10 @@ const data = await client.inventory.disable({  integrationId : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | integrationId | string | yes | IntegrationId |  
 
 
@@ -374,9 +380,6 @@ const data = await client.inventory.getJobConfigDefaults();
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |  
 
 
 
@@ -428,9 +431,10 @@ const data = await client.inventory.getJobByCode({  code : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | code | string | yes | Job Code |  
 
 
@@ -491,9 +495,10 @@ const data = await client.inventory.getJobCodeMetrics({  code : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | code | string | yes | Code |    
 | pageNo | number | no | Page Number |    
 | pageSize | number | no | Page Size |    
@@ -554,9 +559,10 @@ const data = await client.inventory.getJobCodesByCompanyAndIntegration({  integr
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | Company Id |   
 | integrationId | string | yes | Integration Id |    
 | pageNo | number | no | Page Number |    
 | pageSize | number | no | Page Size |  

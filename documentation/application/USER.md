@@ -9,7 +9,6 @@ Authentication Service
 * [loginWithFacebook](#loginwithfacebook)
 * [loginWithGoogle](#loginwithgoogle)
 * [loginWithGoogleOauth](#loginwithgoogleoauth)
-* [loginWithGoogleAndRedirect](#loginwithgoogleandredirect)
 * [loginWithGoogleAndroid](#loginwithgoogleandroid)
 * [loginWithGoogleIOS](#loginwithgoogleios)
 * [loginWithOTP](#loginwithotp)
@@ -60,6 +59,8 @@ const promise = user.loginWithFacebook({  body : value,
 const data = await user.loginWithFacebook({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -127,6 +128,8 @@ const data = await user.loginWithGoogle({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -189,6 +192,8 @@ const data = await user.loginWithGoogleOauth({  platform : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -236,68 +241,6 @@ Success. Returns a google url and redirect to same
 ---
 
 
-### loginWithGoogleAndRedirect
-Login or Register using Google
-
-
-
-```javascript
-// Promise
-const promise = user.loginWithGoogleAndRedirect({  platform : value });
-
-// Async/Await
-const data = await user.loginWithGoogleAndRedirect({  platform : value });
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |  
-| platform | string | no | ID of the application |  
-
-
-
-Use this API to login or register using Google Account credentials.
-
-*Returned Response:*
-
-
-
-
-[AuthSuccess](#AuthSuccess)
-
-Success. Returns a JSON object with the user details. Check the example shown below or refer `AuthSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/AuthSuccess"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### loginWithGoogleAndroid
 Login or Register using Google on Android
 
@@ -312,6 +255,8 @@ const promise = user.loginWithGoogleAndroid({  body : value,
 const data = await user.loginWithGoogleAndroid({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -379,6 +324,8 @@ const data = await user.loginWithGoogleIOS({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -443,6 +390,8 @@ const data = await user.loginWithOTP({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -502,6 +451,8 @@ const promise = user.loginWithEmailAndPassword({  body : value });
 // Async/Await
 const data = await user.loginWithEmailAndPassword({  body : value });
 ```
+
+
 
 
 
@@ -568,6 +519,8 @@ const data = await user.sendResetPasswordEmail({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -621,6 +574,8 @@ const promise = user.forgotPassword({  body : value });
 // Async/Await
 const data = await user.forgotPassword({  body : value });
 ```
+
+
 
 
 
@@ -685,6 +640,8 @@ const data = await user.sendResetToken({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
 | body | [CodeRequestBodySchema](#CodeRequestBodySchema) | yes | Request body |
@@ -737,6 +694,8 @@ const promise = user.loginWithToken({  body : value });
 // Async/Await
 const data = await user.loginWithToken({  body : value });
 ```
+
+
 
 
 
@@ -800,6 +759,8 @@ const promise = user.registerWithForm({  body : value,
 const data = await user.registerWithForm({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -868,6 +829,8 @@ const data = await user.verifyEmail({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
 | body | [CodeRequestBodySchema](#CodeRequestBodySchema) | yes | Request body |
@@ -920,6 +883,8 @@ const promise = user.verifyMobile({  body : value });
 // Async/Await
 const data = await user.verifyMobile({  body : value });
 ```
+
+
 
 
 
@@ -979,6 +944,8 @@ const data = await user.hasPassword();
 
 
 
+
+
 Use this API to check if user has created a password for login.
 
 *Returned Response:*
@@ -1024,6 +991,8 @@ const promise = user.updatePassword({  body : value });
 // Async/Await
 const data = await user.updatePassword({  body : value });
 ```
+
+
 
 
 
@@ -1083,6 +1052,8 @@ const data = await user.logout();
 
 
 
+
+
 Use this API to check to logout a user from the app.
 
 *Returned Response:*
@@ -1130,6 +1101,8 @@ const promise = user.sendOTPOnMobile({  body : value,
 const data = await user.sendOTPOnMobile({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -1197,6 +1170,8 @@ const data = await user.verifyMobileOTP({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -1261,6 +1236,8 @@ const data = await user.sendOTPOnEmail({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -1316,6 +1293,8 @@ const promise = user.verifyEmailOTP({  body : value,
 const data = await user.verifyEmailOTP({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -1382,6 +1361,8 @@ const data = await user.getLoggedInUser();
 
 
 
+
+
 Use this API  to get the details of a logged in user.
 
 *Returned Response:*
@@ -1439,6 +1420,8 @@ const data = await user.getListOfActiveSessions();
 
 
 
+
+
 Use this API to retrieve all active sessions of a user.
 
 *Returned Response:*
@@ -1489,6 +1472,8 @@ const promise = user.getPlatformConfig({  name : value });
 // Async/Await
 const data = await user.getPlatformConfig({  name : value });
 ```
+
+
 
 
 
@@ -1613,6 +1598,8 @@ const data = await user.updateProfile({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
@@ -1674,6 +1661,8 @@ const promise = user.addMobileNumber({  body : value,
 const data = await user.addMobileNumber({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -1749,6 +1738,8 @@ const data = await user.deleteMobileNumber({  active : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |   
@@ -1816,6 +1807,8 @@ const data = await user.setMobileNumberAsPrimary({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
 | body | [SendVerificationLinkMobileRequestSchema](#SendVerificationLinkMobileRequestSchema) | yes | Request body |
@@ -1876,6 +1869,8 @@ const promise = user.sendVerificationLinkToMobile({  body : value,
 const data = await user.sendVerificationLinkToMobile({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -1940,6 +1935,8 @@ const promise = user.addEmail({  body : value,
 const data = await user.addEmail({  body : value,
  platform : value });
 ```
+
+
 
 
 
@@ -2013,6 +2010,8 @@ const data = await user.deleteEmail({  active : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |   
@@ -2079,6 +2078,8 @@ const data = await user.setEmailAsPrimary({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
 | body | [EditEmailRequestSchema](#EditEmailRequestSchema) | yes | Request body |
@@ -2139,6 +2140,8 @@ const promise = user.sendVerificationLinkToEmail({  body : value,
 const data = await user.sendVerificationLinkToEmail({  body : value,
  platform : value });
 ```
+
+
 
 
 

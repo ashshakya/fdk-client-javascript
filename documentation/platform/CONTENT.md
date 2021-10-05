@@ -88,10 +88,10 @@ const data = await client.application("<APPLICATION_ID>").content.getAnnouncemen
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |    
+| --------- | -----  | -------- | ----------- |  
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
 
@@ -153,10 +153,10 @@ const data = await client.application("<APPLICATION_ID>").content.createAnnounce
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [AdminAnnouncementSchema](#AdminAnnouncementSchema) | yes | Request body |
 
 
@@ -216,10 +216,10 @@ const data = await client.application("<APPLICATION_ID>").content.getAnnouncemen
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | announcementId | string | yes | ID allotted to the announcement. |  
 
 
@@ -282,10 +282,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateAnnounce
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | announcementId | string | yes | ID allotted to the announcement. |  
 | body | [AdminAnnouncementSchema](#AdminAnnouncementSchema) | yes | Request body |
 
@@ -348,10 +348,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateAnnounce
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | announcementId | string | yes | ID allotted to the announcement. |  
 | body | [ScheduleSchema](#ScheduleSchema) | yes | Request body |
 
@@ -412,10 +412,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteAnnounce
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | announcementId | string | yes | ID allotted to the announcement. |  
 
 
@@ -476,10 +476,10 @@ const data = await client.application("<APPLICATION_ID>").content.createBlog({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [BlogRequest](#BlogRequest) | yes | Request body |
 
 
@@ -541,10 +541,10 @@ const data = await client.application("<APPLICATION_ID>").content.getBlogs({  pa
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |    
+| --------- | -----  | -------- | ----------- |  
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
 
@@ -608,10 +608,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateBlog({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the blog. |  
 | body | [BlogRequest](#BlogRequest) | yes | Request body |
 
@@ -672,10 +672,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteBlog({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the blog. |  
 
 
@@ -736,10 +736,10 @@ const data = await client.application("<APPLICATION_ID>").content.getComponentBy
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | slug | string | yes | A short, human-readable, URL-friendly identifier of a blog page. You can get slug value of a blog from `getBlogs` API. |  
 
 
@@ -800,10 +800,6 @@ const data = await client.application("<APPLICATION_ID>").content.getFaqCategori
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -868,10 +864,10 @@ const data = await client.application("<APPLICATION_ID>").content.getFaqCategory
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | idOrSlug | string | yes | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
@@ -941,10 +937,10 @@ const data = await client.application("<APPLICATION_ID>").content.createFaqCateg
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [CreateFaqCategoryRequestSchema](#CreateFaqCategoryRequestSchema) | yes | Request body |
 
 
@@ -1007,10 +1003,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateFaqCateg
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to an FAQ category. |  
 | body | [UpdateFaqCategoryRequestSchema](#UpdateFaqCategoryRequestSchema) | yes | Request body |
 
@@ -1072,10 +1068,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteFaqCateg
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to an FAQ category. |  
 
 
@@ -1138,10 +1134,10 @@ const data = await client.application("<APPLICATION_ID>").content.getFaqsByCateg
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | idOrSlug | string | yes | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
@@ -1206,10 +1202,10 @@ const data = await client.application("<APPLICATION_ID>").content.addFaq({  cate
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | categoryId | string | yes | ID allotted to an FAQ category. |  
 | body | [CreateFaqSchema](#CreateFaqSchema) | yes | Request body |
 
@@ -1274,10 +1270,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateFaq({  c
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | categoryId | string | yes | ID allotted to an FAQ category. |   
 | faqId | string | yes | ID allotted to an FAQ. |  
 | body | [CreateFaqSchema](#CreateFaqSchema) | yes | Request body |
@@ -1341,10 +1337,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteFaq({  c
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | categoryId | string | yes | ID allotted to an FAQ category. |   
 | faqId | string | yes | ID allotted to an FAQ. |  
 
@@ -1406,10 +1402,10 @@ const data = await client.application("<APPLICATION_ID>").content.getFaqByIdOrSl
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | idOrSlug | string | yes | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
@@ -1472,10 +1468,10 @@ const data = await client.application("<APPLICATION_ID>").content.getLandingPage
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |    
+| --------- | -----  | -------- | ----------- |  
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
 
@@ -1537,10 +1533,10 @@ const data = await client.application("<APPLICATION_ID>").content.createLandingP
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [LandingPageSchema](#LandingPageSchema) | yes | Request body |
 
 
@@ -1602,10 +1598,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateLandingP
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to a landing page. |  
 | body | [LandingPageSchema](#LandingPageSchema) | yes | Request body |
 
@@ -1666,10 +1662,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteLandingP
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to a landing page. |  
 
 
@@ -1753,10 +1749,6 @@ const data = await client.application("<APPLICATION_ID>").content.getLegalInform
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -1816,10 +1808,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateLegalInf
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [ApplicationLegal](#ApplicationLegal) | yes | Request body |
 
 
@@ -1884,10 +1876,10 @@ const data = await client.application("<APPLICATION_ID>").content.getNavigations
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | devicePlatform | string | yes | Filter navigations by platform. Acceptable values are: web, android, ios, all |    
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
@@ -1950,10 +1942,10 @@ const data = await client.application("<APPLICATION_ID>").content.createNavigati
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [NavigationRequest](#NavigationRequest) | yes | Request body |
 
 
@@ -2013,10 +2005,6 @@ const data = await client.application("<APPLICATION_ID>").content.getDefaultNavi
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -2078,10 +2066,10 @@ const data = await client.application("<APPLICATION_ID>").content.getNavigationB
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | slug | string | yes | A short, human-readable, URL-friendly identifier of a navigation. You can get slug value of a navigation from `getNavigations` API. |   
 | devicePlatform | string | yes | Filter navigations by platform. Acceptable values are: web, android, ios, all |  
 
@@ -2145,10 +2133,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateNavigati
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the navigation. |  
 | body | [NavigationRequest](#NavigationRequest) | yes | Request body |
 
@@ -2209,10 +2197,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteNavigati
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the navigation. |  
 
 
@@ -2453,10 +2441,6 @@ const data = await client.application("<APPLICATION_ID>").content.getPageMeta();
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -2516,10 +2500,6 @@ const data = await client.application("<APPLICATION_ID>").content.getPageSpec();
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -2605,10 +2585,10 @@ const data = await client.application("<APPLICATION_ID>").content.createPage({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [PageRequest](#PageRequest) | yes | Request body |
 
 
@@ -2670,10 +2650,10 @@ const data = await client.application("<APPLICATION_ID>").content.getPages({  pa
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |    
+| --------- | -----  | -------- | ----------- |  
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
 
@@ -2735,10 +2715,10 @@ const data = await client.application("<APPLICATION_ID>").content.createPagePrev
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [PageRequest](#PageRequest) | yes | Request body |
 
 
@@ -2800,10 +2780,10 @@ const data = await client.application("<APPLICATION_ID>").content.updatePagePrev
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | slug | string | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
 | body | [PagePublishRequest](#PagePublishRequest) | yes | Request body |
 
@@ -2866,10 +2846,10 @@ const data = await client.application("<APPLICATION_ID>").content.updatePage({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the page. |  
 | body | [PageSchema](#PageSchema) | yes | Request body |
 
@@ -2930,10 +2910,10 @@ const data = await client.application("<APPLICATION_ID>").content.deletePage({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the page. |  
 
 
@@ -2994,10 +2974,10 @@ const data = await client.application("<APPLICATION_ID>").content.getPageBySlug(
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | slug | string | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
 
 
@@ -3058,10 +3038,10 @@ const data = await client.application("<APPLICATION_ID>").content.updatePathRedi
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
 
 
@@ -3120,10 +3100,6 @@ const data = await client.application("<APPLICATION_ID>").content.getPathRedirec
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -3183,10 +3159,6 @@ const data = await client.application("<APPLICATION_ID>").content.getSEOConfigur
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -3246,10 +3218,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateSEOConfi
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [SeoComponent](#SeoComponent) | yes | Request body |
 
 
@@ -3336,10 +3308,10 @@ const data = await client.application("<APPLICATION_ID>").content.getSlideshows(
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | devicePlatform | string | yes | Filter slideshows by platform. Acceptable values are: web, android, ios and all |    
 | pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
 | pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
@@ -3402,10 +3374,10 @@ const data = await client.application("<APPLICATION_ID>").content.createSlidesho
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [SlideshowRequest](#SlideshowRequest) | yes | Request body |
 
 
@@ -3467,10 +3439,10 @@ const data = await client.application("<APPLICATION_ID>").content.getSlideshowBy
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | slug | string | yes | A short, human-readable, URL-friendly identifier of a slideshow. You can get slug value of a page from `getSlideshows` API. |   
 | devicePlatform | string | yes | Filter slideshows by platform. Acceptable values are: web, android, ios and all |  
 
@@ -3534,10 +3506,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateSlidesho
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the slideshow. |  
 | body | [SlideshowRequest](#SlideshowRequest) | yes | Request body |
 
@@ -3598,10 +3570,10 @@ const data = await client.application("<APPLICATION_ID>").content.deleteSlidesho
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | string | yes | Numeric ID allotted to an application created within a business account. |   
 | id | string | yes | ID allotted to the slideshow. |  
 
 
@@ -3701,10 +3673,6 @@ const data = await client.application("<APPLICATION_ID>").content.getSupportInfo
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
@@ -3764,10 +3732,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateSupportI
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [Support](#Support) | yes | Request body |
 
 
@@ -3827,10 +3795,10 @@ const data = await client.application("<APPLICATION_ID>").content.updateInjectab
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [CreateTagRequestSchema](#CreateTagRequestSchema) | yes | Request body |
 
 
@@ -3904,10 +3872,6 @@ const data = await client.application("<APPLICATION_ID>").content.deleteAllInjec
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
@@ -3981,10 +3945,6 @@ const data = await client.application("<APPLICATION_ID>").content.getInjectableT
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
@@ -4058,10 +4018,10 @@ const data = await client.application("<APPLICATION_ID>").content.addInjectableT
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [CreateTagRequestSchema](#CreateTagRequestSchema) | yes | Request body |
 
 
@@ -4127,10 +4087,10 @@ const data = await client.application("<APPLICATION_ID>").content.removeInjectab
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| --------- | -----  | -------- | ----------- |
 | body | [RemoveHandpickedSchema](#RemoveHandpickedSchema) | yes | Request body |
 
 
@@ -4186,10 +4146,10 @@ const data = await client.application("<APPLICATION_ID>").content.editInjectable
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | string | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | string | yes | Alphanumeric ID allotted to an application created within a business account. |   
 | tagId | string | yes | ID allotted to the tag. |  
 | body | [UpdateHandpickedSchema](#UpdateHandpickedSchema) | yes | Request body |
 

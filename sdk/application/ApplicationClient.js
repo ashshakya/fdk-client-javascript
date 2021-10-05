@@ -2593,33 +2593,6 @@ class User {
   /**
    * @param {Object} arg - Arg object.
    * @param {string} [arg.platform] - ID of the application
-   * @returns {Promise<AuthSuccess>} - Success response
-   * @summary: Login or Register using Google
-   * @description: Use this API to login or register using Google Account credentials.
-   */
-  loginWithGoogleAndRedirect({ platform } = {}) {
-    const { error } = UserValidator.loginWithGoogleAndRedirect().validate(
-      { platform },
-      { abortEarly: false }
-    );
-    if (error) {
-      return Promise.reject(new FDKClientValidationError(error));
-    }
-    const query = {};
-    query["platform"] = platform;
-
-    return APIClient.execute(
-      this._conf,
-      "get",
-      `/service/application/user/authentication/v1.0/login/google/callback`,
-      query,
-      undefined
-    );
-  }
-
-  /**
-   * @param {Object} arg - Arg object.
-   * @param {string} [arg.platform] - ID of the application
    * @param {OAuthRequestSchema} arg.body
    * @returns {Promise<AuthSuccess>} - Success response
    * @summary: Login or Register using Google on Android

@@ -39,10 +39,11 @@ const data = await client.filestorage.startUpload({  namespace : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |  
+| namespace | string | yes | bucket name |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -114,10 +115,11 @@ const data = await client.filestorage.completeUpload({  namespace : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |  
+| namespace | string | yes | bucket name |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -189,11 +191,11 @@ const data = await client.application("<APPLICATION_ID>").filestorage.appStartUp
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |   
-| applicationId | string | yes | application id |  
+| namespace | string | yes | bucket name |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -265,11 +267,11 @@ const data = await client.application("<APPLICATION_ID>").filestorage.appComplet
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |   
-| applicationId | string | yes | application id |  
+| namespace | string | yes | bucket name |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -339,9 +341,10 @@ const data = await client.filestorage.getSignUrls({  body : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | company_id |  
+| --------- | -----  | -------- | ----------- |
 | body | [SignUrlRequest](#SignUrlRequest) | yes | Request body |
 
 
@@ -395,10 +398,11 @@ const data = await client.filestorage.copyFiles({  body : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
-| sync | boolean | no | sync |   
-| companyId | number | yes | company_id |  
+| sync | boolean | no | sync |  
 | body | [BulkRequest](#BulkRequest) | yes | Request body |
 
 
@@ -479,11 +483,11 @@ const data = await client.application("<APPLICATION_ID>").filestorage.appCopyFil
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
-| sync | boolean | no | sync |   
-| companyId | number | yes | company_id |   
-| applicationId | number | yes | application_id |  
+| sync | boolean | no | sync |  
 | body | [BulkRequest](#BulkRequest) | yes | Request body |
 
 
@@ -564,10 +568,11 @@ const data = await client.filestorage.browse({  namespace : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |    
+| namespace | string | yes | bucket name |    
 | pageNo | number | no | page no |  
 
 
@@ -622,11 +627,11 @@ const data = await client.application("<APPLICATION_ID>").filestorage.browse({  
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |   
-| companyId | number | yes | company_id |   
-| applicationId | number | yes | application_id |    
+| namespace | string | yes | bucket name |    
 | pageNo | number | no | page no |  
 
 
@@ -679,9 +684,10 @@ const data = await client.filestorage.proxy({  url : value });
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | number | yes | company_id |   
 | url | string | yes | url |  
 
 

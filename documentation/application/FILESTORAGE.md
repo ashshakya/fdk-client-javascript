@@ -31,6 +31,8 @@ const data = await filestorage.startUpload({  namespace : value,
 
 
 
+
+
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | string | yes | Name of the bucket created for storing objects. |  
@@ -102,6 +104,8 @@ const promise = filestorage.completeUpload({  namespace : value,
 const data = await filestorage.completeUpload({  namespace : value,
  body : value });
 ```
+
+
 
 
 
