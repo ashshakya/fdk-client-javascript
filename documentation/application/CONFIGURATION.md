@@ -1320,20 +1320,14 @@ Get a list of staff.
 
 ```javascript
 // Promise
-const promise = configuration.getAppStaffs({  pageNo : value,
- pageSize : value,
- orderIncent : value,
+const promise = configuration.getAppStaffs({  orderIncent : value,
  orderingStore : value,
- user : value,
- permission : value });
+ user : value });
 
 // Async/Await
-const data = await configuration.getAppStaffs({  pageNo : value,
- pageSize : value,
- orderIncent : value,
+const data = await configuration.getAppStaffs({  orderIncent : value,
  orderingStore : value,
- user : value,
- permission : value });
+ user : value });
 ```
 
 
@@ -1342,12 +1336,9 @@ const data = await configuration.getAppStaffs({  pageNo : value,
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
-| pageNo | number | no | Current page no |    
-| pageSize | number | no | Current request items count |    
 | orderIncent | boolean | no | This is a boolean value. Select `true` to retrieve the staff members eligible for getting incentives on orders. |    
 | orderingStore | number | no | ID of the ordering store. Helps in retrieving staff members working at a particular ordering store. |    
-| user | string | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |    
-| permission | string | no | Get Staff members with specific permissions |  
+| user | string | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |  
 
 
 
@@ -1539,8 +1530,7 @@ Success. Check the example shown below or refer `AppStaffResponse` for more deta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[AppStaff](#AppStaff)] |  no  |  |
- | page | [Page](#Page) |  no  |  |
+ | staff_users | [[AppStaff](#AppStaff)] |  no  |  |
 
 ---
 

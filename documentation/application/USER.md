@@ -184,10 +184,12 @@ Login or Register using Google
 
 ```javascript
 // Promise
-const promise = user.loginWithGoogleOauth({  platform : value });
+const promise = user.loginWithGoogleOauth({  platform : value,
+ redirectUrl : value });
 
 // Async/Await
-const data = await user.loginWithGoogleOauth({  platform : value });
+const data = await user.loginWithGoogleOauth({  platform : value,
+ redirectUrl : value });
 ```
 
 
@@ -196,7 +198,8 @@ const data = await user.loginWithGoogleOauth({  platform : value });
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
-| platform | string | no | ID of the application |  
+| platform | string | no | ID of the application |    
+| redirectUrl | string | no | Url to redirect after login |  
 
 
 

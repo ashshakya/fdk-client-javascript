@@ -1187,12 +1187,14 @@ declare class User {
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.platform] - ID of the application
+     * @param {string} [arg.redirectUrl] - Url to redirect after login
      * @returns {Promise<AuthSuccess>} - Success response
      * @summary: Login or Register using Google
      * @description: Use this API to login or register using Google Account credentials.
      */
-    loginWithGoogleOauth({ platform }?: {
+    loginWithGoogleOauth({ platform, redirectUrl }?: {
         platform?: string;
+        redirectUrl?: string;
     }): Promise<any>;
     /**
      * @param {Object} arg - Arg object.
@@ -2072,47 +2074,21 @@ declare class Configuration {
     removeOrderingStoreCookie({}?: any): Promise<any>;
     /**
      * @param {Object} arg - Arg object.
-     * @param {number} [arg.pageNo] - Current page no
-     * @param {number} [arg.pageSize] - Current request items count
      * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
      *   `true` to retrieve the staff members eligible for getting incentives on orders.
      * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
      *   retrieving staff members working at a particular ordering store.
      * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
      *   the details of a particular staff member.
-     * @param {string} [arg.permission] - Get Staff members with specific permissions
      * @returns {Promise<AppStaffResponse>} - Success response
      * @summary: Get a list of staff.
      * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
      */
-    getAppStaffs({ pageNo, pageSize, orderIncent, orderingStore, user, permission, }?: {
-        pageNo?: number;
-        pageSize?: number;
+    getAppStaffs({ orderIncent, orderingStore, user }?: {
         orderIncent?: boolean;
         orderingStore?: number;
         user?: string;
-        permission?: string;
     }): Promise<any>;
-    /**
-     * @param {Object} arg - Arg object.
-     * @param {number} [arg.pageSize] - Current request items count
-     * @param {boolean} [arg.orderIncent] - This is a boolean value. Select
-     *   `true` to retrieve the staff members eligible for getting incentives on orders.
-     * @param {number} [arg.orderingStore] - ID of the ordering store. Helps in
-     *   retrieving staff members working at a particular ordering store.
-     * @param {string} [arg.user] - Mongo ID of the staff. Helps in retrieving
-     *   the details of a particular staff member.
-     * @param {string} [arg.permission] - Get Staff members with specific permissions
-     * @summary: Get a list of staff.
-     * @description: Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
-     */
-    getAppStaffsPaginator({ pageSize, orderIncent, orderingStore, user, permission, }?: {
-        pageSize?: number;
-        orderIncent?: boolean;
-        orderingStore?: number;
-        user?: string;
-        permission?: string;
-    }): Paginator;
 }
 declare class Payment {
     constructor(_conf: any);
