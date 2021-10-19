@@ -196,8 +196,8 @@ export class CatalogValidator {
     static getAllCollections(): any;
     static createCollection(): any;
     static getCollectionDetail(): any;
-    static updateCollection(): any;
     static deleteCollection(): any;
+    static updateCollection(): any;
     static getCollectionItems(): any;
     static addCollectionItems(): any;
     static getCatalogInsights(): any;
@@ -241,6 +241,7 @@ export class ConfigurationValidator {
     static updateAppCurrencyConfig(): any;
     static getOrderingStoresByFilter(): any;
     static updateOrderingStoreConfig(): any;
+    static getStaffOrderingStores(): any;
     static getDomains(): any;
     static addDomain(): any;
     static removeDomainById(): any;

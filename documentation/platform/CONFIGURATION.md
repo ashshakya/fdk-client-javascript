@@ -26,6 +26,7 @@ Application configuration apis
 * [updateAppCurrencyConfig](#updateappcurrencyconfig)
 * [getOrderingStoresByFilter](#getorderingstoresbyfilter)
 * [updateOrderingStoreConfig](#updateorderingstoreconfig)
+* [getStaffOrderingStores](#getstafforderingstores)
 * [getDomains](#getdomains)
 * [addDomain](#adddomain)
 * [removeDomainById](#removedomainbyid)
@@ -41,7 +42,9 @@ Application configuration apis
 * [getSelectedOptIns](#getselectedoptins)
 * [getIntegrationLevelConfig](#getintegrationlevelconfig)
 * [getIntegrationByLevelId](#getintegrationbylevelid)
+* [updateLevelUidIntegration](#updateleveluidintegration)
 * [getLevelActiveIntegrations](#getlevelactiveintegrations)
+* [updateLevelIntegration](#updatelevelintegration)
 * [getBrandsByCompany](#getbrandsbycompany)
 * [getCompanyByBrands](#getcompanybybrands)
 * [getStoreByBrands](#getstorebybrands)
@@ -2579,6 +2582,68 @@ Success
 ---
 
 
+### getStaffOrderingStores
+Get deployment stores
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores({  pageNo : value,
+ pageSize : value,
+ q : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores({  pageNo : value,
+ pageSize : value,
+ q : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
+| pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |    
+| q | string | no | Store code or name of the ordering store. |  
+
+
+
+Use this API to retrieve the details of all stores access given to the staff member (the selling locations where the application will be utilized for placing orders).
+
+*Returned Response:*
+
+
+
+
+[OrderingStoresResponse](#OrderingStoresResponse)
+
+Success. Check the example shown below or refer `OrderingStoresResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getDomains
 Get attached domain list
 
@@ -3902,6 +3967,87 @@ Success
 ---
 
 
+### updateLevelUidIntegration
+Update a store level opt-in for integration
+
+
+
+```javascript
+// Promise
+const promise = client.configuration.updateLevelUidIntegration({  id : value,
+ level : value,
+ uid : value,
+ body : value });
+
+// Async/Await
+const data = await client.configuration.updateLevelUidIntegration({  id : value,
+ level : value,
+ uid : value,
+ body : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| id | string | yes | Integration id |   
+| level | string | yes | Integration level |   
+| uid | number | yes | Integration level uid |  
+| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+
+
+Update a store level opt-in for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getLevelActiveIntegrations
 Check store has active integration
 
@@ -3939,6 +4085,84 @@ API checks if a store is already opted in any other integrations
 
 
 [OptedStoreIntegration](#OptedStoreIntegration)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateLevelIntegration
+Update a store level opt-in for integration
+
+
+
+```javascript
+// Promise
+const promise = client.configuration.updateLevelIntegration({  id : value,
+ level : value,
+ body : value });
+
+// Async/Await
+const data = await client.configuration.updateLevelIntegration({  id : value,
+ level : value,
+ body : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| id | string | yes | Integration id |   
+| level | string | yes | Integration level |  
+| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+
+
+Update a store level opt-in for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
 
 Success
 
@@ -5281,7 +5505,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationOptIn](#IntegrationOptIn) |  no  |  |
+ | items | [[IntegrationOptIn](#IntegrationOptIn)] |  no  |  |
  | page | [Page](#Page) |  no  |  |
 
 ---
@@ -5435,7 +5659,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationLevel](#IntegrationLevel) |  no  |  |
+ | items | [[IntegrationLevel](#IntegrationLevel)] |  no  |  |
 
 ---
 
@@ -6986,6 +7210,18 @@ Success
  | _id | string |  no  |  |
  | app | string |  no  |  |
  | __v | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderingStoresResponse](#OrderingStoresResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page) |  no  |  |
+ | items | [[OrderingStore](#OrderingStore)] |  no  |  |
 
 ---
 

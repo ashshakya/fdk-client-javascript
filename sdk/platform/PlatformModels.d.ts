@@ -98,8 +98,8 @@ export class CatalogValidator {
     static getProductSize(): any;
     static getProductBulkUploadHistory(): any;
     static updateProductAssetsInBulk(): any;
-    static createProductsInBulk(): any;
     static deleteProductBulkJob(): any;
+    static createProductsInBulk(): any;
     static getProductTags(): any;
     static getProductAssetsInBulk(): any;
     static createProductAssetsInBulk(): any;
@@ -110,8 +110,8 @@ export class CatalogValidator {
     static deleteInventory(): any;
     static getInventoryBulkUploadHistory(): any;
     static createBulkInventoryJob(): any;
-    static createBulkInventory(): any;
     static deleteBulkInventoryJob(): any;
+    static createBulkInventory(): any;
     static getInventoryExport(): any;
     static createInventoryExportJob(): any;
     static exportInventoryConfig(): any;
@@ -166,7 +166,9 @@ export class ConfigurationValidator {
     static getSelectedOptIns(): any;
     static getIntegrationLevelConfig(): any;
     static getIntegrationByLevelId(): any;
+    static updateLevelUidIntegration(): any;
     static getLevelActiveIntegrations(): any;
+    static updateLevelIntegration(): any;
     static getBrandsByCompany(): any;
     static getCompanyByBrands(): any;
     static getStoreByBrands(): any;
@@ -179,6 +181,18 @@ export class AnalyticsValidator {
     static getExportJobStatus(): any;
     static getLogsList(): any;
     static searchLogs(): any;
+}
+export class DiscountValidator {
+    static getDiscounts(): any;
+    static createDiscount(): any;
+    static getDiscount(): any;
+    static updateDiscount(): any;
+    static validateDiscountFile(): any;
+    static downloadDiscountFile(): any;
+    static getValidationJob(): any;
+    static cancelValidationJob(): any;
+    static getDownloadJob(): any;
+    static cancelDownloadJob(): any;
 }
 export class WebhookValidator {
     static getSubscribersByCompany(): any;
