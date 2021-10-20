@@ -60,12 +60,12 @@ export class OrderValidator {
 export class CatalogValidator {
     static getProductBundle(): any;
     static createProductBundle(): any;
-    static getProductBundleDetail(): any;
     static updateProductBundle(): any;
+    static getProductBundleDetail(): any;
     static getSizeGuides(): any;
     static createSizeGuide(): any;
-    static getSizeGuide(): any;
     static updateSizeGuide(): any;
+    static getSizeGuide(): any;
     static getSellerInsights(): any;
     static createMarketplaceOptin(): any;
     static getMarketplaceOptinDetail(): any;
@@ -87,19 +87,19 @@ export class CatalogValidator {
     static listTemplateBrandTypeValues(): any;
     static listCategories(): any;
     static createCategories(): any;
-    static getCategoryData(): any;
     static updateCategory(): any;
+    static getCategoryData(): any;
     static getProducts(): any;
     static createProduct(): any;
-    static getProduct(): any;
     static editProduct(): any;
+    static getProduct(): any;
     static deleteProduct(): any;
     static getProductValidation(): any;
     static getProductSize(): any;
     static getProductBulkUploadHistory(): any;
     static updateProductAssetsInBulk(): any;
-    static deleteProductBulkJob(): any;
     static createProductsInBulk(): any;
+    static deleteProductBulkJob(): any;
     static getProductTags(): any;
     static getProductAssetsInBulk(): any;
     static createProductAssetsInBulk(): any;
@@ -110,30 +110,30 @@ export class CatalogValidator {
     static deleteInventory(): any;
     static getInventoryBulkUploadHistory(): any;
     static createBulkInventoryJob(): any;
-    static deleteBulkInventoryJob(): any;
     static createBulkInventory(): any;
+    static deleteBulkInventoryJob(): any;
     static getInventoryExport(): any;
     static createInventoryExportJob(): any;
     static exportInventoryConfig(): any;
     static getAllHsnCodes(): any;
     static createHsnCode(): any;
-    static getHsnCode(): any;
     static updateHsnCode(): any;
+    static getHsnCode(): any;
     static bulkHsnCode(): any;
 }
 export class CompanyProfileValidator {
     static updateCompany(): any;
     static cbsOnboardGet(): any;
     static getCompanyMetrics(): any;
-    static editBrand(): any;
     static getBrand(): any;
+    static editBrand(): any;
     static createBrand(): any;
-    static createCompanyBrandMapping(): any;
     static getBrands(): any;
-    static createLocation(): any;
+    static createCompanyBrandMapping(): any;
     static getLocations(): any;
-    static updateLocation(): any;
+    static createLocation(): any;
     static getLocationDetail(): any;
+    static updateLocation(): any;
     static createLocationBulk(): any;
 }
 export class FileStorageValidator {
