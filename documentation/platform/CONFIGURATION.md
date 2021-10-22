@@ -5525,7 +5525,7 @@ Success
  | support | [string] |  no  |  |
  | _id | string |  no  |  |
  | name | string |  no  |  |
- | meta | [IntegrationMeta](#IntegrationMeta) |  no  |  |
+ | meta | [[IntegrationMeta](#IntegrationMeta)] |  no  |  |
  | icon | string |  no  |  |
  | owner | string |  no  |  |
  | created_at | string |  no  |  |
@@ -5557,7 +5557,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | json_schema | [JsonSchema](#JsonSchema) |  no  |  |
+ | json_schema | [[JsonSchema](#JsonSchema)] |  no  |  |
  | browser_script | string |  no  |  |
 
 ---
@@ -5672,7 +5672,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | opted | boolean |  no  |  |
  | permissions | [string] |  no  |  |
- | last_patch | [string] |  no  |  |
+ | last_patch | [[LastPatch](#LastPatch)] |  no  |  |
  | _id | string |  no  |  |
  | integration | string |  no  |  |
  | level | string |  no  |  |
@@ -5719,7 +5719,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | opted | boolean |  no  |  |
  | permissions | [string] |  no  |  |
- | last_patch | [LastPatch](#LastPatch) |  no  |  |
+ | last_patch | [[LastPatch](#LastPatch)] |  no  |  |
  | _id | string |  no  |  |
  | integration | string |  no  |  |
  | level | string |  no  |  |
