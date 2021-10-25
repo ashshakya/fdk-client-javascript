@@ -122,8 +122,8 @@ export class CatalogValidator {
     static bulkHsnCode(): any;
 }
 export class CompanyProfileValidator {
-    static updateCompany(): any;
     static cbsOnboardGet(): any;
+    static updateCompany(): any;
     static getCompanyMetrics(): any;
     static editBrand(): any;
     static getBrand(): any;
