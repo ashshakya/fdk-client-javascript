@@ -177,14 +177,14 @@ export class OrderValidator {
     static getShipmentTrackDetails(): any;
 }
 export class CatalogValidator {
-    static getSearchKeywords(): any;
     static updateSearchKeywords(): any;
     static deleteSearchKeywords(): any;
+    static getSearchKeywords(): any;
     static getAllSearchKeyword(): any;
     static createCustomKeyword(): any;
-    static getAutocompleteKeywordDetail(): any;
     static updateAutocompleteKeyword(): any;
     static deleteAutocompleteKeyword(): any;
+    static getAutocompleteKeywordDetail(): any;
     static getAutocompleteConfig(): any;
     static createCustomAutocompleteRule(): any;
     static getCatalogConfiguration(): any;
@@ -240,6 +240,7 @@ export class ConfigurationValidator {
     static partiallyUpdateInventoryConfig(): any;
     static getAppCurrencyConfig(): any;
     static updateAppCurrencyConfig(): any;
+    static getAppSupportedCurrency(): any;
     static getOrderingStoresByFilter(): any;
     static updateOrderingStoreConfig(): any;
     static getStaffOrderingStores(): any;
