@@ -932,6 +932,19 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
+ #### [OAuthRequestAppleSchema](#OAuthRequestAppleSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user_identifier | string |  no  |  |
+ | oauth | [OAuthRequestAppleSchemaOauth](#OAuthRequestAppleSchemaOauth) |  no  |  |
+ | profile | [OAuthRequestAppleSchemaProfile](#OAuthRequestAppleSchemaProfile) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [UserObjectSchema](#UserObjectSchema)
 
  | Properties | Type | Nullable | Description |
@@ -1318,6 +1331,30 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | image | string |  no  |  |
  | id | string |  no  |  |
  | email | string |  no  |  |
+ | full_name | string |  no  |  |
+ | first_name | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OAuthRequestAppleSchemaOauth](#OAuthRequestAppleSchemaOauth)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | identity_token | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OAuthRequestAppleSchemaProfile](#OAuthRequestAppleSchemaProfile)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | last_name | string |  no  |  |
  | full_name | string |  no  |  |
  | first_name | string |  no  |  |
 

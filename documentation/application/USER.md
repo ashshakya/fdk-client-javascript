@@ -399,7 +399,7 @@ const data = await user.loginWithAppleIOS({  body : value,
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
 | platform | string | no | ID of the application |  
-| body | [OAuthRequestSchema](#OAuthRequestSchema) | yes | Request body |
+| body | [OAuthRequestAppleSchema](#OAuthRequestAppleSchema) | yes | Request body |
 
 
 Use this API to login or register in iOS app using Apple Account credentials.
@@ -2502,6 +2502,19 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [OAuthRequestAppleSchema](#OAuthRequestAppleSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user_identifier | string |  no  |  |
+ | oauth | [OAuthRequestAppleSchemaOauth](#OAuthRequestAppleSchemaOauth) |  no  |  |
+ | profile | [OAuthRequestAppleSchemaProfile](#OAuthRequestAppleSchemaProfile) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [UserObjectSchema](#UserObjectSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2888,6 +2901,30 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | image | string |  no  |  |
  | id | string |  no  |  |
  | email | string |  no  |  |
+ | full_name | string |  no  |  |
+ | first_name | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OAuthRequestAppleSchemaOauth](#OAuthRequestAppleSchemaOauth)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | identity_token | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OAuthRequestAppleSchemaProfile](#OAuthRequestAppleSchemaProfile)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | last_name | string |  no  |  |
  | full_name | string |  no  |  |
  | first_name | string |  no  |  |
 
