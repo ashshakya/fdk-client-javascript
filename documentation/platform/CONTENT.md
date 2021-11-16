@@ -65,6 +65,10 @@ Content System
 * [addInjectableTag](#addinjectabletag)
 * [removeInjectableTag](#removeinjectabletag)
 * [editInjectableTag](#editinjectabletag)
+* [createPageV2](#createpagev2)
+* [getPagesV2](#getpagesv2)
+* [updatePageV2](#updatepagev2)
+* [getPageBySlugV2](#getpagebyslugv2)
 
 
 
@@ -4209,6 +4213,266 @@ Success.
 ---
 
 
+### createPageV2
+Create a page
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.createPageV2({  body : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.createPageV2({  body : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [PageRequest](#PageRequest) | yes | Request body |
+
+
+Use this API to create a custom page using a title, seo, publish status, feature image, tags, meta, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPagesV2
+Get a list of pages
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.getPagesV2({  pageNo : value,
+ pageSize : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.getPagesV2({  pageNo : value,
+ pageSize : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| pageNo | number | no | The page number to navigate through the given set of results. Default value is 1. |    
+| pageSize | number | no | The number of items to retrieve in each page. Default value is 10. |  
+
+
+
+Use this API to retrieve a list of pages.
+
+*Returned Response:*
+
+
+
+
+[PageGetResponse](#PageGetResponse)
+
+Success. Refer `PageGetResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageGetResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updatePageV2
+Update a page
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.updatePageV2({  id : value,
+ body : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.updatePageV2({  id : value,
+ body : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| id | string | yes | ID allotted to the page. |  
+| body | [PageSchema](#PageSchema) | yes | Request body |
+
+
+Use this API to edit the details of an existing page, such as its title, seo, publish status, feature image, tags, schedule, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPageBySlugV2
+Get pages by component Id
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").content.getPageBySlugV2({  slug : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").content.getPageBySlugV2({  slug : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | string | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
+
+
+
+Use this API to retrieve the components of a page, such as its title, seo, publish status, feature image, tags, schedule, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Returns a JSON object of components. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -5273,6 +5537,7 @@ Success.
  | application | string |  no  |  |
  | component_ids | [string] |  no  | Components can be used to store multiple components |
  | content | [string] |  no  |  |
+ | content_path | string |  no  |  |
  | created_by | [CreatedBySchema](#CreatedBySchema) |  no  |  |
  | date_meta | [DateMeta](#DateMeta) |  no  |  |
  | description | string |  no  |  |

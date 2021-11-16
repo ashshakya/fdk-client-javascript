@@ -24,6 +24,7 @@ Handles Platform websites OMS
 * [getShipmentTrackDetails](#getshipmenttrackdetails)
 * [getShipmentAddress](#getshipmentaddress)
 * [updateShipmentAddress](#updateshipmentaddress)
+* [getOrdersByApplicationId](#getordersbyapplicationid)
 * [getPing](#getping)
 * [voiceCallback](#voicecallback)
 * [voiceClickToCall](#voiceclicktocall)
@@ -1131,6 +1132,98 @@ Update Shipment Address
 [UpdateShipmentAddressResponse](#UpdateShipmentAddressResponse)
 
 Success. Check the example shown below or refer `UpdateShipmentAddressResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOrdersByApplicationId
+Get Orders for company based on Company Id
+
+
+
+```javascript
+// Promise
+const promise = client.application("<APPLICATION_ID>").order.getOrdersByApplicationId({  pageNo : value,
+ pageSize : value,
+ fromDate : value,
+ toDate : value,
+ q : value,
+ stage : value,
+ salesChannels : value,
+ orderId : value,
+ stores : value,
+ status : value,
+ dp : value,
+ shortenUrls : value,
+ filterType : value });
+
+// Async/Await
+const data = await client.application("<APPLICATION_ID>").order.getOrdersByApplicationId({  pageNo : value,
+ pageSize : value,
+ fromDate : value,
+ toDate : value,
+ q : value,
+ stage : value,
+ salesChannels : value,
+ orderId : value,
+ stores : value,
+ status : value,
+ dp : value,
+ shortenUrls : value,
+ filterType : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| pageNo | string | no | Current page number |    
+| pageSize | string | no | Page limit |    
+| fromDate | string | no | From Date |    
+| toDate | string | no | To Date |    
+| q | string | no | Keyword for Search |    
+| stage | string | no | Specefic Order Stage |    
+| salesChannels | string | no | Selected Sales Channel |    
+| orderId | string | no | Order Id |    
+| stores | string | no | Selected Stores |    
+| status | string | no | Status of order |    
+| dp | string | no | Delivery Partners |    
+| shortenUrls | boolean | no | Shorten URL option |    
+| filterType | string | no | Filters |  
+
+
+
+Get Orders at Application Level
+
+*Returned Response:*
+
+
+
+
+[OrderListing](#OrderListing)
+
+Success
 
 
 

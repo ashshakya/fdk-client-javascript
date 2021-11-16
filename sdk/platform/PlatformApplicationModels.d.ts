@@ -118,6 +118,10 @@ export class ContentValidator {
     static addInjectableTag(): any;
     static removeInjectableTag(): any;
     static editInjectableTag(): any;
+    static createPageV2(): any;
+    static getPagesV2(): any;
+    static updatePageV2(): any;
+    static getPageBySlugV2(): any;
 }
 export class CommunicationValidator {
     static getCampaigns(): any;
@@ -175,31 +179,32 @@ export class OrderValidator {
     static updateShipment(): any;
     static getPlatformShipmentReasons(): any;
     static getShipmentTrackDetails(): any;
+    static getOrdersByApplicationId(): any;
 }
 export class CatalogValidator {
-    static updateSearchKeywords(): any;
-    static getSearchKeywords(): any;
     static deleteSearchKeywords(): any;
-    static getAllSearchKeyword(): any;
+    static getSearchKeywords(): any;
+    static updateSearchKeywords(): any;
     static createCustomKeyword(): any;
-    static updateAutocompleteKeyword(): any;
-    static getAutocompleteKeywordDetail(): any;
+    static getAllSearchKeyword(): any;
     static deleteAutocompleteKeyword(): any;
-    static getAutocompleteConfig(): any;
+    static getAutocompleteKeywordDetail(): any;
+    static updateAutocompleteKeyword(): any;
     static createCustomAutocompleteRule(): any;
+    static getAutocompleteConfig(): any;
     static getCatalogConfiguration(): any;
-    static getConfigurations(): any;
     static createConfigurationProductListing(): any;
-    static getConfigurationByType(): any;
+    static getConfigurations(): any;
     static createConfigurationByType(): any;
+    static getConfigurationByType(): any;
     static getQueryFilters(): any;
-    static getAllCollections(): any;
     static createCollection(): any;
+    static getAllCollections(): any;
     static getCollectionDetail(): any;
-    static updateCollection(): any;
     static deleteCollection(): any;
-    static getCollectionItems(): any;
+    static updateCollection(): any;
     static addCollectionItems(): any;
+    static getCollectionItems(): any;
     static getCatalogInsights(): any;
     static getApplicationBrands(): any;
     static getDepartments(): any;

@@ -24,6 +24,8 @@ Content System
 * [getSlideshow](#getslideshow)
 * [getSupportInformation](#getsupportinformation)
 * [getTags](#gettags)
+* [getPageV2](#getpagev2)
+* [getPagesV2](#getpagesv2)
 
 
 
@@ -1196,6 +1198,140 @@ Success. Returns a JSON object containing all the tags injected in the applicati
 ---
 
 
+### getPageV2
+Get a page
+
+
+
+```javascript
+// Promise
+const promise = content.getPageV2({  slug : value,
+ rootId : value });
+
+// Async/Await
+const data = await content.getPageV2({  slug : value,
+ rootId : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | string | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value from the endpoint /service/application/content/v1.0/pages/. |    
+| rootId | string | no | ID given to the HTML element |  
+
+
+
+Use this API to get the details of a page using its slug. Details include the title, seo, publish status, feature image, tags, meta, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Returns a JSON object with page details. Check the example shown below or refer `CustomPageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPagesV2
+Get all pages
+
+
+
+```javascript
+// Promise
+const promise = content.getPagesV2({  pageNo : value,
+ pageSize : value });
+
+// Async/Await
+const data = await content.getPagesV2({  pageNo : value,
+ pageSize : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| pageNo | number | no | The page number to navigate through the given set of results. Default value is 1.  |    
+| pageSize | number | no | The number of items to retrieve in each page. |  
+
+
+
+Use this API to get a list of pages.
+
+*Returned Response:*
+
+
+
+
+[PageGetResponse](#PageGetResponse)
+
+Success. Returns a list of pages along with their details. Check the example shown below or refer `PageGetResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageGetResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -2260,6 +2396,7 @@ Success. Returns a JSON object containing all the tags injected in the applicati
  | application | string |  no  |  |
  | component_ids | [string] |  no  | Components can be used to store multiple components |
  | content | [string] |  no  |  |
+ | content_path | string |  no  |  |
  | created_by | [CreatedBySchema](#CreatedBySchema) |  no  |  |
  | date_meta | [DateMeta](#DateMeta) |  no  |  |
  | description | string |  no  |  |

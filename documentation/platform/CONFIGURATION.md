@@ -1639,7 +1639,8 @@ Success
     "enabled": true,
     "max_cart_items": 0,
     "min_cart_value": 120,
-    "bulk_coupons": true
+    "bulk_coupons": true,
+    "revenue_engine_coupon": false
   },
   "payment": {
     "callback_url": {
@@ -1878,7 +1879,8 @@ Success
     "enabled": true,
     "max_cart_items": 0,
     "min_cart_value": 120,
-    "bulk_coupons": true
+    "bulk_coupons": true,
+    "revenue_engine_coupon": false
   },
   "payment": {
     "callback_url": {
@@ -2117,7 +2119,8 @@ Success
     "enabled": true,
     "max_cart_items": 0,
     "min_cart_value": 120,
-    "bulk_coupons": true
+    "bulk_coupons": true,
+    "revenue_engine_coupon": false
   },
   "payment": {
     "callback_url": {
@@ -4999,6 +5002,7 @@ Success
  | max_cart_items | number |  no  |  |
  | min_cart_value | number |  no  |  |
  | bulk_coupons | boolean |  no  |  |
+ | revenue_engine_coupon | boolean |  no  |  |
 
 ---
 
@@ -5711,7 +5715,7 @@ Success
  | support | [string] |  no  |  |
  | _id | string |  no  |  |
  | name | string |  no  |  |
- | meta | [IntegrationMeta](#IntegrationMeta) |  no  |  |
+ | meta | [[IntegrationMeta](#IntegrationMeta)] |  no  |  |
  | icon | string |  no  |  |
  | owner | string |  no  |  |
  | created_at | string |  no  |  |
@@ -5747,7 +5751,7 @@ Success
  | integration | string |  no  |  |
  | level | string |  no  |  |
  | uid | number |  no  |  |
- | meta | [any] |  no  |  |
+ | meta | [[IntegrationMeta](#IntegrationMeta)] |  no  |  |
  | token | string |  no  |  |
  | created_at | string |  no  |  |
  | updated_at | string |  no  |  |
@@ -5951,7 +5955,6 @@ Success
  | type | string |  no  |  |
  | _id | string |  no  |  |
  | app | string |  no  |  |
- | __v | number |  no  |  |
 
 ---
 
