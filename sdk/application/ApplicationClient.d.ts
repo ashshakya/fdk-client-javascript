@@ -533,10 +533,10 @@ declare class Catalog {
      *   products, brands, or collections.
      * @param {string} arg.collectionId - The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Follow an entity (product/brand/collection)
-     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+     * @summary: Unfollow an entity (product/brand/collection)
+     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
      */
-    followById({ collectionType, collectionId }?: {
+    unfollowById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -546,10 +546,10 @@ declare class Catalog {
      *   products, brands, or collections.
      * @param {string} arg.collectionId - The ID of the collection type.
      * @returns {Promise<FollowPostResponse>} - Success response
-     * @summary: Unfollow an entity (product/brand/collection)
-     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+     * @summary: Follow an entity (product/brand/collection)
+     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
      */
-    unfollowById({ collectionType, collectionId }?: {
+    followById({ collectionType, collectionId }?: {
         collectionType: string;
         collectionId: string;
     }): Promise<any>;
@@ -735,7 +735,7 @@ declare class Cart {
      * @param {UpdateCartRequest} arg.body
      * @returns {Promise<UpdateCartDetailResponse>} - Success response
      * @summary: Update items in the cart
-     * @description: Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/:slug/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/:identifier​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
+     * @description: <p>Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/:slug/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/:identifier​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
      */
     updateCart({ body, id, i, b }?: {
         id?: string;
@@ -3195,7 +3195,7 @@ declare class PosCart {
      * @param {UpdateCartRequest} arg.body
      * @returns {Promise<UpdateCartDetailResponse>} - Success response
      * @summary: Update items in the cart
-     * @description: Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/:slug/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/:identifier​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
+     * @description: <p>Use this API to update items added to the cart with the help of a request object containing attributes like item_quantity and item_size. These attributes will be fetched from the following APIs</p> <ul> <li><font color="monochrome">operation</font> Operation for current api call. <b>update_item</b> for update items. <b>remove_item</b> for removing items.</li> <li> <font color="monochrome">item_id</font>  "/platform/content/v1/products/"</li> <li> <font color="monochrome">item_size</font>   "/platform/content/v1/products/:slug/sizes/"</li> <li> <font color="monochrome">quantity</font>  item quantity (must be greater than or equal to 1)</li> <li> <font color="monochrome">article_id</font>   "/content​/v1​/products​/:identifier​/sizes​/price​/"</li> <li> <font color="monochrome">item_index</font>  item position in the cart (must be greater than or equal to 0)</li> </ul>
      */
     updateCart({ body, id, i, b }?: {
         id?: string;

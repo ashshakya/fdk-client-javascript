@@ -327,6 +327,7 @@ const promise = client.order.getOrdersByCompanyId({  pageNo : value,
  salesChannels : value,
  orderId : value,
  stores : value,
+ deploymentStores : value,
  status : value,
  dp : value,
  shortenUrls : value,
@@ -342,6 +343,7 @@ const data = await client.order.getOrdersByCompanyId({  pageNo : value,
  salesChannels : value,
  orderId : value,
  stores : value,
+ deploymentStores : value,
  status : value,
  dp : value,
  shortenUrls : value,
@@ -363,6 +365,7 @@ const data = await client.order.getOrdersByCompanyId({  pageNo : value,
 | salesChannels | string | no | Selected Sales Channel |    
 | orderId | string | no | Order Id |    
 | stores | string | no | Selected Stores |    
+| deploymentStores | string | no | Selected Deployment Stores |    
 | status | string | no | Status of order |    
 | dp | string | no | Delivery Partners |    
 | shortenUrls | boolean | no | Shorten URL option |    
@@ -2614,6 +2617,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | stage | string |  no  |  |
  | stores | [string] |  no  |  |
+ | deployment_stores | [string] |  no  |  |
  | dp | [number] |  no  |  |
  | from_date | string |  no  |  |
  | to_date | string |  no  |  |

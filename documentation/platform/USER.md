@@ -108,7 +108,7 @@ const data = await client.application("<APPLICATION_ID>").user.searchUsers({  q 
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |  
-| q | string | no | The search query. Mobile number or email ID of a customer. |  
+| q | Object | no | The search query. Mobile number or email ID of a customer. |  
 
 
 
