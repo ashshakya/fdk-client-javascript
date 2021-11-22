@@ -3102,6 +3102,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | account_kit | boolean |  no  |  |
  | facebook | boolean |  no  |  |
  | google | boolean |  no  |  |
+ | apple | boolean |  no  |  |
 
 ---
 
