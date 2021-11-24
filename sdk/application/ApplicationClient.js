@@ -1112,34 +1112,6 @@ class Catalog {
    *   products, brands, or collections.
    * @param {string} arg.collectionId - The ID of the collection type.
    * @returns {Promise<FollowPostResponse>} - Success response
-   * @summary: Follow an entity (product/brand/collection)
-   * @description: Follow a particular entity such as product, brand, collection specified by its ID.
-   */
-  followById({ collectionType, collectionId } = {}) {
-    const { error } = CatalogValidator.followById().validate(
-      { collectionType, collectionId },
-      { abortEarly: false }
-    );
-    if (error) {
-      return Promise.reject(new FDKClientValidationError(error));
-    }
-    const query = {};
-
-    return APIClient.execute(
-      this._conf,
-      "post",
-      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
-      query,
-      undefined
-    );
-  }
-
-  /**
-   * @param {Object} arg - Arg object.
-   * @param {string} arg.collectionType - Type of collection followed, i.e.
-   *   products, brands, or collections.
-   * @param {string} arg.collectionId - The ID of the collection type.
-   * @returns {Promise<FollowPostResponse>} - Success response
    * @summary: Unfollow an entity (product/brand/collection)
    * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
    */
@@ -1156,6 +1128,34 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "delete",
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
+      query,
+      undefined
+    );
+  }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {string} arg.collectionType - Type of collection followed, i.e.
+   *   products, brands, or collections.
+   * @param {string} arg.collectionId - The ID of the collection type.
+   * @returns {Promise<FollowPostResponse>} - Success response
+   * @summary: Follow an entity (product/brand/collection)
+   * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+   */
+  followById({ collectionType, collectionId } = {}) {
+    const { error } = CatalogValidator.followById().validate(
+      { collectionType, collectionId },
+      { abortEarly: false }
+    );
+    if (error) {
+      return Promise.reject(new FDKClientValidationError(error));
+    }
+    const query = {};
+
+    return APIClient.execute(
+      this._conf,
+      "post",
       `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
       query,
       undefined
@@ -2560,35 +2560,6 @@ class User {
       `/service/application/user/authentication/v1.0/login/google-token`,
       query,
       body
-    );
-  }
-
-  /**
-   * @param {Object} arg - Arg object.
-   * @param {string} [arg.platform] - ID of the application
-   * @param {string} [arg.redirectUrl] - Url to redirect after login
-   * @returns {Promise<AuthSuccess>} - Success response
-   * @summary: Login or Register using Google
-   * @description: Use this API to login or register using Google Account credentials.
-   */
-  loginWithGoogleOauth({ platform, redirectUrl } = {}) {
-    const { error } = UserValidator.loginWithGoogleOauth().validate(
-      { platform, redirectUrl },
-      { abortEarly: false }
-    );
-    if (error) {
-      return Promise.reject(new FDKClientValidationError(error));
-    }
-    const query = {};
-    query["platform"] = platform;
-    query["redirect_url"] = redirectUrl;
-
-    return APIClient.execute(
-      this._conf,
-      "get",
-      `/service/application/user/authentication/v1.0/login/google`,
-      query,
-      undefined
     );
   }
 

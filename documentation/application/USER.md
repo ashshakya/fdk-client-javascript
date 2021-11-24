@@ -8,7 +8,6 @@
 Authentication Service
 * [loginWithFacebook](#loginwithfacebook)
 * [loginWithGoogle](#loginwithgoogle)
-* [loginWithGoogleOauth](#loginwithgoogleoauth)
 * [loginWithGoogleAndroid](#loginwithgoogleandroid)
 * [loginWithGoogleIOS](#loginwithgoogleios)
 * [loginWithAppleIOS](#loginwithappleios)
@@ -147,73 +146,6 @@ Use this API to login or register using Google Account credentials.
 [AuthSuccess](#AuthSuccess)
 
 Success. Returns a JSON object with the user details. Check the example shown below or refer `AuthSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/AuthSuccess"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### loginWithGoogleOauth
-Login or Register using Google
-
-
-
-```javascript
-// Promise
-const promise = user.loginWithGoogleOauth({  platform : value,
- redirectUrl : value });
-
-// Async/Await
-const data = await user.loginWithGoogleOauth({  platform : value,
- redirectUrl : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |  
-| platform | string | no | ID of the application |    
-| redirectUrl | string | no | Url to redirect after login |  
-
-
-
-Use this API to login or register using Google Account credentials.
-
-*Returned Response:*
-
-
-
-
-[AuthSuccess](#AuthSuccess)
-
-Success. Returns a google url and redirect to same
 
 
 
@@ -2573,6 +2505,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | verify_email_otp | boolean |  no  |  |
  | verify_mobile_otp | boolean |  no  |  |
  | email | string |  no  |  |
+ | request_id | string |  no  |  |
 
 ---
 
