@@ -1966,7 +1966,7 @@ Success. Refer `ThemesSchema` for more details.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | global | string |  no  |  |
+ | global_config | string |  no  |  |
  | page | [[ConfigPage](#ConfigPage)] |  no  |  |
  | name | string |  no  |  |
 
