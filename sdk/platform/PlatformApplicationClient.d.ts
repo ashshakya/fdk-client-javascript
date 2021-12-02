@@ -3192,37 +3192,37 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef PaymentGatewayConfigResponse
- * @property {boolean} success
  * @property {boolean} created
- * @property {string[]} excluded_fields
+ * @property {boolean} success
  * @property {string[]} display_fields
+ * @property {string[]} excluded_fields
  * @property {Object[]} [aggregators]
  * @property {string} app_id
  */
 /**
  * @typedef ErrorCodeDescription
- * @property {boolean} success
  * @property {string} description
  * @property {string} code
+ * @property {boolean} success
  */
 /**
  * @typedef PaymentGatewayConfig
  * @property {string} config_type
  * @property {string} merchant_salt
  * @property {string} key
- * @property {boolean} [is_active]
  * @property {string} secret
+ * @property {boolean} [is_active]
  */
 /**
  * @typedef PaymentGatewayConfigRequest
- * @property {PaymentGatewayConfig} [aggregator_name]
  * @property {string} app_id
  * @property {boolean} [is_active]
+ * @property {PaymentGatewayConfig} [aggregator_name]
  */
 /**
  * @typedef PaymentGatewayToBeReviewed
- * @property {boolean} success
  * @property {string[]} aggregator
+ * @property {boolean} success
  */
 /**
  * @typedef ErrorCodeAndDescription
@@ -3231,53 +3231,53 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef HttpErrorCodeAndResponse
- * @property {boolean} success
  * @property {ErrorCodeAndDescription} error
+ * @property {boolean} success
  */
 /**
  * @typedef PaymentModeLogo
- * @property {string} large
  * @property {string} small
+ * @property {string} large
  */
 /**
  * @typedef PaymentModeList
+ * @property {number} [exp_year]
+ * @property {string} [fynd_vpa]
+ * @property {string} [card_fingerprint]
  * @property {string} [card_id]
- * @property {string} [card_isin]
+ * @property {string} [card_reference]
+ * @property {string} [card_token]
+ * @property {string} [card_name]
+ * @property {string} [card_brand]
+ * @property {string} [card_type]
+ * @property {string} [name]
+ * @property {number} [retry_count]
+ * @property {string} [merchant_code]
  * @property {string[]} [intent_app_error_list]
  * @property {number} [timeout]
- * @property {string} [card_number]
- * @property {string} [card_token]
- * @property {string} aggregator_name
- * @property {boolean} [expired]
- * @property {string} [card_fingerprint]
- * @property {PaymentModeLogo} [logo_url]
- * @property {number} [retry_count]
- * @property {string} [card_issuer]
- * @property {string} [card_brand_image]
- * @property {string} [merchant_code]
  * @property {number} [exp_month]
- * @property {number} [display_priority]
- * @property {boolean} [intent_flow]
- * @property {string} [nickname]
- * @property {string} [card_name]
- * @property {string} [display_name]
- * @property {string} [card_reference]
- * @property {number} [exp_year]
- * @property {string} [name]
- * @property {string} [fynd_vpa]
- * @property {string} [card_brand]
+ * @property {PaymentModeLogo} [logo_url]
  * @property {string} [code]
- * @property {string} [card_type]
+ * @property {string} [card_issuer]
+ * @property {string} [card_isin]
+ * @property {string} [display_name]
+ * @property {boolean} [expired]
+ * @property {string} [nickname]
+ * @property {string} [card_number]
+ * @property {boolean} [intent_flow]
+ * @property {number} [display_priority]
+ * @property {string} [card_brand_image]
+ * @property {string} aggregator_name
  */
 /**
  * @typedef RootPaymentMode
- * @property {boolean} [add_card_enabled]
- * @property {string} display_name
- * @property {string} [aggregator_name]
- * @property {boolean} [anonymous_enable]
  * @property {string} name
- * @property {number} display_priority
+ * @property {boolean} [add_card_enabled]
+ * @property {string} [aggregator_name]
  * @property {PaymentModeList[]} [list]
+ * @property {number} display_priority
+ * @property {boolean} [anonymous_enable]
+ * @property {string} display_name
  */
 /**
  * @typedef PaymentOptions
@@ -3285,64 +3285,64 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef PaymentOptionsResponse
- * @property {boolean} success
  * @property {PaymentOptions} payment_options
+ * @property {boolean} success
  */
 /**
  * @typedef PayoutsResponse
- * @property {Object} customers
+ * @property {Object[]} payouts_aggregators
  * @property {string} transfer_type
+ * @property {Object} unique_transfer_no
  * @property {Object} more_attributes
  * @property {boolean} is_default
- * @property {Object} unique_transfer_no
- * @property {Object[]} payouts_aggregators
  * @property {boolean} is_active
+ * @property {Object} customers
  */
 /**
  * @typedef PayoutBankDetails
- * @property {string} [country]
+ * @property {number} [pincode]
+ * @property {string} [account_holder]
  * @property {string} [branch_name]
+ * @property {string} [city]
+ * @property {string} [account_no]
  * @property {string} ifsc_code
  * @property {string} [bank_name]
+ * @property {string} [country]
  * @property {string} [state]
- * @property {string} [account_holder]
- * @property {string} [city]
- * @property {number} [pincode]
- * @property {string} [account_no]
  * @property {string} account_type
  */
 /**
  * @typedef PayoutRequest
- * @property {string} transfer_type
  * @property {Object} users
- * @property {string} unique_external_id
  * @property {PayoutBankDetails} bank_details
+ * @property {string} transfer_type
+ * @property {string} unique_external_id
  * @property {boolean} is_active
  * @property {string} aggregator
  */
 /**
  * @typedef PayoutResponse
- * @property {string} transfer_type
  * @property {Object} users
- * @property {string} unique_transfer_no
+ * @property {Object} payouts
+ * @property {boolean} created
  * @property {boolean} success
  * @property {Object} bank_details
- * @property {boolean} created
+ * @property {string} transfer_type
+ * @property {string} unique_transfer_no
  * @property {boolean} is_active
- * @property {Object} payouts
- * @property {string} payment_status
  * @property {string} aggregator
+ * @property {string} payment_status
  */
 /**
  * @typedef UpdatePayoutResponse
- * @property {boolean} success
- * @property {boolean} is_active
  * @property {boolean} is_default
+ * @property {boolean} is_active
+ * @property {boolean} success
  */
 /**
  * @typedef UpdatePayoutRequest
- * @property {boolean} is_active
  * @property {boolean} is_default
+ * @property {boolean} is_active
  * @property {string} unique_external_id
  */
 /**
@@ -3351,8 +3351,8 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef SubscriptionPaymentMethodResponse
- * @property {boolean} success
  * @property {Object[]} data
+ * @property {boolean} success
  */
 /**
  * @typedef DeleteSubscriptionPaymentMethodResponse
@@ -3360,9 +3360,9 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef SubscriptionConfigResponse
- * @property {boolean} success
  * @property {Object} config
  * @property {string} aggregator
+ * @property {boolean} success
  */
 /**
  * @typedef SaveSubscriptionSetupIntentRequest
@@ -3370,104 +3370,104 @@ declare namespace PlatformApplicationClient {
  */
 /**
  * @typedef SaveSubscriptionSetupIntentResponse
- * @property {boolean} success
  * @property {Object} data
+ * @property {boolean} success
  */
 /**
  * @typedef BeneficiaryModeDetails
- * @property {string} [vpa]
  * @property {string} mobile
- * @property {string} branch_name
- * @property {string} [address]
- * @property {string} bank_name
- * @property {string} ifsc_code
  * @property {string} account_holder
- * @property {string} [wallet]
- * @property {string} email
- * @property {string} [comment]
+ * @property {string} branch_name
  * @property {string} account_no
+ * @property {string} ifsc_code
+ * @property {string} bank_name
+ * @property {string} [comment]
+ * @property {string} [vpa]
+ * @property {string} email
+ * @property {string} [wallet]
+ * @property {string} [address]
  */
 /**
  * @typedef AddBeneficiaryDetailsRequest
- * @property {string} shipment_id
  * @property {boolean} delights
  * @property {string} [otp]
+ * @property {string} [request_id]
+ * @property {string} shipment_id
  * @property {string} transfer_mode
  * @property {BeneficiaryModeDetails} details
- * @property {string} [request_id]
  * @property {string} order_id
  */
 /**
  * @typedef RefundAccountResponse
- * @property {boolean} success
- * @property {boolean} [is_verified_flag]
- * @property {Object} [data]
  * @property {string} message
+ * @property {Object} [data]
+ * @property {boolean} [is_verified_flag]
+ * @property {boolean} success
  */
 /**
  * @typedef NotFoundResourceError
- * @property {boolean} success
  * @property {string} description
  * @property {string} code
+ * @property {boolean} success
  */
 /**
  * @typedef IfscCodeResponse
  * @property {boolean} [success]
- * @property {string} branch_name
  * @property {string} bank_name
+ * @property {string} branch_name
  */
 /**
  * @typedef OrderBeneficiaryDetails
- * @property {boolean} [mobile]
- * @property {string} ifsc_code
+ * @property {string} delights_user_name
+ * @property {boolean} [comment]
  * @property {string} transfer_mode
- * @property {boolean} is_active
- * @property {string} address
+ * @property {string} subtitle
+ * @property {string} modified_on
+ * @property {string} title
+ * @property {string} account_holder
  * @property {string} bank_name
  * @property {number} id
- * @property {string} delights_user_name
- * @property {boolean} [branch_name]
- * @property {string} title
- * @property {string} beneficiary_id
- * @property {boolean} [comment]
- * @property {string} email
- * @property {string} subtitle
+ * @property {string} address
+ * @property {boolean} [mobile]
  * @property {string} created_on
+ * @property {string} beneficiary_id
+ * @property {string} email
  * @property {string} display_name
- * @property {string} account_holder
- * @property {string} modified_on
+ * @property {boolean} [branch_name]
  * @property {string} account_no
+ * @property {string} ifsc_code
+ * @property {boolean} is_active
  */
 /**
  * @typedef OrderBeneficiaryResponse
- * @property {OrderBeneficiaryDetails[]} beneficiaries
  * @property {boolean} [show_beneficiary_details]
+ * @property {OrderBeneficiaryDetails[]} beneficiaries
  */
 /**
  * @typedef MultiTenderPaymentMeta
  * @property {string} [payment_gateway]
- * @property {string} [payment_id]
  * @property {string} [order_id]
- * @property {Object} [extra_meta]
  * @property {string} [current_status]
+ * @property {string} [payment_id]
+ * @property {Object} [extra_meta]
  */
 /**
  * @typedef MultiTenderPaymentMethod
- * @property {string} [name]
- * @property {string} mode
- * @property {MultiTenderPaymentMeta} [meta]
  * @property {number} amount
+ * @property {MultiTenderPaymentMeta} [meta]
+ * @property {string} mode
+ * @property {string} [name]
  */
 /**
  * @typedef PaymentConfirmationRequest
- * @property {string} order_id
  * @property {MultiTenderPaymentMethod[]} payment_methods
+ * @property {string} order_id
  */
 /**
  * @typedef PaymentConfirmationResponse
- * @property {boolean} success
- * @property {string} order_id
  * @property {string} message
+ * @property {string} order_id
+ * @property {boolean} success
  */
 /**
  * @typedef GetActivityStatus
@@ -15863,248 +15863,248 @@ type SystemNotifications = {
     page?: Page;
 };
 type PaymentGatewayConfigResponse = {
-    success: boolean;
     created: boolean;
-    excluded_fields: string[];
+    success: boolean;
     display_fields: string[];
+    excluded_fields: string[];
     aggregators?: any[];
     app_id: string;
 };
 type ErrorCodeDescription = {
-    success: boolean;
     description: string;
     code: string;
+    success: boolean;
 };
 type PaymentGatewayConfig = {
     config_type: string;
     merchant_salt: string;
     key: string;
-    is_active?: boolean;
     secret: string;
+    is_active?: boolean;
 };
 type PaymentGatewayConfigRequest = {
-    aggregator_name?: PaymentGatewayConfig;
     app_id: string;
     is_active?: boolean;
+    aggregator_name?: PaymentGatewayConfig;
 };
 type PaymentGatewayToBeReviewed = {
-    success: boolean;
     aggregator: string[];
+    success: boolean;
 };
 type ErrorCodeAndDescription = {
     description: string;
     code: string;
 };
 type HttpErrorCodeAndResponse = {
-    success: boolean;
     error: ErrorCodeAndDescription;
+    success: boolean;
 };
 type PaymentModeLogo = {
-    large: string;
     small: string;
+    large: string;
 };
 type PaymentModeList = {
+    exp_year?: number;
+    fynd_vpa?: string;
+    card_fingerprint?: string;
     card_id?: string;
-    card_isin?: string;
+    card_reference?: string;
+    card_token?: string;
+    card_name?: string;
+    card_brand?: string;
+    card_type?: string;
+    name?: string;
+    retry_count?: number;
+    merchant_code?: string;
     intent_app_error_list?: string[];
     timeout?: number;
-    card_number?: string;
-    card_token?: string;
-    aggregator_name: string;
-    expired?: boolean;
-    card_fingerprint?: string;
-    logo_url?: PaymentModeLogo;
-    retry_count?: number;
-    card_issuer?: string;
-    card_brand_image?: string;
-    merchant_code?: string;
     exp_month?: number;
-    display_priority?: number;
-    intent_flow?: boolean;
-    nickname?: string;
-    card_name?: string;
-    display_name?: string;
-    card_reference?: string;
-    exp_year?: number;
-    name?: string;
-    fynd_vpa?: string;
-    card_brand?: string;
+    logo_url?: PaymentModeLogo;
     code?: string;
-    card_type?: string;
+    card_issuer?: string;
+    card_isin?: string;
+    display_name?: string;
+    expired?: boolean;
+    nickname?: string;
+    card_number?: string;
+    intent_flow?: boolean;
+    display_priority?: number;
+    card_brand_image?: string;
+    aggregator_name: string;
 };
 type RootPaymentMode = {
-    add_card_enabled?: boolean;
-    display_name: string;
-    aggregator_name?: string;
-    anonymous_enable?: boolean;
     name: string;
-    display_priority: number;
+    add_card_enabled?: boolean;
+    aggregator_name?: string;
     list?: PaymentModeList[];
+    display_priority: number;
+    anonymous_enable?: boolean;
+    display_name: string;
 };
 type PaymentOptions = {
     payment_option: RootPaymentMode[];
 };
 type PaymentOptionsResponse = {
-    success: boolean;
     payment_options: PaymentOptions;
+    success: boolean;
 };
 type PayoutsResponse = {
-    customers: any;
+    payouts_aggregators: any[];
     transfer_type: string;
+    unique_transfer_no: any;
     more_attributes: any;
     is_default: boolean;
-    unique_transfer_no: any;
-    payouts_aggregators: any[];
     is_active: boolean;
+    customers: any;
 };
 type PayoutBankDetails = {
-    country?: string;
+    pincode?: number;
+    account_holder?: string;
     branch_name?: string;
+    city?: string;
+    account_no?: string;
     ifsc_code: string;
     bank_name?: string;
+    country?: string;
     state?: string;
-    account_holder?: string;
-    city?: string;
-    pincode?: number;
-    account_no?: string;
     account_type: string;
 };
 type PayoutRequest = {
-    transfer_type: string;
     users: any;
-    unique_external_id: string;
     bank_details: PayoutBankDetails;
+    transfer_type: string;
+    unique_external_id: string;
     is_active: boolean;
     aggregator: string;
 };
 type PayoutResponse = {
-    transfer_type: string;
     users: any;
-    unique_transfer_no: string;
+    payouts: any;
+    created: boolean;
     success: boolean;
     bank_details: any;
-    created: boolean;
+    transfer_type: string;
+    unique_transfer_no: string;
     is_active: boolean;
-    payouts: any;
-    payment_status: string;
     aggregator: string;
+    payment_status: string;
 };
 type UpdatePayoutResponse = {
-    success: boolean;
-    is_active: boolean;
     is_default: boolean;
+    is_active: boolean;
+    success: boolean;
 };
 type UpdatePayoutRequest = {
-    is_active: boolean;
     is_default: boolean;
+    is_active: boolean;
     unique_external_id: string;
 };
 type DeletePayoutResponse = {
     success: boolean;
 };
 type SubscriptionPaymentMethodResponse = {
-    success: boolean;
     data: any[];
+    success: boolean;
 };
 type DeleteSubscriptionPaymentMethodResponse = {
     success: boolean;
 };
 type SubscriptionConfigResponse = {
-    success: boolean;
     config: any;
     aggregator: string;
+    success: boolean;
 };
 type SaveSubscriptionSetupIntentRequest = {
     unique_external_id: string;
 };
 type SaveSubscriptionSetupIntentResponse = {
-    success: boolean;
     data: any;
+    success: boolean;
 };
 type BeneficiaryModeDetails = {
-    vpa?: string;
     mobile: string;
-    branch_name: string;
-    address?: string;
-    bank_name: string;
-    ifsc_code: string;
     account_holder: string;
-    wallet?: string;
-    email: string;
-    comment?: string;
+    branch_name: string;
     account_no: string;
+    ifsc_code: string;
+    bank_name: string;
+    comment?: string;
+    vpa?: string;
+    email: string;
+    wallet?: string;
+    address?: string;
 };
 type AddBeneficiaryDetailsRequest = {
-    shipment_id: string;
     delights: boolean;
     otp?: string;
+    request_id?: string;
+    shipment_id: string;
     transfer_mode: string;
     details: BeneficiaryModeDetails;
-    request_id?: string;
     order_id: string;
 };
 type RefundAccountResponse = {
-    success: boolean;
-    is_verified_flag?: boolean;
-    data?: any;
     message: string;
+    data?: any;
+    is_verified_flag?: boolean;
+    success: boolean;
 };
 type NotFoundResourceError = {
-    success: boolean;
     description: string;
     code: string;
+    success: boolean;
 };
 type IfscCodeResponse = {
     success?: boolean;
-    branch_name: string;
     bank_name: string;
+    branch_name: string;
 };
 type OrderBeneficiaryDetails = {
-    mobile?: boolean;
-    ifsc_code: string;
+    delights_user_name: string;
+    comment?: boolean;
     transfer_mode: string;
-    is_active: boolean;
-    address: string;
+    subtitle: string;
+    modified_on: string;
+    title: string;
+    account_holder: string;
     bank_name: string;
     id: number;
-    delights_user_name: string;
-    branch_name?: boolean;
-    title: string;
-    beneficiary_id: string;
-    comment?: boolean;
-    email: string;
-    subtitle: string;
+    address: string;
+    mobile?: boolean;
     created_on: string;
+    beneficiary_id: string;
+    email: string;
     display_name: string;
-    account_holder: string;
-    modified_on: string;
+    branch_name?: boolean;
     account_no: string;
+    ifsc_code: string;
+    is_active: boolean;
 };
 type OrderBeneficiaryResponse = {
-    beneficiaries: OrderBeneficiaryDetails[];
     show_beneficiary_details?: boolean;
+    beneficiaries: OrderBeneficiaryDetails[];
 };
 type MultiTenderPaymentMeta = {
     payment_gateway?: string;
-    payment_id?: string;
     order_id?: string;
-    extra_meta?: any;
     current_status?: string;
+    payment_id?: string;
+    extra_meta?: any;
 };
 type MultiTenderPaymentMethod = {
-    name?: string;
-    mode: string;
-    meta?: MultiTenderPaymentMeta;
     amount: number;
+    meta?: MultiTenderPaymentMeta;
+    mode: string;
+    name?: string;
 };
 type PaymentConfirmationRequest = {
-    order_id: string;
     payment_methods: MultiTenderPaymentMethod[];
+    order_id: string;
 };
 type PaymentConfirmationResponse = {
-    success: boolean;
-    order_id: string;
     message: string;
+    order_id: string;
+    success: boolean;
 };
 type GetActivityStatus = {
     activity_history: ActivityHistory;
