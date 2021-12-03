@@ -5939,6 +5939,7 @@ Success
  | all_stores | boolean |  no  |  |
  | deployed_stores | [number] |  no  |  |
  | q | string |  no  |  |
+ | only_deployed | boolean |  no  |  |
 
 ---
 

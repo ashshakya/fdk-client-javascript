@@ -2411,6 +2411,7 @@ Success
  | priority | number |  no  |  |
  | priority_text | string |  no  |  |
  | lock_status | boolean |  no  |  |
+ | ordering_channel | string |  no  |  |
  | total_shipment_bags | number |  no  |  |
 
 ---
