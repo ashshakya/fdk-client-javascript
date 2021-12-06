@@ -146,6 +146,7 @@ export class ShareValidator {
 export class FileStorageValidator {
     static startUpload(): any;
     static completeUpload(): any;
+    static signUrls(): any;
 }
 export class ConfigurationValidator {
     static getApplication(): any;
@@ -862,11 +863,11 @@ export class Validator {
     static PaymentInitializationResponse(): any;
     static PaymentStatusUpdateRequest(): any;
     static PaymentStatusUpdateResponse(): any;
-    static AggregatorRoute(): any;
-    static PaymentFlow(): any;
     static PaymentModeLogo(): any;
     static PaymentModeList(): any;
     static RootPaymentMode(): any;
+    static AggregatorRoute(): any;
+    static PaymentFlow(): any;
     static PaymentOptionAndFlow(): any;
     static PaymentModeRouteResponse(): any;
     static RupifiBannerData(): any;

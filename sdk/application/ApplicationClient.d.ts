@@ -1932,6 +1932,18 @@ declare class FileStorage {
         namespace: string;
         body: any;
     }): Promise<any>;
+    /**
+     * @param {Object} arg - Arg object.
+     * @param {number} arg.companyId - Company_id
+     * @param {SignUrlRequest} arg.body
+     * @returns {Promise<SignUrlResponse>} - Success response
+     * @summary: Explain here
+     * @description: Describe here
+     */
+    signUrls({ companyId, body }?: {
+        companyId: number;
+        body: any;
+    }): Promise<any>;
     upload({ data, file_name, content_type, namespace, size, tags, }?: {
         data: any;
         file_name: any;

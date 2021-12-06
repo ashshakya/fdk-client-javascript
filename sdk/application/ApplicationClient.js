@@ -4405,6 +4405,33 @@ class FileStorage {
       body
     );
   }
+
+  /**
+   * @param {Object} arg - Arg object.
+   * @param {number} arg.companyId - Company_id
+   * @param {SignUrlRequest} arg.body
+   * @returns {Promise<SignUrlResponse>} - Success response
+   * @summary: Explain here
+   * @description: Describe here
+   */
+  signUrls({ companyId, body } = {}) {
+    const { error } = FileStorageValidator.signUrls().validate(
+      { companyId, body },
+      { abortEarly: false }
+    );
+    if (error) {
+      return Promise.reject(new FDKClientValidationError(error));
+    }
+    const query = {};
+
+    return APIClient.execute(
+      this._conf,
+      "post",
+      `/service/application/assets/v1.0/company/${companyId}/sign-urls/`,
+      query,
+      body
+    );
+  }
 }
 
 class Configuration {
