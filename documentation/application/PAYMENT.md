@@ -2066,15 +2066,15 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | user_id | string |  no  | Registered User id |
- | pin | string |  no  | Masked pin |
- | merchant_key | string |  no  | Unique merchant key |
- | sdk | boolean |  no  | SDK |
- | secret | string |  yes  | Masked payment gateway api secret |
- | api | string |  no  | Payment gateway api endpoint |
- | key | string |  yes  | Payment gateway api key |
  | verify_api | string |  no  | Payment gateway verify payment api endpoint |
  | config_type | string |  yes  | Fynd or self payment gateway |
+ | key | string |  yes  | Payment gateway api key |
+ | sdk | boolean |  no  | SDK |
+ | user_id | string |  no  | Registered User id |
+ | api | string |  no  | Payment gateway api endpoint |
+ | merchant_key | string |  no  | Unique merchant key |
+ | pin | string |  no  | Masked pin |
+ | secret | string |  yes  | Masked payment gateway api secret |
  | merchant_id | string |  no  | Unique merchant id |
 
 ---
@@ -2086,16 +2086,16 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | ccavenue | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | mswipe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | success | boolean |  yes  |  |
- | rupifi | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | env | string |  yes  | Environment i.e Live or Test |
+ | stripe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | payumoney | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | rupifi | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | juspay | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | ccavenue | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
+ | env | string |  yes  | Environment i.e Live or Test |
+ | success | boolean |  yes  |  |
  | razorpay | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
  | simpl | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | stripe | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
- | juspay | [AggregatorConfigDetail](#AggregatorConfigDetail) |  no  |  |
 
 ---
 
@@ -2132,8 +2132,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
  | ---------- | ---- | -------- | ----------- |
  | card_id | string |  yes  | Card token of payment gateway. |
  | nickname | string |  no  |  |
- | name_on_card | string |  no  |  |
  | refresh | boolean |  no  | Refresh cache flag. |
+ | name_on_card | string |  no  |  |
 
 ---
 
@@ -2144,8 +2144,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | string |  yes  | List of cards of customer. |
  | message | string |  no  | Human readable message. |
+ | data | string |  yes  | List of cards of customer. |
  | success | boolean |  yes  | Response is successful or not. |
 
 ---
@@ -2171,8 +2171,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | string |  yes  | Human readable message. |
- | success | boolean |  yes  | Response is successful or not. |
  | cards | [CardPaymentGateway](#CardPaymentGateway) |  yes  | Card's payment gateway with customer id. |
+ | success | boolean |  yes  | Response is successful or not. |
 
 ---
 
@@ -2183,22 +2183,22 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | card_id | string |  no  | card_id |
- | card_name | string |  no  | card_name |
- | aggregator_name | string |  yes  | aggregator_name |
- | card_token | string |  no  | card_token |
- | exp_month | number |  no  | exp_month |
- | card_brand | string |  no  | card_brand |
- | exp_year | number |  no  | exp_year |
- | card_number | string |  no  | card_number |
- | card_type | string |  no  | card_type |
- | card_issuer | string |  no  | card_issuer |
- | card_isin | string |  no  | card_isin |
- | expired | boolean |  no  | expired |
- | nickname | string |  no  | nickname |
  | card_brand_image | string |  no  | card_brand_image |
  | card_reference | string |  no  | card_reference |
+ | card_brand | string |  no  | card_brand |
+ | exp_month | number |  no  | exp_month |
+ | aggregator_name | string |  yes  | aggregator_name |
+ | nickname | string |  no  | nickname |
+ | card_type | string |  no  | card_type |
  | card_fingerprint | string |  no  | card_fingerprint |
+ | card_id | string |  no  | card_id |
+ | card_isin | string |  no  | card_isin |
+ | expired | boolean |  no  | expired |
+ | card_name | string |  no  | card_name |
+ | card_issuer | string |  no  | card_issuer |
+ | card_token | string |  no  | card_token |
+ | card_number | string |  no  | card_number |
+ | exp_year | number |  no  | exp_year |
 
 ---
 
@@ -2209,8 +2209,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [[Card](#Card)] |  no  | List of cards of customer. |
  | message | string |  yes  | Human readable message. |
+ | data | [[Card](#Card)] |  no  | List of cards of customer. |
  | success | boolean |  yes  | Response is successful or not. |
 
 ---
@@ -2245,11 +2245,11 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | merchant_params | string |  yes  | Extra meta fields. |
- | aggregator | string |  yes  | Payment gateway name in camel case i.e Simpl, Rupifi |
  | payload | string |  yes  | Hashed payload string. |
- | transaction_amount_in_paise | number |  yes  | Payable amount in paise |
+ | aggregator | string |  yes  | Payment gateway name in camel case i.e Simpl, Rupifi |
  | phone_number | string |  yes  | User mobile number without country code. |
+ | merchant_params | string |  yes  | Extra meta fields. |
+ | transaction_amount_in_paise | number |  yes  | Payable amount in paise |
 
 ---
 
@@ -2260,8 +2260,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | string |  yes  | Payment gateway response data |
  | message | string |  yes  | Error or success message. |
+ | data | string |  yes  | Payment gateway response data |
  | success | boolean |  yes  | Response is successful or not |
 
 ---
@@ -2273,11 +2273,11 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | amount | number |  yes  | Chargable amount of order. |
  | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
- | transaction_token | string |  no  | Transaction token of payment gateway. |
  | verified | boolean |  no  | Already Verified flag from payment gateway i.e Mswipe |
  | order_id | string |  yes  | Unique order id. |
- | amount | number |  yes  | Chargable amount of order. |
+ | transaction_token | string |  no  | Transaction token of payment gateway. |
 
 ---
 
@@ -2288,13 +2288,13 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | string |  yes  | Human readable message. |
- | success | boolean |  yes  | Response is successful or not. |
  | aggregator | string |  yes  | Payment gateway name i.e Simpl, Mswipe |
- | status | string |  yes  | Status of charged payment. |
- | delivery_address_id | string |  no  | Delivery adddress id of customer |
+ | success | boolean |  yes  | Response is successful or not. |
  | order_id | string |  yes  | Unique order id. |
  | cart_id | string |  no  | Cart id of customer |
+ | status | string |  yes  | Status of charged payment. |
+ | delivery_address_id | string |  no  | Delivery adddress id of customer |
+ | message | string |  yes  | Human readable message. |
 
 ---
 
@@ -2305,15 +2305,15 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | aggregator_order_id | string |  yes  | Payment gateway order id |
  | razorpay_payment_id | string |  yes  | Payment gateway payment id |
- | customer_id | string |  yes  | Payment gateway customer id. |
+ | timeout | number |  yes  | Payment polling timeout if not recieved response |
  | aggregator | string |  yes  | Payment gateway name |
  | method | string |  yes  | Payment method |
- | polling_url | string |  yes  | Polling url to check payment status |
  | merchant_order_id | string |  yes  | Unique fynd order id |
  | virtual_id | string |  no  | Bharat QR code virtual id |
- | timeout | number |  yes  | Payment polling timeout if not recieved response |
- | aggregator_order_id | string |  yes  | Payment gateway order id |
+ | polling_url | string |  yes  | Polling url to check payment status |
+ | customer_id | string |  yes  | Payment gateway customer id. |
 
 ---
 
@@ -2324,21 +2324,21 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | aggregator_order_id | string |  no  | Payment order id |
  | razorpay_payment_id | string |  no  | Payment  id. |
- | success | boolean |  yes  | Response is successful or not. |
- | customer_id | string |  no  | Payment gateway customer id. |
+ | vpa | string |  no  | Customer vpa address |
+ | timeout | number |  no  | timeout. |
+ | amount | number |  no  | Payable amount. |
  | aggregator | string |  yes  | Payment gateway name |
+ | merchant_order_id | string |  yes  | order id |
+ | success | boolean |  yes  | Response is successful or not. |
+ | currency | string |  no  | Currency code. |
  | method | string |  yes  | Payment method |
+ | virtual_id | string |  no  | Payment virtual address. |
  | bqr_image | string |  no  | Bharath qr image url. |
  | polling_url | string |  yes  | Polling url. |
  | status | string |  no  | Status of payment. |
- | merchant_order_id | string |  yes  | order id |
- | vpa | string |  no  | Customer vpa address |
- | timeout | number |  no  | timeout. |
- | currency | string |  no  | Currency code. |
- | virtual_id | string |  no  | Payment virtual address. |
- | amount | number |  no  | Payable amount. |
- | aggregator_order_id | string |  no  | Payment order id |
+ | customer_id | string |  no  | Payment gateway customer id. |
 
 ---
 
@@ -2349,17 +2349,17 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | vpa | string |  yes  | Customer vpa address |
+ | contact | string |  yes  | Customer valid mobile number |
+ | amount | number |  yes  | Payable amount. |
  | email | string |  yes  | Customer valid email |
  | aggregator | string |  yes  | Payment gateway name |
- | customer_id | string |  yes  | Payment gateway customer id. |
- | method | string |  yes  | Payment method |
- | status | string |  yes  | Status of payment. |
- | merchant_order_id | string |  yes  | Unique fynd order id |
- | vpa | string |  yes  | Customer vpa address |
  | currency | string |  yes  | Currency code. |
+ | method | string |  yes  | Payment method |
+ | merchant_order_id | string |  yes  | Unique fynd order id |
  | order_id | string |  yes  | Payment gateway order id |
- | amount | number |  yes  | Payable amount. |
- | contact | string |  yes  | Customer valid mobile number |
+ | status | string |  yes  | Status of payment. |
+ | customer_id | string |  yes  | Payment gateway customer id. |
 
 ---
 
@@ -2370,75 +2370,9 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | aggregator_name | string |  yes  | Payment gateway name |
  | status | string |  yes  | Payment status |
  | retry | boolean |  yes  | Response is successful or not. |
- | aggregator_name | string |  yes  | Payment gateway name |
-
----
-
-
- 
- 
- #### [PaymentModeLogo](#PaymentModeLogo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | small | string |  yes  | smalll |
- | large | string |  yes  | large |
-
----
-
-
- 
- 
- #### [PaymentModeList](#PaymentModeList)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | card_token | string |  no  | card_token |
- | merchant_code | string |  no  | merchant code |
- | expired | boolean |  no  | expired |
- | display_priority | number |  no  | Dispaly Priority |
- | card_brand_image | string |  no  | card_brand_image |
- | card_fingerprint | string |  no  | card_fingerprint |
- | card_name | string |  no  | card_name |
- | fynd_vpa | string |  no  | fynd_vpa |
- | display_name | string |  no  | display name |
- | exp_year | number |  no  | exp_year |
- | card_issuer | string |  no  | card_issuer |
- | intent_app_error_list | [string] |  no  | intent_app_error_list |
- | timeout | number |  no  | timeout |
- | nickname | string |  no  | nickname |
- | card_id | string |  no  | card_id |
- | aggregator_name | string |  yes  | aggregator_name |
- | exp_month | number |  no  | exp_month |
- | card_brand | string |  no  | card_brand |
- | card_type | string |  no  | card_type |
- | retry_count | number |  no  | retry_count |
- | card_isin | string |  no  | card_isin |
- | logo_url | [PaymentModeLogo](#PaymentModeLogo) |  no  | Logo |
- | intent_flow | boolean |  no  | intent_flow |
- | name | string |  no  | name |
- | code | string |  no  | code |
- | card_number | string |  no  | card_number |
- | card_reference | string |  no  | card_reference |
-
----
-
-
- 
- 
- #### [RootPaymentMode](#RootPaymentMode)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | aggregator_name | string |  no  | Dispaly Priority |
- | display_name | string |  yes  | Payment mode display name |
- | anonymous_enable | boolean |  no  | Annonymous card flag |
- | list | [[PaymentModeList](#PaymentModeList)] |  no  | Payment mode |
- | display_priority | number |  yes  | Dispaly Priority |
- | name | string |  yes  | Payment mode name |
- | add_card_enabled | boolean |  no  | Annonymous card flag |
 
 ---
 
@@ -2449,8 +2383,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | string |  no  | Data |
  | payment_flow | string |  no  | payment_flow |
+ | data | string |  no  | Data |
  | api_link | string |  no  | api_link |
 
 ---
@@ -2462,17 +2396,83 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | ccavenue | [AggregatorRoute](#AggregatorRoute) |  no  | Ccavenue |
  | mswipe | [AggregatorRoute](#AggregatorRoute) |  no  | mswipe |
- | bqr_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | BQR_Razorpay |
- | payubiz | [AggregatorRoute](#AggregatorRoute) |  no  | Payubiz |
- | rupifi | [AggregatorRoute](#AggregatorRoute) |  no  | Rupifi |
- | razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | Razorpay |
- | simpl | [AggregatorRoute](#AggregatorRoute) |  no  | simpl |
- | stripe | [AggregatorRoute](#AggregatorRoute) |  no  | Stripe |
- | fynd | [AggregatorRoute](#AggregatorRoute) |  no  | Fynd |
- | juspay | [AggregatorRoute](#AggregatorRoute) |  no  | Juspay |
  | upi_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | UPI_Razorpay |
+ | stripe | [AggregatorRoute](#AggregatorRoute) |  no  | Stripe |
+ | rupifi | [AggregatorRoute](#AggregatorRoute) |  no  | Rupifi |
+ | juspay | [AggregatorRoute](#AggregatorRoute) |  no  | Juspay |
+ | bqr_razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | BQR_Razorpay |
+ | ccavenue | [AggregatorRoute](#AggregatorRoute) |  no  | Ccavenue |
+ | razorpay | [AggregatorRoute](#AggregatorRoute) |  no  | Razorpay |
+ | payubiz | [AggregatorRoute](#AggregatorRoute) |  no  | Payubiz |
+ | simpl | [AggregatorRoute](#AggregatorRoute) |  no  | simpl |
+ | fynd | [AggregatorRoute](#AggregatorRoute) |  no  | Fynd |
+
+---
+
+
+ 
+ 
+ #### [PaymentModeLogo](#PaymentModeLogo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | large | string |  yes  | large |
+ | small | string |  yes  | smalll |
+
+---
+
+
+ 
+ 
+ #### [PaymentModeList](#PaymentModeList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timeout | number |  no  | timeout |
+ | retry_count | number |  no  | retry_count |
+ | card_brand | string |  no  | card_brand |
+ | exp_month | number |  no  | exp_month |
+ | intent_app_error_list | [string] |  no  | intent_app_error_list |
+ | card_name | string |  no  | card_name |
+ | display_name | string |  no  | display name |
+ | name | string |  no  | name |
+ | card_issuer | string |  no  | card_issuer |
+ | exp_year | number |  no  | exp_year |
+ | card_fingerprint | string |  no  | card_fingerprint |
+ | fynd_vpa | string |  no  | fynd_vpa |
+ | card_token | string |  no  | card_token |
+ | logo_url | [PaymentModeLogo](#PaymentModeLogo) |  no  | Logo |
+ | intent_flow | boolean |  no  | intent_flow |
+ | aggregator_name | string |  yes  | aggregator_name |
+ | card_type | string |  no  | card_type |
+ | display_priority | number |  no  | Dispaly Priority |
+ | card_id | string |  no  | card_id |
+ | card_isin | string |  no  | card_isin |
+ | card_number | string |  no  | card_number |
+ | card_brand_image | string |  no  | card_brand_image |
+ | merchant_code | string |  no  | merchant code |
+ | card_reference | string |  no  | card_reference |
+ | nickname | string |  no  | nickname |
+ | expired | boolean |  no  | expired |
+ | code | string |  no  | code |
+
+---
+
+
+ 
+ 
+ #### [RootPaymentMode](#RootPaymentMode)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | anonymous_enable | boolean |  no  | Annonymous card flag |
+ | aggregator_name | string |  no  | Dispaly Priority |
+ | add_card_enabled | boolean |  no  | Annonymous card flag |
+ | display_priority | number |  yes  | Dispaly Priority |
+ | display_name | string |  yes  | Payment mode display name |
+ | name | string |  yes  | Payment mode name |
+ | list | [[PaymentModeList](#PaymentModeList)] |  no  | Payment mode |
 
 ---
 
@@ -2483,8 +2483,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | payment_option | [[RootPaymentMode](#RootPaymentMode)] |  yes  | Payment options |
  | payment_flows | [PaymentFlow](#PaymentFlow) |  yes  | payment_flows |
+ | payment_option | [[RootPaymentMode](#RootPaymentMode)] |  yes  | Payment options |
 
 ---
 
@@ -2507,8 +2507,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | kyc_url | string |  no  | Rupifi KYC banner url. |
  | status | string |  no  | Rupifi KYC status |
+ | kyc_url | string |  no  | Rupifi KYC banner url. |
 
 ---
 
@@ -2531,11 +2531,11 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo_small | string |  yes  | Beneficiary small Logo |
- | display_name | boolean |  no  | Beneficiary Display Name |
- | logo_large | string |  yes  | Beneficiary large Logo |
  | id | string |  yes  |   |
+ | display_name | boolean |  no  | Beneficiary Display Name |
+ | logo_small | string |  yes  | Beneficiary small Logo |
  | name | string |  yes  |  Beneficiary Name |
+ | logo_large | string |  yes  | Beneficiary large Logo |
 
 ---
 
@@ -2592,25 +2592,25 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | account_no | string |  yes  | Account Number |
- | account_holder | string |  yes  | Account Holder Name |
- | transfer_mode | string |  yes  | Transfer Mode Of Account |
- | beneficiary_id | string |  yes  | Benenficiary Id |
- | bank_name | string |  yes  | Bank Name Of Account |
- | id | number |  yes  |   |
  | is_active | boolean |  yes  | Boolean Flag whether Beneficiary set or not |
- | comment | boolean |  no  | Remarks |
- | title | string |  yes  | Title Of Account |
+ | beneficiary_id | string |  yes  | Benenficiary Id |
  | display_name | string |  yes  | Display Name Of Account |
- | modified_on | string |  yes  | MOdification Date of Beneficiary |
- | subtitle | string |  yes  | SHort Title Of Account |
- | mobile | boolean |  no  | MObile no of User |
- | address | string |  yes  | Address of User |
- | email | string |  yes  | EMail of User |
- | branch_name | boolean |  no  | Branch Name Of Account |
  | created_on | string |  yes  | Creation Date of Beneficiary |
- | ifsc_code | string |  yes  | Ifsc Code Of Account |
+ | email | string |  yes  | EMail of User |
+ | account_holder | string |  yes  | Account Holder Name |
+ | modified_on | string |  yes  | MOdification Date of Beneficiary |
+ | bank_name | string |  yes  | Bank Name Of Account |
+ | account_no | string |  yes  | Account Number |
+ | title | string |  yes  | Title Of Account |
+ | subtitle | string |  yes  | SHort Title Of Account |
+ | id | number |  yes  |   |
  | delights_user_name | string |  yes  | User Id Who filled the Beneficiary  |
+ | ifsc_code | string |  yes  | Ifsc Code Of Account |
+ | address | string |  yes  | Address of User |
+ | comment | boolean |  no  | Remarks |
+ | transfer_mode | string |  yes  | Transfer Mode Of Account |
+ | branch_name | boolean |  no  | Branch Name Of Account |
+ | mobile | boolean |  no  | MObile no of User |
 
 ---
 
@@ -2646,8 +2646,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | bank_name | string |  yes  | Bank Name Of Account |
  | branch_name | string |  yes  | Branch Name Of Account |
+ | bank_name | string |  yes  | Bank Name Of Account |
  | success | boolean |  no  | Response is successful or not |
 
 ---
@@ -2697,8 +2697,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | is_verified_flag | boolean |  yes  | Vefified flag. |
  | description | string |  yes  | Wrong OTP Code |
+ | is_verified_flag | boolean |  yes  | Vefified flag. |
  | success | string |  yes  | Response is successful or not |
 
 ---
@@ -2710,17 +2710,17 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | branch_name | string |  yes  | Branch Name of the Account |
- | account_no | string |  yes  | Account NUmber of the Account Holder |
  | account_holder | string |  yes  | Name of the Account Holder |
- | email | string |  yes  | Email of the Account Holder |
- | vpa | string |  no  |  |
- | wallet | string |  no  |  |
  | bank_name | string |  yes  | Bank Name of the Account |
- | mobile | string |  yes  | Moblie Number of the User |
+ | account_no | string |  yes  | Account NUmber of the Account Holder |
+ | email | string |  yes  | Email of the Account Holder |
+ | wallet | string |  no  |  |
  | ifsc_code | string |  yes  | Ifsc Code of the Account |
- | comment | string |  no  | Remarks added by The user |
  | address | string |  no  | Address of the User |
+ | comment | string |  no  | Remarks added by The user |
+ | mobile | string |  yes  | Moblie Number of the User |
+ | branch_name | string |  yes  | Branch Name of the Account |
+ | vpa | string |  no  |  |
 
 ---
 
@@ -2731,13 +2731,13 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | otp | string |  no  |  |
- | transfer_mode | string |  yes  | Transfer Mode of the Beneficiary to be added |
+ | details | [BeneficiaryModeDetails](#BeneficiaryModeDetails) |  yes  | Beneficiary bank details |
  | shipment_id | string |  yes  | Shipment Id of the respective Merchant Order Id |
+ | request_id | string |  no  |  |
  | delights | boolean |  yes  | True if  beneficiary to be added by delights or False if by User |
  | order_id | string |  yes  | Merchant Order Id |
- | details | [BeneficiaryModeDetails](#BeneficiaryModeDetails) |  yes  | Beneficiary bank details |
- | request_id | string |  no  |  |
+ | transfer_mode | string |  yes  | Transfer Mode of the Beneficiary to be added |
+ | otp | string |  no  |  |
 
 ---
 
@@ -2748,9 +2748,9 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | string |  no  | Refund account data. |
- | message | string |  yes  | Response message |
  | is_verified_flag | boolean |  no  |  |
+ | message | string |  yes  | Response message |
+ | data | string |  no  | Refund account data. |
  | success | boolean |  yes  | Success or failure flag. |
 
 ---
@@ -2762,11 +2762,11 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | branch_name | string |  yes  |  |
- | account_no | string |  yes  |  |
  | account_holder | string |  yes  |  |
  | bank_name | string |  yes  |  |
+ | account_no | string |  yes  |  |
  | ifsc_code | string |  yes  |  |
+ | branch_name | string |  yes  |  |
 
 ---
 
@@ -2777,8 +2777,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | order_id | string |  yes  |  |
  | details | [BankDetailsForOTP](#BankDetailsForOTP) |  yes  |  |
+ | order_id | string |  yes  |  |
 
 ---
 
@@ -2801,8 +2801,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | is_verified_flag | string |  yes  | Boolean Flag whether OTP Validation is already done or not |
  | request_id | string |  yes  | request id  |
+ | is_verified_flag | string |  yes  | Boolean Flag whether OTP Validation is already done or not |
  | success | boolean |  no  | Response is successful or not |
 
 ---
@@ -2826,8 +2826,8 @@ Success. Check the example shown below or refer `SetDefaultBeneficiaryResponse` 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | boolean |  no  | Response is successful or not |
  | is_beneficiary_set | boolean |  yes  | Boolean Flag whether Beneficiary set or not |
+ | success | boolean |  no  | Response is successful or not |
 
 ---
 

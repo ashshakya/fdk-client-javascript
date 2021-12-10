@@ -1352,27 +1352,6 @@ Returns a success response
 
  
  
- #### [CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | latitude | number |  yes  |  |
- | longitude | number |  yes  |  |
- | address_type | string |  yes  |  |
- | address1 | string |  yes  |  |
- | country | string |  yes  |  |
- | landmark | string |  no  |  |
- | pincode | number |  yes  |  |
- | address2 | string |  no  |  |
- | country_code | string |  no  |  |
- | state | string |  yes  |  |
- | city | string |  yes  |  |
-
----
-
-
- 
- 
  #### [SellerPhoneNumber](#SellerPhoneNumber)
 
  | Properties | Type | Nullable | Description |
@@ -1391,21 +1370,6 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | emails | [string] |  no  |  |
  | phone | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
-
----
-
-
- 
- 
- #### [Document](#Document)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | verified | boolean |  no  |  |
- | legal_name | string |  no  |  |
- | url | string |  no  |  |
- | type | string |  yes  |  |
- | value | string |  yes  |  |
 
 ---
 
@@ -1434,22 +1398,58 @@ Returns a success response
 
  
  
+ #### [CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | city | string |  yes  |  |
+ | latitude | number |  yes  |  |
+ | pincode | number |  yes  |  |
+ | address_type | string |  yes  |  |
+ | longitude | number |  yes  |  |
+ | address2 | string |  no  |  |
+ | landmark | string |  no  |  |
+ | country | string |  yes  |  |
+ | address1 | string |  yes  |  |
+ | state | string |  yes  |  |
+ | country_code | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Document](#Document)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | string |  yes  |  |
+ | url | string |  no  |  |
+ | verified | boolean |  no  |  |
+ | value | string |  yes  |  |
+ | legal_name | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [UpdateCompany](#UpdateCompany)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | addresses | [[CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)] |  no  |  |
- | contact_details | [ContactDetails](#ContactDetails) |  no  |  |
- | documents | [[Document](#Document)] |  no  |  |
- | reject_reason | string |  no  |  |
- | warnings | string |  no  |  |
- | business_info | string |  no  |  |
- | notification_emails | [string] |  no  |  |
- | business_type | string |  no  |  |
- | company_type | string |  no  |  |
  | name | string |  no  |  |
+ | reject_reason | string |  no  |  |
+ | contact_details | [ContactDetails](#ContactDetails) |  no  |  |
+ | notification_emails | [string] |  no  |  |
  | business_details | [BusinessDetails](#BusinessDetails) |  no  |  |
+ | company_type | string |  no  |  |
+ | warnings | string |  no  |  |
+ | business_type | string |  no  |  |
+ | addresses | [[CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)] |  no  |  |
+ | documents | [[Document](#Document)] |  no  |  |
  | franchise_enabled | boolean |  no  |  |
+ | business_info | string |  no  |  |
 
 ---
 
@@ -1472,23 +1472,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | string |  no  |  |
  | code | string |  no  |  |
- | status | number |  no  |  |
+ | message | string |  no  |  |
  | meta | string |  no  |  |
-
----
-
-
- 
- 
- #### [UserSerializer](#UserSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | username | string |  no  |  |
- | user_id | string |  no  |  |
- | contact | string |  no  |  |
+ | status | number |  no  |  |
 
 ---
 
@@ -1507,21 +1494,34 @@ Returns a success response
 
  
  
+ #### [UserSerializer](#UserSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user_id | string |  no  |  |
+ | contact | string |  no  |  |
+ | username | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [GetAddressSerializer](#GetAddressSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | city | string |  no  |  |
  | latitude | number |  no  |  |
+ | pincode | number |  no  |  |
  | address_type | string |  no  |  |
  | longitude | number |  no  |  |
- | address1 | string |  no  |  |
- | country | string |  no  |  |
- | landmark | string |  no  |  |
- | pincode | number |  no  |  |
  | address2 | string |  no  |  |
- | country_code | string |  no  |  |
+ | landmark | string |  no  |  |
+ | country | string |  no  |  |
+ | address1 | string |  no  |  |
  | state | string |  no  |  |
- | city | string |  no  |  |
+ | country_code | string |  no  |  |
 
 ---
 
@@ -1532,27 +1532,27 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | created_by | [UserSerializer](#UserSerializer) |  no  |  |
- | warnings | string |  no  |  |
- | modified_on | string |  no  |  |
- | franchise_enabled | boolean |  no  |  |
- | verified_by | [UserSerializer](#UserSerializer) |  no  |  |
- | mode | string |  no  |  |
- | company_type | string |  yes  |  |
- | contact_details | [ContactDetails](#ContactDetails) |  no  |  |
- | documents | [[Document](#Document)] |  no  |  |
- | created_on | string |  no  |  |
  | business_country_info | [BusinessCountryInfo](#BusinessCountryInfo) |  no  |  |
- | business_type | string |  yes  |  |
+ | contact_details | [ContactDetails](#ContactDetails) |  no  |  |
+ | verified_on | string |  no  |  |
+ | uid | number |  yes  |  |
+ | verified_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | warnings | string |  no  |  |
+ | mode | string |  no  |  |
+ | modified_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | business_info | string |  no  |  |
+ | stage | string |  no  |  |
+ | notification_emails | [string] |  no  |  |
+ | company_type | string |  yes  |  |
+ | modified_on | string |  no  |  |
+ | created_on | string |  no  |  |
  | name | string |  no  |  |
  | business_details | [BusinessDetails](#BusinessDetails) |  no  |  |
- | modified_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | created_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | business_type | string |  yes  |  |
  | addresses | [[GetAddressSerializer](#GetAddressSerializer)] |  no  |  |
- | uid | number |  yes  |  |
- | business_info | string |  no  |  |
- | notification_emails | [string] |  no  |  |
- | verified_on | string |  no  |  |
- | stage | string |  no  |  |
+ | documents | [[Document](#Document)] |  no  |  |
+ | franchise_enabled | boolean |  no  |  |
 
 ---
 
@@ -1563,8 +1563,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pending | number |  no  |  |
  | verified | number |  no  |  |
+ | pending | number |  no  |  |
 
 ---
 
@@ -1575,13 +1575,13 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brand | [DocumentsObj](#DocumentsObj) |  no  |  |
- | uid | number |  no  |  |
- | product | [DocumentsObj](#DocumentsObj) |  no  |  |
- | store_documents | [DocumentsObj](#DocumentsObj) |  no  |  |
- | company_documents | [DocumentsObj](#DocumentsObj) |  no  |  |
  | stage | string |  no  |  |
+ | store_documents | [DocumentsObj](#DocumentsObj) |  no  |  |
  | store | [DocumentsObj](#DocumentsObj) |  no  |  |
+ | uid | number |  no  |  |
+ | brand | [DocumentsObj](#DocumentsObj) |  no  |  |
+ | product | [DocumentsObj](#DocumentsObj) |  no  |  |
+ | company_documents | [DocumentsObj](#DocumentsObj) |  no  |  |
 
 ---
 
@@ -1604,16 +1604,16 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | string |  yes  |  |
- | _locale_language | string |  no  |  |
- | uid | number |  no  |  |
- | brand_tier | string |  no  |  |
+ | name | string |  yes  |  |
+ | description | string |  no  |  |
  | synonyms | [string] |  no  |  |
  | _custom_json | string |  no  |  |
- | company_id | number |  no  |  |
- | name | string |  yes  |  |
  | banner | [BrandBannerSerializer](#BrandBannerSerializer) |  no  |  |
- | description | string |  no  |  |
+ | uid | number |  no  |  |
+ | _locale_language | string |  no  |  |
+ | company_id | number |  no  |  |
+ | brand_tier | string |  no  |  |
+ | logo | string |  yes  |  |
 
 ---
 
@@ -1624,9 +1624,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | string |  no  |  |
  | user_id | string |  no  |  |
  | contact | string |  no  |  |
+ | username | string |  no  |  |
 
 ---
 
@@ -1637,25 +1637,25 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | string |  no  |  |
- | _locale_language | string |  no  |  |
- | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | warnings | string |  no  |  |
- | _custom_json | string |  no  |  |
- | modified_on | string |  no  |  |
- | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | synonyms | [string] |  no  |  |
- | slug_key | string |  no  |  |
- | mode | string |  no  |  |
- | banner | [BrandBannerSerializer](#BrandBannerSerializer) |  no  |  |
- | reject_reason | string |  no  |  |
- | created_on | string |  no  |  |
- | name | string |  yes  |  |
- | modified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | uid | number |  no  |  |
  | verified_on | string |  no  |  |
- | description | string |  no  |  |
+ | _custom_json | string |  no  |  |
+ | uid | number |  no  |  |
+ | _locale_language | string |  no  |  |
+ | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | warnings | string |  no  |  |
+ | slug_key | string |  no  |  |
+ | banner | [BrandBannerSerializer](#BrandBannerSerializer) |  no  |  |
+ | mode | string |  no  |  |
+ | modified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
  | stage | string |  no  |  |
+ | reject_reason | string |  no  |  |
+ | description | string |  no  |  |
+ | modified_on | string |  no  |  |
+ | created_on | string |  no  |  |
+ | logo | string |  no  |  |
+ | name | string |  yes  |  |
+ | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | synonyms | [string] |  no  |  |
 
 ---
 
@@ -1675,23 +1675,40 @@ Returns a success response
 
  
  
+ #### [Page](#Page)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | has_previous | boolean |  no  |  |
+ | type | string |  yes  |  |
+ | has_next | boolean |  no  |  |
+ | item_total | number |  no  |  |
+ | current | number |  no  |  |
+ | next_id | string |  no  |  |
+ | size | number |  no  |  |
+
+---
+
+
+ 
+ 
  #### [GetCompanySerializer](#GetCompanySerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | addresses | [[GetAddressSerializer](#GetAddressSerializer)] |  no  |  |
- | created_by | [UserSerializer](#UserSerializer) |  no  |  |
- | reject_reason | string |  no  |  |
- | uid | number |  no  |  |
- | verified_by | [UserSerializer](#UserSerializer) |  no  |  |
- | created_on | string |  no  |  |
- | business_type | string |  no  |  |
- | verified_on | string |  no  |  |
- | modified_on | string |  no  |  |
- | company_type | string |  no  |  |
  | name | string |  no  |  |
- | modified_by | [UserSerializer](#UserSerializer) |  no  |  |
  | stage | string |  no  |  |
+ | reject_reason | string |  no  |  |
+ | verified_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | verified_on | string |  no  |  |
+ | created_by | [UserSerializer](#UserSerializer) |  no  |  |
+ | company_type | string |  no  |  |
+ | uid | number |  no  |  |
+ | business_type | string |  no  |  |
+ | modified_on | string |  no  |  |
+ | addresses | [[GetAddressSerializer](#GetAddressSerializer)] |  no  |  |
+ | created_on | string |  no  |  |
+ | modified_by | [UserSerializer](#UserSerializer) |  no  |  |
 
 ---
 
@@ -1702,35 +1719,18 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brand | [GetBrandResponseSerializer](#GetBrandResponseSerializer) |  no  |  |
- | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | reject_reason | string |  no  |  |
- | uid | number |  no  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer) |  no  |  |
- | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | created_on | string |  no  |  |
- | warnings | string |  no  |  |
- | verified_on | string |  no  |  |
- | modified_on | string |  no  |  |
- | modified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
  | stage | string |  no  |  |
-
----
-
-
- 
- 
- #### [Page](#Page)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | item_total | number |  no  |  |
- | current | number |  no  |  |
- | type | string |  yes  |  |
- | next_id | string |  no  |  |
- | size | number |  no  |  |
- | has_next | boolean |  no  |  |
- | has_previous | boolean |  no  |  |
+ | reject_reason | string |  no  |  |
+ | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer) |  no  |  |
+ | verified_on | string |  no  |  |
+ | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | warnings | string |  no  |  |
+ | uid | number |  no  |  |
+ | modified_on | string |  no  |  |
+ | brand | [GetBrandResponseSerializer](#GetBrandResponseSerializer) |  no  |  |
+ | created_on | string |  no  |  |
+ | modified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
 
 ---
 
@@ -1741,71 +1741,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[CompanyBrandSerializer](#CompanyBrandSerializer)] |  no  |  |
  | page | [Page](#Page) |  no  |  |
-
----
-
-
- 
- 
- #### [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | on_same_store | boolean |  no  |  |
- | store_uid | number |  no  |  |
-
----
-
-
- 
- 
- #### [LocationTimingSerializer](#LocationTimingSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | hour | number |  no  |  |
- | minute | number |  no  |  |
-
----
-
-
- 
- 
- #### [LocationDayWiseSerializer](#LocationDayWiseSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | open | boolean |  yes  |  |
- | weekday | string |  yes  |  |
- | opening | [LocationTimingSerializer](#LocationTimingSerializer) |  no  |  |
- | closing | [LocationTimingSerializer](#LocationTimingSerializer) |  no  |  |
-
----
-
-
- 
- 
- #### [InvoiceCredSerializer](#InvoiceCredSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | password | string |  no  |  |
- | username | string |  no  |  |
- | enabled | boolean |  no  |  |
-
----
-
-
- 
- 
- #### [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | e_waybill | [InvoiceCredSerializer](#InvoiceCredSerializer) |  no  |  |
- | e_invoice | [InvoiceCredSerializer](#InvoiceCredSerializer) |  no  |  |
+ | items | [[CompanyBrandSerializer](#CompanyBrandSerializer)] |  no  |  |
 
 ---
 
@@ -1825,21 +1762,84 @@ Returns a success response
 
  
  
+ #### [InvoiceCredSerializer](#InvoiceCredSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | password | string |  no  |  |
+ | enabled | boolean |  no  |  |
+ | username | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | e_waybill | [InvoiceCredSerializer](#InvoiceCredSerializer) |  no  |  |
+ | e_invoice | [InvoiceCredSerializer](#InvoiceCredSerializer) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | on_same_store | boolean |  no  |  |
+ | store_uid | number |  no  |  |
+
+---
+
+
+ 
+ 
  #### [GetAddressSerializer1](#GetAddressSerializer1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | city | string |  no  |  |
  | latitude | number |  no  |  |
+ | pincode | number |  no  |  |
  | address_type | string |  no  |  |
  | longitude | number |  no  |  |
- | address1 | string |  no  |  |
- | country | string |  no  |  |
- | landmark | string |  no  |  |
- | pincode | number |  no  |  |
  | address2 | string |  no  |  |
- | country_code | string |  no  |  |
+ | landmark | string |  no  |  |
+ | country | string |  no  |  |
+ | address1 | string |  no  |  |
  | state | string |  no  |  |
- | city | string |  no  |  |
+ | country_code | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationTimingSerializer](#LocationTimingSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | minute | number |  no  |  |
+ | hour | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationDayWiseSerializer](#LocationDayWiseSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | open | boolean |  yes  |  |
+ | closing | [LocationTimingSerializer](#LocationTimingSerializer) |  no  |  |
+ | opening | [LocationTimingSerializer](#LocationTimingSerializer) |  no  |  |
+ | weekday | string |  yes  |  |
 
 ---
 
@@ -1850,23 +1850,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | name | string |  yes  |  |
+ | manager | [LocationManagerSerializer](#LocationManagerSerializer) |  no  |  |
+ | stage | string |  no  |  |
+ | gst_credentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer) |  no  |  |
+ | product_return_config | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer) |  no  |  |
+ | address | [GetAddressSerializer1](#GetAddressSerializer1) |  yes  |  |
+ | company | number |  yes  |  |
+ | notification_emails | [string] |  no  |  |
+ | display_name | string |  yes  |  |
+ | _custom_json | string |  no  |  |
+ | warnings | string |  no  |  |
+ | uid | number |  no  |  |
+ | timing | [[LocationDayWiseSerializer](#LocationDayWiseSerializer)] |  no  |  |
+ | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
  | store_type | string |  no  |  |
  | documents | [[Document](#Document)] |  no  |  |
  | code | string |  yes  |  |
- | product_return_config | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer) |  no  |  |
- | uid | number |  no  |  |
- | timing | [[LocationDayWiseSerializer](#LocationDayWiseSerializer)] |  no  |  |
- | company | number |  yes  |  |
- | gst_credentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer) |  no  |  |
- | manager | [LocationManagerSerializer](#LocationManagerSerializer) |  no  |  |
- | warnings | string |  no  |  |
- | notification_emails | [string] |  no  |  |
- | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
- | _custom_json | string |  no  |  |
- | display_name | string |  yes  |  |
- | name | string |  yes  |  |
- | address | [GetAddressSerializer1](#GetAddressSerializer1) |  yes  |  |
- | stage | string |  no  |  |
 
 ---
 
@@ -1889,31 +1889,31 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | manager | [LocationManagerSerializer](#LocationManagerSerializer) |  no  |  |
+ | verified_on | string |  no  |  |
+ | _custom_json | string |  no  |  |
+ | uid | number |  no  |  |
+ | timing | [[LocationDayWiseSerializer](#LocationDayWiseSerializer)] |  no  |  |
+ | code | string |  yes  |  |
+ | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
  | warnings | string |  no  |  |
  | phone_number | string |  yes  |  |
- | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
- | _custom_json | string |  no  |  |
- | modified_on | string |  no  |  |
- | timing | [[LocationDayWiseSerializer](#LocationDayWiseSerializer)] |  no  |  |
- | store_type | string |  no  |  |
- | verified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | address | [GetAddressSerializer](#GetAddressSerializer) |  yes  |  |
- | documents | [[Document](#Document)] |  no  |  |
- | gst_credentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer) |  no  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer) |  no  |  |
- | created_on | string |  no  |  |
- | manager | [LocationManagerSerializer](#LocationManagerSerializer) |  no  |  |
- | name | string |  yes  |  |
  | modified_by | [UserSerializer1](#UserSerializer1) |  no  |  |
- | code | string |  yes  |  |
- | uid | number |  no  |  |
- | notification_emails | [string] |  no  |  |
- | verified_on | string |  no  |  |
- | display_name | string |  yes  |  |
- | integration_type | [LocationIntegrationType](#LocationIntegrationType) |  no  |  |
- | product_return_config | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer) |  no  |  |
  | stage | string |  no  |  |
+ | address | [GetAddressSerializer](#GetAddressSerializer) |  yes  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer) |  no  |  |
+ | integration_type | [LocationIntegrationType](#LocationIntegrationType) |  no  |  |
+ | notification_emails | [string] |  no  |  |
+ | modified_on | string |  no  |  |
+ | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
+ | store_type | string |  no  |  |
+ | created_on | string |  no  |  |
+ | name | string |  yes  |  |
+ | gst_credentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer) |  no  |  |
+ | product_return_config | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer) |  no  |  |
+ | display_name | string |  yes  |  |
+ | created_by | [UserSerializer1](#UserSerializer1) |  no  |  |
+ | documents | [[Document](#Document)] |  no  |  |
 
 ---
 
@@ -1924,8 +1924,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[GetLocationSerializer](#GetLocationSerializer)] |  no  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | [[GetLocationSerializer](#GetLocationSerializer)] |  no  |  |
 
 ---
 
