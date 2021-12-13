@@ -510,7 +510,6 @@ export class Validator {
     static UmdJs(): any;
     static CommonJs(): any;
     static Css(): any;
-    static Seo(): any;
     static Sections(): any;
     static Config(): any;
     static Preset(): any;
@@ -863,11 +862,11 @@ export class Validator {
     static PaymentInitializationResponse(): any;
     static PaymentStatusUpdateRequest(): any;
     static PaymentStatusUpdateResponse(): any;
-    static AggregatorRoute(): any;
-    static PaymentFlow(): any;
     static PaymentModeLogo(): any;
     static PaymentModeList(): any;
     static RootPaymentMode(): any;
+    static AggregatorRoute(): any;
+    static PaymentFlow(): any;
     static PaymentOptionAndFlow(): any;
     static PaymentModeRouteResponse(): any;
     static RupifiBannerData(): any;

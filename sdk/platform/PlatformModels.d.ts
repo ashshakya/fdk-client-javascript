@@ -92,8 +92,8 @@ export class CatalogValidator {
     static getProducts(): any;
     static createProduct(): any;
     static getProduct(): any;
-    static editProduct(): any;
     static deleteProduct(): any;
+    static editProduct(): any;
     static getProductValidation(): any;
     static getProductSize(): any;
     static getProductBulkUploadHistory(): any;
@@ -123,8 +123,8 @@ export class CatalogValidator {
     static getOptimalLocations(): any;
 }
 export class CompanyProfileValidator {
-    static updateCompany(): any;
     static cbsOnboardGet(): any;
+    static updateCompany(): any;
     static getCompanyMetrics(): any;
     static editBrand(): any;
     static getBrand(): any;
