@@ -70,6 +70,11 @@ export class ContentValidator {
     static updateBlog(): any;
     static deleteBlog(): any;
     static getComponentById(): any;
+    static addDataLoader(): any;
+    static getDataLoaders(): any;
+    static deleteDataLoader(): any;
+    static editDataLoader(): any;
+    static selectDataLoader(): any;
     static getFaqCategories(): any;
     static getFaqCategoryBySlugOrId(): any;
     static createFaqCategory(): any;
@@ -168,6 +173,7 @@ export class PaymentValidator {
     static confirmPayment(): any;
 }
 export class OrderValidator {
+    static getOrderDetails(): any;
     static trackShipmentPlatform(): any;
     static trackOrder(): any;
     static failedOrders(): any;
@@ -178,29 +184,29 @@ export class OrderValidator {
     static getOrdersByApplicationId(): any;
 }
 export class CatalogValidator {
-    static updateSearchKeywords(): any;
     static deleteSearchKeywords(): any;
     static getSearchKeywords(): any;
-    static createCustomKeyword(): any;
+    static updateSearchKeywords(): any;
     static getAllSearchKeyword(): any;
-    static updateAutocompleteKeyword(): any;
+    static createCustomKeyword(): any;
     static deleteAutocompleteKeyword(): any;
     static getAutocompleteKeywordDetail(): any;
-    static createCustomAutocompleteRule(): any;
+    static updateAutocompleteKeyword(): any;
     static getAutocompleteConfig(): any;
+    static createCustomAutocompleteRule(): any;
     static getCatalogConfiguration(): any;
-    static createConfigurationProductListing(): any;
     static getConfigurations(): any;
-    static createConfigurationByType(): any;
+    static createConfigurationProductListing(): any;
     static getConfigurationByType(): any;
+    static createConfigurationByType(): any;
     static getQueryFilters(): any;
-    static createCollection(): any;
     static getAllCollections(): any;
+    static createCollection(): any;
     static getCollectionDetail(): any;
     static deleteCollection(): any;
     static updateCollection(): any;
-    static addCollectionItems(): any;
     static getCollectionItems(): any;
+    static addCollectionItems(): any;
     static getCatalogInsights(): any;
     static getApplicationBrands(): any;
     static getDepartments(): any;
