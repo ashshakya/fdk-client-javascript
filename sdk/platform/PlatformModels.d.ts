@@ -41,22 +41,6 @@ export class PaymentValidator {
     static saveSubscriptionSetupIntent(): any;
     static verifyIfscCode(): any;
 }
-export class OrderValidator {
-    static shipmentStatusUpdate(): any;
-    static activityStatus(): any;
-    static storeProcessShipmentUpdate(): any;
-    static checkRefund(): any;
-    static ShipmentBagsCanBreak(): any;
-    static getOrdersByCompanyId(): any;
-    static getOrderLanesCountByCompanyId(): any;
-    static getOrderDetails(): any;
-    static getPicklistOrdersByCompanyId(): any;
-    static getShipmentAddress(): any;
-    static updateShipmentAddress(): any;
-    static getPing(): any;
-    static voiceCallback(): any;
-    static voiceClickToCall(): any;
-}
 export class CatalogValidator {
     static getProductBundle(): any;
     static createProductBundle(): any;

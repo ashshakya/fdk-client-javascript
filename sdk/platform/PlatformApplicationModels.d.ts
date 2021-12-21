@@ -172,17 +172,6 @@ export class PaymentValidator {
     static getUserBeneficiaries(): any;
     static confirmPayment(): any;
 }
-export class OrderValidator {
-    static getOrderDetails(): any;
-    static trackShipmentPlatform(): any;
-    static trackOrder(): any;
-    static failedOrders(): any;
-    static reprocessOrder(): any;
-    static updateShipment(): any;
-    static getPlatformShipmentReasons(): any;
-    static getShipmentTrackDetails(): any;
-    static getOrdersByApplicationId(): any;
-}
 export class CatalogValidator {
     static deleteSearchKeywords(): any;
     static getSearchKeywords(): any;
