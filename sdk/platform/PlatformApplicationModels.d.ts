@@ -278,6 +278,10 @@ export class AnalyticsValidator {
     static getAbandonCartsCSV(): any;
     static getAbandonCartDetail(): any;
 }
+export class DiscountValidator {
+    static fetchDiscountJobs(): any;
+    static getDiscountDetails(): any;
+}
 export class PartnerValidator {
     static addProxyPath(): any;
     static removeProxyPath(): any;
