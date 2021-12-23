@@ -11422,6 +11422,14 @@ declare class FileStorage {
     proxy({ url }?: {
         url: string;
     }): any;
+    upload({ data, file_name, content_type, namespace, size, tags, }?: {
+        data: any;
+        file_name: any;
+        content_type: any;
+        namespace: any;
+        size: any;
+        tags: any;
+    }): globalThis.Promise<any>;
 }
 declare class Inventory {
     constructor(config: any);
