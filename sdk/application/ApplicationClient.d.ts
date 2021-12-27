@@ -22,6 +22,39 @@ declare class ApplicationClient {
 declare class Catalog {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getProductDetailBySlug: string;
+        getProductSizesBySlug: string;
+        getProductPriceBySlug: string;
+        getProductSellersBySlug: string;
+        getProductComparisonBySlugs: string;
+        getSimilarComparisonProductBySlug: string;
+        getComparedFrequentlyProductBySlug: string;
+        getProductSimilarByIdentifier: string;
+        getProductVariantsBySlug: string;
+        getProductStockByIds: string;
+        getProductStockForTimeByIds: string;
+        getProducts: string;
+        getBrands: string;
+        getBrandDetailBySlug: string;
+        getCategories: string;
+        getCategoryDetailBySlug: string;
+        getHomeProducts: string;
+        getDepartments: string;
+        getSearchResults: string;
+        getCollections: string;
+        getCollectionItemsBySlug: string;
+        getCollectionDetailBySlug: string;
+        getFollowedListing: string;
+        followById: string;
+        unfollowById: string;
+        getFollowerCountById: string;
+        getFollowIds: string;
+        getStores: string;
+        getInStockLocations: string;
+        getLocationDetailsById: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} arg.slug - A short, human-readable, URL-friendly
@@ -687,6 +720,33 @@ declare class Catalog {
 declare class Cart {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getCart: string;
+        getCartLastModified: string;
+        addItems: string;
+        updateCart: string;
+        getItemCount: string;
+        getCoupons: string;
+        applyCoupon: string;
+        removeCoupon: string;
+        getBulkDiscountOffers: string;
+        applyRewardPoints: string;
+        getAddresses: string;
+        addAddress: string;
+        getAddressById: string;
+        updateAddress: string;
+        removeAddress: string;
+        selectAddress: string;
+        selectPaymentMode: string;
+        validateCouponForPayment: string;
+        getShipments: string;
+        checkoutCart: string;
+        updateCartMeta: string;
+        getCartShareLink: string;
+        getCartSharedItems: string;
+        updateCartWithSharedItems: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.id] -
@@ -1020,6 +1080,10 @@ declare class Cart {
 declare class Common {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getLocations: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.locationType] - Provide location type to query on.
@@ -1039,6 +1103,16 @@ declare class Common {
 declare class Lead {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getTicket: string;
+        createHistory: string;
+        createTicket: string;
+        getCustomForm: string;
+        submitCustomForm: string;
+        getParticipantsInsideVideoRoom: string;
+        getTokenForVideoRoom: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} arg.id - ID of ticket to be retrieved
@@ -1117,6 +1191,13 @@ declare class Lead {
 declare class Theme {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getAllPages: string;
+        getPage: string;
+        getAppliedTheme: string;
+        getThemeForPreview: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} arg.themeId - ID of the theme to be retrieved
@@ -1160,6 +1241,42 @@ declare class Theme {
 declare class User {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        loginWithFacebook: string;
+        loginWithGoogle: string;
+        loginWithGoogleAndroid: string;
+        loginWithGoogleIOS: string;
+        loginWithAppleIOS: string;
+        loginWithOTP: string;
+        loginWithEmailAndPassword: string;
+        sendResetPasswordEmail: string;
+        forgotPassword: string;
+        sendResetToken: string;
+        loginWithToken: string;
+        registerWithForm: string;
+        verifyEmail: string;
+        verifyMobile: string;
+        hasPassword: string;
+        updatePassword: string;
+        logout: string;
+        sendOTPOnMobile: string;
+        verifyMobileOTP: string;
+        sendOTPOnEmail: string;
+        verifyEmailOTP: string;
+        getLoggedInUser: string;
+        getListOfActiveSessions: string;
+        getPlatformConfig: string;
+        updateProfile: string;
+        addMobileNumber: string;
+        deleteMobileNumber: string;
+        setMobileNumberAsPrimary: string;
+        sendVerificationLinkToMobile: string;
+        addEmail: string;
+        deleteEmail: string;
+        setEmailAsPrimary: string;
+        sendVerificationLinkToEmail: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.platform] - ID of the application
@@ -1544,6 +1661,28 @@ declare class User {
 declare class Content {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getAnnouncements: string;
+        getBlog: string;
+        getBlogs: string;
+        getDataLoaders: string;
+        getFaqs: string;
+        getFaqCategories: string;
+        getFaqBySlug: string;
+        getFaqCategoryBySlug: string;
+        getFaqsByCategorySlug: string;
+        getLandingPage: string;
+        getLegalInformation: string;
+        getNavigations: string;
+        getSEOConfiguration: string;
+        getSlideshows: string;
+        getSlideshow: string;
+        getSupportInformation: string;
+        getTags: string;
+        getPage: string;
+        getPages: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<AnnouncementsResponseSchema>} - Success response
@@ -1775,6 +1914,12 @@ declare class Content {
 declare class Communication {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getCommunicationConsent: string;
+        upsertCommunicationConsent: string;
+        upsertAppPushtoken: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<CommunicationConsent>} - Success response
@@ -1806,6 +1951,16 @@ declare class Communication {
 declare class Share {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getApplicationQRCode: string;
+        getProductQRCodeBySlug: string;
+        getCollectionQRCodeBySlug: string;
+        getUrlQRCode: string;
+        createShortLink: string;
+        getShortLinkByHash: string;
+        getOriginalShortLinkByHash: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<QRCodeResp>} - Success response
@@ -1881,6 +2036,12 @@ declare class Share {
 declare class FileStorage {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        startUpload: string;
+        completeUpload: string;
+        signUrls: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} arg.namespace - Name of the bucket created for storing objects.
@@ -1963,6 +2124,24 @@ declare class FileStorage {
 declare class Configuration {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getApplication: string;
+        getOwnerInfo: string;
+        getBasicDetails: string;
+        getIntegrationTokens: string;
+        getOrderingStores: string;
+        getStoreDetailById: string;
+        getFeatures: string;
+        getContactInfo: string;
+        getCurrencies: string;
+        getCurrencyById: string;
+        getAppCurrencies: string;
+        getLanguages: string;
+        getOrderingStoreCookie: string;
+        removeOrderingStoreCookie: string;
+        getAppStaffs: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @returns {Promise<Application>} - Success response
@@ -2112,6 +2291,31 @@ declare class Configuration {
 declare class Payment {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getAggregatorsConfig: string;
+        attachCardToCustomer: string;
+        getActiveCardAggregator: string;
+        getActiveUserCards: string;
+        deleteUserCard: string;
+        verifyCustomerForPayment: string;
+        verifyAndChargePayment: string;
+        initialisePayment: string;
+        checkAndUpdatePaymentStatus: string;
+        getPaymentModeRoutes: string;
+        getPosPaymentModeRoutes: string;
+        getRupifiBannerDetails: string;
+        getActiveRefundTransferModes: string;
+        enableOrDisableRefundTransferMode: string;
+        getUserBeneficiariesDetail: string;
+        verifyIfscCode: string;
+        getOrderBeneficiariesDetail: string;
+        verifyOtpAndAddBeneficiaryForBank: string;
+        addBeneficiaryDetails: string;
+        addRefundBankAccountUsingOTP: string;
+        verifyOtpAndAddBeneficiaryForWallet: string;
+        updateDefaultBeneficiary: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.xApiToken] - Used for basic authentication.
@@ -2373,6 +2577,19 @@ declare class Payment {
 declare class Order {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getOrders: string;
+        getOrderById: string;
+        getShipmentById: string;
+        getShipmentReasons: string;
+        updateShipmentStatus: string;
+        trackShipment: string;
+        getPosOrderById: string;
+        getCustomerDetailsByShipmentId: string;
+        sendOtpToShipmentCustomer: string;
+        verifyOtpShipmentCustomer: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {number} [arg.pageNo] - The page number to navigate through the
@@ -2518,6 +2735,16 @@ declare class Order {
 declare class Rewards {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getPointsOnProduct: string;
+        getOfferByName: string;
+        getOrderDiscount: string;
+        getUserPoints: string;
+        getUserPointsHistory: string;
+        getUserReferralDetails: string;
+        redeemReferralCode: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {CatalogueOrderRequest} arg.body
@@ -2598,6 +2825,35 @@ declare class Rewards {
 declare class Feedback {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        createAbuseReport: string;
+        updateAbuseReport: string;
+        getAbuseReports: string;
+        getAttributes: string;
+        createAttribute: string;
+        getAttribute: string;
+        updateAttribute: string;
+        createComment: string;
+        updateComment: string;
+        getComments: string;
+        checkEligibility: string;
+        deleteMedia: string;
+        createMedia: string;
+        updateMedia: string;
+        getMedias: string;
+        getReviewSummaries: string;
+        createReview: string;
+        updateReview: string;
+        getReviews: string;
+        getTemplates: string;
+        createQuestion: string;
+        updateQuestion: string;
+        getQuestionAndAnswers: string;
+        getVotes: string;
+        createVote: string;
+        updateVote: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {ReportAbuseRequest} arg.body
@@ -3118,6 +3374,36 @@ declare class Feedback {
 declare class PosCart {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getCart: string;
+        getCartLastModified: string;
+        addItems: string;
+        updateCart: string;
+        getItemCount: string;
+        getCoupons: string;
+        applyCoupon: string;
+        removeCoupon: string;
+        getBulkDiscountOffers: string;
+        applyRewardPoints: string;
+        getAddresses: string;
+        addAddress: string;
+        getAddressById: string;
+        updateAddress: string;
+        removeAddress: string;
+        selectAddress: string;
+        selectPaymentMode: string;
+        validateCouponForPayment: string;
+        getShipments: string;
+        updateShipments: string;
+        checkoutCart: string;
+        updateCartMeta: string;
+        getAvailableDeliveryModes: string;
+        getStoreAddressByUid: string;
+        getCartShareLink: string;
+        getCartSharedItems: string;
+        updateCartWithSharedItems: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {string} [arg.id] -
@@ -3507,6 +3793,11 @@ declare class PosCart {
 declare class Logistic {
     constructor(_conf: any);
     _conf: any;
+    _urls: {
+        getTatProduct: string;
+        getPincodeCity: string;
+    };
+    updateUrls(urls: any): void;
     /**
      * @param {Object} arg - Arg object.
      * @param {GetTatProductReqBody} arg.body
