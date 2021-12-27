@@ -6626,12 +6626,100 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
+ #### [Meta](#Meta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | source | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Media](#Media)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | [Meta](#Meta) |  no  |  |
+ | type | string |  no  |  |
+ | url | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingActionPage](#ProductListingActionPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | params | string |  no  |  |
+ | type | string |  no  |  |
+ | query | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ActionPage](#ActionPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | string |  no  |  |
+ | page | [ProductListingActionPage](#ProductListingActionPage) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductBrand](#ProductBrand)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | logo | [Media](#Media) |  no  |  |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetailAttribute](#ProductDetailAttribute)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | string |  no  |  |
+ | type | string |  no  |  |
+ | value | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | details | [[ProductDetailAttribute](#ProductDetailAttribute)] |  no  |  |
+ | title | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [Price](#Price)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currency_code | string |  no  |  |
  | min | number |  no  |  |
+ | currency_code | string |  no  |  |
  | max | number |  no  |  |
  | currency_symbol | string |  no  |  |
 
@@ -6652,124 +6740,36 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
- #### [ProductListingActionPage](#ProductListingActionPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | query | string |  no  |  |
- | type | string |  no  |  |
- | params | string |  no  |  |
-
----
-
-
- 
- 
- #### [ActionPage](#ActionPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | page | [ProductListingActionPage](#ProductListingActionPage) |  no  |  |
- | type | string |  no  |  |
-
----
-
-
- 
- 
- #### [Meta](#Meta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | source | string |  no  |  |
-
----
-
-
- 
- 
- #### [Media](#Media)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | string |  no  |  |
- | url | string |  no  |  |
- | meta | [Meta](#Meta) |  no  |  |
-
----
-
-
- 
- 
- #### [ProductBrand](#ProductBrand)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | logo | [Media](#Media) |  no  |  |
- | uid | number |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
- | name | string |  no  |  |
-
----
-
-
- 
- 
- #### [ProductDetailAttribute](#ProductDetailAttribute)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | string |  no  |  |
- | type | string |  no  |  |
- | key | string |  no  |  |
-
----
-
-
- 
- 
- #### [ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | details | [[ProductDetailAttribute](#ProductDetailAttribute)] |  no  |  |
- | title | string |  no  |  |
-
----
-
-
- 
- 
  #### [ProductDetail](#ProductDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | tryouts | [string] |  no  |  |
- | description | string |  no  |  |
- | has_variant | boolean |  no  |  |
- | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
- | image_nature | string |  no  |  |
  | name | string |  no  |  |
- | similars | [string] |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
- | rating | number |  no  |  |
- | attributes | string |  no  |  |
- | type | string |  no  |  |
- | highlights | [string] |  no  |  |
- | slug | string |  yes  |  |
- | rating_count | number |  no  |  |
- | medias | [[Media](#Media)] |  no  |  |
- | product_online_date | string |  no  |  |
- | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
  | discount | string |  no  |  |
- | teaser_tag | string |  no  |  |
- | uid | number |  no  |  |
- | short_description | string |  no  |  |
- | brand | [ProductBrand](#ProductBrand) |  no  |  |
  | color | string |  no  |  |
- | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
+ | teaser_tag | string |  no  |  |
+ | product_online_date | string |  no  |  |
+ | description | string |  no  |  |
+ | brand | [ProductBrand](#ProductBrand) |  no  |  |
+ | highlights | [string] |  no  |  |
  | item_type | string |  no  |  |
+ | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
  | item_code | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | tryouts | [string] |  no  |  |
+ | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
+ | attributes | string |  no  |  |
+ | image_nature | string |  no  |  |
+ | short_description | string |  no  |  |
+ | uid | number |  no  |  |
+ | slug | string |  yes  |  |
+ | has_variant | boolean |  no  |  |
+ | similars | [string] |  no  |  |
+ | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
+ | rating_count | number |  no  |  |
+ | type | string |  no  |  |
+ | medias | [[Media](#Media)] |  no  |  |
+ | rating | number |  no  |  |
 
 ---
 
@@ -6781,17 +6781,6 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | error | string |  no  |  |
-
----
-
-
- 
- 
- #### [ProductSizeStores](#ProductSizeStores)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | count | number |  no  |  |
 
 ---
 
@@ -6814,12 +6803,12 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | col_4 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_3 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_2 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_6 | [ColumnHeader](#ColumnHeader) |  no  |  |
  | col_5 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_3 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_6 | [ColumnHeader](#ColumnHeader) |  no  |  |
  | col_1 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_2 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_4 | [ColumnHeader](#ColumnHeader) |  no  |  |
 
 ---
 
@@ -6830,12 +6819,12 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | col_4 | string |  no  |  |
- | col_3 | string |  no  |  |
- | col_2 | string |  no  |  |
- | col_6 | string |  no  |  |
  | col_5 | string |  no  |  |
+ | col_3 | string |  no  |  |
+ | col_6 | string |  no  |  |
  | col_1 | string |  no  |  |
+ | col_2 | string |  no  |  |
+ | col_4 | string |  no  |  |
 
 ---
 
@@ -6846,13 +6835,24 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | title | string |  no  |  |
+ | size_tip | string |  no  |  |
  | description | string |  no  |  |
  | headers | [ColumnHeaders](#ColumnHeaders) |  no  |  |
- | title | string |  no  |  |
- | image | string |  no  |  |
  | sizes | [[SizeChartValues](#SizeChartValues)] |  no  |  |
+ | image | string |  no  |  |
  | unit | string |  no  |  |
- | size_tip | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductSizeStores](#ProductSizeStores)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | count | number |  no  |  |
 
 ---
 
@@ -6863,10 +6863,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | quantity | number |  no  |  |
  | display | string |  no  |  |
  | value | string |  no  |  |
  | is_available | boolean |  no  |  |
- | quantity | number |  no  |  |
 
 ---
 
@@ -6877,12 +6877,51 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | stores | [ProductSizeStores](#ProductSizeStores) |  no  |  |
- | discount | string |  no  |  |
  | size_chart | [SizeChart](#SizeChart) |  no  |  |
- | sellable | boolean |  no  |  |
+ | discount | string |  no  |  |
  | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
+ | stores | [ProductSizeStores](#ProductSizeStores) |  no  |  |
  | sizes | [[ProductSize](#ProductSize)] |  no  |  |
+ | sellable | boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ReturnConfig](#ReturnConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | time | number |  no  |  |
+ | returnable | boolean |  no  |  |
+ | unit | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Seller](#Seller)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | count | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductStockPrice](#ProductStockPrice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | marked | number |  no  |  |
+ | effective | number |  no  |  |
+ | currency | string |  no  |  |
 
 ---
 
@@ -6894,22 +6933,34 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | quantity | number |  no  |  |
+ | distance | number |  no  |  |
  | tat | number |  no  |  |
  | pincode | number |  no  |  |
- | distance | number |  no  |  |
 
 ---
 
 
  
  
- #### [ProductStockPrice](#ProductStockPrice)
+ #### [Store](#Store)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currency | string |  no  |  |
- | marked | number |  no  |  |
- | effective | number |  no  |  |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | count | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ArticleAssignment](#ArticleAssignment)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | strategy | string |  no  |  |
+ | level | string |  no  |  |
 
 ---
 
@@ -6951,64 +7002,13 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
- #### [Seller](#Seller)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | count | number |  no  |  |
- | uid | number |  no  |  |
- | name | string |  no  |  |
-
----
-
-
- 
- 
- #### [Store](#Store)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | count | number |  no  |  |
- | uid | number |  no  |  |
- | name | string |  no  |  |
-
----
-
-
- 
- 
- #### [ArticleAssignment](#ArticleAssignment)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | strategy | string |  no  |  |
- | level | string |  no  |  |
-
----
-
-
- 
- 
- #### [ReturnConfig](#ReturnConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | time | number |  no  |  |
- | unit | string |  no  |  |
- | returnable | boolean |  no  |  |
-
----
-
-
- 
- 
  #### [Details](#Details)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | string |  no  |  |
- | type | string |  no  |  |
  | key | string |  no  |  |
+ | type | string |  no  |  |
+ | value | string |  no  |  |
 
 ---
 
@@ -7031,40 +7031,23 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | long_lat | [number] |  no  |  |
- | discount | string |  no  |  |
- | strategy_wise_listing | [[StrategyWiseListing](#StrategyWiseListing)] |  no  |  |
- | price_per_piece | [ProductStockPrice](#ProductStockPrice) |  no  |  |
- | pincode | number |  no  |  |
- | article_id | string |  no  |  |
- | quantity | number |  no  |  |
  | seller_count | number |  no  |  |
- | set | [ProductSet](#ProductSet) |  no  |  |
- | price | [ProductStockPrice](#ProductStockPrice) |  no  |  |
- | seller | [Seller](#Seller) |  no  |  |
- | store | [Store](#Store) |  no  |  |
- | item_type | string |  no  |  |
- | article_assignment | [ArticleAssignment](#ArticleAssignment) |  no  |  |
  | return_config | [ReturnConfig](#ReturnConfig) |  no  |  |
+ | seller | [Seller](#Seller) |  no  |  |
+ | quantity | number |  no  |  |
+ | discount | string |  no  |  |
+ | price | [ProductStockPrice](#ProductStockPrice) |  no  |  |
+ | strategy_wise_listing | [[StrategyWiseListing](#StrategyWiseListing)] |  no  |  |
+ | store | [Store](#Store) |  no  |  |
+ | article_assignment | [ArticleAssignment](#ArticleAssignment) |  no  |  |
+ | price_per_piece | [ProductStockPrice](#ProductStockPrice) |  no  |  |
+ | article_id | string |  no  |  |
+ | item_type | string |  no  |  |
+ | long_lat | [number] |  no  |  |
  | special_badge | string |  no  |  |
+ | set | [ProductSet](#ProductSet) |  no  |  |
+ | pincode | number |  no  |  |
  | marketplace_attributes | [[MarketPlaceSttributes](#MarketPlaceSttributes)] |  no  |  |
-
----
-
-
- 
- 
- #### [Page](#Page)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | item_total | number |  no  |  |
- | current | number |  no  |  |
- | next_id | string |  no  |  |
- | size | number |  no  |  |
- | has_next | boolean |  no  |  |
- | type | string |  yes  |  |
- | has_previous | boolean |  no  |  |
 
 ---
 
@@ -7076,8 +7059,25 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | is_selected | boolean |  no  |  |
- | value | string |  no  |  |
  | name | string |  no  |  |
+ | value | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Page](#Page)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | next_id | string |  no  |  |
+ | has_next | boolean |  no  |  |
+ | current | number |  no  |  |
+ | size | number |  no  |  |
+ | type | string |  yes  |  |
+ | item_total | number |  no  |  |
+ | has_previous | boolean |  no  |  |
 
 ---
 
@@ -7088,9 +7088,9 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | sort_on | [[ProductSizeSellerFilter](#ProductSizeSellerFilter)] |  no  |  |
  | page | [Page](#Page) |  yes  |  |
  | items | [[ProductSizePriceResponse](#ProductSizePriceResponse)] |  no  |  |
- | sort_on | [[ProductSizeSellerFilter](#ProductSizeSellerFilter)] |  no  |  |
 
 ---
 
@@ -7101,10 +7101,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
- | description | string |  no  |  |
- | key | string |  no  |  |
  | logo | string |  no  |  |
+ | display | string |  no  |  |
+ | key | string |  no  |  |
+ | description | string |  no  |  |
 
 ---
 
@@ -7140,9 +7140,9 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | subtitle | string |  no  |  |
+ | attributes_metadata | [[AttributeMetadata](#AttributeMetadata)] |  no  |  |
  | items | [[ProductDetail](#ProductDetail)] |  no  |  |
  | title | string |  no  |  |
- | attributes_metadata | [[AttributeMetadata](#AttributeMetadata)] |  no  |  |
 
 ---
 
@@ -7188,15 +7188,15 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | color_name | string |  no  |  |
- | is_available | boolean |  no  |  |
- | slug | string |  no  |  |
  | uid | number |  no  |  |
- | medias | [[Media](#Media)] |  no  |  |
- | color | string |  no  |  |
  | name | string |  no  |  |
  | value | string |  no  |  |
+ | slug | string |  no  |  |
+ | color | string |  no  |  |
  | action | [ActionPage](#ActionPage) |  no  |  |
+ | medias | [[Media](#Media)] |  no  |  |
+ | color_name | string |  no  |  |
+ | is_available | boolean |  no  |  |
 
 ---
 
@@ -7208,9 +7208,9 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | display_type | string |  no  |  |
- | items | [[ProductVariantItemResponse](#ProductVariantItemResponse)] |  no  |  |
  | key | string |  no  |  |
  | header | string |  no  |  |
+ | items | [[ProductVariantItemResponse](#ProductVariantItemResponse)] |  no  |  |
 
 ---
 
@@ -7228,26 +7228,26 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
- #### [CompanyDetail](#CompanyDetail)
+ #### [StoreDetail](#StoreDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | number |  no  |  |
+ | city | string |  no  |  |
+ | code | string |  no  |  |
  | name | string |  no  |  |
+ | id | number |  no  |  |
 
 ---
 
 
  
  
- #### [StoreDetail](#StoreDetail)
+ #### [CompanyDetail](#CompanyDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | city | string |  no  |  |
- | id | number |  no  |  |
- | code | string |  no  |  |
  | name | string |  no  |  |
+ | id | number |  no  |  |
 
 ---
 
@@ -7258,15 +7258,15 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | company | [CompanyDetail](#CompanyDetail) |  no  |  |
- | quantity | number |  no  |  |
- | item_id | number |  no  |  |
  | uid | string |  no  |  |
+ | seller | [Seller](#Seller) |  no  |  |
+ | quantity | number |  no  |  |
  | size | string |  no  |  |
  | price | [ProductStockPrice](#ProductStockPrice) |  no  |  |
- | seller | [Seller](#Seller) |  no  |  |
  | store | [StoreDetail](#StoreDetail) |  no  |  |
  | identifier | string |  no  |  |
+ | item_id | number |  no  |  |
+ | company | [CompanyDetail](#CompanyDetail) |  no  |  |
 
 ---
 
@@ -7296,36 +7296,36 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
- #### [ProductFiltersValue](#ProductFiltersValue)
+ #### [ProductFiltersKey](#ProductFiltersKey)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | selected_max | number |  no  |  |
- | currency_symbol | string |  no  |  |
- | query_format | string |  no  |  |
- | value | string |  no  |  |
+ | logo | string |  no  |  |
  | display | string |  yes  |  |
- | max | number |  no  |  |
- | display_format | string |  no  |  |
- | count | number |  no  |  |
- | is_selected | boolean |  yes  |  |
- | selected_min | number |  no  |  |
- | min | number |  no  |  |
- | currency_code | string |  no  |  |
+ | kind | string |  no  |  |
+ | name | string |  yes  |  |
 
 ---
 
 
  
  
- #### [ProductFiltersKey](#ProductFiltersKey)
+ #### [ProductFiltersValue](#ProductFiltersValue)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | value | string |  no  |  |
+ | currency_code | string |  no  |  |
+ | selected_min | number |  no  |  |
+ | selected_max | number |  no  |  |
+ | is_selected | boolean |  yes  |  |
+ | display_format | string |  no  |  |
  | display | string |  yes  |  |
- | logo | string |  no  |  |
- | kind | string |  no  |  |
- | name | string |  yes  |  |
+ | currency_symbol | string |  no  |  |
+ | min | number |  no  |  |
+ | query_format | string |  no  |  |
+ | max | number |  no  |  |
+ | count | number |  no  |  |
 
 ---
 
@@ -7336,45 +7336,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | values | [[ProductFiltersValue](#ProductFiltersValue)] |  yes  |  |
  | key | [ProductFiltersKey](#ProductFiltersKey) |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductListingDetail](#ProductListingDetail)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | tryouts | [string] |  no  |  |
- | description | string |  no  |  |
- | has_variant | boolean |  no  |  |
- | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
- | image_nature | string |  no  |  |
- | name | string |  no  |  |
- | similars | [string] |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
- | rating | number |  no  |  |
- | attributes | string |  no  |  |
- | type | string |  no  |  |
- | highlights | [string] |  no  |  |
- | slug | string |  yes  |  |
- | rating_count | number |  no  |  |
- | medias | [[Media](#Media)] |  no  |  |
- | product_online_date | string |  no  |  |
- | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
- | discount | string |  no  |  |
- | teaser_tag | string |  no  |  |
- | sellable | boolean |  no  |  |
- | uid | number |  no  |  |
- | short_description | string |  no  |  |
- | brand | [ProductBrand](#ProductBrand) |  no  |  |
- | color | string |  no  |  |
- | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
- | item_type | string |  no  |  |
- | item_code | string |  no  |  |
+ | values | [[ProductFiltersValue](#ProductFiltersValue)] |  yes  |  |
 
 ---
 
@@ -7386,8 +7349,45 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | is_selected | boolean |  no  |  |
- | value | string |  no  |  |
  | name | string |  no  |  |
+ | value | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingDetail](#ProductListingDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | discount | string |  no  |  |
+ | color | string |  no  |  |
+ | teaser_tag | string |  no  |  |
+ | product_online_date | string |  no  |  |
+ | description | string |  no  |  |
+ | brand | [ProductBrand](#ProductBrand) |  no  |  |
+ | highlights | [string] |  no  |  |
+ | item_type | string |  no  |  |
+ | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
+ | item_code | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | tryouts | [string] |  no  |  |
+ | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
+ | sellable | boolean |  no  |  |
+ | attributes | string |  no  |  |
+ | image_nature | string |  no  |  |
+ | short_description | string |  no  |  |
+ | uid | number |  no  |  |
+ | slug | string |  yes  |  |
+ | has_variant | boolean |  no  |  |
+ | similars | [string] |  no  |  |
+ | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
+ | rating_count | number |  no  |  |
+ | type | string |  no  |  |
+ | medias | [[Media](#Media)] |  no  |  |
+ | rating | number |  no  |  |
 
 ---
 
@@ -7398,10 +7398,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  yes  |  |
  | filters | [[ProductFilters](#ProductFilters)] |  no  |  |
- | items | [[ProductListingDetail](#ProductListingDetail)] |  no  |  |
  | sort_on | [[ProductSortOn](#ProductSortOn)] |  no  |  |
+ | page | [Page](#Page) |  yes  |  |
+ | items | [[ProductListingDetail](#ProductListingDetail)] |  no  |  |
 
 ---
 
@@ -7412,8 +7412,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | portrait | [Media](#Media) |  no  |  |
  | landscape | [Media](#Media) |  no  |  |
+ | portrait | [Media](#Media) |  no  |  |
 
 ---
 
@@ -7424,14 +7424,14 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | discount | string |  no  |  |
- | slug | string |  no  |  |
  | uid | number |  no  |  |
- | departments | [string] |  no  |  |
- | logo | [Media](#Media) |  no  |  |
  | name | string |  no  |  |
+ | slug | string |  no  |  |
+ | discount | string |  no  |  |
  | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
  | action | [ActionPage](#ActionPage) |  no  |  |
+ | departments | [string] |  no  |  |
 
 ---
 
@@ -7454,89 +7454,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | uid | number |  no  |  |
  | banners | [ImageUrls](#ImageUrls) |  no  |  |
  | logo | [Media](#Media) |  no  |  |
-
----
-
-
- 
- 
- #### [ThirdLevelChild](#ThirdLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
  | uid | number |  no  |  |
- | _custom_json | string |  no  |  |
- | childs | [string] |  no  |  |
  | name | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
-
----
-
-
- 
- 
- #### [SecondLevelChild](#SecondLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
- | uid | number |  no  |  |
- | _custom_json | string |  no  |  |
- | childs | [[ThirdLevelChild](#ThirdLevelChild)] |  no  |  |
- | name | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
-
----
-
-
- 
- 
- #### [Child](#Child)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
- | uid | number |  no  |  |
- | _custom_json | string |  no  |  |
- | childs | [[SecondLevelChild](#SecondLevelChild)] |  no  |  |
- | name | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
-
----
-
-
- 
- 
- #### [CategoryItems](#CategoryItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
- | uid | number |  no  |  |
- | childs | [[Child](#Child)] |  no  |  |
- | name | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
-
----
-
-
- 
- 
- #### [DepartmentCategoryTree](#DepartmentCategoryTree)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | department | string |  no  |  |
- | items | [[CategoryItems](#CategoryItems)] |  no  |  |
 
 ---
 
@@ -7555,12 +7476,91 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  
  
+ #### [ThirdLevelChild](#ThirdLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | _custom_json | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | childs | [string] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SecondLevelChild](#SecondLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | _custom_json | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | childs | [[ThirdLevelChild](#ThirdLevelChild)] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Child](#Child)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | _custom_json | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | childs | [[SecondLevelChild](#SecondLevelChild)] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryItems](#CategoryItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | childs | [[Child](#Child)] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DepartmentCategoryTree](#DepartmentCategoryTree)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | [[CategoryItems](#CategoryItems)] |  no  |  |
+ | department | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [CategoryListingResponse](#CategoryListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [[DepartmentCategoryTree](#DepartmentCategoryTree)] |  no  |  |
  | departments | [[DepartmentIdentifier](#DepartmentIdentifier)] |  no  |  |
+ | data | [[DepartmentCategoryTree](#DepartmentCategoryTree)] |  no  |  |
 
 ---
 
@@ -7571,10 +7571,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | uid | number |  no  |  |
  | banners | [ImageUrls](#ImageUrls) |  no  |  |
  | logo | [Media](#Media) |  no  |  |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
 
 ---
 
@@ -7598,11 +7598,11 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
  | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
  | logo | [Media](#Media) |  no  |  |
  | priority_order | number |  no  |  |
- | name | string |  no  |  |
 
 ---
 
@@ -7624,10 +7624,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
- | type | string |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
  | logo | [Media](#Media) |  no  |  |
+ | display | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | type | string |  no  |  |
 
 ---
 
@@ -7649,8 +7649,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
  | is_selected | boolean |  no  |  |
+ | display | string |  no  |  |
  | name | string |  no  |  |
 
 ---
@@ -7662,8 +7662,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
  | is_selected | boolean |  no  |  |
+ | display | string |  no  |  |
  | name | string |  no  |  |
 
 ---
@@ -7687,25 +7687,25 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | string |  no  |  |
- | allow_sort | boolean |  no  |  |
- | cron | string |  no  |  |
- | badge | string |  no  |  |
- | _schedule | string |  no  |  |
  | name | string |  no  |  |
- | action | [ActionPage](#ActionPage) |  no  |  |
- | query | string |  no  |  |
- | allow_facets | boolean |  no  |  |
- | logo | [Media](#Media) |  no  |  |
- | tag | [string] |  no  |  |
- | type | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
  | is_active | boolean |  no  |  |
- | slug | string |  no  |  |
- | visible_facets_keys | [string] |  no  |  |
- | meta | string |  no  |  |
- | uid | string |  no  |  |
+ | description | string |  no  |  |
+ | allow_facets | boolean |  no  |  |
+ | _schedule | string |  no  |  |
+ | action | [ActionPage](#ActionPage) |  no  |  |
+ | badge | string |  no  |  |
+ | tag | [string] |  no  |  |
  | app_id | string |  no  |  |
+ | cron | string |  no  |  |
+ | query | string |  no  |  |
+ | visible_facets_keys | [string] |  no  |  |
+ | allow_sort | boolean |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | uid | string |  no  |  |
+ | slug | string |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | type | string |  no  |  |
+ | meta | string |  no  |  |
 
 ---
 
@@ -7716,8 +7716,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  yes  |  |
  | filters | [CollectionListingFilter](#CollectionListingFilter) |  no  |  |
+ | page | [Page](#Page) |  yes  |  |
  | items | [[GetCollectionDetailNest](#GetCollectionDetailNest)] |  no  |  |
 
 ---
@@ -7729,23 +7729,23 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | string |  no  |  |
- | meta | string |  no  |  |
- | allow_sort | boolean |  no  |  |
+ | name | string |  no  |  |
+ | cron | string |  no  |  |
  | query | string |  no  |  |
+ | allow_facets | boolean |  no  |  |
  | is_active | boolean |  no  |  |
  | slug | string |  no  |  |
- | allow_facets | boolean |  no  |  |
- | cron | string |  no  |  |
- | app_id | string |  no  |  |
- | logo | [Media](#Media) |  no  |  |
- | badge | string |  no  |  |
- | tag | [string] |  no  |  |
- | type | string |  no  |  |
- | _schedule | string |  no  |  |
- | name | string |  no  |  |
  | visible_facets_keys | [string] |  no  |  |
+ | allow_sort | boolean |  no  |  |
  | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | _schedule | string |  no  |  |
+ | badge | string |  no  |  |
+ | type | string |  no  |  |
+ | description | string |  no  |  |
+ | meta | string |  no  |  |
+ | tag | [string] |  no  |  |
+ | app_id | string |  no  |  |
 
 ---
 
@@ -7791,9 +7791,9 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | collections | [number] |  no  |  |
  | brands | [number] |  no  |  |
  | products | [number] |  no  |  |
- | collections | [number] |  no  |  |
 
 ---
 
@@ -7827,16 +7827,16 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | number |  no  |  |
- | lat_long | [LatLong](#LatLong) |  no  |  |
+ | city | string |  no  |  |
  | state | string |  no  |  |
+ | store_email | string |  no  |  |
+ | lat_long | [LatLong](#LatLong) |  no  |  |
+ | name | string |  no  |  |
  | uid | number |  no  |  |
  | country | string |  no  |  |
- | address | string |  no  |  |
- | city | string |  no  |  |
- | store_email | string |  no  |  |
- | name | string |  no  |  |
  | store_code | string |  no  |  |
+ | pincode | number |  no  |  |
+ | address | string |  no  |  |
 
 ---
 
@@ -7859,25 +7859,11 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | string |  no  |  |
  | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
  | logo | string |  no  |  |
  | priority_order | number |  no  |  |
- | name | string |  no  |  |
-
----
-
-
- 
- 
- #### [CompanyStore](#CompanyStore)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | business_type | string |  no  |  |
- | uid | number |  no  |  |
- | company_type | string |  no  |  |
- | name | string |  no  |  |
 
 ---
 
@@ -7888,8 +7874,22 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | country_code | number |  yes  |  |
  | number | string |  yes  |  |
+ | country_code | number |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CompanyStore](#CompanyStore)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | company_type | string |  no  |  |
+ | business_type | string |  no  |  |
 
 ---
 
@@ -7901,8 +7901,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | mobile_no | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
- | email | string |  no  |  |
  | name | string |  no  |  |
+ | email | string |  no  |  |
 
 ---
 
@@ -7913,15 +7913,15 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | number |  no  |  |
- | address2 | string |  no  |  |
+ | city | string |  no  |  |
  | state | string |  no  |  |
  | latitude | number |  no  |  |
- | longitude | number |  no  |  |
- | country | string |  no  |  |
- | city | string |  no  |  |
- | landmark | string |  no  |  |
  | address1 | string |  no  |  |
+ | address2 | string |  no  |  |
+ | country | string |  no  |  |
+ | longitude | number |  no  |  |
+ | landmark | string |  no  |  |
+ | pincode | number |  no  |  |
 
 ---
 
@@ -7932,13 +7932,13 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
  | company | [CompanyStore](#CompanyStore) |  no  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer) |  no  |  |
- | uid | number |  no  |  |
  | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
- | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
  | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
- | name | string |  no  |  |
 
 ---
 
@@ -7949,8 +7949,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | filters | [[StoreDepartments](#StoreDepartments)] |  no  |  |
+ | page | [Page](#Page) |  no  |  |
  | items | [[AppStore](#AppStore)] |  no  |  |
 
 ---
@@ -7962,8 +7962,8 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hour | number |  no  |  |
  | minute | number |  no  |  |
+ | hour | number |  no  |  |
 
 ---
 
@@ -7974,10 +7974,10 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | weekday | string |  no  |  |
- | open | boolean |  no  |  |
- | closing | [Time](#Time) |  no  |  |
  | opening | [Time](#Time) |  no  |  |
+ | closing | [Time](#Time) |  no  |  |
+ | open | boolean |  no  |  |
+ | weekday | string |  no  |  |
 
 ---
 
@@ -7988,15 +7988,15 @@ Success. Returns a metadata object. Check the example shown below or refer `Stor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | uid | number |  no  |  |
+ | name | string |  no  |  |
+ | timing | [[StoreTiming](#StoreTiming)] |  no  |  |
+ | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
+ | _custom_json | string |  no  |  |
  | company | [CompanyStore](#CompanyStore) |  no  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer) |  no  |  |
- | uid | number |  no  |  |
  | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
- | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
  | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
- | _custom_json | string |  no  |  |
- | timing | [[StoreTiming](#StoreTiming)] |  no  |  |
- | name | string |  no  |  |
 
 ---
 
