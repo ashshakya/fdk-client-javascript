@@ -1,5 +1,4 @@
 const axios = require("axios");
-const camelCase = require("camelcase");
 const {
   CatalogValidator,
   CartValidator,
@@ -23,18 +22,6 @@ const {
 const APIClient = require("./ApplicationAPIClient");
 const Paginator = require("../common/Paginator");
 const { FDKClientValidationError } = require("../common/FDKError");
-
-const constructUrl = ({ url, params }) => {
-  return url
-    .split("/")
-    .map((word) => {
-      if (word[0] === "{" && word[word.length - 1] === "}") {
-        word = params[camelCase(word.slice(1, word.length - 1))];
-      }
-      return word;
-    })
-    .join("/");
-};
 
 class ApplicationClient {
   constructor(config) {
@@ -61,65 +48,6 @@ class ApplicationClient {
 class Catalog {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getProductDetailBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/",
-      getProductSizesBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/sizes/",
-      getProductPriceBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/price/",
-      getProductSellersBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/sellers/",
-      getProductComparisonBySlugs:
-        "/service/application/catalog/v1.0/products/compare/",
-      getSimilarComparisonProductBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/similar/compare/",
-      getComparedFrequentlyProductBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/",
-      getProductSimilarByIdentifier:
-        "/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/",
-      getProductVariantsBySlug:
-        "/service/application/catalog/v1.0/products/{slug}/variants/",
-      getProductStockByIds:
-        "/service/application/catalog/v1.0/products/stock-status/",
-      getProductStockForTimeByIds:
-        "/service/application/catalog/v1.0/products/stock-status/poll/",
-      getProducts: "/service/application/catalog/v1.0/products/",
-      getBrands: "/service/application/catalog/v1.0/brands/",
-      getBrandDetailBySlug: "/service/application/catalog/v1.0/brands/{slug}/",
-      getCategories: "/service/application/catalog/v1.0/categories/",
-      getCategoryDetailBySlug:
-        "/service/application/catalog/v1.0/categories/{slug}/",
-      getHomeProducts: "/service/application/catalog/v1.0/home/listing/",
-      getDepartments: "/service/application/catalog/v1.0/departments/",
-      getSearchResults: "/service/application/catalog/v1.0/auto-complete/",
-      getCollections: "/service/application/catalog/v1.0/collections/",
-      getCollectionItemsBySlug:
-        "/service/application/catalog/v1.0/collections/{slug}/items/",
-      getCollectionDetailBySlug:
-        "/service/application/catalog/v1.0/collections/{slug}/",
-      getFollowedListing:
-        "/service/application/catalog/v1.0/follow/{collection_type}/",
-      followById:
-        "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
-      unfollowById:
-        "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
-      getFollowerCountById:
-        "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/",
-      getFollowIds: "/service/application/catalog/v1.0/follow/ids/",
-      getStores: "/service/application/catalog/v1.0/locations/",
-      getInStockLocations:
-        "/service/application/catalog/v1.0/in-stock/locations/",
-      getLocationDetailsById:
-        "/service/application/catalog/v1.0/locations/{location_id}/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -144,10 +72,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductDetailBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/`,
       query,
       undefined
     );
@@ -178,10 +103,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductSizesBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/sizes/`,
       query,
       undefined
     );
@@ -217,10 +139,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductPriceBySlug"],
-        params: { slug, size, pincode },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/sizes/${size}/pincode/${pincode}/price/`,
       query,
       undefined
     );
@@ -268,10 +187,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductSellersBySlug"],
-        params: { slug, size, pincode },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/sizes/${size}/pincode/${pincode}/sellers/`,
       query,
       undefined
     );
@@ -346,10 +262,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductComparisonBySlugs"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/products/compare/`,
       query,
       undefined
     );
@@ -379,10 +292,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSimilarComparisonProductBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/similar/compare/`,
       query,
       undefined
     );
@@ -412,10 +322,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getComparedFrequentlyProductBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/similar/compared-frequently/`,
       query,
       undefined
     );
@@ -449,10 +356,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductSimilarByIdentifier"],
-        params: { slug, similarType },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/similar/${similarType}/`,
       query,
       undefined
     );
@@ -480,10 +384,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductVariantsBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/products/${slug}/variants/`,
       query,
       undefined
     );
@@ -522,10 +423,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductStockByIds"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/products/stock-status/`,
       query,
       undefined
     );
@@ -556,10 +454,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProductStockForTimeByIds"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/products/stock-status/poll/`,
       query,
       undefined
     );
@@ -645,10 +540,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getProducts"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/products/`,
       query,
       undefined
     );
@@ -726,10 +618,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBrands"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/brands/`,
       query,
       undefined
     );
@@ -788,10 +677,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBrandDetailBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/brands/${slug}/`,
       query,
       undefined
     );
@@ -821,10 +707,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCategories"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/categories/`,
       query,
       undefined
     );
@@ -852,10 +735,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCategoryDetailBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/categories/${slug}/`,
       query,
       undefined
     );
@@ -888,10 +768,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getHomeProducts"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/home/listing/`,
       query,
       undefined
     );
@@ -946,10 +823,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getDepartments"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/departments/`,
       query,
       undefined
     );
@@ -979,10 +853,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSearchResults"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/auto-complete/`,
       query,
       undefined
     );
@@ -1014,10 +885,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCollections"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/collections/`,
       query,
       undefined
     );
@@ -1096,10 +964,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCollectionItemsBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/collections/${slug}/items/`,
       query,
       undefined
     );
@@ -1175,10 +1040,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCollectionDetailBySlug"],
-        params: { slug },
-      }),
+      `/service/application/catalog/v1.0/collections/${slug}/`,
       query,
       undefined
     );
@@ -1209,10 +1071,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFollowedListing"],
-        params: { collectionType },
-      }),
+      `/service/application/catalog/v1.0/follow/${collectionType}/`,
       query,
       undefined
     );
@@ -1269,10 +1128,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["followById"],
-        params: { collectionType, collectionId },
-      }),
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
       query,
       undefined
     );
@@ -1300,10 +1156,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["unfollowById"],
-        params: { collectionType, collectionId },
-      }),
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/`,
       query,
       undefined
     );
@@ -1331,10 +1184,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFollowerCountById"],
-        params: { collectionType, collectionId },
-      }),
+      `/service/application/catalog/v1.0/follow/${collectionType}/${collectionId}/count/`,
       query,
       undefined
     );
@@ -1362,10 +1212,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFollowIds"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/follow/ids/`,
       query,
       undefined
     );
@@ -1408,10 +1255,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getStores"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/locations/`,
       query,
       undefined
     );
@@ -1501,10 +1345,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getInStockLocations"],
-        params: {},
-      }),
+      `/service/application/catalog/v1.0/in-stock/locations/`,
       query,
       undefined
     );
@@ -1576,10 +1417,7 @@ class Catalog {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLocationDetailsById"],
-        params: { locationId },
-      }),
+      `/service/application/catalog/v1.0/locations/${locationId}/`,
       query,
       undefined
     );
@@ -1589,41 +1427,6 @@ class Catalog {
 class Cart {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getCart: "/service/application/cart/v1.0/detail",
-      getCartLastModified: "/service/application/cart/v1.0/detail",
-      addItems: "/service/application/cart/v1.0/detail",
-      updateCart: "/service/application/cart/v1.0/detail",
-      getItemCount: "/service/application/cart/v1.0/basic",
-      getCoupons: "/service/application/cart/v1.0/coupon",
-      applyCoupon: "/service/application/cart/v1.0/coupon",
-      removeCoupon: "/service/application/cart/v1.0/coupon",
-      getBulkDiscountOffers: "/service/application/cart/v1.0/bulk-price",
-      applyRewardPoints: "/service/application/cart/v1.0/redeem/points/",
-      getAddresses: "/service/application/cart/v1.0/address",
-      addAddress: "/service/application/cart/v1.0/address",
-      getAddressById: "/service/application/cart/v1.0/address/{id}",
-      updateAddress: "/service/application/cart/v1.0/address/{id}",
-      removeAddress: "/service/application/cart/v1.0/address/{id}",
-      selectAddress: "/service/application/cart/v1.0/select-address",
-      selectPaymentMode: "/service/application/cart/v1.0/payment",
-      validateCouponForPayment:
-        "/service/application/cart/v1.0/payment/validate/",
-      getShipments: "/service/application/cart/v1.0/shipment",
-      checkoutCart: "/service/application/cart/v1.0/checkout",
-      updateCartMeta: "/service/application/cart/v1.0/meta",
-      getCartShareLink: "/service/application/cart/v1.0/share-cart",
-      getCartSharedItems: "/service/application/cart/v1.0/share-cart/{token}",
-      updateCartWithSharedItems:
-        "/service/application/cart/v1.0/share-cart/{token}/{action}",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -1653,10 +1456,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCart"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/detail`,
       query,
       undefined
     );
@@ -1683,10 +1483,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "head",
-      constructUrl({
-        url: this._urls["getCartLastModified"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/detail`,
       query,
       undefined
     );
@@ -1716,10 +1513,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addItems"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/detail`,
       query,
       body
     );
@@ -1751,10 +1545,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateCart"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/detail`,
       query,
       body
     );
@@ -1781,10 +1572,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getItemCount"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/basic`,
       query,
       undefined
     );
@@ -1811,10 +1599,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCoupons"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/coupon`,
       query,
       undefined
     );
@@ -1848,10 +1633,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["applyCoupon"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/coupon`,
       query,
       body
     );
@@ -1878,10 +1660,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["removeCoupon"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/coupon`,
       query,
       undefined
     );
@@ -1916,10 +1695,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBulkDiscountOffers"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/bulk-price`,
       query,
       undefined
     );
@@ -1951,10 +1727,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["applyRewardPoints"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/redeem/points/`,
       query,
       body
     );
@@ -1989,10 +1762,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAddresses"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/address`,
       query,
       undefined
     );
@@ -2018,10 +1788,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addAddress"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/address`,
       query,
       body
     );
@@ -2057,10 +1824,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAddressById"],
-        params: { id },
-      }),
+      `/service/application/cart/v1.0/address/${id}`,
       query,
       undefined
     );
@@ -2087,10 +1851,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateAddress"],
-        params: { id },
-      }),
+      `/service/application/cart/v1.0/address/${id}`,
       query,
       body
     );
@@ -2116,10 +1877,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["removeAddress"],
-        params: { id },
-      }),
+      `/service/application/cart/v1.0/address/${id}`,
       query,
       undefined
     );
@@ -2151,10 +1909,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["selectAddress"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/select-address`,
       query,
       body
     );
@@ -2182,10 +1937,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["selectPaymentMode"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/payment`,
       query,
       body
     );
@@ -2236,10 +1988,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["validateCouponForPayment"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/payment/validate/`,
       query,
       undefined
     );
@@ -2274,10 +2023,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getShipments"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/shipment`,
       query,
       undefined
     );
@@ -2303,10 +2049,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["checkoutCart"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/checkout`,
       query,
       body
     );
@@ -2334,10 +2077,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateCartMeta"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/meta`,
       query,
       body
     );
@@ -2363,10 +2103,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getCartShareLink"],
-        params: {},
-      }),
+      `/service/application/cart/v1.0/share-cart`,
       query,
       body
     );
@@ -2392,10 +2129,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCartSharedItems"],
-        params: { token },
-      }),
+      `/service/application/cart/v1.0/share-cart/${token}`,
       query,
       undefined
     );
@@ -2423,10 +2157,7 @@ class Cart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["updateCartWithSharedItems"],
-        params: { token, action },
-      }),
+      `/service/application/cart/v1.0/share-cart/${token}/${action}`,
       query,
       undefined
     );
@@ -2436,16 +2167,6 @@ class Cart {
 class Common {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getLocations: "/service/common/configuration/v1.0/location",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -2474,10 +2195,7 @@ class Common {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLocations"],
-        params: {},
-      }),
+      `/service/common/configuration/v1.0/location`,
       query,
       undefined
     );
@@ -2487,24 +2205,6 @@ class Common {
 class Lead {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getTicket: "/service/application/lead/v1.0/ticket/{id}",
-      createHistory: "/service/application/lead/v1.0/ticket/{id}/history",
-      createTicket: "/service/application/lead/v1.0/ticket/",
-      getCustomForm: "/service/application/lead/v1.0/form/{slug}",
-      submitCustomForm: "/service/application/lead/v1.0/form/{slug}/submit",
-      getParticipantsInsideVideoRoom:
-        "/service/application/lead/v1.0/video/room/{unique_name}/participants",
-      getTokenForVideoRoom:
-        "/service/application/lead/v1.0/video/room/{unique_name}/token",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -2527,10 +2227,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getTicket"],
-        params: { id },
-      }),
+      `/service/application/lead/v1.0/ticket/${id}`,
       query,
       undefined
     );
@@ -2557,10 +2254,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createHistory"],
-        params: { id },
-      }),
+      `/service/application/lead/v1.0/ticket/${id}/history`,
       query,
       body
     );
@@ -2586,10 +2280,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createTicket"],
-        params: {},
-      }),
+      `/service/application/lead/v1.0/ticket/`,
       query,
       body
     );
@@ -2615,10 +2306,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCustomForm"],
-        params: { slug },
-      }),
+      `/service/application/lead/v1.0/form/${slug}`,
       query,
       undefined
     );
@@ -2645,10 +2333,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["submitCustomForm"],
-        params: { slug },
-      }),
+      `/service/application/lead/v1.0/form/${slug}/submit`,
       query,
       body
     );
@@ -2674,10 +2359,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getParticipantsInsideVideoRoom"],
-        params: { uniqueName },
-      }),
+      `/service/application/lead/v1.0/video/room/${uniqueName}/participants`,
       query,
       undefined
     );
@@ -2703,10 +2385,7 @@ class Lead {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getTokenForVideoRoom"],
-        params: { uniqueName },
-      }),
+      `/service/application/lead/v1.0/video/room/${uniqueName}/token`,
       query,
       undefined
     );
@@ -2716,19 +2395,6 @@ class Lead {
 class Theme {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getAllPages: "/service/application/theme/v1.0/{theme_id}/page",
-      getPage: "/service/application/theme/v1.0/{theme_id}/{page_value}",
-      getAppliedTheme: "/service/application/theme/v1.0/applied-theme",
-      getThemeForPreview: "/service/application/theme/v1.0/{theme_id}/preview",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -2751,10 +2417,7 @@ class Theme {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAllPages"],
-        params: { themeId },
-      }),
+      `/service/application/theme/v1.0/${themeId}/page`,
       query,
       undefined
     );
@@ -2781,10 +2444,7 @@ class Theme {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPage"],
-        params: { themeId, pageValue },
-      }),
+      `/service/application/theme/v1.0/${themeId}/${pageValue}`,
       query,
       undefined
     );
@@ -2809,10 +2469,7 @@ class Theme {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAppliedTheme"],
-        params: {},
-      }),
+      `/service/application/theme/v1.0/applied-theme`,
       query,
       undefined
     );
@@ -2838,10 +2495,7 @@ class Theme {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getThemeForPreview"],
-        params: { themeId },
-      }),
+      `/service/application/theme/v1.0/${themeId}/preview`,
       query,
       undefined
     );
@@ -2851,68 +2505,6 @@ class Theme {
 class User {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      loginWithFacebook:
-        "/service/application/user/authentication/v1.0/login/facebook-token",
-      loginWithGoogle:
-        "/service/application/user/authentication/v1.0/login/google-token",
-      loginWithGoogleAndroid:
-        "/service/application/user/authentication/v1.0/login/google-android",
-      loginWithGoogleIOS:
-        "/service/application/user/authentication/v1.0/login/google-ios",
-      loginWithAppleIOS:
-        "/service/application/user/authentication/v1.0/login/apple-ios",
-      loginWithOTP: "/service/application/user/authentication/v1.0/login/otp",
-      loginWithEmailAndPassword:
-        "/service/application/user/authentication/v1.0/login/password",
-      sendResetPasswordEmail:
-        "/service/application/user/authentication/v1.0/login/password/reset",
-      forgotPassword:
-        "/service/application/user/authentication/v1.0/login/password/reset/forgot",
-      sendResetToken:
-        "/service/application/user/authentication/v1.0/login/password/reset/token",
-      loginWithToken:
-        "/service/application/user/authentication/v1.0/login/token",
-      registerWithForm:
-        "/service/application/user/authentication/v1.0/register/form",
-      verifyEmail: "/service/application/user/authentication/v1.0/verify/email",
-      verifyMobile:
-        "/service/application/user/authentication/v1.0/verify/mobile",
-      hasPassword: "/service/application/user/authentication/v1.0/has-password",
-      updatePassword: "/service/application/user/authentication/v1.0/password",
-      logout: "/service/application/user/authentication/v1.0/logout",
-      sendOTPOnMobile:
-        "/service/application/user/authentication/v1.0/otp/mobile/send",
-      verifyMobileOTP:
-        "/service/application/user/authentication/v1.0/otp/mobile/verify",
-      sendOTPOnEmail:
-        "/service/application/user/authentication/v1.0/otp/email/send",
-      verifyEmailOTP:
-        "/service/application/user/authentication/v1.0/otp/email/verify",
-      getLoggedInUser: "/service/application/user/authentication/v1.0/session",
-      getListOfActiveSessions:
-        "/service/application/user/authentication/v1.0/sessions",
-      getPlatformConfig: "/service/application/user/platform/v1.0/config",
-      updateProfile: "/service/application/user/profile/v1.0/detail",
-      addMobileNumber: "/service/application/user/profile/v1.0/mobile",
-      deleteMobileNumber: "/service/application/user/profile/v1.0/mobile",
-      setMobileNumberAsPrimary:
-        "/service/application/user/profile/v1.0/mobile/primary",
-      sendVerificationLinkToMobile:
-        "/service/application/user/profile/v1.0/mobile/link/send",
-      addEmail: "/service/application/user/profile/v1.0/email",
-      deleteEmail: "/service/application/user/profile/v1.0/email",
-      setEmailAsPrimary: "/service/application/user/profile/v1.0/email/primary",
-      sendVerificationLinkToEmail:
-        "/service/application/user/profile/v1.0/email/link/send",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -2937,10 +2529,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithFacebook"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/facebook-token`,
       query,
       body
     );
@@ -2968,10 +2557,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithGoogle"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/google-token`,
       query,
       body
     );
@@ -2999,10 +2585,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithGoogleAndroid"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/google-android`,
       query,
       body
     );
@@ -3030,10 +2613,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithGoogleIOS"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/google-ios`,
       query,
       body
     );
@@ -3061,10 +2641,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithAppleIOS"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/apple-ios`,
       query,
       body
     );
@@ -3092,10 +2669,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithOTP"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/otp`,
       query,
       body
     );
@@ -3121,10 +2695,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithEmailAndPassword"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/password`,
       query,
       body
     );
@@ -3152,10 +2723,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendResetPasswordEmail"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/password/reset`,
       query,
       body
     );
@@ -3181,10 +2749,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["forgotPassword"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/password/reset/forgot`,
       query,
       body
     );
@@ -3210,10 +2775,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendResetToken"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/password/reset/token`,
       query,
       body
     );
@@ -3239,10 +2801,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["loginWithToken"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/login/token`,
       query,
       body
     );
@@ -3270,10 +2829,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["registerWithForm"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/register/form`,
       query,
       body
     );
@@ -3299,10 +2855,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyEmail"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/verify/email`,
       query,
       body
     );
@@ -3328,10 +2881,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyMobile"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/verify/mobile`,
       query,
       body
     );
@@ -3356,10 +2906,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["hasPassword"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/has-password`,
       query,
       undefined
     );
@@ -3385,10 +2932,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["updatePassword"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/password`,
       query,
       body
     );
@@ -3413,10 +2957,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["logout"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/logout`,
       query,
       undefined
     );
@@ -3444,10 +2985,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendOTPOnMobile"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/otp/mobile/send`,
       query,
       body
     );
@@ -3475,10 +3013,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyMobileOTP"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/otp/mobile/verify`,
       query,
       body
     );
@@ -3506,10 +3041,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendOTPOnEmail"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/otp/email/send`,
       query,
       body
     );
@@ -3537,10 +3069,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyEmailOTP"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/otp/email/verify`,
       query,
       body
     );
@@ -3565,10 +3094,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLoggedInUser"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/session`,
       query,
       undefined
     );
@@ -3593,10 +3119,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getListOfActiveSessions"],
-        params: {},
-      }),
+      `/service/application/user/authentication/v1.0/sessions`,
       query,
       undefined
     );
@@ -3623,10 +3146,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPlatformConfig"],
-        params: {},
-      }),
+      `/service/application/user/platform/v1.0/config`,
       query,
       undefined
     );
@@ -3654,10 +3174,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["updateProfile"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/detail`,
       query,
       body
     );
@@ -3685,10 +3202,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["addMobileNumber"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/mobile`,
       query,
       body
     );
@@ -3737,10 +3251,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["deleteMobileNumber"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/mobile`,
       query,
       undefined
     );
@@ -3766,10 +3277,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["setMobileNumberAsPrimary"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/mobile/primary`,
       query,
       body
     );
@@ -3797,10 +3305,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendVerificationLinkToMobile"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/mobile/link/send`,
       query,
       body
     );
@@ -3828,10 +3333,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["addEmail"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/email`,
       query,
       body
     );
@@ -3871,10 +3373,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["deleteEmail"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/email`,
       query,
       undefined
     );
@@ -3900,10 +3399,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["setEmailAsPrimary"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/email/primary`,
       query,
       body
     );
@@ -3931,10 +3427,7 @@ class User {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendVerificationLinkToEmail"],
-        params: {},
-      }),
+      `/service/application/user/profile/v1.0/email/link/send`,
       query,
       body
     );
@@ -3944,36 +3437,6 @@ class User {
 class Content {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getAnnouncements: "/service/application/content/v1.0/announcements",
-      getBlog: "/service/application/content/v1.0/blogs/{slug}",
-      getBlogs: "/service/application/content/v1.0/blogs/",
-      getDataLoaders: "/service/application/content/v1.0/data-loader",
-      getFaqs: "/service/application/content/v1.0/faq",
-      getFaqCategories: "/service/application/content/v1.0/faq/categories",
-      getFaqBySlug: "/service/application/content/v1.0/faq/{slug}",
-      getFaqCategoryBySlug:
-        "/service/application/content/v1.0/faq/category/{slug}",
-      getFaqsByCategorySlug:
-        "/service/application/content/v1.0/faq/category/{slug}/faqs",
-      getLandingPage: "/service/application/content/v1.0/landing-page",
-      getLegalInformation: "/service/application/content/v1.0/legal",
-      getNavigations: "/service/application/content/v1.0/navigations/",
-      getSEOConfiguration: "/service/application/content/v1.0/seo",
-      getSlideshows: "/service/application/content/v1.0/slideshow/",
-      getSlideshow: "/service/application/content/v1.0/slideshow/{slug}",
-      getSupportInformation: "/service/application/content/v1.0/support",
-      getTags: "/service/application/content/v1.0/tags",
-      getPage: "/service/application/content/v2.0/pages/{slug}",
-      getPages: "/service/application/content/v2.0/pages/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -3995,10 +3458,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAnnouncements"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/announcements`,
       query,
       undefined
     );
@@ -4028,10 +3488,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBlog"],
-        params: { slug },
-      }),
+      `/service/application/content/v1.0/blogs/${slug}`,
       query,
       undefined
     );
@@ -4061,10 +3518,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBlogs"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/blogs/`,
       query,
       undefined
     );
@@ -4115,10 +3569,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getDataLoaders"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/data-loader`,
       query,
       undefined
     );
@@ -4143,10 +3594,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFaqs"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/faq`,
       query,
       undefined
     );
@@ -4171,10 +3619,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFaqCategories"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/faq/categories`,
       query,
       undefined
     );
@@ -4202,10 +3647,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFaqBySlug"],
-        params: { slug },
-      }),
+      `/service/application/content/v1.0/faq/${slug}`,
       query,
       undefined
     );
@@ -4233,10 +3675,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFaqCategoryBySlug"],
-        params: { slug },
-      }),
+      `/service/application/content/v1.0/faq/category/${slug}`,
       query,
       undefined
     );
@@ -4264,10 +3703,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFaqsByCategorySlug"],
-        params: { slug },
-      }),
+      `/service/application/content/v1.0/faq/category/${slug}/faqs`,
       query,
       undefined
     );
@@ -4292,10 +3728,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLandingPage"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/landing-page`,
       query,
       undefined
     );
@@ -4320,10 +3753,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLegalInformation"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/legal`,
       query,
       undefined
     );
@@ -4353,10 +3783,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getNavigations"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/navigations/`,
       query,
       undefined
     );
@@ -4407,10 +3834,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSEOConfiguration"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/seo`,
       query,
       undefined
     );
@@ -4440,10 +3864,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSlideshows"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/slideshow/`,
       query,
       undefined
     );
@@ -4497,10 +3918,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSlideshow"],
-        params: { slug },
-      }),
+      `/service/application/content/v1.0/slideshow/${slug}`,
       query,
       undefined
     );
@@ -4525,10 +3943,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getSupportInformation"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/support`,
       query,
       undefined
     );
@@ -4553,10 +3968,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getTags"],
-        params: {},
-      }),
+      `/service/application/content/v1.0/tags`,
       query,
       undefined
     );
@@ -4586,10 +3998,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPage"],
-        params: { slug },
-      }),
+      `/service/application/content/v2.0/pages/${slug}`,
       query,
       undefined
     );
@@ -4619,10 +4028,7 @@ class Content {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPages"],
-        params: {},
-      }),
+      `/service/application/content/v2.0/pages/`,
       query,
       undefined
     );
@@ -4658,20 +4064,6 @@ class Content {
 class Communication {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getCommunicationConsent:
-        "/service/application/communication/v1.0/consent",
-      upsertCommunicationConsent:
-        "/service/application/communication/v1.0/consent",
-      upsertAppPushtoken: "/service/application/communication/v1.0/pn-token",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -4693,10 +4085,7 @@ class Communication {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCommunicationConsent"],
-        params: {},
-      }),
+      `/service/application/communication/v1.0/consent`,
       query,
       undefined
     );
@@ -4724,10 +4113,7 @@ class Communication {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["upsertCommunicationConsent"],
-        params: {},
-      }),
+      `/service/application/communication/v1.0/consent`,
       query,
       body
     );
@@ -4753,10 +4139,7 @@ class Communication {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["upsertAppPushtoken"],
-        params: {},
-      }),
+      `/service/application/communication/v1.0/pn-token`,
       query,
       body
     );
@@ -4766,26 +4149,6 @@ class Communication {
 class Share {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getApplicationQRCode: "/service/application/share/v1.0/qr/",
-      getProductQRCodeBySlug:
-        "/service/application/share/v1.0/qr/products/{slug}/",
-      getCollectionQRCodeBySlug:
-        "/service/application/share/v1.0/qr/collection/{slug}/",
-      getUrlQRCode: "/service/application/share/v1.0/qr/url/",
-      createShortLink: "/service/application/share/v1.0/links/short-link/",
-      getShortLinkByHash:
-        "/service/application/share/v1.0/links/short-link/{hash}/",
-      getOriginalShortLinkByHash:
-        "/service/application/share/v1.0/links/short-link/{hash}/original/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -4807,10 +4170,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getApplicationQRCode"],
-        params: {},
-      }),
+      `/service/application/share/v1.0/qr/`,
       query,
       undefined
     );
@@ -4837,10 +4197,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getProductQRCodeBySlug"],
-        params: { slug },
-      }),
+      `/service/application/share/v1.0/qr/products/${slug}/`,
       query,
       undefined
     );
@@ -4867,10 +4224,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getCollectionQRCodeBySlug"],
-        params: { slug },
-      }),
+      `/service/application/share/v1.0/qr/collection/${slug}/`,
       query,
       undefined
     );
@@ -4897,10 +4251,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getUrlQRCode"],
-        params: {},
-      }),
+      `/service/application/share/v1.0/qr/url/`,
       query,
       undefined
     );
@@ -4926,10 +4277,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createShortLink"],
-        params: {},
-      }),
+      `/service/application/share/v1.0/links/short-link/`,
       query,
       body
     );
@@ -4956,10 +4304,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getShortLinkByHash"],
-        params: { hash },
-      }),
+      `/service/application/share/v1.0/links/short-link/${hash}/`,
       query,
       undefined
     );
@@ -4986,10 +4331,7 @@ class Share {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOriginalShortLinkByHash"],
-        params: { hash },
-      }),
+      `/service/application/share/v1.0/links/short-link/${hash}/original/`,
       query,
       undefined
     );
@@ -4999,21 +4341,6 @@ class Share {
 class FileStorage {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      startUpload:
-        "/service/application/assets/v1.0/namespaces/{namespace}/upload/start/",
-      completeUpload:
-        "/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/",
-      signUrls:
-        "/service/application/assets/v1.0/company/{company_id}/sign-urls/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -5054,10 +4381,7 @@ class FileStorage {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["startUpload"],
-        params: { namespace },
-      }),
+      `/service/application/assets/v1.0/namespaces/${namespace}/upload/start/`,
       query,
       body
     );
@@ -5101,10 +4425,7 @@ class FileStorage {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["completeUpload"],
-        params: { namespace },
-      }),
+      `/service/application/assets/v1.0/namespaces/${namespace}/upload/complete/`,
       query,
       body
     );
@@ -5131,10 +4452,7 @@ class FileStorage {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["signUrls"],
-        params: { companyId },
-      }),
+      `/service/application/assets/v1.0/company/${companyId}/sign-urls/`,
       query,
       body
     );
@@ -5144,34 +4462,6 @@ class FileStorage {
 class Configuration {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getApplication: "/service/application/configuration/v1.0/application",
-      getOwnerInfo: "/service/application/configuration/v1.0/about",
-      getBasicDetails: "/service/application/configuration/v1.0/detail",
-      getIntegrationTokens: "/service/application/configuration/v1.0/token",
-      getOrderingStores:
-        "/service/application/configuration/v1.0/ordering-store/stores",
-      getStoreDetailById:
-        "/service/application/configuration/v1.0/ordering-store/stores/{store_id}",
-      getFeatures: "/service/application/configuration/v1.0/feature",
-      getContactInfo: "/service/application/configuration/v1.0/information",
-      getCurrencies: "/service/application/configuration/v1.0/currencies",
-      getCurrencyById: "/service/application/configuration/v1.0/currency/{id}",
-      getAppCurrencies: "/service/application/configuration/v1.0/currency",
-      getLanguages: "/service/application/configuration/v1.0/languages",
-      getOrderingStoreCookie:
-        "/service/application/configuration/v1.0/ordering-store/select",
-      removeOrderingStoreCookie:
-        "/service/application/configuration/v1.0/ordering-store/select",
-      getAppStaffs: "/service/application/configuration/v1.0/staff",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -5193,10 +4483,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getApplication"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/application`,
       query,
       undefined
     );
@@ -5221,10 +4508,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOwnerInfo"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/about`,
       query,
       undefined
     );
@@ -5249,10 +4533,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBasicDetails"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/detail`,
       query,
       undefined
     );
@@ -5277,10 +4558,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getIntegrationTokens"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/token`,
       query,
       undefined
     );
@@ -5313,10 +4591,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOrderingStores"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/ordering-store/stores`,
       query,
       undefined
     );
@@ -5371,10 +4646,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getStoreDetailById"],
-        params: { storeId },
-      }),
+      `/service/application/configuration/v1.0/ordering-store/stores/${storeId}`,
       query,
       undefined
     );
@@ -5399,10 +4671,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getFeatures"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/feature`,
       query,
       undefined
     );
@@ -5427,10 +4696,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getContactInfo"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/information`,
       query,
       undefined
     );
@@ -5455,10 +4721,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCurrencies"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/currencies`,
       query,
       undefined
     );
@@ -5484,10 +4747,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCurrencyById"],
-        params: { id },
-      }),
+      `/service/application/configuration/v1.0/currency/${id}`,
       query,
       undefined
     );
@@ -5512,10 +4772,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAppCurrencies"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/currency`,
       query,
       undefined
     );
@@ -5540,10 +4797,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getLanguages"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/languages`,
       query,
       undefined
     );
@@ -5569,10 +4823,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getOrderingStoreCookie"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/ordering-store/select`,
       query,
       body
     );
@@ -5599,10 +4850,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["removeOrderingStoreCookie"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/ordering-store/select`,
       query,
       undefined
     );
@@ -5636,10 +4884,7 @@ class Configuration {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAppStaffs"],
-        params: {},
-      }),
+      `/service/application/configuration/v1.0/staff`,
       query,
       undefined
     );
@@ -5649,51 +4894,6 @@ class Configuration {
 class Payment {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getAggregatorsConfig:
-        "/service/application/payment/v1.0/config/aggregators/key",
-      attachCardToCustomer: "/service/application/payment/v1.0/card/attach",
-      getActiveCardAggregator:
-        "/service/application/payment/v1.0/card/aggregator",
-      getActiveUserCards: "/service/application/payment/v1.0/cards",
-      deleteUserCard: "/service/application/payment/v1.0/card/remove",
-      verifyCustomerForPayment:
-        "/service/application/payment/v1.0/payment/customer/validation",
-      verifyAndChargePayment:
-        "/service/application/payment/v1.0/payment/confirm/charge",
-      initialisePayment: "/service/application/payment/v1.0/payment/request",
-      checkAndUpdatePaymentStatus:
-        "/service/application/payment/v1.0/payment/confirm/polling",
-      getPaymentModeRoutes: "/service/application/payment/v1.0/payment/options",
-      getPosPaymentModeRoutes:
-        "/service/application/payment/v1.0/payment/options/pos",
-      getRupifiBannerDetails: "/service/application/payment/v1.0/rupifi/banner",
-      getActiveRefundTransferModes:
-        "/service/application/payment/v1.0/refund/transfer-mode",
-      enableOrDisableRefundTransferMode:
-        "/service/application/payment/v1.0/refund/transfer-mode",
-      getUserBeneficiariesDetail:
-        "/service/application/payment/v1.0/refund/user/beneficiary",
-      verifyIfscCode: "/service/application/payment/v1.0/ifsc-code/verify",
-      getOrderBeneficiariesDetail:
-        "/service/application/payment/v1.0/refund/order/beneficiaries",
-      verifyOtpAndAddBeneficiaryForBank:
-        "/service/application/payment/v1.0/refund/verification/bank",
-      addBeneficiaryDetails: "/service/application/payment/v1.0/refund/account",
-      addRefundBankAccountUsingOTP:
-        "/service/application/payment/v1.0/refund/account/otp",
-      verifyOtpAndAddBeneficiaryForWallet:
-        "/service/application/payment/v1.0/refund/verification/wallet",
-      updateDefaultBeneficiary:
-        "/service/application/payment/v1.0/refund/beneficiary/default",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -5720,10 +4920,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAggregatorsConfig"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/config/aggregators/key`,
       query,
       undefined
     );
@@ -5749,10 +4946,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["attachCardToCustomer"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/card/attach`,
       query,
       body
     );
@@ -5779,10 +4973,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getActiveCardAggregator"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/card/aggregator`,
       query,
       undefined
     );
@@ -5809,10 +5000,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getActiveUserCards"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/cards`,
       query,
       undefined
     );
@@ -5838,10 +5026,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["deleteUserCard"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/card/remove`,
       query,
       body
     );
@@ -5867,10 +5052,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyCustomerForPayment"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/customer/validation`,
       query,
       body
     );
@@ -5896,10 +5078,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyAndChargePayment"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/confirm/charge`,
       query,
       body
     );
@@ -5925,10 +5104,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["initialisePayment"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/request`,
       query,
       body
     );
@@ -5954,10 +5130,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["checkAndUpdatePaymentStatus"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/confirm/polling`,
       query,
       body
     );
@@ -6016,10 +5189,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPaymentModeRoutes"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/options`,
       query,
       undefined
     );
@@ -6084,10 +5254,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPosPaymentModeRoutes"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/payment/options/pos`,
       query,
       undefined
     );
@@ -6112,10 +5279,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getRupifiBannerDetails"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/rupifi/banner`,
       query,
       undefined
     );
@@ -6140,10 +5304,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getActiveRefundTransferModes"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/transfer-mode`,
       query,
       undefined
     );
@@ -6171,10 +5332,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["enableOrDisableRefundTransferMode"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/transfer-mode`,
       query,
       body
     );
@@ -6202,10 +5360,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getUserBeneficiariesDetail"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/user/beneficiary`,
       query,
       undefined
     );
@@ -6233,10 +5388,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["verifyIfscCode"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/ifsc-code/verify`,
       query,
       undefined
     );
@@ -6264,10 +5416,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOrderBeneficiariesDetail"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/order/beneficiaries`,
       query,
       undefined
     );
@@ -6295,10 +5444,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyOtpAndAddBeneficiaryForBank"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/verification/bank`,
       query,
       body
     );
@@ -6324,10 +5470,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addBeneficiaryDetails"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/account`,
       query,
       body
     );
@@ -6353,10 +5496,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addRefundBankAccountUsingOTP"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/account/otp`,
       query,
       body
     );
@@ -6384,10 +5524,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyOtpAndAddBeneficiaryForWallet"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/verification/wallet`,
       query,
       body
     );
@@ -6413,10 +5550,7 @@ class Payment {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["updateDefaultBeneficiary"],
-        params: {},
-      }),
+      `/service/application/payment/v1.0/refund/beneficiary/default`,
       query,
       body
     );
@@ -6426,33 +5560,6 @@ class Payment {
 class Order {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getOrders: "/service/application/order/v1.0/orders",
-      getOrderById: "/service/application/order/v1.0/orders/{order_id}",
-      getShipmentById:
-        "/service/application/order/v1.0/orders/shipments/{shipment_id}",
-      getShipmentReasons:
-        "/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons",
-      updateShipmentStatus:
-        "/service/application/order/v1.0/orders/shipments/{shipment_id}/status",
-      trackShipment:
-        "/service/application/order/v1.0/orders/shipments/{shipment_id}/track",
-      getPosOrderById:
-        "/service/application/order/v1.0/orders/pos-order/{order_id}",
-      getCustomerDetailsByShipmentId:
-        "/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details",
-      sendOtpToShipmentCustomer:
-        "/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/",
-      verifyOtpShipmentCustomer:
-        "/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -6488,10 +5595,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOrders"],
-        params: {},
-      }),
+      `/service/application/order/v1.0/orders`,
       query,
       undefined
     );
@@ -6518,10 +5622,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOrderById"],
-        params: { orderId },
-      }),
+      `/service/application/order/v1.0/orders/${orderId}`,
       query,
       undefined
     );
@@ -6549,10 +5650,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getShipmentById"],
-        params: { shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/shipments/${shipmentId}`,
       query,
       undefined
     );
@@ -6580,10 +5678,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getShipmentReasons"],
-        params: { shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/shipments/${shipmentId}/reasons`,
       query,
       undefined
     );
@@ -6612,10 +5707,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateShipmentStatus"],
-        params: { shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/shipments/${shipmentId}/status`,
       query,
       body
     );
@@ -6643,10 +5735,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["trackShipment"],
-        params: { shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/shipments/${shipmentId}/track`,
       query,
       undefined
     );
@@ -6673,10 +5762,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPosOrderById"],
-        params: { orderId },
-      }),
+      `/service/application/order/v1.0/orders/pos-order/${orderId}`,
       query,
       undefined
     );
@@ -6706,10 +5792,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCustomerDetailsByShipmentId"],
-        params: { orderId, shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/${orderId}/shipments/${shipmentId}/customer-details`,
       query,
       undefined
     );
@@ -6739,10 +5822,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["sendOtpToShipmentCustomer"],
-        params: { orderId, shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/${orderId}/shipments/${shipmentId}/otp/send/`,
       query,
       undefined
     );
@@ -6773,10 +5853,7 @@ class Order {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["verifyOtpShipmentCustomer"],
-        params: { orderId, shipmentId },
-      }),
+      `/service/application/order/v1.0/orders/${orderId}/shipments/${shipmentId}/otp/verify`,
       query,
       body
     );
@@ -6786,27 +5863,6 @@ class Order {
 class Rewards {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getPointsOnProduct:
-        "/service/application/rewards/v1.0/catalogue/offer/order/",
-      getOfferByName: "/service/application/rewards/v1.0/offers/{name}/",
-      getOrderDiscount:
-        "/service/application/rewards/v1.0/user/offers/order-discount/",
-      getUserPoints: "/service/application/rewards/v1.0/user/points/",
-      getUserPointsHistory:
-        "/service/application/rewards/v1.0/user/points/history/",
-      getUserReferralDetails:
-        "/service/application/rewards/v1.0/user/referral/",
-      redeemReferralCode:
-        "/service/application/rewards/v1.0/user/referral/redeem/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -6829,10 +5885,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getPointsOnProduct"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/catalogue/offer/order/`,
       query,
       body
     );
@@ -6858,10 +5911,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getOfferByName"],
-        params: { name },
-      }),
+      `/service/application/rewards/v1.0/offers/${name}/`,
       query,
       undefined
     );
@@ -6887,10 +5937,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getOrderDiscount"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/user/offers/order-discount/`,
       query,
       body
     );
@@ -6915,10 +5962,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getUserPoints"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/user/points/`,
       query,
       undefined
     );
@@ -6948,10 +5992,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getUserPointsHistory"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/user/points/history/`,
       query,
       undefined
     );
@@ -7002,10 +6043,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getUserReferralDetails"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/user/referral/`,
       query,
       undefined
     );
@@ -7031,10 +6069,7 @@ class Rewards {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["redeemReferralCode"],
-        params: {},
-      }),
+      `/service/application/rewards/v1.0/user/referral/redeem/`,
       query,
       body
     );
@@ -7044,48 +6079,6 @@ class Rewards {
 class Feedback {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      createAbuseReport: "/service/application/feedback/v1.0/abuse/",
-      updateAbuseReport: "/service/application/feedback/v1.0/abuse/",
-      getAbuseReports:
-        "/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}",
-      getAttributes: "/service/application/feedback/v1.0/attributes/",
-      createAttribute: "/service/application/feedback/v1.0/attributes/",
-      getAttribute: "/service/application/feedback/v1.0/attributes/{slug}",
-      updateAttribute: "/service/application/feedback/v1.0/attributes/{slug}",
-      createComment: "/service/application/feedback/v1.0/comment/",
-      updateComment: "/service/application/feedback/v1.0/comment/",
-      getComments:
-        "/service/application/feedback/v1.0/comment/entity/{entity_type}",
-      checkEligibility:
-        "/service/application/feedback/v1.0/config/entity/{entity_type}/entity-id/{entity_id}",
-      deleteMedia: "/service/application/feedback/v1.0/media/",
-      createMedia: "/service/application/feedback/v1.0/media/",
-      updateMedia: "/service/application/feedback/v1.0/media/",
-      getMedias:
-        "/service/application/feedback/v1.0/media/entity/{entity_type}/entity-id/{entity_id}",
-      getReviewSummaries:
-        "/service/application/feedback/v1.0/rating/summary/entity/{entity_type}/entity-id/{entity_id}",
-      createReview: "/service/application/feedback/v1.0/review/",
-      updateReview: "/service/application/feedback/v1.0/review/",
-      getReviews:
-        "/service/application/feedback/v1.0/review/entity/{entity_type}/entity-id/{entity_id}",
-      getTemplates: "/service/application/feedback/v1.0/template/",
-      createQuestion: "/service/application/feedback/v1.0/template/qna/",
-      updateQuestion: "/service/application/feedback/v1.0/template/qna/",
-      getQuestionAndAnswers:
-        "/service/application/feedback/v1.0/template/qna/entity/{entity_type}/entity-id/{entity_id}",
-      getVotes: "/service/application/feedback/v1.0/vote/",
-      createVote: "/service/application/feedback/v1.0/vote/",
-      updateVote: "/service/application/feedback/v1.0/vote/",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -7108,10 +6101,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createAbuseReport"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/abuse/`,
       query,
       body
     );
@@ -7137,10 +6127,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateAbuseReport"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/abuse/`,
       query,
       body
     );
@@ -7174,10 +6161,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAbuseReports"],
-        params: { entityId, entityType },
-      }),
+      `/service/application/feedback/v1.0/abuse/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -7240,10 +6224,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAttributes"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/attributes/`,
       query,
       undefined
     );
@@ -7295,10 +6276,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createAttribute"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/attributes/`,
       query,
       body
     );
@@ -7326,10 +6304,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAttribute"],
-        params: { slug },
-      }),
+      `/service/application/feedback/v1.0/attributes/${slug}`,
       query,
       undefined
     );
@@ -7358,10 +6333,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateAttribute"],
-        params: { slug },
-      }),
+      `/service/application/feedback/v1.0/attributes/${slug}`,
       query,
       body
     );
@@ -7387,10 +6359,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createComment"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/comment/`,
       query,
       body
     );
@@ -7416,10 +6385,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateComment"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/comment/`,
       query,
       body
     );
@@ -7456,10 +6422,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getComments"],
-        params: { entityType },
-      }),
+      `/service/application/feedback/v1.0/comment/entity/${entityType}`,
       query,
       undefined
     );
@@ -7523,10 +6486,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["checkEligibility"],
-        params: { entityType, entityId },
-      }),
+      `/service/application/feedback/v1.0/config/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -7553,10 +6513,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["deleteMedia"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/media/`,
       query,
       undefined
     );
@@ -7582,10 +6539,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createMedia"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/media/`,
       query,
       body
     );
@@ -7611,10 +6565,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateMedia"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/media/`,
       query,
       body
     );
@@ -7650,10 +6601,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getMedias"],
-        params: { entityType, entityId },
-      }),
+      `/service/application/feedback/v1.0/media/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -7723,10 +6671,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getReviewSummaries"],
-        params: { entityType, entityId },
-      }),
+      `/service/application/feedback/v1.0/rating/summary/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -7786,10 +6731,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createReview"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/review/`,
       query,
       body
     );
@@ -7815,10 +6757,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateReview"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/review/`,
       query,
       body
     );
@@ -7899,10 +6838,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getReviews"],
-        params: { entityType, entityId },
-      }),
+      `/service/application/feedback/v1.0/review/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -8000,10 +6936,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getTemplates"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/template/`,
       query,
       undefined
     );
@@ -8029,10 +6962,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createQuestion"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/template/qna/`,
       query,
       body
     );
@@ -8058,10 +6988,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateQuestion"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/template/qna/`,
       query,
       body
     );
@@ -8108,10 +7035,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getQuestionAndAnswers"],
-        params: { entityType, entityId },
-      }),
+      `/service/application/feedback/v1.0/template/qna/entity/${entityType}/entity-id/${entityId}`,
       query,
       undefined
     );
@@ -8190,10 +7114,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getVotes"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/vote/`,
       query,
       undefined
     );
@@ -8249,10 +7170,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["createVote"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/vote/`,
       query,
       body
     );
@@ -8278,10 +7196,7 @@ class Feedback {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateVote"],
-        params: {},
-      }),
+      `/service/application/feedback/v1.0/vote/`,
       query,
       body
     );
@@ -8291,46 +7206,6 @@ class Feedback {
 class PosCart {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getCart: "/service/application/pos/cart/v1.0/detail",
-      getCartLastModified: "/service/application/pos/cart/v1.0/detail",
-      addItems: "/service/application/pos/cart/v1.0/detail",
-      updateCart: "/service/application/pos/cart/v1.0/detail",
-      getItemCount: "/service/application/pos/cart/v1.0/basic",
-      getCoupons: "/service/application/pos/cart/v1.0/coupon",
-      applyCoupon: "/service/application/pos/cart/v1.0/coupon",
-      removeCoupon: "/service/application/pos/cart/v1.0/coupon",
-      getBulkDiscountOffers: "/service/application/pos/cart/v1.0/bulk-price",
-      applyRewardPoints: "/service/application/pos/cart/v1.0/redeem/points/",
-      getAddresses: "/service/application/pos/cart/v1.0/address",
-      addAddress: "/service/application/pos/cart/v1.0/address",
-      getAddressById: "/service/application/pos/cart/v1.0/address/{id}",
-      updateAddress: "/service/application/pos/cart/v1.0/address/{id}",
-      removeAddress: "/service/application/pos/cart/v1.0/address/{id}",
-      selectAddress: "/service/application/pos/cart/v1.0/select-address",
-      selectPaymentMode: "/service/application/pos/cart/v1.0/payment",
-      validateCouponForPayment:
-        "/service/application/pos/cart/v1.0/payment/validate/",
-      getShipments: "/service/application/pos/cart/v1.0/shipment",
-      updateShipments: "/service/application/pos/cart/v1.0/shipment",
-      checkoutCart: "/service/application/pos/cart/v1.0/checkout",
-      updateCartMeta: "/service/application/pos/cart/v1.0/meta",
-      getAvailableDeliveryModes:
-        "/service/application/pos/cart/v1.0/available-delivery-mode",
-      getStoreAddressByUid: "/service/application/pos/cart/v1.0/store-address",
-      getCartShareLink: "/service/application/pos/cart/v1.0/share-cart",
-      getCartSharedItems:
-        "/service/application/pos/cart/v1.0/share-cart/{token}",
-      updateCartWithSharedItems:
-        "/service/application/pos/cart/v1.0/share-cart/{token}/{action}",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -8360,10 +7235,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCart"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/detail`,
       query,
       undefined
     );
@@ -8390,10 +7262,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "head",
-      constructUrl({
-        url: this._urls["getCartLastModified"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/detail`,
       query,
       undefined
     );
@@ -8423,10 +7292,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addItems"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/detail`,
       query,
       body
     );
@@ -8458,10 +7324,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateCart"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/detail`,
       query,
       body
     );
@@ -8488,10 +7351,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getItemCount"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/basic`,
       query,
       undefined
     );
@@ -8518,10 +7378,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCoupons"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/coupon`,
       query,
       undefined
     );
@@ -8555,10 +7412,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["applyCoupon"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/coupon`,
       query,
       body
     );
@@ -8585,10 +7439,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["removeCoupon"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/coupon`,
       query,
       undefined
     );
@@ -8623,10 +7474,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getBulkDiscountOffers"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/bulk-price`,
       query,
       undefined
     );
@@ -8658,10 +7506,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["applyRewardPoints"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/redeem/points/`,
       query,
       body
     );
@@ -8696,10 +7541,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAddresses"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/address`,
       query,
       undefined
     );
@@ -8725,10 +7567,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["addAddress"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/address`,
       query,
       body
     );
@@ -8764,10 +7603,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAddressById"],
-        params: { id },
-      }),
+      `/service/application/pos/cart/v1.0/address/${id}`,
       query,
       undefined
     );
@@ -8794,10 +7630,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateAddress"],
-        params: { id },
-      }),
+      `/service/application/pos/cart/v1.0/address/${id}`,
       query,
       body
     );
@@ -8823,10 +7656,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "delete",
-      constructUrl({
-        url: this._urls["removeAddress"],
-        params: { id },
-      }),
+      `/service/application/pos/cart/v1.0/address/${id}`,
       query,
       undefined
     );
@@ -8858,10 +7688,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["selectAddress"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/select-address`,
       query,
       body
     );
@@ -8889,10 +7716,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["selectPaymentMode"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/payment`,
       query,
       body
     );
@@ -8943,10 +7767,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["validateCouponForPayment"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/payment/validate/`,
       query,
       undefined
     );
@@ -9005,10 +7826,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getShipments"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/shipment`,
       query,
       undefined
     );
@@ -9048,10 +7866,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateShipments"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/shipment`,
       query,
       body
     );
@@ -9079,10 +7894,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["checkoutCart"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/checkout`,
       query,
       body
     );
@@ -9110,10 +7922,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "put",
-      constructUrl({
-        url: this._urls["updateCartMeta"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/meta`,
       query,
       body
     );
@@ -9142,10 +7951,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getAvailableDeliveryModes"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/available-delivery-mode`,
       query,
       undefined
     );
@@ -9172,10 +7978,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getStoreAddressByUid"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/store-address`,
       query,
       undefined
     );
@@ -9201,10 +8004,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getCartShareLink"],
-        params: {},
-      }),
+      `/service/application/pos/cart/v1.0/share-cart`,
       query,
       body
     );
@@ -9230,10 +8030,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getCartSharedItems"],
-        params: { token },
-      }),
+      `/service/application/pos/cart/v1.0/share-cart/${token}`,
       query,
       undefined
     );
@@ -9261,10 +8058,7 @@ class PosCart {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["updateCartWithSharedItems"],
-        params: { token, action },
-      }),
+      `/service/application/pos/cart/v1.0/share-cart/${token}/${action}`,
       query,
       undefined
     );
@@ -9274,17 +8068,6 @@ class PosCart {
 class Logistic {
   constructor(_conf) {
     this._conf = _conf;
-    this._urls = {
-      getTatProduct: "/service/application/logistics/v1.0",
-      getPincodeCity: "/service/application/logistics/v1.0/pincode/{pincode}",
-    };
-  }
-
-  updateUrls(urls) {
-    this._urls = {
-      ...this._urls,
-      ...urls,
-    };
   }
 
   /**
@@ -9307,10 +8090,7 @@ class Logistic {
     return APIClient.execute(
       this._conf,
       "post",
-      constructUrl({
-        url: this._urls["getTatProduct"],
-        params: {},
-      }),
+      `/service/application/logistics/v1.0`,
       query,
       body
     );
@@ -9336,10 +8116,7 @@ class Logistic {
     return APIClient.execute(
       this._conf,
       "get",
-      constructUrl({
-        url: this._urls["getPincodeCity"],
-        params: { pincode },
-      }),
+      `/service/application/logistics/v1.0/pincode/${pincode}`,
       query,
       undefined
     );
