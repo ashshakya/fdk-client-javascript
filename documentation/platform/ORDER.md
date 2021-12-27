@@ -2837,6 +2837,8 @@ Success
  | update_time | number |  no  |  |
  | current_status | [BagCurrentStatus](#BagCurrentStatus) |  no  |  |
  | bag_status | [BagStatus](#BagStatus) |  no  |  |
+ | can_cancel | boolean |  no  |  |
+ | can_return | boolean |  no  |  |
 
 ---
 

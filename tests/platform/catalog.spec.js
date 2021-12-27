@@ -26,6 +26,6 @@ afterAll(() => {
 describe("Platform Lead Test Cases", () => {
   it("getTickets testing", async () => {
     const tickets = await platformClient.lead.getTickets();
-    expect(typeof tickets.page.item_total).toBe("number");
+    expect(tickets.page.item_total).toBe(10);
   });
 });
