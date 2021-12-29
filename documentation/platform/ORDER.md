@@ -2772,6 +2772,7 @@ Success
  | breakup_values | [ShipmentBreakupValues](#ShipmentBreakupValues) |  no  |  |
  | id | string |  no  |  |
  | dp_details | [DpDetails](#DpDetails) |  no  |  |
+ | payment_methods | string |  no  |  |
  | invoice | [ShipmentInvoice](#ShipmentInvoice) |  no  |  |
  | fulfilling_store | [PlatformFulfillingStore](#PlatformFulfillingStore) |  no  |  |
  | payments | [Payments](#Payments) |  no  |  |
