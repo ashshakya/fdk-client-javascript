@@ -29,7 +29,7 @@ Authentication Service
 * [verifyEmailOTP](#verifyemailotp)
 * [getLoggedInUser](#getloggedinuser)
 * [getListOfActiveSessions](#getlistofactivesessions)
-* [getFreshchatRestoreId](#getfreshchatrestoreid)
+* [setFreshchatRestoreId](#setfreshchatrestoreid)
 * [getUserStore](#getuserstore)
 * [getPlatformConfig](#getplatformconfig)
 * [updateProfile](#updateprofile)
@@ -1464,17 +1464,17 @@ Success. Returns a JSON object containing an array of sessions. Refer `SessionLi
 ---
 
 
-### getFreshchatRestoreId
+### setFreshchatRestoreId
 Get freshchat restore ID
 
 
 
 ```javascript
 // Promise
-const promise = user.getFreshchatRestoreId({  body : value });
+const promise = user.setFreshchatRestoreId({  body : value });
 
 // Async/Await
-const data = await user.getFreshchatRestoreId({  body : value });
+const data = await user.setFreshchatRestoreId({  body : value });
 ```
 
 
