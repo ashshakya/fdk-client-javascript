@@ -2731,6 +2731,7 @@ Success
  | created_at | string |  no  |  |
  | total_shipments_in_order | number |  no  |  |
  | payments | [ItemsPayments](#ItemsPayments) |  no  |  |
+ | payment_methods | string |  no  |  |
 
 ---
 
@@ -2840,6 +2841,7 @@ Success
  | bag_status | [BagStatus](#BagStatus) |  no  |  |
  | can_cancel | boolean |  no  |  |
  | can_return | boolean |  no  |  |
+ | payment_methods | string |  no  |  |
 
 ---
 
@@ -3525,6 +3527,7 @@ Success
  | created_at | string |  no  |  |
  | total_shipments_in_order | number |  no  |  |
  | payments | [ItemsPayments](#ItemsPayments) |  no  |  |
+ | payment_methods | string |  no  |  |
 
 ---
 
