@@ -6776,9 +6776,9 @@ class Validator{
             return Joi.object({
                 
                     
-                    params: Joi.object().pattern( /wd/,Joi.array().items(Joi.string().allow(''))),
+                    params: Joi.object().pattern(/^/,Joi.array().items(Joi.string().allow(''))),
                     
-                    query: Joi.object().pattern( /wd/,Joi.array().items(Joi.string().allow(''))),
+                    query: Joi.object().pattern(/^/,Joi.array().items(Joi.string().allow(''))),
                     
                     url: Joi.string().allow(''),
                     
@@ -6886,7 +6886,7 @@ class Validator{
             return Joi.object({
                 
                     
-                    announcements: Joi.object().pattern( /wd/,Joi.array().items(this.AnnouncementSchema())),
+                    announcements: Joi.object().pattern(/^/,Joi.array().items(this.AnnouncementSchema())),
                     
                     refresh_rate: Joi.number(),
                     
