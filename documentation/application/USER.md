@@ -4126,6 +4126,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | first_name | string |  no  |  |
  | last_name | string |  no  |  |
  | gender | string |  no  |  |
+ | external_id | string |  no  |  |
  | meta | string |  no  |  |
 
 ---
