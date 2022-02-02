@@ -29,8 +29,6 @@ Authentication Service
 * [verifyEmailOTP](#verifyemailotp)
 * [getLoggedInUser](#getloggedinuser)
 * [getListOfActiveSessions](#getlistofactivesessions)
-* [setFreshchatRestoreId](#setfreshchatrestoreid)
-* [getUserStore](#getuserstore)
 * [getPlatformConfig](#getplatformconfig)
 * [updateProfile](#updateprofile)
 * [addMobileNumber](#addmobilenumber)
@@ -1880,112 +1878,6 @@ Success. Returns a JSON object containing an array of sessions. Refer `SessionLi
 ---
 
 
-### setFreshchatRestoreId
-Get freshchat restore ID
-
-
-
-```javascript
-// Promise
-const promise = user.setFreshchatRestoreId({  body : value });
-
-// Async/Await
-const data = await user.setFreshchatRestoreId({  body : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema) | yes | Request body |
-
-
-Use this API to restore fresh chat of user from the app.
-
-*Returned Response:*
-
-
-
-
-[UserStoreSchema](#UserStoreSchema)
-
-Success. Returns a success message as shown below. Refer `UserStoreSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getUserStore
-Get user store
-
-
-
-```javascript
-// Promise
-const promise = user.getUserStore();
-
-// Async/Await
-const data = await user.getUserStore();
-```
-
-
-
-
-
-
-Use this API to get userstore data using users id.
-
-*Returned Response:*
-
-
-
-
-[UserStoreSchema](#UserStoreSchema)
-
-Success. Returns a success message as shown below. Refer `UserStoreSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getPlatformConfig
 Get platform configurations
 
@@ -3255,17 +3147,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | freshchat_restore_id | string |  no  |  |
-
----
-
-
- 
- 
  #### [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -4128,21 +4009,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | gender | string |  no  |  |
  | external_id | string |  no  |  |
  | meta | string |  no  |  |
-
----
-
-
- 
- 
- #### [UserStoreSchema](#UserStoreSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | user_id | string |  no  |  |
- | data | string |  no  |  |
- | _id | string |  no  |  |
- | created_at | string |  no  |  |
- | updated_at | string |  no  |  |
 
 ---
 

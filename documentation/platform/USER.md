@@ -871,17 +871,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
- #### [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | freshchat_restore_id | string |  no  |  |
-
----
-
-
- 
- 
  #### [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -1744,21 +1733,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | gender | string |  no  |  |
  | external_id | string |  no  |  |
  | meta | string |  no  |  |
-
----
-
-
- 
- 
- #### [UserStoreSchema](#UserStoreSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | user_id | string |  no  |  |
- | data | string |  no  |  |
- | _id | string |  no  |  |
- | created_at | string |  no  |  |
- | updated_at | string |  no  |  |
 
 ---
 
