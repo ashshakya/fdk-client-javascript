@@ -6924,17 +6924,17 @@ const {
         @typedef PaymentGatewayConfigResponse
         
         
-        @property { Array<string> } display_fields
+        @property { boolean } success
         
         @property { string } app_id
         
-        @property { boolean } created
-        
         @property { Array<string> } excluded_fields
+        
+        @property { Array<string> } display_fields
         
         @property { Array<Object> } [aggregators]
         
-        @property { boolean } success
+        @property { boolean } created
         
          
     */
@@ -6956,15 +6956,15 @@ const {
         @typedef PaymentGatewayConfig
         
         
-        @property { string } merchant_salt
+        @property { string } secret
         
         @property { boolean } [is_active]
         
+        @property { string } key
+        
         @property { string } config_type
         
-        @property { string } secret
-        
-        @property { string } key
+        @property { string } merchant_salt
         
          
     */
@@ -6973,11 +6973,11 @@ const {
         @typedef PaymentGatewayConfigRequest
         
         
-        @property { boolean } [is_active]
-        
         @property { string } app_id
         
         @property { PaymentGatewayConfig } [aggregator_name]
+        
+        @property { boolean } [is_active]
         
          
     */
@@ -6997,9 +6997,9 @@ const {
         @typedef ErrorCodeAndDescription
         
         
-        @property { string } code
-        
         @property { string } description
+        
+        @property { string } code
         
          
     */
@@ -7008,9 +7008,9 @@ const {
         @typedef HttpErrorCodeAndResponse
         
         
-        @property { boolean } success
-        
         @property { ErrorCodeAndDescription } error
+        
+        @property { boolean } success
         
          
     */
@@ -7019,9 +7019,9 @@ const {
         @typedef PaymentModeLogo
         
         
-        @property { string } large
-        
         @property { string } small
+        
+        @property { string } large
         
          
     */
@@ -7030,61 +7030,61 @@ const {
         @typedef PaymentModeList
         
         
-        @property { string } [merchant_code]
-        
-        @property { number } [retry_count]
-        
-        @property { string } [card_isin]
-        
-        @property { string } aggregator_name
-        
-        @property { string } [display_name]
-        
-        @property { number } [display_priority]
-        
-        @property { string } [card_id]
-        
-        @property { string } [card_brand_image]
-        
-        @property { string } [fynd_vpa]
+        @property { PaymentModeLogo } [logo_url]
         
         @property { Array<Object> } [intent_app]
         
-        @property { string } [card_brand]
+        @property { number } [retry_count]
         
-        @property { string } [name]
-        
-        @property { string } [card_number]
-        
-        @property { string } [card_reference]
-        
-        @property { boolean } [intent_flow]
-        
-        @property { PaymentModeLogo } [logo_url]
+        @property { string } [code]
         
         @property { string } [card_token]
         
+        @property { string } [card_brand_image]
+        
+        @property { number } [exp_year]
+        
+        @property { Array<string> } [intent_app_error_list]
+        
+        @property { string } [fynd_vpa]
+        
+        @property { string } [card_reference]
+        
+        @property { string } [card_brand]
+        
+        @property { string } [display_name]
+        
+        @property { number } [timeout]
+        
+        @property { boolean } [intent_flow]
+        
+        @property { string } [merchant_code]
+        
+        @property { string } [card_number]
+        
+        @property { number } [display_priority]
+        
+        @property { string } [name]
+        
         @property { string } [card_fingerprint]
         
-        @property { boolean } [expired]
+        @property { string } aggregator_name
         
-        @property { number } [exp_month]
+        @property { string } [card_id]
         
         @property { string } [card_issuer]
+        
+        @property { number } [exp_month]
         
         @property { string } [card_name]
         
         @property { string } [card_type]
         
-        @property { Array<string> } [intent_app_error_list]
+        @property { string } [card_isin]
         
-        @property { number } [timeout]
+        @property { boolean } [expired]
         
         @property { string } [nickname]
-        
-        @property { number } [exp_year]
-        
-        @property { string } [code]
         
          
     */
@@ -7093,19 +7093,19 @@ const {
         @typedef RootPaymentMode
         
         
-        @property { string } name
-        
-        @property { string } [aggregator_name]
-        
         @property { string } display_name
-        
-        @property { number } display_priority
         
         @property { boolean } [anonymous_enable]
         
         @property { Array<PaymentModeList> } [list]
         
         @property { boolean } [add_card_enabled]
+        
+        @property { number } display_priority
+        
+        @property { string } name
+        
+        @property { string } [aggregator_name]
         
          
     */
@@ -7123,9 +7123,9 @@ const {
         @typedef PaymentOptionsResponse
         
         
-        @property { boolean } success
-        
         @property { PaymentOptions } payment_options
+        
+        @property { boolean } success
         
          
     */
@@ -7134,19 +7134,19 @@ const {
         @typedef PayoutsResponse
         
         
-        @property { Object } unique_transfer_no
+        @property { Object } more_attributes
         
-        @property { boolean } is_default
+        @property { string } transfer_type
         
         @property { boolean } is_active
         
-        @property { Object } more_attributes
+        @property { Array<Object> } payouts_aggregators
         
         @property { Object } customers
         
-        @property { Array<Object> } payouts_aggregators
+        @property { Object } unique_transfer_no
         
-        @property { string } transfer_type
+        @property { boolean } is_default
         
          
     */
@@ -7155,25 +7155,25 @@ const {
         @typedef PayoutBankDetails
         
         
-        @property { number } [pincode]
-        
-        @property { string } account_type
-        
-        @property { string } [branch_name]
-        
-        @property { string } [city]
-        
         @property { string } [account_no]
-        
-        @property { string } [bank_name]
-        
-        @property { string } [country]
-        
-        @property { string } [state]
         
         @property { string } [account_holder]
         
+        @property { string } [country]
+        
+        @property { string } [branch_name]
+        
+        @property { string } [bank_name]
+        
+        @property { string } account_type
+        
+        @property { number } [pincode]
+        
         @property { string } ifsc_code
+        
+        @property { string } [city]
+        
+        @property { string } [state]
         
          
     */
@@ -7182,17 +7182,17 @@ const {
         @typedef PayoutRequest
         
         
-        @property { PayoutBankDetails } bank_details
+        @property { string } transfer_type
         
-        @property { Object } users
+        @property { string } unique_external_id
         
         @property { boolean } is_active
         
         @property { string } aggregator
         
-        @property { string } transfer_type
+        @property { Object } users
         
-        @property { string } unique_external_id
+        @property { PayoutBankDetails } bank_details
         
          
     */
@@ -7201,25 +7201,25 @@ const {
         @typedef PayoutResponse
         
         
-        @property { Object } bank_details
+        @property { boolean } success
         
-        @property { Object } users
+        @property { string } transfer_type
         
         @property { Object } payouts
-        
-        @property { string } unique_transfer_no
         
         @property { boolean } is_active
         
         @property { boolean } created
         
-        @property { string } payment_status
-        
         @property { string } aggregator
         
-        @property { string } transfer_type
+        @property { string } payment_status
         
-        @property { boolean } success
+        @property { Object } users
+        
+        @property { Object } bank_details
+        
+        @property { string } unique_transfer_no
         
          
     */
@@ -7316,27 +7316,27 @@ const {
         @typedef BeneficiaryModeDetails
         
         
-        @property { string } [address]
-        
-        @property { string } [wallet]
-        
-        @property { string } [vpa]
-        
-        @property { string } email
-        
-        @property { string } mobile
-        
-        @property { string } branch_name
+        @property { string } account_holder
         
         @property { string } account_no
         
-        @property { string } bank_name
+        @property { string } mobile
         
-        @property { string } account_holder
+        @property { string } [comment]
+        
+        @property { string } branch_name
+        
+        @property { string } bank_name
         
         @property { string } ifsc_code
         
-        @property { string } [comment]
+        @property { string } [wallet]
+        
+        @property { string } email
+        
+        @property { string } [address]
+        
+        @property { string } [vpa]
         
          
     */
@@ -7345,17 +7345,17 @@ const {
         @typedef AddBeneficiaryDetailsRequest
         
         
-        @property { string } [request_id]
-        
-        @property { BeneficiaryModeDetails } details
-        
         @property { string } shipment_id
         
-        @property { string } transfer_mode
+        @property { string } [request_id]
+        
+        @property { boolean } delights
         
         @property { string } order_id
         
-        @property { boolean } delights
+        @property { string } transfer_mode
+        
+        @property { BeneficiaryModeDetails } details
         
         @property { string } [otp]
         
@@ -7366,11 +7366,11 @@ const {
         @typedef RefundAccountResponse
         
         
-        @property { boolean } success
-        
         @property { boolean } [is_verified_flag]
         
         @property { Object } [data]
+        
+        @property { boolean } success
         
         @property { string } message
         
@@ -7396,9 +7396,9 @@ const {
         
         @property { boolean } [success]
         
-        @property { string } bank_name
-        
         @property { string } branch_name
+        
+        @property { string } bank_name
         
          
     */
@@ -7407,41 +7407,41 @@ const {
         @typedef OrderBeneficiaryDetails
         
         
-        @property { string } address
-        
-        @property { number } id
-        
-        @property { string } created_on
-        
-        @property { string } account_no
-        
-        @property { string } display_name
-        
-        @property { string } ifsc_code
-        
         @property { string } beneficiary_id
-        
-        @property { string } bank_name
-        
-        @property { boolean } [comment]
-        
-        @property { boolean } is_active
         
         @property { boolean } [mobile]
         
-        @property { string } title
+        @property { boolean } [comment]
         
-        @property { string } subtitle
+        @property { string } created_on
         
         @property { string } modified_on
         
         @property { string } email
         
-        @property { boolean } [branch_name]
-        
         @property { string } transfer_mode
         
+        @property { string } display_name
+        
+        @property { string } address
+        
+        @property { string } title
+        
         @property { string } account_holder
+        
+        @property { string } ifsc_code
+        
+        @property { boolean } is_active
+        
+        @property { number } id
+        
+        @property { string } account_no
+        
+        @property { boolean } [branch_name]
+        
+        @property { string } bank_name
+        
+        @property { string } subtitle
         
         @property { string } [delights_user_name]
         
@@ -7463,13 +7463,13 @@ const {
         @typedef MultiTenderPaymentMeta
         
         
-        @property { string } [payment_gateway]
+        @property { string } [payment_id]
         
-        @property { string } [current_status]
+        @property { string } [payment_gateway]
         
         @property { string } [order_id]
         
-        @property { string } [payment_id]
+        @property { string } [current_status]
         
         @property { Object } [extra_meta]
         
@@ -7480,11 +7480,11 @@ const {
         @typedef MultiTenderPaymentMethod
         
         
+        @property { MultiTenderPaymentMeta } [meta]
+        
         @property { string } [name]
         
         @property { string } mode
-        
-        @property { MultiTenderPaymentMeta } [meta]
         
         @property { number } amount
         
@@ -7495,9 +7495,9 @@ const {
         @typedef PaymentConfirmationRequest
         
         
-        @property { string } order_id
-        
         @property { Array<MultiTenderPaymentMethod> } payment_methods
+        
+        @property { string } order_id
         
          
     */
