@@ -6924,17 +6924,17 @@ const {
         @typedef PaymentGatewayConfigResponse
         
         
-        @property { boolean } success
+        @property { Array<Object> } [aggregators]
         
         @property { string } app_id
         
-        @property { Array<string> } excluded_fields
+        @property { boolean } created
+        
+        @property { boolean } success
         
         @property { Array<string> } display_fields
         
-        @property { Array<Object> } [aggregators]
-        
-        @property { boolean } created
+        @property { Array<string> } excluded_fields
         
          
     */
@@ -6943,11 +6943,11 @@ const {
         @typedef ErrorCodeDescription
         
         
-        @property { boolean } success
-        
         @property { string } description
         
         @property { string } code
+        
+        @property { boolean } success
         
          
     */
@@ -6956,15 +6956,15 @@ const {
         @typedef PaymentGatewayConfig
         
         
+        @property { string } config_type
+        
+        @property { string } merchant_salt
+        
         @property { string } secret
         
         @property { boolean } [is_active]
         
         @property { string } key
-        
-        @property { string } config_type
-        
-        @property { string } merchant_salt
         
          
     */
@@ -6973,11 +6973,11 @@ const {
         @typedef PaymentGatewayConfigRequest
         
         
+        @property { boolean } [is_active]
+        
         @property { string } app_id
         
         @property { PaymentGatewayConfig } [aggregator_name]
-        
-        @property { boolean } [is_active]
         
          
     */
@@ -6986,9 +6986,9 @@ const {
         @typedef PaymentGatewayToBeReviewed
         
         
-        @property { boolean } success
-        
         @property { Array<string> } aggregator
+        
+        @property { boolean } success
         
          
     */
@@ -7019,9 +7019,9 @@ const {
         @typedef PaymentModeLogo
         
         
-        @property { string } small
-        
         @property { string } large
+        
+        @property { string } small
         
          
     */
@@ -7030,61 +7030,61 @@ const {
         @typedef PaymentModeList
         
         
-        @property { PaymentModeLogo } [logo_url]
-        
-        @property { Array<Object> } [intent_app]
-        
-        @property { number } [retry_count]
-        
-        @property { string } [code]
-        
-        @property { string } [card_token]
-        
-        @property { string } [card_brand_image]
-        
-        @property { number } [exp_year]
-        
         @property { Array<string> } [intent_app_error_list]
         
-        @property { string } [fynd_vpa]
+        @property { string } aggregator_name
         
         @property { string } [card_reference]
-        
-        @property { string } [card_brand]
-        
-        @property { string } [display_name]
-        
-        @property { number } [timeout]
-        
-        @property { boolean } [intent_flow]
-        
-        @property { string } [merchant_code]
-        
-        @property { string } [card_number]
-        
-        @property { number } [display_priority]
-        
-        @property { string } [name]
-        
-        @property { string } [card_fingerprint]
-        
-        @property { string } aggregator_name
         
         @property { string } [card_id]
         
         @property { string } [card_issuer]
         
-        @property { number } [exp_month]
+        @property { string } [card_isin]
         
-        @property { string } [card_name]
+        @property { boolean } [intent_flow]
+        
+        @property { string } [nickname]
+        
+        @property { string } [merchant_code]
         
         @property { string } [card_type]
         
-        @property { string } [card_isin]
+        @property { string } [card_fingerprint]
+        
+        @property { string } [display_name]
+        
+        @property { number } [retry_count]
+        
+        @property { string } [card_brand]
+        
+        @property { number } [timeout]
+        
+        @property { PaymentModeLogo } [logo_url]
+        
+        @property { number } [display_priority]
+        
+        @property { string } [card_brand_image]
+        
+        @property { number } [exp_month]
+        
+        @property { string } [card_token]
+        
+        @property { Array<Object> } [intent_app]
+        
+        @property { string } [card_name]
+        
+        @property { string } [card_number]
+        
+        @property { string } [code]
         
         @property { boolean } [expired]
         
-        @property { string } [nickname]
+        @property { string } [name]
+        
+        @property { string } [fynd_vpa]
+        
+        @property { number } [exp_year]
         
          
     */
@@ -7093,19 +7093,19 @@ const {
         @typedef RootPaymentMode
         
         
-        @property { string } display_name
+        @property { string } [aggregator_name]
         
         @property { boolean } [anonymous_enable]
-        
-        @property { Array<PaymentModeList> } [list]
-        
-        @property { boolean } [add_card_enabled]
         
         @property { number } display_priority
         
         @property { string } name
         
-        @property { string } [aggregator_name]
+        @property { string } display_name
+        
+        @property { Array<PaymentModeList> } [list]
+        
+        @property { boolean } [add_card_enabled]
         
          
     */
@@ -7134,15 +7134,15 @@ const {
         @typedef PayoutsResponse
         
         
-        @property { Object } more_attributes
-        
         @property { string } transfer_type
-        
-        @property { boolean } is_active
         
         @property { Array<Object> } payouts_aggregators
         
         @property { Object } customers
+        
+        @property { Object } more_attributes
+        
+        @property { boolean } is_active
         
         @property { Object } unique_transfer_no
         
@@ -7155,23 +7155,23 @@ const {
         @typedef PayoutBankDetails
         
         
-        @property { string } [account_no]
-        
-        @property { string } [account_holder]
+        @property { string } [bank_name]
         
         @property { string } [country]
         
-        @property { string } [branch_name]
-        
-        @property { string } [bank_name]
-        
         @property { string } account_type
-        
-        @property { number } [pincode]
         
         @property { string } ifsc_code
         
+        @property { number } [pincode]
+        
         @property { string } [city]
+        
+        @property { string } [account_no]
+        
+        @property { string } [branch_name]
+        
+        @property { string } [account_holder]
         
         @property { string } [state]
         
@@ -7184,15 +7184,15 @@ const {
         
         @property { string } transfer_type
         
-        @property { string } unique_external_id
-        
-        @property { boolean } is_active
-        
-        @property { string } aggregator
+        @property { PayoutBankDetails } bank_details
         
         @property { Object } users
         
-        @property { PayoutBankDetails } bank_details
+        @property { string } aggregator
+        
+        @property { string } unique_external_id
+        
+        @property { boolean } is_active
         
          
     */
@@ -7201,23 +7201,23 @@ const {
         @typedef PayoutResponse
         
         
-        @property { boolean } success
+        @property { string } payment_status
         
         @property { string } transfer_type
         
-        @property { Object } payouts
-        
-        @property { boolean } is_active
-        
-        @property { boolean } created
-        
-        @property { string } aggregator
-        
-        @property { string } payment_status
+        @property { Object } bank_details
         
         @property { Object } users
         
-        @property { Object } bank_details
+        @property { string } aggregator
+        
+        @property { Object } payouts
+        
+        @property { boolean } created
+        
+        @property { boolean } success
+        
+        @property { boolean } is_active
         
         @property { string } unique_transfer_no
         
@@ -7228,9 +7228,9 @@ const {
         @typedef UpdatePayoutResponse
         
         
-        @property { boolean } success
-        
         @property { boolean } is_active
+        
+        @property { boolean } success
         
         @property { boolean } is_default
         
@@ -7241,11 +7241,11 @@ const {
         @typedef UpdatePayoutRequest
         
         
-        @property { boolean } is_default
-        
         @property { boolean } is_active
         
         @property { string } unique_external_id
+        
+        @property { boolean } is_default
         
          
     */
@@ -7263,9 +7263,9 @@ const {
         @typedef SubscriptionPaymentMethodResponse
         
         
-        @property { boolean } success
-        
         @property { Array<Object> } data
+        
+        @property { boolean } success
         
          
     */
@@ -7283,11 +7283,11 @@ const {
         @typedef SubscriptionConfigResponse
         
         
-        @property { boolean } success
-        
         @property { string } aggregator
         
         @property { Object } config
+        
+        @property { boolean } success
         
          
     */
@@ -7305,9 +7305,9 @@ const {
         @typedef SaveSubscriptionSetupIntentResponse
         
         
-        @property { boolean } success
-        
         @property { Object } data
+        
+        @property { boolean } success
         
          
     */
@@ -7316,27 +7316,27 @@ const {
         @typedef BeneficiaryModeDetails
         
         
-        @property { string } account_holder
-        
-        @property { string } account_no
-        
-        @property { string } mobile
-        
-        @property { string } [comment]
-        
-        @property { string } branch_name
-        
         @property { string } bank_name
         
-        @property { string } ifsc_code
-        
-        @property { string } [wallet]
-        
-        @property { string } email
+        @property { string } [vpa]
         
         @property { string } [address]
         
-        @property { string } [vpa]
+        @property { string } email
+        
+        @property { string } [comment]
+        
+        @property { string } ifsc_code
+        
+        @property { string } account_no
+        
+        @property { string } branch_name
+        
+        @property { string } account_holder
+        
+        @property { string } mobile
+        
+        @property { string } [wallet]
         
          
     */
@@ -7345,19 +7345,19 @@ const {
         @typedef AddBeneficiaryDetailsRequest
         
         
+        @property { BeneficiaryModeDetails } details
+        
         @property { string } shipment_id
         
-        @property { string } [request_id]
+        @property { string } [otp]
         
         @property { boolean } delights
         
-        @property { string } order_id
-        
         @property { string } transfer_mode
         
-        @property { BeneficiaryModeDetails } details
+        @property { string } order_id
         
-        @property { string } [otp]
+        @property { string } [request_id]
         
          
     */
@@ -7366,13 +7366,13 @@ const {
         @typedef RefundAccountResponse
         
         
-        @property { boolean } [is_verified_flag]
+        @property { string } message
         
         @property { Object } [data]
         
         @property { boolean } success
         
-        @property { string } message
+        @property { boolean } [is_verified_flag]
         
          
     */
@@ -7381,11 +7381,11 @@ const {
         @typedef NotFoundResourceError
         
         
-        @property { boolean } success
-        
         @property { string } description
         
         @property { string } code
+        
+        @property { boolean } success
         
          
     */
@@ -7394,11 +7394,11 @@ const {
         @typedef IfscCodeResponse
         
         
-        @property { boolean } [success]
+        @property { string } bank_name
         
         @property { string } branch_name
         
-        @property { string } bank_name
+        @property { boolean } [success]
         
          
     */
@@ -7407,43 +7407,43 @@ const {
         @typedef OrderBeneficiaryDetails
         
         
-        @property { string } beneficiary_id
-        
-        @property { boolean } [mobile]
-        
-        @property { boolean } [comment]
-        
-        @property { string } created_on
-        
-        @property { string } modified_on
-        
-        @property { string } email
-        
-        @property { string } transfer_mode
-        
-        @property { string } display_name
-        
-        @property { string } address
-        
-        @property { string } title
-        
-        @property { string } account_holder
-        
-        @property { string } ifsc_code
-        
-        @property { boolean } is_active
-        
-        @property { number } id
+        @property { string } subtitle
         
         @property { string } account_no
         
-        @property { boolean } [branch_name]
+        @property { string } account_holder
+        
+        @property { boolean } is_active
+        
+        @property { string } modified_on
+        
+        @property { string } beneficiary_id
         
         @property { string } bank_name
         
-        @property { string } subtitle
+        @property { number } id
+        
+        @property { string } ifsc_code
+        
+        @property { string } email
+        
+        @property { boolean } [comment]
+        
+        @property { string } display_name
         
         @property { string } [delights_user_name]
+        
+        @property { string } transfer_mode
+        
+        @property { boolean } [branch_name]
+        
+        @property { boolean } [mobile]
+        
+        @property { string } title
+        
+        @property { string } address
+        
+        @property { string } created_on
         
          
     */
@@ -7452,9 +7452,9 @@ const {
         @typedef OrderBeneficiaryResponse
         
         
-        @property { Array<OrderBeneficiaryDetails> } [beneficiaries]
-        
         @property { boolean } [show_beneficiary_details]
+        
+        @property { Array<OrderBeneficiaryDetails> } [beneficiaries]
         
          
     */
@@ -7463,15 +7463,15 @@ const {
         @typedef MultiTenderPaymentMeta
         
         
+        @property { string } [payment_gateway]
+        
         @property { string } [payment_id]
         
-        @property { string } [payment_gateway]
+        @property { Object } [extra_meta]
         
         @property { string } [order_id]
         
         @property { string } [current_status]
-        
-        @property { Object } [extra_meta]
         
          
     */
@@ -7482,11 +7482,11 @@ const {
         
         @property { MultiTenderPaymentMeta } [meta]
         
-        @property { string } [name]
+        @property { number } amount
         
         @property { string } mode
         
-        @property { number } amount
+        @property { string } [name]
         
          
     */
@@ -7506,11 +7506,11 @@ const {
         @typedef PaymentConfirmationResponse
         
         
-        @property { boolean } success
+        @property { string } message
         
         @property { string } order_id
         
-        @property { string } message
+        @property { boolean } success
         
          
     */
@@ -14456,9 +14456,9 @@ const {
         @typedef ContactDetails
         
         
-        @property { Array<string> } [emails]
-        
         @property { Array<SellerPhoneNumber> } [phone]
+        
+        @property { Array<string> } [emails]
         
          
     */
@@ -14485,47 +14485,47 @@ const {
         @typedef GetCompanyProfileSerializerResponse
         
         
-        @property { string } [name]
+        @property { Array<string> } [notification_emails]
         
-        @property { UserSerializer } [verified_by]
+        @property { string } [verified_on]
         
-        @property { string } [modified_on]
-        
-        @property { Array<GetAddressSerializer> } [addresses]
+        @property { UserSerializer } [modified_by]
         
         @property { string } company_type
         
         @property { boolean } [franchise_enabled]
         
-        @property { number } uid
-        
-        @property { BusinessCountryInfo } [business_country_info]
-        
-        @property { string } [verified_on]
-        
-        @property { ContactDetails } [contact_details]
-        
-        @property { Array<Document> } [documents]
-        
-        @property { string } [mode]
-        
-        @property { UserSerializer } [modified_by]
-        
-        @property { BusinessDetails } [business_details]
-        
         @property { string } business_type
-        
-        @property { string } [business_info]
         
         @property { string } [stage]
         
-        @property { UserSerializer } [created_by]
+        @property { UserSerializer } [verified_by]
+        
+        @property { BusinessCountryInfo } [business_country_info]
+        
+        @property { ContactDetails } [contact_details]
+        
+        @property { number } uid
         
         @property { string } [created_on]
         
-        @property { Array<string> } [notification_emails]
+        @property { UserSerializer } [created_by]
+        
+        @property { string } [business_info]
         
         @property { Object } [warnings]
+        
+        @property { Array<Document> } [documents]
+        
+        @property { string } [name]
+        
+        @property { string } [mode]
+        
+        @property { string } [modified_on]
+        
+        @property { Array<GetAddressSerializer> } [addresses]
+        
+        @property { BusinessDetails } [business_details]
         
          
     */
@@ -14534,27 +14534,27 @@ const {
         @typedef CreateUpdateAddressSerializer
         
         
-        @property { string } state
-        
-        @property { string } city
-        
-        @property { number } pincode
-        
-        @property { string } address1
-        
         @property { string } [address2]
-        
-        @property { string } address_type
         
         @property { number } latitude
         
         @property { number } longitude
         
+        @property { string } [country_code]
+        
+        @property { string } address1
+        
+        @property { string } state
+        
+        @property { string } city
+        
         @property { string } country
         
-        @property { string } [landmark]
+        @property { string } address_type
         
-        @property { string } [country_code]
+        @property { number } pincode
+        
+        @property { string } [landmark]
         
          
     */
@@ -14563,31 +14563,31 @@ const {
         @typedef UpdateCompany
         
         
-        @property { BusinessDetails } [business_details]
-        
-        @property { string } [company_type]
-        
         @property { Array<string> } [notification_emails]
-        
-        @property { boolean } [franchise_enabled]
         
         @property { string } [reject_reason]
         
+        @property { Array<Document> } [documents]
+        
+        @property { string } [company_type]
+        
         @property { string } [name]
         
-        @property { string } [business_type]
-        
-        @property { ContactDetails } [contact_details]
+        @property { boolean } [franchise_enabled]
         
         @property { Object } [_custom_json]
         
-        @property { string } [business_info]
+        @property { Array<CreateUpdateAddressSerializer> } [addresses]
         
-        @property { Array<Document> } [documents]
+        @property { ContactDetails } [contact_details]
+        
+        @property { string } [business_type]
+        
+        @property { string } [business_info]
         
         @property { Object } [warnings]
         
-        @property { Array<CreateUpdateAddressSerializer> } [addresses]
+        @property { BusinessDetails } [business_details]
         
          
     */
@@ -14609,17 +14609,17 @@ const {
         
         @property { DocumentsObj } [product]
         
-        @property { DocumentsObj } [company_documents]
-        
         @property { number } [uid]
-        
-        @property { DocumentsObj } [store]
-        
-        @property { DocumentsObj } [brand]
         
         @property { DocumentsObj } [store_documents]
         
+        @property { DocumentsObj } [company_documents]
+        
+        @property { DocumentsObj } [brand]
+        
         @property { string } [stage]
+        
+        @property { DocumentsObj } [store]
         
          
     */
@@ -14628,36 +14628,9 @@ const {
         @typedef BrandBannerSerializer
         
         
-        @property { string } [portrait]
-        
         @property { string } [landscape]
         
-         
-    */
-
-    /**
-        @typedef CreateUpdateBrandRequestSerializer
-        
-        
-        @property { string } logo
-        
-        @property { BrandBannerSerializer } [banner]
-        
-        @property { string } [brand_tier]
-        
-        @property { Array<string> } [synonyms]
-        
-        @property { number } [company_id]
-        
-        @property { string } [description]
-        
-        @property { number } [uid]
-        
-        @property { string } name
-        
-        @property { Object } [_locale_language]
-        
-        @property { Object } [_custom_json]
+        @property { string } [portrait]
         
          
     */
@@ -14666,56 +14639,70 @@ const {
         @typedef GetBrandResponseSerializer
         
         
-        @property { BrandBannerSerializer } [banner]
-        
-        @property { string } name
-        
-        @property { UserSerializer1 } [verified_by]
-        
-        @property { string } [modified_on]
-        
-        @property { Array<string> } [synonyms]
-        
-        @property { number } [uid]
-        
         @property { string } [reject_reason]
         
         @property { string } [verified_on]
         
-        @property { string } [mode]
-        
         @property { UserSerializer1 } [modified_by]
-        
-        @property { Object } [_custom_json]
         
         @property { string } [stage]
         
-        @property { UserSerializer1 } [created_by]
-        
-        @property { string } [created_on]
-        
-        @property { string } [logo]
-        
-        @property { string } [description]
-        
-        @property { string } [slug_key]
+        @property { UserSerializer1 } [verified_by]
         
         @property { Object } [_locale_language]
         
+        @property { string } [logo]
+        
+        @property { number } [uid]
+        
+        @property { Array<string> } [synonyms]
+        
+        @property { string } [created_on]
+        
+        @property { UserSerializer1 } [created_by]
+        
+        @property { BrandBannerSerializer } [banner]
+        
         @property { Object } [warnings]
+        
+        @property { string } [slug_key]
+        
+        @property { string } [description]
+        
+        @property { string } name
+        
+        @property { string } [mode]
+        
+        @property { Object } [_custom_json]
+        
+        @property { string } [modified_on]
         
          
     */
 
     /**
-        @typedef CompanyBrandPostRequestSerializer
+        @typedef CreateUpdateBrandRequestSerializer
         
-        
-        @property { Array<number> } brands
         
         @property { number } [uid]
         
-        @property { number } company
+        @property { string } [brand_tier]
+        
+        @property { Array<string> } [synonyms]
+        
+        @property { string } [description]
+        
+        @property { string } name
+        
+        @property { BrandBannerSerializer } [banner]
+        
+        @property { Object } [_locale_language]
+        
+        @property { Object } [_custom_json]
+        
+        @property { string } logo
+        
+        @property { number } [company_id]
         
          
     */
@@ -14724,29 +14711,29 @@ const {
         @typedef CompanyBrandSerializer
         
         
-        @property { UserSerializer1 } [created_by]
-        
-        @property { string } [created_on]
-        
         @property { number } [uid]
         
         @property { string } [reject_reason]
         
         @property { string } [verified_on]
         
-        @property { string } [stage]
-        
-        @property { GetBrandResponseSerializer } [brand]
+        @property { UserSerializer1 } [modified_by]
         
         @property { GetCompanySerializer } [company]
         
-        @property { Object } [warnings]
+        @property { string } [created_on]
         
         @property { UserSerializer1 } [verified_by]
         
+        @property { UserSerializer1 } [created_by]
+        
+        @property { GetBrandResponseSerializer } [brand]
+        
         @property { string } [modified_on]
         
-        @property { UserSerializer1 } [modified_by]
+        @property { string } [stage]
+        
+        @property { Object } [warnings]
         
          
     */
@@ -14763,18 +14750,21 @@ const {
     */
 
     /**
+        @typedef CompanyBrandPostRequestSerializer
+        
+        
+        @property { number } [uid]
+        
+        @property { number } company
+        
+        @property { Array<number> } brands
+        
+         
+    */
+
+    /**
         @typedef GetAddressSerializer1
         
-        
-        @property { string } [state]
-        
-        @property { string } [city]
-        
-        @property { number } [pincode]
-        
-        @property { string } [address1]
-        
-        @property { string } [address_type]
         
         @property { string } [address2]
         
@@ -14782,11 +14772,21 @@ const {
         
         @property { number } [longitude]
         
+        @property { string } [country_code]
+        
+        @property { string } [address1]
+        
+        @property { string } [state]
+        
+        @property { string } [city]
+        
         @property { string } [country]
         
-        @property { string } [landmark]
+        @property { string } [address_type]
         
-        @property { string } [country_code]
+        @property { number } [pincode]
+        
+        @property { string } [landmark]
         
          
     */
@@ -14795,39 +14795,39 @@ const {
         @typedef LocationSerializer
         
         
+        @property { number } [uid]
+        
         @property { string } [store_type]
-        
-        @property { ProductReturnConfigSerializer } [product_return_config]
-        
-        @property { Array<string> } [notification_emails]
-        
-        @property { string } display_name
         
         @property { Array<LocationDayWiseSerializer> } [timing]
         
-        @property { number } [uid]
+        @property { Array<string> } [notification_emails]
         
-        @property { string } name
+        @property { Array<Document> } [documents]
         
-        @property { Object } [_custom_json]
-        
-        @property { Object } [warnings]
-        
-        @property { InvoiceDetailsSerializer } [gst_credentials]
+        @property { Array<SellerPhoneNumber> } [contact_numbers]
         
         @property { number } company
         
         @property { GetAddressSerializer1 } address
         
-        @property { string } code
-        
-        @property { Array<Document> } [documents]
-        
-        @property { string } [stage]
+        @property { string } name
         
         @property { LocationManagerSerializer } [manager]
         
-        @property { Array<SellerPhoneNumber> } [contact_numbers]
+        @property { Object } [_custom_json]
+        
+        @property { string } display_name
+        
+        @property { ProductReturnConfigSerializer } [product_return_config]
+        
+        @property { string } [stage]
+        
+        @property { Object } [warnings]
+        
+        @property { string } code
+        
+        @property { InvoiceDetailsSerializer } [gst_credentials]
         
          
     */
