@@ -2228,7 +2228,8 @@ class Cart {
             getCartShareLink: "/service/application/cart/v1.0/share-cart",
             getCartSharedItems: "/service/application/cart/v1.0/share-cart/{token}",
             updateCartWithSharedItems: "/service/application/cart/v1.0/share-cart/{token}/{action}",
-            getPromotionOffers: "/service/application/cart/v1.0/available-promotions"
+            getPromotionOffers: "/service/application/cart/v1.0/available-promotions",
+            getLadderOffers: "/service/application/cart/v1.0/available-ladder-prices"
             
         }
         this._urls = Object.entries(this._relativeUrls).reduce((urls, [method, relativeUrl]) => {
@@ -3281,6 +3282,46 @@ class Cart {
                     "get",
                     constructUrl({
                         url: this._urls["getPromotionOffers"],
+                        params: {  }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
+        
+    
+    /**
+    *
+    * @summary: Fetch ladder price promotion
+    * @description: Use this API to get applicable ladder price promotion for current product
+    * @param {Object} arg - arg object.
+    * @param {string} [arg.slug] - A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint /service/application/catalog/v1.0/products/
+    * @param {number} [arg.pageSize] - Number of offers to be fetched to show
+    
+    
+    * @return {Promise<LadderPriceOffers>} - success response
+    **/
+        getLadderOffers({
+            slug,
+            pageSize
+            
+        } = {}) {
+            const { error } = CartValidator.getLadderOffers().validate({ slug,
+            pageSize
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            query['slug'] = slug;
+            query['page_size'] = pageSize;
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "get",
+                    constructUrl({
+                        url: this._urls["getLadderOffers"],
                         params: {  }
                     }),
                     query,
