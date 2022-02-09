@@ -547,6 +547,20 @@ Success
 ---
 
 
+ 
+ 
+ #### [EventConfigBase](#EventConfigBase)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | event_name | string |  no  |  |
+ | event_type | string |  no  |  |
+ | event_category | string |  no  |  |
+ | version | string |  no  |  |
+
+---
+
+
 
 
 ### Enums

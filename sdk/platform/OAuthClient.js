@@ -2,7 +2,6 @@ const querystring = require("query-string");
 const { fdkAxios } = require("../common/AxiosHelper");
 const { sign } = require("../common/RequestSigner");
 const { FDKTokenIssueError, FDKOAuthCodeError } = require("../common/FDKError");
-
 class OAuthClient {
   constructor(config) {
     this.config = config;
