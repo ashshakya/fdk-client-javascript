@@ -3126,7 +3126,7 @@ class Cart {
     * @summary: Fetch ladder price promotion
     * @description: Use this API to get applicable ladder price promotion for current product
     * @param {Object} arg - arg object.
-    * @param {string} [arg.slug] - A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint /service/application/catalog/v1.0/products/
+    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint /service/application/catalog/v1.0/products/
     * @param {number} [arg.pageSize] - Number of offers to be fetched to show
     
     
