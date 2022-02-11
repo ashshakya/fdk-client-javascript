@@ -42,6 +42,7 @@ const constructUrl = ({url, params}) => {
 class ApplicationClient{
 
     constructor(config){
+        this.config = config;
         this.catalog = new Catalog(config);
         this.cart = new Cart(config);
         this.common = new Common(config);
@@ -60,6 +61,9 @@ class ApplicationClient{
         this.posCart = new PosCart(config);
         this.logistic = new Logistic(config);
         
+    }
+    setCookie(cookie){
+        APIClient.setCookie(cookie);
     }
 }
 
@@ -85,12 +89,9 @@ class Catalog {
             getHomeProducts: "/service/application/catalog/v1.0/home/listing/",
             getDepartments: "/service/application/catalog/v1.0/departments/",
             getSearchResults: "/service/application/catalog/v1.0/auto-complete/",
-            getCollections: "/service/application/catalog/v1.0/collections/",
-            getCollectionItemsBySlug: "/service/application/catalog/v1.0/collections/{slug}/items/",
-            getCollectionDetailBySlug: "/service/application/catalog/v1.0/collections/{slug}/",
             getFollowedListing: "/service/application/catalog/v1.0/follow/{collection_type}/",
-            followById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             unfollowById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
+            followById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             getFollowerCountById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/",
             getFollowIds: "/service/application/catalog/v1.0/follow/ids/",
             getStores: "/service/application/catalog/v1.0/locations/",
@@ -98,6 +99,9 @@ class Catalog {
             getLocationDetailsById: "/service/application/catalog/v1.0/locations/{location_id}/",
             getProductPriceBySlug: "/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/",
             getProductSellersBySlug: "/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/",
+            getCollections: "/service/application/catalog/v2.0/collections/",
+            getCollectionItemsBySlug: "/service/application/catalog/v2.0/collections/{slug}/items/",
+            getCollectionDetailBySlug: "/service/application/catalog/v2.0/collections/{slug}/",
             getProductBundlesBySlug: "/service/application/catalog/v1.0/product-grouping/"
             
         }
@@ -1019,259 +1023,6 @@ class Catalog {
     
     /**
     *
-    * @summary: List all the collections
-    * @description: Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
-    * @param {Object} arg - arg object.
-    * @param {number} [arg.pageNo] - The page number to navigate through the given set of results.
-    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
-    * @param {Array<string>} [arg.tag] - List of tags  to filter collections
-    
-    
-    * @return {Promise<GetCollectionListingResponse>} - success response
-    **/
-        getCollections({
-            pageNo,
-            pageSize,
-            tag
-            
-        } = {}) {
-            const { error } = CatalogValidator.getCollections().validate({ pageNo,
-            pageSize,
-            tag
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['tag'] = tag;
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "get",
-                    constructUrl({
-                        url: this._urls["getCollections"],
-                        params: {  }
-                    }),
-                    query,
-                     undefined ,
-            );
-        }
-        
-            
-            
-                
-                    
-                    
-                
-                    
-                        
-                    
-                    
-                
-                    
-                        
-                    
-                    
-                
-
-    /**
-    *
-    * @summary: List all the collections
-    * @description: Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
-    * @param {Object} arg - arg object.
-    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
-    * @param {Array<string>} [arg.tag] - List of tags  to filter collections
-    
-    **/
-                getCollectionsPaginator( { pageSize, tag
-                } = {}){
-                const paginator = new Paginator();
-                const callback = async () => {
-                    const pageId = paginator.nextId;
-                    const pageNo = paginator.pageNo;
-                    const pageType = "number";
-                    const data = await this.getCollections({
-                        pageNo:pageNo ,
-                        pageSize:pageSize ,
-                        tag:tag 
-                        }) 
-                        paginator.setPaginator({
-                            hasNext: data.page.has_next ? true : false,
-                            nextId: data.page.next_id,
-                        });
-                    return data; 
-                };
-                paginator.setCallback(callback);
-                return paginator;
-            }
-        
-    
-    /**
-    *
-    * @summary: Get the items in a collection
-    * @description: Get items in a collection specified by its `slug`.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
-    * @param {string} [arg.f] - The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition.
-    * @param {boolean} [arg.filters] - This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters.
-    * @param {string} [arg.sortOn] - The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below.
-    * @param {string} [arg.pageId] - Page ID to retrieve next set of results.
-    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
-    
-    
-    * @return {Promise<ProductListingResponse>} - success response
-    **/
-        getCollectionItemsBySlug({
-            slug,
-            f,
-            filters,
-            sortOn,
-            pageId,
-            pageSize
-            
-        } = {}) {
-            const { error } = CatalogValidator.getCollectionItemsBySlug().validate({ slug,
-            f,
-            filters,
-            sortOn,
-            pageId,
-            pageSize
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query = {};
-            query['f'] = f;
-            query['filters'] = filters;
-            query['sort_on'] = sortOn;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "get",
-                    constructUrl({
-                        url: this._urls["getCollectionItemsBySlug"],
-                        params: { slug }
-                    }),
-                    query,
-                     undefined ,
-            );
-        }
-        
-            
-            
-                
-                    
-                        
-                    
-                    
-                
-                    
-                        
-                    
-                    
-                
-                    
-                        
-                    
-                    
-                
-                    
-                        
-                    
-                    
-                
-                    
-                    
-                        
-                    
-                
-                    
-                        
-                    
-                    
-                
-
-    /**
-    *
-    * @summary: Get the items in a collection
-    * @description: Get items in a collection specified by its `slug`.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
-    * @param {string} [arg.f] - The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition.
-    * @param {boolean} [arg.filters] - This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters.
-    * @param {string} [arg.sortOn] - The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below.
-    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
-    
-    **/
-                getCollectionItemsBySlugPaginator( { slug, f, filters, sortOn, pageSize
-                } = {}){
-                const paginator = new Paginator();
-                const callback = async () => {
-                    const pageId = paginator.nextId;
-                    const pageNo = paginator.pageNo;
-                    const pageType = "cursor";
-                    const data = await this.getCollectionItemsBySlug({
-                        slug:slug ,
-                        f:f ,
-                        filters:filters ,
-                        sortOn:sortOn ,
-                        pageId:pageId ,
-                        pageSize:pageSize 
-                        }) 
-                        paginator.setPaginator({
-                            hasNext: data.page.has_next ? true : false,
-                            nextId: data.page.next_id,
-                        });
-                    return data; 
-                };
-                paginator.setCallback(callback);
-                return paginator;
-            }
-        
-    
-    /**
-    *
-    * @summary: Get a particular collection
-    * @description: Get the details of a collection by its `slug`.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
-    
-    
-    * @return {Promise<CollectionDetailResponse>} - success response
-    **/
-        getCollectionDetailBySlug({
-            slug
-            
-        } = {}) {
-            const { error } = CatalogValidator.getCollectionDetailBySlug().validate({ slug
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query = {};
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "get",
-                    constructUrl({
-                        url: this._urls["getCollectionDetailBySlug"],
-                        params: { slug }
-                    }),
-                    query,
-                     undefined ,
-            );
-        }
-        
-    
-    /**
-    *
     * @summary: Get a list of followed Products, Brands, Collections
     * @description: Users can follow a product they like. This API retrieves the products the user have followed.
     * @param {Object} arg - arg object.
@@ -1365,44 +1116,6 @@ class Catalog {
     
     /**
     *
-    * @summary: Follow an entity (product/brand/collection)
-    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
-    * @param {string} arg.collectionId - The ID of the collection type.
-    
-    
-    * @return {Promise<FollowPostResponse>} - success response
-    **/
-        followById({
-            collectionType,
-            collectionId
-            
-        } = {}) {
-            const { error } = CatalogValidator.followById().validate({ collectionType,
-            collectionId
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query = {};
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "post",
-                    constructUrl({
-                        url: this._urls["followById"],
-                        params: { collectionType, collectionId }
-                    }),
-                    query,
-                     undefined ,
-            );
-        }
-        
-    
-    /**
-    *
     * @summary: Unfollow an entity (product/brand/collection)
     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
     * @param {Object} arg - arg object.
@@ -1431,6 +1144,44 @@ class Catalog {
                     "delete",
                     constructUrl({
                         url: this._urls["unfollowById"],
+                        params: { collectionType, collectionId }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
+        
+    
+    /**
+    *
+    * @summary: Follow an entity (product/brand/collection)
+    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
+    * @param {string} arg.collectionId - The ID of the collection type.
+    
+    
+    * @return {Promise<FollowPostResponse>} - success response
+    **/
+        followById({
+            collectionType,
+            collectionId
+            
+        } = {}) {
+            const { error } = CatalogValidator.followById().validate({ collectionType,
+            collectionId
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "post",
+                    constructUrl({
+                        url: this._urls["followById"],
                         params: { collectionType, collectionId }
                     }),
                     query,
@@ -1987,6 +1738,259 @@ class Catalog {
                 paginator.setCallback(callback);
                 return paginator;
             }
+        
+    
+    /**
+    *
+    * @summary: List all the collections
+    * @description: Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
+    * @param {Object} arg - arg object.
+    * @param {number} [arg.pageNo] - The page number to navigate through the given set of results.
+    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
+    * @param {Array<string>} [arg.tag] - List of tags  to filter collections
+    
+    
+    * @return {Promise<GetCollectionListingResponse>} - success response
+    **/
+        getCollections({
+            pageNo,
+            pageSize,
+            tag
+            
+        } = {}) {
+            const { error } = CatalogValidator.getCollections().validate({ pageNo,
+            pageSize,
+            tag
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            query['page_no'] = pageNo;
+            query['page_size'] = pageSize;
+            query['tag'] = tag;
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "get",
+                    constructUrl({
+                        url: this._urls["getCollections"],
+                        params: {  }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
+        
+            
+            
+                
+                    
+                    
+                
+                    
+                        
+                    
+                    
+                
+                    
+                        
+                    
+                    
+                
+
+    /**
+    *
+    * @summary: List all the collections
+    * @description: Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
+    * @param {Object} arg - arg object.
+    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
+    * @param {Array<string>} [arg.tag] - List of tags  to filter collections
+    
+    **/
+                getCollectionsPaginator( { pageSize, tag
+                } = {}){
+                const paginator = new Paginator();
+                const callback = async () => {
+                    const pageId = paginator.nextId;
+                    const pageNo = paginator.pageNo;
+                    const pageType = "number";
+                    const data = await this.getCollections({
+                        pageNo:pageNo ,
+                        pageSize:pageSize ,
+                        tag:tag 
+                        }) 
+                        paginator.setPaginator({
+                            hasNext: data.page.has_next ? true : false,
+                            nextId: data.page.next_id,
+                        });
+                    return data; 
+                };
+                paginator.setCallback(callback);
+                return paginator;
+            }
+        
+    
+    /**
+    *
+    * @summary: Get the items in a collection
+    * @description: Get items in a collection specified by its `slug`.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
+    * @param {string} [arg.f] - The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition.
+    * @param {boolean} [arg.filters] - This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters.
+    * @param {string} [arg.sortOn] - The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below.
+    * @param {string} [arg.pageId] - Page ID to retrieve next set of results.
+    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
+    
+    
+    * @return {Promise<ProductListingResponse>} - success response
+    **/
+        getCollectionItemsBySlug({
+            slug,
+            f,
+            filters,
+            sortOn,
+            pageId,
+            pageSize
+            
+        } = {}) {
+            const { error } = CatalogValidator.getCollectionItemsBySlug().validate({ slug,
+            f,
+            filters,
+            sortOn,
+            pageId,
+            pageSize
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            query['f'] = f;
+            query['filters'] = filters;
+            query['sort_on'] = sortOn;
+            query['page_id'] = pageId;
+            query['page_size'] = pageSize;
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "get",
+                    constructUrl({
+                        url: this._urls["getCollectionItemsBySlug"],
+                        params: { slug }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
+        
+            
+            
+                
+                    
+                        
+                    
+                    
+                
+                    
+                        
+                    
+                    
+                
+                    
+                        
+                    
+                    
+                
+                    
+                        
+                    
+                    
+                
+                    
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                    
+                
+
+    /**
+    *
+    * @summary: Get the items in a collection
+    * @description: Get items in a collection specified by its `slug`.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
+    * @param {string} [arg.f] - The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition.
+    * @param {boolean} [arg.filters] - This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters.
+    * @param {string} [arg.sortOn] - The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below.
+    * @param {number} [arg.pageSize] - The number of items to retrieve in each page.
+    
+    **/
+                getCollectionItemsBySlugPaginator( { slug, f, filters, sortOn, pageSize
+                } = {}){
+                const paginator = new Paginator();
+                const callback = async () => {
+                    const pageId = paginator.nextId;
+                    const pageNo = paginator.pageNo;
+                    const pageType = "cursor";
+                    const data = await this.getCollectionItemsBySlug({
+                        slug:slug ,
+                        f:f ,
+                        filters:filters ,
+                        sortOn:sortOn ,
+                        pageId:pageId ,
+                        pageSize:pageSize 
+                        }) 
+                        paginator.setPaginator({
+                            hasNext: data.page.has_next ? true : false,
+                            nextId: data.page.next_id,
+                        });
+                    return data; 
+                };
+                paginator.setCallback(callback);
+                return paginator;
+            }
+        
+    
+    /**
+    *
+    * @summary: Get a particular collection
+    * @description: Get the details of a collection by its `slug`.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/.
+    
+    
+    * @return {Promise<CollectionDetailResponse>} - success response
+    **/
+        getCollectionDetailBySlug({
+            slug
+            
+        } = {}) {
+            const { error } = CatalogValidator.getCollectionDetailBySlug().validate({ slug
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "get",
+                    constructUrl({
+                        url: this._urls["getCollectionDetailBySlug"],
+                        params: { slug }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
         
     
     /**
@@ -3127,6 +3131,7 @@ class Cart {
     * @description: Use this API to get applicable ladder price promotion for current product
     * @param {Object} arg - arg object.
     * @param {string} arg.slug - A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint /service/application/catalog/v1.0/products/
+    * @param {string} [arg.promotionId] - Get ladder information of given promotion id explicitely
     * @param {number} [arg.pageSize] - Number of offers to be fetched to show
     
     
@@ -3134,10 +3139,12 @@ class Cart {
     **/
         getLadderOffers({
             slug,
+            promotionId,
             pageSize
             
         } = {}) {
             const { error } = CartValidator.getLadderOffers().validate({ slug,
+            promotionId,
             pageSize
              },{ abortEarly: false });
             if (error) {
@@ -3145,6 +3152,7 @@ class Cart {
             }
             const query = {};
             query['slug'] = slug;
+            query['promotion_id'] = promotionId;
             query['page_size'] = pageSize;
             
 

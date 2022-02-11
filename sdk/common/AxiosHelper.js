@@ -36,7 +36,10 @@ function requestInterceptorFn() {
       url = combineURLs(config.baseURL, config.url);
     }
     const { host, pathname, search } = new URL(url);
-    const { data, headers, method, params } = config;
+    const { data, headers, method, params, cookie } = config;
+    if(cookie){
+      headers["cookie"] = cookie;
+    }
     headers["x-fp-sdk-version"] = "0.1.13"
     let querySearchObj = querystring.parse(search);
     querySearchObj = { ...querySearchObj, ...params };
@@ -76,7 +79,7 @@ function requestInterceptorFn() {
     config.headers["x-fp-date"] = signingOptions.headers["x-fp-date"];
     config.headers["x-fp-signature"] = signingOptions.headers["x-fp-signature"];
     // config.headers["fp-sdk-version"] = version;
-    log.info('### REQUEST', config);
+    log.info('### REQUEST', config.url, '=>', config);
     return config;
   };
 }
@@ -92,7 +95,7 @@ fdkAxios.interceptors.response.use(
     if(response.config.method == 'head'){
       return response.headers;
     }
-    log.info('### RESPONSE', response);
+    log.info('### RESPONSE', response.config.url, '=>', response);
     return response.data; // IF 2XX then return response.data only
   },
   function (error) {

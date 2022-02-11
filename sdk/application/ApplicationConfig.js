@@ -14,6 +14,11 @@ class ApplicationConfig {
         this.logLevel = _conf.logLevel || "SILENT";
         this.setLogLevel();
         this.validate();
+        this.cookie;
+    }
+
+    setCookie(cookie){
+        this.cookie = cookie;
     }
 
     setLogLevel() {

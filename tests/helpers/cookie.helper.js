@@ -7,7 +7,6 @@ function setupCookieInterceptor() {
     FdkAxios.interceptors.request.handlers.push({
       fulfilled: function (response) {
         if(cookie[response.baseURL]){
-          console.log("setting up cookies");
           response.headers['cookie'] = cookie[response.baseURL];
         }
         return response;

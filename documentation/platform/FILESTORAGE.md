@@ -14,7 +14,6 @@ File Storage
 * [copyFiles](#copyfiles)
 * [appCopyFiles](#appcopyfiles)
 * [browse](#browse)
-* [browse](#browse)
 * [proxy](#proxy)
 
 
@@ -537,65 +536,6 @@ Success
     "processed_on": 1613534206645
   }
 }
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### browse
-Browse Files
-
-
-
-```javascript
-// Promise
-const promise = client.fileStorage.browse({  namespace : value,
- pageNo : value });
-
-// Async/Await
-const data = await client.fileStorage.browse({  namespace : value,
- pageNo : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| namespace | string | yes | bucket name |    
-| pageNo | number | no | page no |  
-
-
-
-Browse Files
-
-*Returned Response:*
-
-
-
-
-[BrowseResponse](#BrowseResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
 ```
 </details>
 

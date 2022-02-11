@@ -23,12 +23,9 @@ Catalog API's allows you to access list of products, prices, seller details, sim
 * [getHomeProducts](#gethomeproducts)
 * [getDepartments](#getdepartments)
 * [getSearchResults](#getsearchresults)
-* [getCollections](#getcollections)
-* [getCollectionItemsBySlug](#getcollectionitemsbyslug)
-* [getCollectionDetailBySlug](#getcollectiondetailbyslug)
 * [getFollowedListing](#getfollowedlisting)
-* [followById](#followbyid)
 * [unfollowById](#unfollowbyid)
+* [followById](#followbyid)
 * [getFollowerCountById](#getfollowercountbyid)
 * [getFollowIds](#getfollowids)
 * [getStores](#getstores)
@@ -36,6 +33,9 @@ Catalog API's allows you to access list of products, prices, seller details, sim
 * [getLocationDetailsById](#getlocationdetailsbyid)
 * [getProductPriceBySlug](#getproductpricebyslug)
 * [getProductSellersBySlug](#getproductsellersbyslug)
+* [getCollections](#getcollections)
+* [getCollectionItemsBySlug](#getcollectionitemsbyslug)
+* [getCollectionDetailBySlug](#getcollectiondetailbyslug)
 * [getProductBundlesBySlug](#getproductbundlesbyslug)
 
 
@@ -4512,694 +4512,6 @@ Success. Returns a list autocomplete suggestions for the search query `q`. Check
 ---
 
 
-### getCollections
-List all the collections
-
-
-
-```javascript
-// Promise
-const promise = catalog.getCollections({  pageNo : value,
- pageSize : value,
- tag : value });
-
-// Async/Await
-const data = await catalog.getCollections({  pageNo : value,
- pageSize : value,
- tag : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |  
-| pageNo | number | no | The page number to navigate through the given set of results. |    
-| pageSize | number | no | The number of items to retrieve in each page. |    
-| tag | Array<string> | no | List of tags  to filter collections |  
-
-
-
-Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
-
-*Returned Response:*
-
-
-
-
-[GetCollectionListingResponse](#GetCollectionListingResponse)
-
-Success. Returns a list of collections. Check the example shown below or refer `GetCollectionListingResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "page": {
-    "type": "number",
-    "current": 1,
-    "total": 1,
-    "has_previous": false,
-    "has_next": false,
-    "item_total": 2
-  },
-  "items": [
-    {
-      "uid": "601a4f39448327cfa83e7db2",
-      "type": "query",
-      "query": {
-        "category": [
-          "Anna-Navarro"
-        ]
-      },
-      "name": "collection with Anna-Navarro",
-      "banners": {
-        "portrait": {
-          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png",
-          "aspect_ratio": "13:20"
-        },
-        "landscape": {
-          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png",
-          "aspect_ratio": "27:20"
-        }
-      },
-      "logo": {
-        "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png",
-        "aspect_ratio": "1:1"
-      },
-      "published": true,
-      "description": "Crimsoune Club | Upto 70% Off",
-      "is_active": true,
-      "tags": [
-        "men",
-        "women"
-      ],
-      "slug": "crimsoune-club-upto-70-off-754fa043",
-      "action": {
-        "type": "collection",
-        "url": "https://api.addsale.com/platform/content/v1/collections/crimsoune-club-upto-70-off-754fa043/items/"
-      },
-      "allow_facets": true,
-      "allow_sort": true,
-      "visible_facets_keys": [],
-      "meta": {},
-      "badge": {},
-      "sort_on": "popular",
-      "_custom_json": {},
-      "_locale_language": {},
-      "_schedule": {}
-    },
-    {
-      "uid": "601a4f39448327cfa83e7db0",
-      "type": "items",
-      "query": {},
-      "name": "collection with items",
-      "banners": {
-        "portrait": {
-          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png",
-          "aspect_ratio": "13:20"
-        },
-        "landscape": {
-          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png",
-          "aspect_ratio": "27:20"
-        }
-      },
-      "logo": {
-        "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png",
-        "aspect_ratio": "1:1"
-      },
-      "published": true,
-      "description": "Crimsoune Club | Upto 70% Off",
-      "is_active": true,
-      "tags": [
-        "men",
-        "women"
-      ],
-      "slug": "crimsoune-club-upto-70-off-754fa043",
-      "action": {
-        "type": "collection",
-        "url": "https://api.addsale.com/platform/content/v1/collections/crimsoune-club-upto-70-off-754fa043/items/"
-      },
-      "allow_facets": true,
-      "allow_sort": true,
-      "visible_facets_keys": [],
-      "meta": {},
-      "badge": {},
-      "sort_on": "popular",
-      "_custom_json": {},
-      "_locale_language": {},
-      "_schedule": {}
-    }
-  ],
-  "filters": {
-    "tags": [
-      {
-        "name": "men",
-        "is_selected": false,
-        "display": "men"
-      },
-      {
-        "name": "women",
-        "is_selected": false,
-        "display": "women"
-      }
-    ],
-    "type": [
-      {
-        "name": "items",
-        "is_selected": false,
-        "display": "items"
-      },
-      {
-        "name": "query",
-        "is_selected": false,
-        "display": "query"
-      }
-    ]
-  }
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getCollectionItemsBySlug
-Get the items in a collection
-
-
-
-```javascript
-// Promise
-const promise = catalog.getCollectionItemsBySlug({  slug : value,
- f : value,
- filters : value,
- sortOn : value,
- pageId : value,
- pageSize : value });
-
-// Async/Await
-const data = await catalog.getCollectionItemsBySlug({  slug : value,
- f : value,
- filters : value,
- sortOn : value,
- pageId : value,
- pageSize : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| slug | string | yes | A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/. |    
-| f | string | no | The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition. |    
-| filters | boolean | no | This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters. |    
-| sortOn | string | no | The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below. |    
-| pageId | string | no | Page ID to retrieve next set of results. |    
-| pageSize | number | no | The number of items to retrieve in each page. |  
-
-
-
-Get items in a collection specified by its `slug`.
-
-*Returned Response:*
-
-
-
-
-[ProductListingResponse](#ProductListingResponse)
-
-Success. Returns a list items in a given collection. Check the example shown below or refer `ProductListingResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "filters": [
-    {
-      "key": {
-        "display": "Department",
-        "name": "department",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Department.svg"
-      },
-      "values": [
-        {
-          "display": "Debra Villarreal",
-          "count": 1,
-          "is_selected": false,
-          "value": "Debra-Villarreal",
-          "logo": {
-            "type": "image",
-            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
-          }
-        },
-        {
-          "display": "Tracey Miller",
-          "count": 1,
-          "is_selected": false,
-          "value": "Tracey-Miller",
-          "logo": {
-            "type": "image",
-            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
-          }
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Category",
-        "name": "category",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Category.svg"
-      },
-      "values": [
-        {
-          "display": "Amy Kim DDS",
-          "count": 1,
-          "is_selected": false,
-          "value": "3",
-          "logo": "http://cdn4.gofynd.com/media/banner/category/original/12063_a5bb91bd5cb44c3c9db98c2a0e6b3d99.jpg"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Gender",
-        "name": "gender",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Gender.svg"
-      },
-      "values": [
-        {
-          "display": "Men",
-          "count": 1,
-          "is_selected": false,
-          "value": "men"
-        },
-        {
-          "display": "Women",
-          "count": 1,
-          "is_selected": false,
-          "value": "women"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Size",
-        "name": "sizes",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Sizes.svg"
-      },
-      "values": [
-        {
-          "display": "13",
-          "count": 1,
-          "is_selected": false,
-          "value": "13"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Brand",
-        "name": "brand",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Brand%20ID.svg"
-      },
-      "values": [
-        {
-          "display": "Barry, Jennings and Larson",
-          "count": 1,
-          "is_selected": false,
-          "value": "1",
-          "logo": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Rating",
-        "name": "rating",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Rating.svg"
-      },
-      "values": [
-        {
-          "count": 1,
-          "display": "2 - 3",
-          "value": "[2 TO 3}",
-          "is_selected": false
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Image",
-        "name": "image_nature",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/image%20Nature.svg"
-      },
-      "values": [
-        {
-          "display": "GoodQuality",
-          "count": 1,
-          "is_selected": false,
-          "value": "standard"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Monica Hampton",
-        "name": "material",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "Neoprene",
-          "count": 1,
-          "is_selected": false,
-          "value": "Neoprene"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "John Mendoza",
-        "name": "weight",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "100",
-          "count": 1,
-          "is_selected": false,
-          "value": "100"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Kimberly Mcdaniel",
-        "name": "gender",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "['Men', 'Women']",
-          "count": 1,
-          "is_selected": false,
-          "value": "['Men', 'Women']"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Kimberly Davidson",
-        "name": "color",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "Grey",
-          "count": 1,
-          "is_selected": false,
-          "value": "808080"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Available",
-        "name": "is_available",
-        "kind": "singlevalued"
-      },
-      "values": [
-        {
-          "display": "Available",
-          "count": 3,
-          "is_selected": false,
-          "value": "true"
-        }
-      ]
-    }
-  ],
-  "items": [
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "benchmark collaborative paradigms",
-      "slug": "benchmark-collaborative-paradigms",
-      "uid": 1,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "benchmark-collaborative-paradigms"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    }
-  ],
-  "sort_on": [
-    {
-      "display": "Latest Products.",
-      "name": "Latest Products.",
-      "logo": "https://d2zv4gzhlr4ud6.cloudfront.net/media/pictures/tagged_items/360x0/56_MKT02AI060CORAL/1_1567590349681.jpg",
-      "value": "latest",
-      "is_selected": false
-    }
-  ],
-  "page": {
-    "type": "number",
-    "current": 1,
-    "total": 1,
-    "has_previous": false,
-    "has_next": false,
-    "item_total": 1
-  }
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getCollectionDetailBySlug
-Get a particular collection
-
-
-
-```javascript
-// Promise
-const promise = catalog.getCollectionDetailBySlug({  slug : value });
-
-// Async/Await
-const data = await catalog.getCollectionDetailBySlug({  slug : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| slug | string | yes | A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/. |  
-
-
-
-Get the details of a collection by its `slug`.
-
-*Returned Response:*
-
-
-
-
-[CollectionDetailResponse](#CollectionDetailResponse)
-
-Success. Returns a Collection object. Check the example shown below or refer `CollectionDetailResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "uid": "601a4f39448327cfa83e7db0",
-  "type": "items",
-  "query": {},
-  "name": "collection with items",
-  "banners": {
-    "portrait": {
-      "type": "image",
-      "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png"
-    },
-    "landscape": {
-      "type": "image",
-      "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png"
-    }
-  },
-  "logo": {
-    "type": "image",
-    "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png"
-  },
-  "published": true,
-  "description": "Crimsoune Club | Upto 70% Off",
-  "is_active": true,
-  "tags": [
-    "men",
-    "women"
-  ],
-  "slug": "crimsoune-club-upto-70-off-754fa043",
-  "action": {
-    "page": {
-      "type": "collection",
-      "query": {
-        "collection": [
-          "crimsoune-club-upto-70-off-754fa043"
-        ]
-      }
-    },
-    "type": "page"
-  },
-  "allow_facets": true,
-  "allow_sort": true,
-  "visible_facets_keys": [],
-  "meta": {},
-  "badge": {},
-  "sort_on": "popular",
-  "_custom_json": {},
-  "_locale_language": {},
-  "_schedule": {}
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getFollowedListing
 Get a list of followed Products, Brands, Collections
 
@@ -5578,68 +4890,6 @@ Success. Returns a Followed resource object. Check the example shown below or re
 ---
 
 
-### followById
-Follow an entity (product/brand/collection)
-
-
-
-```javascript
-// Promise
-const promise = catalog.followById({  collectionType : value,
- collectionId : value });
-
-// Async/Await
-const data = await catalog.followById({  collectionType : value,
- collectionId : value });
-```
-
-
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| collectionType | string | yes | Type of collection followed, i.e. products, brands, or collections. |   
-| collectionId | string | yes | The ID of the collection type. |  
-
-
-
-Follow a particular entity such as product, brand, collection specified by its ID.
-
-*Returned Response:*
-
-
-
-
-[FollowPostResponse](#FollowPostResponse)
-
-Success. Returns a response object. Check the example shown below or refer `FollowPostResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "message": "Brands Added To Wishlist",
-  "id": "1"
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### unfollowById
 Unfollow an entity (product/brand/collection)
 
@@ -5686,6 +4936,68 @@ Success. Returns a response object. Check the example shown below or refer `Foll
 ```json
 {
   "message": "Products Removed From Wishlist",
+  "id": "1"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### followById
+Follow an entity (product/brand/collection)
+
+
+
+```javascript
+// Promise
+const promise = catalog.followById({  collectionType : value,
+ collectionId : value });
+
+// Async/Await
+const data = await catalog.followById({  collectionType : value,
+ collectionId : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| collectionType | string | yes | Type of collection followed, i.e. products, brands, or collections. |   
+| collectionId | string | yes | The ID of the collection type. |  
+
+
+
+Follow a particular entity such as product, brand, collection specified by its ID.
+
+*Returned Response:*
+
+
+
+
+[FollowPostResponse](#FollowPostResponse)
+
+Success. Returns a response object. Check the example shown below or refer `FollowPostResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "message": "Brands Added To Wishlist",
   "id": "1"
 }
 ```
@@ -6622,6 +5934,694 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 ---
 
 
+### getCollections
+List all the collections
+
+
+
+```javascript
+// Promise
+const promise = catalog.getCollections({  pageNo : value,
+ pageSize : value,
+ tag : value });
+
+// Async/Await
+const data = await catalog.getCollections({  pageNo : value,
+ pageSize : value,
+ tag : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |  
+| pageNo | number | no | The page number to navigate through the given set of results. |    
+| pageSize | number | no | The number of items to retrieve in each page. |    
+| tag | Array<string> | no | List of tags  to filter collections |  
+
+
+
+Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
+
+*Returned Response:*
+
+
+
+
+[GetCollectionListingResponse](#GetCollectionListingResponse)
+
+Success. Returns a list of collections. Check the example shown below or refer `GetCollectionListingResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "page": {
+    "type": "number",
+    "current": 1,
+    "total": 1,
+    "has_previous": false,
+    "has_next": false,
+    "item_total": 2
+  },
+  "items": [
+    {
+      "uid": "601a4f39448327cfa83e7db2",
+      "type": "query",
+      "query": {
+        "category": [
+          "Anna-Navarro"
+        ]
+      },
+      "name": "collection with Anna-Navarro",
+      "banners": {
+        "portrait": {
+          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png",
+          "aspect_ratio": "13:20"
+        },
+        "landscape": {
+          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png",
+          "aspect_ratio": "27:20"
+        }
+      },
+      "logo": {
+        "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png",
+        "aspect_ratio": "1:1"
+      },
+      "published": true,
+      "description": "Crimsoune Club | Upto 70% Off",
+      "is_active": true,
+      "tags": [
+        "men",
+        "women"
+      ],
+      "slug": "crimsoune-club-upto-70-off-754fa043",
+      "action": {
+        "type": "collection",
+        "url": "https://api.addsale.com/platform/content/v1/collections/crimsoune-club-upto-70-off-754fa043/items/"
+      },
+      "allow_facets": true,
+      "allow_sort": true,
+      "visible_facets_keys": [],
+      "meta": {},
+      "badge": {},
+      "sort_on": "popular",
+      "_custom_json": {},
+      "_locale_language": {},
+      "_schedule": {}
+    },
+    {
+      "uid": "601a4f39448327cfa83e7db0",
+      "type": "items",
+      "query": {},
+      "name": "collection with items",
+      "banners": {
+        "portrait": {
+          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png",
+          "aspect_ratio": "13:20"
+        },
+        "landscape": {
+          "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png",
+          "aspect_ratio": "27:20"
+        }
+      },
+      "logo": {
+        "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png",
+        "aspect_ratio": "1:1"
+      },
+      "published": true,
+      "description": "Crimsoune Club | Upto 70% Off",
+      "is_active": true,
+      "tags": [
+        "men",
+        "women"
+      ],
+      "slug": "crimsoune-club-upto-70-off-754fa043",
+      "action": {
+        "type": "collection",
+        "url": "https://api.addsale.com/platform/content/v1/collections/crimsoune-club-upto-70-off-754fa043/items/"
+      },
+      "allow_facets": true,
+      "allow_sort": true,
+      "visible_facets_keys": [],
+      "meta": {},
+      "badge": {},
+      "sort_on": "popular",
+      "_custom_json": {},
+      "_locale_language": {},
+      "_schedule": {}
+    }
+  ],
+  "filters": {
+    "tags": [
+      {
+        "name": "men",
+        "is_selected": false,
+        "display": "men"
+      },
+      {
+        "name": "women",
+        "is_selected": false,
+        "display": "women"
+      }
+    ],
+    "type": [
+      {
+        "name": "items",
+        "is_selected": false,
+        "display": "items"
+      },
+      {
+        "name": "query",
+        "is_selected": false,
+        "display": "query"
+      }
+    ]
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getCollectionItemsBySlug
+Get the items in a collection
+
+
+
+```javascript
+// Promise
+const promise = catalog.getCollectionItemsBySlug({  slug : value,
+ f : value,
+ filters : value,
+ sortOn : value,
+ pageId : value,
+ pageSize : value });
+
+// Async/Await
+const data = await catalog.getCollectionItemsBySlug({  slug : value,
+ f : value,
+ filters : value,
+ sortOn : value,
+ pageId : value,
+ pageSize : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | string | yes | A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/. |    
+| f | string | no | The search filter parameters. Filter parameters will be passed in f parameter as shown in the example below. Double Pipe (||) denotes the OR condition, whereas Triple-colon (:::) indicates a new filter paramater applied as an AND condition. |    
+| filters | boolean | no | This is a boolean value, True for fetching all filter parameters and False for disabling the filter parameters. |    
+| sortOn | string | no | The order in which the list of products should be sorted, e.g. popularity, price, latest and discount, in either ascending or descending order. See the supported values below. |    
+| pageId | string | no | Page ID to retrieve next set of results. |    
+| pageSize | number | no | The number of items to retrieve in each page. |  
+
+
+
+Get items in a collection specified by its `slug`.
+
+*Returned Response:*
+
+
+
+
+[ProductListingResponse](#ProductListingResponse)
+
+Success. Returns a list items in a given collection. Check the example shown below or refer `ProductListingResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "filters": [
+    {
+      "key": {
+        "display": "Department",
+        "name": "department",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Department.svg"
+      },
+      "values": [
+        {
+          "display": "Debra Villarreal",
+          "count": 1,
+          "is_selected": false,
+          "value": "Debra-Villarreal",
+          "logo": {
+            "type": "image",
+            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
+          }
+        },
+        {
+          "display": "Tracey Miller",
+          "count": 1,
+          "is_selected": false,
+          "value": "Tracey-Miller",
+          "logo": {
+            "type": "image",
+            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
+          }
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Category",
+        "name": "category",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Category.svg"
+      },
+      "values": [
+        {
+          "display": "Amy Kim DDS",
+          "count": 1,
+          "is_selected": false,
+          "value": "3",
+          "logo": "http://cdn4.gofynd.com/media/banner/category/original/12063_a5bb91bd5cb44c3c9db98c2a0e6b3d99.jpg"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Gender",
+        "name": "gender",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Gender.svg"
+      },
+      "values": [
+        {
+          "display": "Men",
+          "count": 1,
+          "is_selected": false,
+          "value": "men"
+        },
+        {
+          "display": "Women",
+          "count": 1,
+          "is_selected": false,
+          "value": "women"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Size",
+        "name": "sizes",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Sizes.svg"
+      },
+      "values": [
+        {
+          "display": "13",
+          "count": 1,
+          "is_selected": false,
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Brand",
+        "name": "brand",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Brand%20ID.svg"
+      },
+      "values": [
+        {
+          "display": "Barry, Jennings and Larson",
+          "count": 1,
+          "is_selected": false,
+          "value": "1",
+          "logo": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Rating",
+        "name": "rating",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/Rating.svg"
+      },
+      "values": [
+        {
+          "count": 1,
+          "display": "2 - 3",
+          "value": "[2 TO 3}",
+          "is_selected": false
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Image",
+        "name": "image_nature",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/global/menu-icons/image%20Nature.svg"
+      },
+      "values": [
+        {
+          "display": "GoodQuality",
+          "count": 1,
+          "is_selected": false,
+          "value": "standard"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Monica Hampton",
+        "name": "material",
+        "kind": "multivalued",
+        "logo": ""
+      },
+      "values": [
+        {
+          "display": "Neoprene",
+          "count": 1,
+          "is_selected": false,
+          "value": "Neoprene"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "John Mendoza",
+        "name": "weight",
+        "kind": "multivalued",
+        "logo": ""
+      },
+      "values": [
+        {
+          "display": "100",
+          "count": 1,
+          "is_selected": false,
+          "value": "100"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Kimberly Mcdaniel",
+        "name": "gender",
+        "kind": "multivalued",
+        "logo": ""
+      },
+      "values": [
+        {
+          "display": "['Men', 'Women']",
+          "count": 1,
+          "is_selected": false,
+          "value": "['Men', 'Women']"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Kimberly Davidson",
+        "name": "color",
+        "kind": "multivalued",
+        "logo": ""
+      },
+      "values": [
+        {
+          "display": "Grey",
+          "count": 1,
+          "is_selected": false,
+          "value": "808080"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Available",
+        "name": "is_available",
+        "kind": "singlevalued"
+      },
+      "values": [
+        {
+          "display": "Available",
+          "count": 3,
+          "is_selected": false,
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "product",
+      "attributes": {
+        "primary_color_hex": "808080",
+        "weight": "100",
+        "gender": "women",
+        "material": "Neoprene",
+        "primary_color": "DarkGrey"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "uid": 3,
+          "name": "Amy Kim DDS",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
+          },
+          "action": {
+            "page": {
+              "type": "category",
+              "query": {
+                "category": [
+                  "Amy-Kim-DDS"
+                ]
+              }
+            },
+            "type": "page"
+          },
+          "_custom_json": {}
+        }
+      ],
+      "sellable": true,
+      "name": "benchmark collaborative paradigms",
+      "slug": "benchmark-collaborative-paradigms",
+      "uid": 1,
+      "item_type": "set",
+      "brand": {
+        "type": "brand",
+        "name": "Hess Inc",
+        "logo": {
+          "type": "image",
+          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
+        },
+        "action": {
+          "page": {
+            "type": "products",
+            "query": {
+              "brand": [
+                "Hess-Inc"
+              ]
+            }
+          },
+          "type": "page"
+        },
+        "_custom_json": {}
+      },
+      "action": {
+        "page": {
+          "type": "product",
+          "query": {
+            "slug": "benchmark-collaborative-paradigms"
+          }
+        },
+        "type": "page"
+      },
+      "medias": [
+        {
+          "type": "image",
+          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
+        }
+      ],
+      "discount": "14% OFF",
+      "price": {
+        "marked": {
+          "min": 1399,
+          "max": 1499,
+          "currency_code": "INR",
+          "currency_symbol": "₹"
+        },
+        "effective": {
+          "min": 1199,
+          "max": 1399,
+          "currency_code": "INR",
+          "currency_symbol": "₹"
+        }
+      },
+      "is_tryout": false,
+      "promo_meta": {
+        "title": "",
+        "subtitle": ""
+      },
+      "rating": 2.7
+    }
+  ],
+  "sort_on": [
+    {
+      "display": "Latest Products.",
+      "name": "Latest Products.",
+      "logo": "https://d2zv4gzhlr4ud6.cloudfront.net/media/pictures/tagged_items/360x0/56_MKT02AI060CORAL/1_1567590349681.jpg",
+      "value": "latest",
+      "is_selected": false
+    }
+  ],
+  "page": {
+    "type": "number",
+    "current": 1,
+    "total": 1,
+    "has_previous": false,
+    "has_next": false,
+    "item_total": 1
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getCollectionDetailBySlug
+Get a particular collection
+
+
+
+```javascript
+// Promise
+const promise = catalog.getCollectionDetailBySlug({  slug : value });
+
+// Async/Await
+const data = await catalog.getCollectionDetailBySlug({  slug : value });
+```
+
+
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | string | yes | A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint /service/application/catalog/v1.0/collections/. |  
+
+
+
+Get the details of a collection by its `slug`.
+
+*Returned Response:*
+
+
+
+
+[CollectionDetailResponse](#CollectionDetailResponse)
+
+Success. Returns a Collection object. Check the example shown below or refer `CollectionDetailResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "uid": "601a4f39448327cfa83e7db0",
+  "type": "items",
+  "query": {},
+  "name": "collection with items",
+  "banners": {
+    "portrait": {
+      "type": "image",
+      "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729908/production/applications/app_000000000000000000000001/media/collection/portrait/pewrpnjrhcrca1dmtvx5.png"
+    },
+    "landscape": {
+      "type": "image",
+      "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729858/production/applications/app_000000000000000000000001/media/collection/landscape/tkclmj847hdvfbudeqbr.png"
+    }
+  },
+  "logo": {
+    "type": "image",
+    "url": "https://res.cloudinary.com/dwzm9bysq/image/upload/v1571729838/production/applications/app_000000000000000000000001/media/collection/logo/xierjsrcwhd2fphzyjod.png"
+  },
+  "published": true,
+  "description": "Crimsoune Club | Upto 70% Off",
+  "is_active": true,
+  "tags": [
+    "men",
+    "women"
+  ],
+  "slug": "crimsoune-club-upto-70-off-754fa043",
+  "action": {
+    "page": {
+      "type": "collection",
+      "query": {
+        "collection": [
+          "crimsoune-club-upto-70-off-754fa043"
+        ]
+      }
+    },
+    "type": "page"
+  },
+  "allow_facets": true,
+  "allow_sort": true,
+  "visible_facets_keys": [],
+  "meta": {},
+  "badge": {},
+  "sort_on": "popular",
+  "_custom_json": {},
+  "_locale_language": {},
+  "_schedule": {}
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getProductBundlesBySlug
 Get product bundles
 
@@ -6775,6 +6775,30 @@ Success. Returns a group of products bundle.
 
  
  
+ #### [Meta](#Meta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | source | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Media](#Media)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | [Meta](#Meta) |  no  |  |
+ | url | string |  no  |  |
+ | type | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ResponsePage](#ResponsePage)
 
  | Properties | Type | Nullable | Description |
@@ -6790,8 +6814,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | params | [ResponsePage](#ResponsePage) |  no  |  |
  | type | string |  no  |  |
+ | params | [ResponsePage](#ResponsePage) |  no  |  |
  | url | string |  no  |  |
  | query | [ResponsePage](#ResponsePage) |  no  |  |
 
@@ -6813,64 +6837,14 @@ Success. Returns a group of products bundle.
 
  
  
- #### [Price](#Price)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | min | number |  no  |  |
- | currency_symbol | string |  no  |  |
- | currency_code | string |  no  |  |
- | max | number |  no  |  |
-
----
-
-
- 
- 
- #### [ProductListingPrice](#ProductListingPrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | effective | [Price](#Price) |  no  |  |
- | marked | [Price](#Price) |  no  |  |
-
----
-
-
- 
- 
- #### [Meta](#Meta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | source | string |  no  |  |
-
----
-
-
- 
- 
- #### [Media](#Media)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | string |  no  |  |
- | url | string |  no  |  |
- | meta | [Meta](#Meta) |  no  |  |
-
----
-
-
- 
- 
  #### [ProductBrand](#ProductBrand)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | [Media](#Media) |  no  |  |
- | uid | number |  no  |  |
- | action | [Action](#Action) |  no  |  |
  | name | string |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | uid | number |  no  |  |
 
 ---
 
@@ -6882,8 +6856,8 @@ Success. Returns a group of products bundle.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | type | string |  no  |  |
- | key | string |  no  |  |
  | value | string |  no  |  |
+ | key | string |  no  |  |
 
 ---
 
@@ -6902,36 +6876,62 @@ Success. Returns a group of products bundle.
 
  
  
+ #### [Price](#Price)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | max | number |  no  |  |
+ | min | number |  no  |  |
+ | currency_symbol | string |  no  |  |
+ | currency_code | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingPrice](#ProductListingPrice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | effective | [Price](#Price) |  no  |  |
+ | marked | [Price](#Price) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ProductDetail](#ProductDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | item_code | string |  no  |  |
+ | uid | number |  no  |  |
+ | similars | [string] |  no  |  |
+ | short_description | string |  no  |  |
+ | has_variant | boolean |  no  |  |
+ | brand | [ProductBrand](#ProductBrand) |  no  |  |
  | action | [Action](#Action) |  no  |  |
+ | product_online_date | string |  no  |  |
+ | attributes | string |  no  |  |
+ | color | string |  no  |  |
+ | tryouts | [string] |  no  |  |
+ | name | string |  no  |  |
  | description | string |  no  |  |
  | highlights | [string] |  no  |  |
+ | item_type | string |  no  |  |
+ | teaser_tag | string |  no  |  |
+ | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
+ | rating_count | number |  no  |  |
+ | type | string |  no  |  |
  | discount | string |  no  |  |
- | attributes | string |  no  |  |
+ | rating | number |  no  |  |
  | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
- | uid | number |  no  |  |
- | color | string |  no  |  |
+ | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
  | medias | [[Media](#Media)] |  no  |  |
  | slug | string |  yes  |  |
- | short_description | string |  no  |  |
- | teaser_tag | string |  no  |  |
- | rating_count | number |  no  |  |
- | brand | [ProductBrand](#ProductBrand) |  no  |  |
- | tryouts | [string] |  no  |  |
- | similars | [string] |  no  |  |
- | has_variant | boolean |  no  |  |
- | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
  | image_nature | string |  no  |  |
- | item_type | string |  no  |  |
- | name | string |  no  |  |
- | product_online_date | string |  no  |  |
- | rating | number |  no  |  |
- | type | string |  no  |  |
- | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
- | item_code | string |  no  |  |
 
 ---
 
@@ -6964,10 +6964,26 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
- | quantity | number |  no  |  |
- | value | string |  no  |  |
  | is_available | boolean |  no  |  |
+ | value | string |  no  |  |
+ | quantity | number |  no  |  |
+ | display | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SizeChartValues](#SizeChartValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | col_2 | string |  no  |  |
+ | col_3 | string |  no  |  |
+ | col_6 | string |  no  |  |
+ | col_5 | string |  no  |  |
+ | col_4 | string |  no  |  |
+ | col_1 | string |  no  |  |
 
 ---
 
@@ -6990,28 +7006,12 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | col_6 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_4 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_5 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_1 | [ColumnHeader](#ColumnHeader) |  no  |  |
- | col_3 | [ColumnHeader](#ColumnHeader) |  no  |  |
  | col_2 | [ColumnHeader](#ColumnHeader) |  no  |  |
-
----
-
-
- 
- 
- #### [SizeChartValues](#SizeChartValues)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | col_6 | string |  no  |  |
- | col_4 | string |  no  |  |
- | col_5 | string |  no  |  |
- | col_1 | string |  no  |  |
- | col_3 | string |  no  |  |
- | col_2 | string |  no  |  |
+ | col_3 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_6 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_5 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_4 | [ColumnHeader](#ColumnHeader) |  no  |  |
+ | col_1 | [ColumnHeader](#ColumnHeader) |  no  |  |
 
 ---
 
@@ -7022,13 +7022,13 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | headers | [ColumnHeaders](#ColumnHeaders) |  no  |  |
- | description | string |  no  |  |
  | sizes | [[SizeChartValues](#SizeChartValues)] |  no  |  |
- | size_tip | string |  no  |  |
  | title | string |  no  |  |
+ | headers | [ColumnHeaders](#ColumnHeaders) |  no  |  |
  | unit | string |  no  |  |
  | image | string |  no  |  |
+ | description | string |  no  |  |
+ | size_tip | string |  no  |  |
 
 ---
 
@@ -7039,12 +7039,12 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | discount | string |  no  |  |
- | sellable | boolean |  no  |  |
  | stores | [ProductSizeStores](#ProductSizeStores) |  no  |  |
- | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
  | sizes | [[ProductSize](#ProductSize)] |  no  |  |
+ | sellable | boolean |  no  |  |
  | size_chart | [SizeChart](#SizeChart) |  no  |  |
+ | discount | string |  no  |  |
+ | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
 
 ---
 
@@ -7055,10 +7055,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
- | logo | string |  no  |  |
  | description | string |  no  |  |
+ | logo | string |  no  |  |
  | key | string |  no  |  |
+ | display | string |  no  |  |
 
 ---
 
@@ -7081,8 +7081,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[ProductDetail](#ProductDetail)] |  no  |  |
  | attributes_metadata | [[AttributeMetadata](#AttributeMetadata)] |  no  |  |
+ | items | [[ProductDetail](#ProductDetail)] |  no  |  |
 
 ---
 
@@ -7093,10 +7093,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[ProductDetail](#ProductDetail)] |  no  |  |
- | title | string |  no  |  |
- | attributes_metadata | [[AttributeMetadata](#AttributeMetadata)] |  no  |  |
  | subtitle | string |  no  |  |
+ | title | string |  no  |  |
+ | items | [[ProductDetail](#ProductDetail)] |  no  |  |
+ | attributes_metadata | [[AttributeMetadata](#AttributeMetadata)] |  no  |  |
 
 ---
 
@@ -7118,9 +7118,9 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [[ProductDetail](#ProductDetail)] |  no  |  |
- | title | string |  no  |  |
  | subtitle | string |  no  |  |
+ | title | string |  no  |  |
+ | items | [[ProductDetail](#ProductDetail)] |  no  |  |
 
 ---
 
@@ -7142,14 +7142,14 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | color_name | string |  no  |  |
- | color | string |  no  |  |
- | uid | number |  no  |  |
- | medias | [[Media](#Media)] |  no  |  |
  | is_available | boolean |  no  |  |
  | slug | string |  no  |  |
+ | uid | number |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | color_name | string |  no  |  |
+ | medias | [[Media](#Media)] |  no  |  |
+ | name | string |  no  |  |
+ | color | string |  no  |  |
  | value | string |  no  |  |
 
 ---
@@ -7182,13 +7182,40 @@ Success. Returns a group of products bundle.
 
  
  
+ #### [Seller](#Seller)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | count | number |  no  |  |
+ | uid | number |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ProductStockPrice](#ProductStockPrice)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | effective | number |  no  |  |
- | currency | string |  no  |  |
  | marked | number |  no  |  |
+ | currency | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreDetail](#StoreDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | id | number |  no  |  |
+ | city | string |  no  |  |
+ | code | string |  no  |  |
 
 ---
 
@@ -7207,46 +7234,19 @@ Success. Returns a group of products bundle.
 
  
  
- #### [StoreDetail](#StoreDetail)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | city | string |  no  |  |
- | id | number |  no  |  |
- | code | string |  no  |  |
-
----
-
-
- 
- 
- #### [Seller](#Seller)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | number |  no  |  |
- | name | string |  no  |  |
- | count | number |  no  |  |
-
----
-
-
- 
- 
  #### [ProductStockStatusItem](#ProductStockStatusItem)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifier | string |  no  |  |
- | quantity | number |  no  |  |
- | price | [ProductStockPrice](#ProductStockPrice) |  no  |  |
- | company | [CompanyDetail](#CompanyDetail) |  no  |  |
- | store | [StoreDetail](#StoreDetail) |  no  |  |
+ | seller | [Seller](#Seller) |  no  |  |
  | uid | string |  no  |  |
  | item_id | number |  no  |  |
- | seller | [Seller](#Seller) |  no  |  |
+ | price | [ProductStockPrice](#ProductStockPrice) |  no  |  |
+ | store | [StoreDetail](#StoreDetail) |  no  |  |
+ | company | [CompanyDetail](#CompanyDetail) |  no  |  |
  | size | string |  no  |  |
+ | identifier | string |  no  |  |
+ | quantity | number |  no  |  |
 
 ---
 
@@ -7268,13 +7268,13 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | item_total | number |  no  |  |
+ | has_previous | boolean |  no  |  |
  | current | number |  no  |  |
- | next_id | string |  no  |  |
  | has_next | boolean |  no  |  |
  | type | string |  yes  |  |
+ | next_id | string |  no  |  |
+ | item_total | number |  no  |  |
  | size | number |  no  |  |
- | has_previous | boolean |  no  |  |
 
 ---
 
@@ -7293,50 +7293,37 @@ Success. Returns a group of products bundle.
 
  
  
- #### [ProductSortOn](#ProductSortOn)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | is_selected | boolean |  no  |  |
- | name | string |  no  |  |
- | value | string |  no  |  |
-
----
-
-
- 
- 
  #### [ProductListingDetail](#ProductListingDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | item_code | string |  no  |  |
+ | uid | number |  no  |  |
+ | similars | [string] |  no  |  |
+ | short_description | string |  no  |  |
+ | has_variant | boolean |  no  |  |
+ | brand | [ProductBrand](#ProductBrand) |  no  |  |
  | action | [Action](#Action) |  no  |  |
+ | product_online_date | string |  no  |  |
+ | attributes | string |  no  |  |
+ | color | string |  no  |  |
+ | tryouts | [string] |  no  |  |
+ | name | string |  no  |  |
  | description | string |  no  |  |
  | highlights | [string] |  no  |  |
+ | item_type | string |  no  |  |
+ | teaser_tag | string |  no  |  |
+ | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
+ | rating_count | number |  no  |  |
+ | sellable | boolean |  no  |  |
+ | type | string |  no  |  |
  | discount | string |  no  |  |
- | attributes | string |  no  |  |
+ | rating | number |  no  |  |
  | price | [ProductListingPrice](#ProductListingPrice) |  no  |  |
- | uid | number |  no  |  |
- | color | string |  no  |  |
+ | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
  | medias | [[Media](#Media)] |  no  |  |
  | slug | string |  yes  |  |
- | short_description | string |  no  |  |
- | teaser_tag | string |  no  |  |
- | rating_count | number |  no  |  |
- | brand | [ProductBrand](#ProductBrand) |  no  |  |
- | sellable | boolean |  no  |  |
- | tryouts | [string] |  no  |  |
- | similars | [string] |  no  |  |
- | has_variant | boolean |  no  |  |
- | grouped_attributes | [[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)] |  no  |  |
  | image_nature | string |  no  |  |
- | item_type | string |  no  |  |
- | name | string |  no  |  |
- | product_online_date | string |  no  |  |
- | rating | number |  no  |  |
- | type | string |  no  |  |
- | categories | [[ProductBrand](#ProductBrand)] |  no  |  |
- | item_code | string |  no  |  |
 
 ---
 
@@ -7347,18 +7334,18 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  yes  |  |
- | selected_min | number |  no  |  |
- | display_format | string |  no  |  |
- | selected_max | number |  no  |  |
- | is_selected | boolean |  yes  |  |
- | query_format | string |  no  |  |
- | currency_symbol | string |  no  |  |
  | count | number |  no  |  |
- | currency_code | string |  no  |  |
  | min | number |  no  |  |
- | value | string |  no  |  |
+ | currency_symbol | string |  no  |  |
  | max | number |  no  |  |
+ | is_selected | boolean |  yes  |  |
+ | display_format | string |  no  |  |
+ | query_format | string |  no  |  |
+ | currency_code | string |  no  |  |
+ | display | string |  yes  |  |
+ | selected_max | number |  no  |  |
+ | selected_min | number |  no  |  |
+ | value | string |  no  |  |
 
 ---
 
@@ -7369,10 +7356,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  yes  |  |
- | logo | string |  no  |  |
  | name | string |  yes  |  |
+ | logo | string |  no  |  |
  | kind | string |  no  |  |
+ | display | string |  yes  |  |
 
 ---
 
@@ -7391,14 +7378,27 @@ Success. Returns a group of products bundle.
 
  
  
+ #### [ProductSortOn](#ProductSortOn)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | is_selected | boolean |  no  |  |
+ | value | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ProductListingResponse](#ProductListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sort_on | [[ProductSortOn](#ProductSortOn)] |  no  |  |
- | page | [Page](#Page) |  yes  |  |
  | items | [[ProductListingDetail](#ProductListingDetail)] |  no  |  |
  | filters | [[ProductFilters](#ProductFilters)] |  no  |  |
+ | sort_on | [[ProductSortOn](#ProductSortOn)] |  no  |  |
+ | page | [Page](#Page) |  yes  |  |
 
 ---
 
@@ -7421,13 +7421,13 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | discount | string |  no  |  |
- | logo | [Media](#Media) |  no  |  |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | uid | number |  no  |  |
- | departments | [string] |  no  |  |
  | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | uid | number |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | departments | [string] |  no  |  |
+ | discount | string |  no  |  |
+ | name | string |  no  |  |
  | slug | string |  no  |  |
 
 ---
@@ -7461,6 +7461,85 @@ Success. Returns a group of products bundle.
 
  
  
+ #### [ThirdLevelChild](#ThirdLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | uid | number |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | childs | [string] |  no  |  |
+ | name | string |  no  |  |
+ | _custom_json | string |  no  |  |
+ | slug | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SecondLevelChild](#SecondLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | uid | number |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | childs | [[ThirdLevelChild](#ThirdLevelChild)] |  no  |  |
+ | name | string |  no  |  |
+ | _custom_json | string |  no  |  |
+ | slug | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Child](#Child)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | uid | number |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | childs | [[SecondLevelChild](#SecondLevelChild)] |  no  |  |
+ | name | string |  no  |  |
+ | _custom_json | string |  no  |  |
+ | slug | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryItems](#CategoryItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | uid | number |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | childs | [[Child](#Child)] |  no  |  |
+ | name | string |  no  |  |
+ | slug | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DepartmentCategoryTree](#DepartmentCategoryTree)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | department | string |  no  |  |
+ | items | [[CategoryItems](#CategoryItems)] |  no  |  |
+
+---
+
+
+ 
+ 
  #### [DepartmentIdentifier](#DepartmentIdentifier)
 
  | Properties | Type | Nullable | Description |
@@ -7473,91 +7552,12 @@ Success. Returns a group of products bundle.
 
  
  
- #### [ThirdLevelChild](#ThirdLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | _custom_json | string |  no  |  |
- | uid | number |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | slug | string |  no  |  |
- | childs | [string] |  no  |  |
-
----
-
-
- 
- 
- #### [SecondLevelChild](#SecondLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | _custom_json | string |  no  |  |
- | uid | number |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | slug | string |  no  |  |
- | childs | [[ThirdLevelChild](#ThirdLevelChild)] |  no  |  |
-
----
-
-
- 
- 
- #### [Child](#Child)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | _custom_json | string |  no  |  |
- | uid | number |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | slug | string |  no  |  |
- | childs | [[SecondLevelChild](#SecondLevelChild)] |  no  |  |
-
----
-
-
- 
- 
- #### [CategoryItems](#CategoryItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action) |  no  |  |
- | name | string |  no  |  |
- | uid | number |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | slug | string |  no  |  |
- | childs | [[Child](#Child)] |  no  |  |
-
----
-
-
- 
- 
- #### [DepartmentCategoryTree](#DepartmentCategoryTree)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | [[CategoryItems](#CategoryItems)] |  no  |  |
- | department | string |  no  |  |
-
----
-
-
- 
- 
  #### [CategoryListingResponse](#CategoryListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | departments | [[DepartmentIdentifier](#DepartmentIdentifier)] |  no  |  |
  | data | [[DepartmentCategoryTree](#DepartmentCategoryTree)] |  no  |  |
+ | departments | [[DepartmentIdentifier](#DepartmentIdentifier)] |  no  |  |
 
 ---
 
@@ -7595,10 +7595,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | [Media](#Media) |  no  |  |
- | name | string |  no  |  |
- | priority_order | number |  no  |  |
  | uid | number |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | priority_order | number |  no  |  |
+ | name | string |  no  |  |
  | slug | string |  no  |  |
 
 ---
@@ -7621,10 +7621,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
  | type | string |  no  |  |
  | action | [Action](#Action) |  no  |  |
- | logo | [Media](#Media) |  no  |  |
+ | display | string |  no  |  |
 
 ---
 
@@ -7642,29 +7642,13 @@ Success. Returns a group of products bundle.
 
  
  
- #### [GetCollectionDetailNest](#GetCollectionDetailNest)
+ #### [CollectionListingFilterType](#CollectionListingFilterType)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | is_active | boolean |  no  |  |
- | action | [Action](#Action) |  no  |  |
- | app_id | string |  no  |  |
- | description | string |  no  |  |
- | _schedule | string |  no  |  |
- | meta | string |  no  |  |
- | allow_sort | boolean |  no  |  |
- | uid | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | query | string |  no  |  |
- | slug | string |  no  |  |
- | logo | [Media](#Media) |  no  |  |
  | name | string |  no  |  |
- | tag | [string] |  no  |  |
- | badge | string |  no  |  |
- | cron | string |  no  |  |
- | type | string |  no  |  |
- | visible_facets_keys | [string] |  no  |  |
- | allow_facets | boolean |  no  |  |
+ | is_selected | boolean |  no  |  |
+ | display | string |  no  |  |
 
 ---
 
@@ -7675,22 +7659,9 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
  | name | string |  no  |  |
  | is_selected | boolean |  no  |  |
-
----
-
-
- 
- 
- #### [CollectionListingFilterType](#CollectionListingFilterType)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
  | display | string |  no  |  |
- | name | string |  no  |  |
- | is_selected | boolean |  no  |  |
 
 ---
 
@@ -7701,8 +7672,37 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | tags | [[CollectionListingFilterTag](#CollectionListingFilterTag)] |  no  |  |
  | type | [[CollectionListingFilterType](#CollectionListingFilterType)] |  no  |  |
+ | tags | [[CollectionListingFilterTag](#CollectionListingFilterTag)] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCollectionDetailNest](#GetCollectionDetailNest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | allow_sort | boolean |  no  |  |
+ | uid | string |  no  |  |
+ | app_id | string |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | cron | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
+ | allow_facets | boolean |  no  |  |
+ | action | [Action](#Action) |  no  |  |
+ | visible_facets_keys | [string] |  no  |  |
+ | query | string |  no  |  |
+ | is_active | boolean |  no  |  |
+ | meta | string |  no  |  |
+ | description | string |  no  |  |
+ | name | string |  no  |  |
+ | _schedule | string |  no  |  |
+ | tag | [string] |  no  |  |
+ | badge | string |  no  |  |
+ | type | string |  no  |  |
+ | slug | string |  no  |  |
 
 ---
 
@@ -7713,36 +7713,9 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  yes  |  |
- | items | [[GetCollectionDetailNest](#GetCollectionDetailNest)] |  no  |  |
  | filters | [CollectionListingFilter](#CollectionListingFilter) |  no  |  |
-
----
-
-
- 
- 
- #### [CollectionDetailResponse](#CollectionDetailResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | is_active | boolean |  no  |  |
- | logo | [Media](#Media) |  no  |  |
- | name | string |  no  |  |
- | tag | [string] |  no  |  |
- | app_id | string |  no  |  |
- | cron | string |  no  |  |
- | description | string |  no  |  |
- | _schedule | string |  no  |  |
- | allow_sort | boolean |  no  |  |
- | meta | string |  no  |  |
- | type | string |  no  |  |
- | badge | string |  no  |  |
- | banners | [ImageUrls](#ImageUrls) |  no  |  |
- | query | string |  no  |  |
- | visible_facets_keys | [string] |  no  |  |
- | slug | string |  no  |  |
- | allow_facets | boolean |  no  |  |
+ | items | [[GetCollectionDetailNest](#GetCollectionDetailNest)] |  no  |  |
+ | page | [Page](#Page) |  yes  |  |
 
 ---
 
@@ -7765,8 +7738,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | string |  yes  |  |
  | id | string |  yes  |  |
+ | message | string |  yes  |  |
 
 ---
 
@@ -7788,9 +7761,9 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brands | [number] |  no  |  |
- | collections | [number] |  no  |  |
  | products | [number] |  no  |  |
+ | collections | [number] |  no  |  |
+ | brands | [number] |  no  |  |
 
 ---
 
@@ -7812,8 +7785,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coordinates | [number] |  no  |  |
  | type | string |  no  |  |
+ | coordinates | [number] |  no  |  |
 
 ---
 
@@ -7824,16 +7797,16 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | address | string |  no  |  |
- | state | string |  no  |  |
  | pincode | number |  no  |  |
- | store_code | string |  no  |  |
  | uid | number |  no  |  |
- | city | string |  no  |  |
- | country | string |  no  |  |
- | lat_long | [LatLong](#LatLong) |  no  |  |
  | store_email | string |  no  |  |
+ | state | string |  no  |  |
+ | name | string |  no  |  |
+ | lat_long | [LatLong](#LatLong) |  no  |  |
+ | address | string |  no  |  |
+ | city | string |  no  |  |
+ | store_code | string |  no  |  |
+ | country | string |  no  |  |
 
 ---
 
@@ -7856,11 +7829,50 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | string |  no  |  |
- | name | string |  no  |  |
- | priority_order | number |  no  |  |
  | uid | number |  no  |  |
+ | logo | string |  no  |  |
+ | priority_order | number |  no  |  |
+ | name | string |  no  |  |
  | slug | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SellerPhoneNumber](#SellerPhoneNumber)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | country_code | number |  yes  |  |
+ | number | string |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreManagerSerializer](#StoreManagerSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | mobile_no | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | email | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CompanyStore](#CompanyStore)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | company_type | string |  no  |  |
+ | business_type | string |  no  |  |
+ | uid | number |  no  |  |
 
 ---
 
@@ -7872,53 +7884,14 @@ Success. Returns a group of products bundle.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | longitude | number |  no  |  |
- | latitude | number |  no  |  |
- | landmark | string |  no  |  |
- | country | string |  no  |  |
- | address1 | string |  no  |  |
- | state | string |  no  |  |
- | pincode | number |  no  |  |
- | city | string |  no  |  |
  | address2 | string |  no  |  |
-
----
-
-
- 
- 
- #### [CompanyStore](#CompanyStore)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | business_type | string |  no  |  |
- | uid | number |  no  |  |
- | name | string |  no  |  |
- | company_type | string |  no  |  |
-
----
-
-
- 
- 
- #### [SellerPhoneNumber](#SellerPhoneNumber)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | number | string |  yes  |  |
- | country_code | number |  yes  |  |
-
----
-
-
- 
- 
- #### [StoreManagerSerializer](#StoreManagerSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | email | string |  no  |  |
- | mobile_no | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
- | name | string |  no  |  |
+ | pincode | number |  no  |  |
+ | address1 | string |  no  |  |
+ | landmark | string |  no  |  |
+ | state | string |  no  |  |
+ | city | string |  no  |  |
+ | latitude | number |  no  |  |
+ | country | string |  no  |  |
 
 ---
 
@@ -7929,13 +7902,13 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
- | company | [CompanyStore](#CompanyStore) |  no  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer) |  no  |  |
  | uid | number |  no  |  |
- | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
  | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
+ | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
+ | name | string |  no  |  |
+ | company | [CompanyStore](#CompanyStore) |  no  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
 
 ---
 
@@ -7971,10 +7944,10 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | closing | [Time](#Time) |  no  |  |
- | opening | [Time](#Time) |  no  |  |
  | weekday | string |  no  |  |
+ | opening | [Time](#Time) |  no  |  |
  | open | boolean |  no  |  |
+ | closing | [Time](#Time) |  no  |  |
 
 ---
 
@@ -7985,14 +7958,14 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | string |  no  |  |
- | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
- | company | [CompanyStore](#CompanyStore) |  no  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer) |  no  |  |
- | _custom_json | string |  no  |  |
  | uid | number |  no  |  |
- | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
  | contact_numbers | [[SellerPhoneNumber](#SellerPhoneNumber)] |  no  |  |
+ | departments | [[StoreDepartments](#StoreDepartments)] |  no  |  |
+ | name | string |  no  |  |
+ | company | [CompanyStore](#CompanyStore) |  no  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer) |  no  |  |
+ | _custom_json | string |  no  |  |
  | timing | [[StoreTiming](#StoreTiming)] |  no  |  |
 
 ---
@@ -8004,34 +7977,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | level | string |  no  |  |
  | strategy | string |  no  |  |
-
----
-
-
- 
- 
- #### [ProductStockPriceV2](#ProductStockPriceV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | effective | number |  no  |  |
- | currency | string |  no  |  |
- | marked | number |  no  |  |
-
----
-
-
- 
- 
- #### [StoreV2](#StoreV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | number |  no  |  |
- | name | string |  no  |  |
- | count | number |  no  |  |
+ | level | string |  no  |  |
 
 ---
 
@@ -8042,22 +7989,34 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | number |  no  |  |
  | name | string |  no  |  |
  | count | number |  no  |  |
+ | uid | number |  no  |  |
 
 ---
 
 
  
  
- #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
+ #### [DetailsSchemaV2](#DetailsSchemaV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | unit | string |  no  |  |
- | returnable | boolean |  no  |  |
- | time | number |  no  |  |
+ | type | string |  no  |  |
+ | value | string |  no  |  |
+ | key | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | details | [[DetailsSchemaV2](#DetailsSchemaV2)] |  no  |  |
+ | title | string |  no  |  |
 
 ---
 
@@ -8068,8 +8027,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pieces | number |  no  |  |
  | size | string |  no  |  |
+ | pieces | number |  no  |  |
 
 ---
 
@@ -8103,35 +8062,49 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | number |  no  |  |
  | tat | number |  no  |  |
  | distance | number |  no  |  |
  | quantity | number |  no  |  |
+ | pincode | number |  no  |  |
 
 ---
 
 
  
  
- #### [DetailsSchemaV2](#DetailsSchemaV2)
+ #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | string |  no  |  |
- | key | string |  no  |  |
- | value | string |  no  |  |
+ | unit | string |  no  |  |
+ | returnable | boolean |  no  |  |
+ | time | number |  no  |  |
 
 ---
 
 
  
  
- #### [MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)
+ #### [ProductStockPriceV2](#ProductStockPriceV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | details | [[DetailsSchemaV2](#DetailsSchemaV2)] |  no  |  |
- | title | string |  no  |  |
+ | effective | number |  no  |  |
+ | marked | number |  no  |  |
+ | currency | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreV2](#StoreV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | string |  no  |  |
+ | count | number |  no  |  |
+ | uid | number |  no  |  |
 
 ---
 
@@ -8142,23 +8115,23 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | discount | string |  no  |  |
- | article_id | string |  no  |  |
- | item_type | string |  no  |  |
- | quantity | number |  no  |  |
  | article_assignment | [ArticleAssignmentV2](#ArticleAssignmentV2) |  no  |  |
- | price | [ProductStockPriceV2](#ProductStockPriceV2) |  no  |  |
- | store | [StoreV2](#StoreV2) |  no  |  |
- | price_per_piece | [ProductStockPriceV2](#ProductStockPriceV2) |  no  |  |
  | pincode | number |  no  |  |
- | long_lat | [number] |  no  |  |
- | seller_count | number |  no  |  |
+ | article_id | string |  no  |  |
  | seller | [SellerV2](#SellerV2) |  no  |  |
- | special_badge | string |  no  |  |
- | return_config | [ReturnConfigSchemaV2](#ReturnConfigSchemaV2) |  no  |  |
+ | seller_count | number |  no  |  |
+ | marketplace_attributes | [[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)] |  no  |  |
+ | long_lat | [number] |  no  |  |
  | set | [ProductSetV2](#ProductSetV2) |  no  |  |
  | strategy_wise_listing | [[StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)] |  no  |  |
- | marketplace_attributes | [[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)] |  no  |  |
+ | return_config | [ReturnConfigSchemaV2](#ReturnConfigSchemaV2) |  no  |  |
+ | discount | string |  no  |  |
+ | price | [ProductStockPriceV2](#ProductStockPriceV2) |  no  |  |
+ | item_type | string |  no  |  |
+ | store | [StoreV2](#StoreV2) |  no  |  |
+ | special_badge | string |  no  |  |
+ | quantity | number |  no  |  |
+ | price_per_piece | [ProductStockPriceV2](#ProductStockPriceV2) |  no  |  |
 
 ---
 
@@ -8169,9 +8142,9 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | string |  no  |  |
  | name | string |  no  |  |
  | is_selected | boolean |  no  |  |
+ | value | string |  no  |  |
 
 ---
 
@@ -8182,8 +8155,8 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sort_on | [[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)] |  no  |  |
  | items | [[ProductSizePriceResponseV2](#ProductSizePriceResponseV2)] |  no  |  |
+ | sort_on | [[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)] |  no  |  |
  | page | [Page](#Page) |  yes  |  |
 
 ---
@@ -8191,45 +8164,27 @@ Success. Returns a group of products bundle.
 
  
  
- #### [ProductDetails](#ProductDetails)
+ #### [CollectionDetailResponse](#CollectionDetailResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | string |  no  |  |
- | out_of_stock | boolean |  no  |  |
- | media | [string] |  no  |  |
- | is_set | boolean |  no  |  |
- | attributes | string |  no  |  |
- | brand_uid | number |  no  |  |
- | country_of_origin | string |  no  |  |
+ | allow_sort | boolean |  no  |  |
+ | badge | string |  no  |  |
+ | cron | string |  no  |  |
+ | banners | [ImageUrls](#ImageUrls) |  no  |  |
  | slug | string |  no  |  |
- | short_description | string |  no  |  |
- | rating_count | number |  no  |  |
- | images | [string] |  no  |  |
- | template_tag | string |  no  |  |
- | has_variant | boolean |  no  |  |
- | grouped_attributes | string |  no  |  |
- | image_nature | string |  no  |  |
- | identifier | string |  no  |  |
+ | allow_facets | boolean |  no  |  |
+ | app_id | string |  no  |  |
+ | meta | string |  no  |  |
+ | logo | [Media](#Media) |  no  |  |
+ | type | string |  no  |  |
+ | visible_facets_keys | [string] |  no  |  |
+ | description | string |  no  |  |
  | name | string |  no  |  |
- | hsn_code | number |  no  |  |
- | rating | number |  no  |  |
- | item_code | string |  no  |  |
-
----
-
-
- 
- 
- #### [Price1](#Price1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max_effective | number |  no  |  |
- | max_marked | number |  no  |  |
- | min_marked | number |  no  |  |
- | min_effective | number |  no  |  |
- | currency | string |  no  |  |
+ | query | string |  no  |  |
+ | _schedule | string |  no  |  |
+ | tag | [string] |  no  |  |
+ | is_active | boolean |  no  |  |
 
 ---
 
@@ -8240,10 +8195,55 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | string |  no  |  |
- | quantity | number |  no  |  |
- | value | string |  no  |  |
  | is_available | boolean |  no  |  |
+ | value | string |  no  |  |
+ | quantity | number |  no  |  |
+ | display | string |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Price1](#Price1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | currency | string |  no  |  |
+ | min_effective | number |  no  |  |
+ | max_effective | number |  no  |  |
+ | max_marked | number |  no  |  |
+ | min_marked | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetails](#ProductDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | item_code | string |  no  |  |
+ | out_of_stock | boolean |  no  |  |
+ | short_description | string |  no  |  |
+ | has_variant | boolean |  no  |  |
+ | country_of_origin | string |  no  |  |
+ | brand_uid | number |  no  |  |
+ | template_tag | string |  no  |  |
+ | media | [string] |  no  |  |
+ | hsn_code | number |  no  |  |
+ | attributes | string |  no  |  |
+ | is_set | boolean |  no  |  |
+ | description | string |  no  |  |
+ | name | string |  no  |  |
+ | images | [string] |  no  |  |
+ | grouped_attributes | string |  no  |  |
+ | identifier | string |  no  |  |
+ | rating_count | number |  no  |  |
+ | rating | number |  no  |  |
+ | slug | string |  no  |  |
+ | image_nature | string |  no  |  |
 
 ---
 
@@ -8254,15 +8254,15 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | product_details | [ProductDetails](#ProductDetails) |  no  |  |
- | allow_remove | boolean |  no  |  |
- | max_quantity | number |  no  |  |
- | price | [Price1](#Price1) |  no  |  |
- | product_uid | number |  no  |  |
- | auto_select | boolean |  no  |  |
  | min_quantity | number |  no  |  |
  | sizes | [[Size](#Size)] |  no  |  |
+ | auto_select | boolean |  no  |  |
  | auto_add_to_cart | boolean |  no  |  |
+ | max_quantity | number |  no  |  |
+ | price | [Price1](#Price1) |  no  |  |
+ | allow_remove | boolean |  no  |  |
+ | product_details | [ProductDetails](#ProductDetails) |  no  |  |
+ | product_uid | number |  no  |  |
 
 ---
 
@@ -8273,16 +8273,16 @@ Success. Returns a group of products bundle.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | string |  no  |  |
- | name | string |  no  |  |
- | products | [[Products](#Products)] |  no  |  |
- | page_visibility | [string] |  no  |  |
+ | same_store_assignment | boolean |  no  |  |
+ | company_id | number |  no  |  |
  | choice | string |  no  |  |
  | meta | string |  no  |  |
- | active | boolean |  no  |  |
- | same_store_assignment | boolean |  no  |  |
+ | logo | string |  no  |  |
+ | products | [[Products](#Products)] |  no  |  |
+ | name | string |  no  |  |
+ | page_visibility | [string] |  no  |  |
  | slug | string |  no  |  |
- | company_id | number |  no  |  |
+ | active | boolean |  no  |  |
 
 ---
 
