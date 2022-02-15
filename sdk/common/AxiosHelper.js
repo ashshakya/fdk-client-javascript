@@ -101,7 +101,7 @@ fdkAxios.interceptors.response.use(
   function (error) {
     if (error.response) {
       // Request made and server responded
-      log.error('### ERROR', error.response.data.message || error.message);
+      log.error('### ERROR', error.response.config.url, '=>', error);
       throw new FDKServerResponseError(
         error.response.data.message || error.message,
         error.response.data.stack || error.stack,
@@ -111,11 +111,11 @@ fdkAxios.interceptors.response.use(
       );
     } else if (error.request) {
       // The request was made but no error.response was received
-      log.error('### ERROR', error.message)
+      log.error('### ERROR', error.request.config.url, '=>', error);
       throw new FDKServerResponseError(error.message, error.stack, error.code, error.code);
     } else {
       // Something happened in setting up the request that triggered an Error
-      log.error('### ERROR', error.message)
+      log.error('### ERROR 3', error.request.config.url, '=>', error);
       throw new FDKServerResponseError(error.message, error.stack);
     }
   }

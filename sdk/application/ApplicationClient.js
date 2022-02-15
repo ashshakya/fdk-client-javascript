@@ -90,8 +90,8 @@ class Catalog {
             getDepartments: "/service/application/catalog/v1.0/departments/",
             getSearchResults: "/service/application/catalog/v1.0/auto-complete/",
             getFollowedListing: "/service/application/catalog/v1.0/follow/{collection_type}/",
-            followById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             unfollowById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
+            followById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             getFollowerCountById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/",
             getFollowIds: "/service/application/catalog/v1.0/follow/ids/",
             getStores: "/service/application/catalog/v1.0/locations/",
@@ -1116,44 +1116,6 @@ class Catalog {
     
     /**
     *
-    * @summary: Follow an entity (product/brand/collection)
-    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
-    * @param {string} arg.collectionId - The ID of the collection type.
-    
-    
-    * @return {Promise<FollowPostResponse>} - success response
-    **/
-        followById({
-            collectionType,
-            collectionId
-            
-        } = {}) {
-            const { error } = CatalogValidator.followById().validate({ collectionType,
-            collectionId
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query = {};
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "post",
-                    constructUrl({
-                        url: this._urls["followById"],
-                        params: { collectionType, collectionId }
-                    }),
-                    query,
-                     undefined ,
-            );
-        }
-        
-    
-    /**
-    *
     * @summary: Unfollow an entity (product/brand/collection)
     * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
     * @param {Object} arg - arg object.
@@ -1182,6 +1144,44 @@ class Catalog {
                     "delete",
                     constructUrl({
                         url: this._urls["unfollowById"],
+                        params: { collectionType, collectionId }
+                    }),
+                    query,
+                     undefined ,
+            );
+        }
+        
+    
+    /**
+    *
+    * @summary: Follow an entity (product/brand/collection)
+    * @description: Follow a particular entity such as product, brand, collection specified by its ID.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
+    * @param {string} arg.collectionId - The ID of the collection type.
+    
+    
+    * @return {Promise<FollowPostResponse>} - success response
+    **/
+        followById({
+            collectionType,
+            collectionId
+            
+        } = {}) {
+            const { error } = CatalogValidator.followById().validate({ collectionType,
+            collectionId
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query = {};
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "post",
+                    constructUrl({
+                        url: this._urls["followById"],
                         params: { collectionType, collectionId }
                     }),
                     query,
@@ -7924,22 +7924,22 @@ class Payment {
     * @summary: API to get the redirect url to redirect the user to aggregator's page
     * @description: Use this API to get the redirect url to redirect the user to aggregator's page
     * @param {Object} arg - arg object.
-    * @param {string} [arg.aggregator] - 
+    * @param {string} [arg.source] - 
     
     
     * @return {Promise<RedirectToAggregatorResponse>} - success response
     **/
         RedirectToAggregator({
-            aggregator
+            source
             
         } = {}) {
-            const { error } = PaymentValidator.RedirectToAggregator().validate({ aggregator
+            const { error } = PaymentValidator.RedirectToAggregator().validate({ source
              },{ abortEarly: false });
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
             const query = {};
-            query['aggregator'] = aggregator;
+            query['source'] = source;
             
 
             return APIClient.execute(
