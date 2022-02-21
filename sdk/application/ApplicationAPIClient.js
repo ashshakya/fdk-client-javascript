@@ -8,11 +8,6 @@ class APIClient {
    * @param  {object} query
    * @param  {object} body
    */
-
-  static setCookie(cookie){
-    this.cookie = cookie
-  }
-
   static execute(conf, method, url, query, body) {
     const token = Buffer.from(
       `${conf.applicationID}:${conf.applicationToken}`,
@@ -24,11 +19,11 @@ class APIClient {
       url: url,
       params: query,
       data: body,
-      cookie: this.cookie ? this.cookie : conf.cookie,
       headers: {
         Authorization: "Bearer " + token,
       },
     };
+
     return fdkAxios.request(rawRequest);
   }
 }

@@ -5,7 +5,6 @@ const querystring = require("query-string");
 const { sign } = require("./RequestSigner");
 const { FDKServerResponseError } = require("./FDKError");
 axios.defaults.withCredentials = true;
-const log = require('loglevel');
 
 function getTransformer(config) {
   const { transformRequest } = config;
@@ -36,11 +35,8 @@ function requestInterceptorFn() {
       url = combineURLs(config.baseURL, config.url);
     }
     const { host, pathname, search } = new URL(url);
-    const { data, headers, method, params, cookie } = config;
-    if(cookie){
-      headers["cookie"] = cookie;
-    }
-    headers["x-fp-sdk-version"] = "0.1.13"
+    const { data, headers, method, params } = config;
+    headers["x-fp-sdk-version"] = "0.1.14"
     let querySearchObj = querystring.parse(search);
     querySearchObj = { ...querySearchObj, ...params };
     let queryParam = "";
@@ -79,7 +75,6 @@ function requestInterceptorFn() {
     config.headers["x-fp-date"] = signingOptions.headers["x-fp-date"];
     config.headers["x-fp-signature"] = signingOptions.headers["x-fp-signature"];
     // config.headers["fp-sdk-version"] = version;
-    log.info('### REQUEST', config.url, '=>', config);
     return config;
   };
 }
@@ -95,13 +90,11 @@ fdkAxios.interceptors.response.use(
     if(response.config.method == 'head'){
       return response.headers;
     }
-    log.info('### RESPONSE', response.config.url, '=>', response);
     return response.data; // IF 2XX then return response.data only
   },
   function (error) {
     if (error.response) {
       // Request made and server responded
-      log.error('### ERROR', error.response.config.url, '=>', error);
       throw new FDKServerResponseError(
         error.response.data.message || error.message,
         error.response.data.stack || error.stack,
@@ -111,11 +104,9 @@ fdkAxios.interceptors.response.use(
       );
     } else if (error.request) {
       // The request was made but no error.response was received
-      log.error('### ERROR', error.request.config.url, '=>', error);
       throw new FDKServerResponseError(error.message, error.stack, error.code, error.code);
     } else {
       // Something happened in setting up the request that triggered an Error
-      log.error('### ERROR 3', error.request.config.url, '=>', error);
       throw new FDKServerResponseError(error.message, error.stack);
     }
   }

@@ -373,7 +373,7 @@ Success. Returns a JSON object containing all the data loaders injected in the a
     "_id": "61bc4523a7ffc7504f4de4a5",
     "service": "catalog",
     "operation_id": "fetchSuggestions",
-    "url": "www.dddd.ddd"
+    "url": "/ext/example/url"
   },
   {
     "name": "Algolia v3",
@@ -382,7 +382,7 @@ Success. Returns a JSON object containing all the data loaders injected in the a
     "_id": "61bc452da7ffc7504f4de4a7",
     "service": "catalog",
     "operation_id": "fetchSuggestions",
-    "url": "www.dddd.ddd"
+    "url": "/ext/example/url"
   }
 ]
 ```
@@ -2221,6 +2221,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | application | string |  no  |  |
+ | company | string |  no  |  |
  | _id | string |  no  |  |
  | name | string |  no  |  |
  | service | string |  no  |  |

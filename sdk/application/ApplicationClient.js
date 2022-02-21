@@ -42,7 +42,6 @@ const constructUrl = ({url, params}) => {
 class ApplicationClient{
 
     constructor(config){
-        this.config = config;
         this.catalog = new Catalog(config);
         this.cart = new Cart(config);
         this.common = new Common(config);
@@ -61,9 +60,6 @@ class ApplicationClient{
         this.posCart = new PosCart(config);
         this.logistic = new Logistic(config);
         
-    }
-    setCookie(cookie){
-        APIClient.setCookie(cookie);
     }
 }
 
@@ -138,7 +134,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -148,7 +144,7 @@ class Catalog {
                         url: this._urls["getProductDetailBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -176,8 +172,8 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['store_id'] = storeId;
+            const query_params = {};
+            query_params['store_id'] = storeId;
             
 
             return APIClient.execute(
@@ -187,7 +183,7 @@ class Catalog {
                         url: this._urls["getProductSizesBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -212,8 +208,8 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['slug'] = slug;
+            const query_params = {};
+            query_params['slug'] = slug;
             
 
             return APIClient.execute(
@@ -223,7 +219,7 @@ class Catalog {
                         url: this._urls["getProductComparisonBySlugs"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -248,7 +244,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -258,7 +254,7 @@ class Catalog {
                         url: this._urls["getSimilarComparisonProductBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -283,7 +279,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -293,7 +289,7 @@ class Catalog {
                         url: this._urls["getComparedFrequentlyProductBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -321,7 +317,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -331,7 +327,7 @@ class Catalog {
                         url: this._urls["getProductSimilarByIdentifier"],
                         params: { slug, similarType }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -356,7 +352,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -366,7 +362,7 @@ class Catalog {
                         url: this._urls["getProductVariantsBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -403,12 +399,12 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['item_id'] = itemId;
-            query['alu'] = alu;
-            query['sku_code'] = skuCode;
-            query['ean'] = ean;
-            query['upc'] = upc;
+            const query_params = {};
+            query_params['item_id'] = itemId;
+            query_params['alu'] = alu;
+            query_params['sku_code'] = skuCode;
+            query_params['ean'] = ean;
+            query_params['upc'] = upc;
             
 
             return APIClient.execute(
@@ -418,7 +414,7 @@ class Catalog {
                         url: this._urls["getProductStockByIds"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -449,10 +445,10 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['timestamp'] = timestamp;
-            query['page_size'] = pageSize;
-            query['page_id'] = pageId;
+            const query_params = {};
+            query_params['timestamp'] = timestamp;
+            query_params['page_size'] = pageSize;
+            query_params['page_id'] = pageId;
             
 
             return APIClient.execute(
@@ -462,7 +458,7 @@ class Catalog {
                         url: this._urls["getProductStockForTimeByIds"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -558,15 +554,15 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['q'] = q;
-            query['f'] = f;
-            query['filters'] = filters;
-            query['sort_on'] = sortOn;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
-            query['page_no'] = pageNo;
-            query['page_type'] = pageType;
+            const query_params = {};
+            query_params['q'] = q;
+            query_params['f'] = f;
+            query_params['filters'] = filters;
+            query_params['sort_on'] = sortOn;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
+            query_params['page_no'] = pageNo;
+            query_params['page_type'] = pageType;
             
 
             return APIClient.execute(
@@ -576,7 +572,7 @@ class Catalog {
                         url: this._urls["getProducts"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -686,10 +682,10 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['department'] = department;
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['department'] = department;
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -699,7 +695,7 @@ class Catalog {
                         url: this._urls["getBrands"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -772,7 +768,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -782,7 +778,7 @@ class Catalog {
                         url: this._urls["getBrandDetailBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -807,8 +803,8 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['department'] = department;
+            const query_params = {};
+            query_params['department'] = department;
             
 
             return APIClient.execute(
@@ -818,7 +814,7 @@ class Catalog {
                         url: this._urls["getCategories"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -843,7 +839,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -853,7 +849,7 @@ class Catalog {
                         url: this._urls["getCategoryDetailBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -884,10 +880,10 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['sort_on'] = sortOn;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['sort_on'] = sortOn;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -897,7 +893,7 @@ class Catalog {
                         url: this._urls["getHomeProducts"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -969,7 +965,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -979,7 +975,7 @@ class Catalog {
                         url: this._urls["getDepartments"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1004,8 +1000,8 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['q'] = q;
+            const query_params = {};
+            query_params['q'] = q;
             
 
             return APIClient.execute(
@@ -1015,7 +1011,7 @@ class Catalog {
                         url: this._urls["getSearchResults"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1046,9 +1042,9 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -1058,7 +1054,7 @@ class Catalog {
                         url: this._urls["getFollowedListing"],
                         params: { collectionType }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1136,7 +1132,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -1146,7 +1142,7 @@ class Catalog {
                         url: this._urls["unfollowById"],
                         params: { collectionType, collectionId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1174,7 +1170,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -1184,7 +1180,7 @@ class Catalog {
                         url: this._urls["followById"],
                         params: { collectionType, collectionId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1212,7 +1208,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -1222,7 +1218,7 @@ class Catalog {
                         url: this._urls["getFollowerCountById"],
                         params: { collectionType, collectionId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1247,8 +1243,8 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['collection_type'] = collectionType;
+            const query_params = {};
+            query_params['collection_type'] = collectionType;
             
 
             return APIClient.execute(
@@ -1258,7 +1254,7 @@ class Catalog {
                         url: this._urls["getFollowIds"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1301,14 +1297,14 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['q'] = q;
-            query['city'] = city;
-            query['range'] = range;
-            query['latitude'] = latitude;
-            query['longitude'] = longitude;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
+            query_params['q'] = q;
+            query_params['city'] = city;
+            query_params['range'] = range;
+            query_params['latitude'] = latitude;
+            query_params['longitude'] = longitude;
             
 
             return APIClient.execute(
@@ -1318,7 +1314,7 @@ class Catalog {
                         url: this._urls["getStores"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1437,14 +1433,14 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['q'] = q;
-            query['city'] = city;
-            query['range'] = range;
-            query['latitude'] = latitude;
-            query['longitude'] = longitude;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
+            query_params['q'] = q;
+            query_params['city'] = city;
+            query_params['range'] = range;
+            query_params['latitude'] = latitude;
+            query_params['longitude'] = longitude;
             
 
             return APIClient.execute(
@@ -1454,7 +1450,7 @@ class Catalog {
                         url: this._urls["getInStockLocations"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1555,7 +1551,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -1565,7 +1561,7 @@ class Catalog {
                         url: this._urls["getLocationDetailsById"],
                         params: { locationId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1599,9 +1595,9 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['store_id'] = storeId;
-            query['pincode'] = pincode;
+            const query_params = {};
+            query_params['store_id'] = storeId;
+            query_params['pincode'] = pincode;
             
 
             return APIClient.execute(
@@ -1611,7 +1607,7 @@ class Catalog {
                         url: this._urls["getProductPriceBySlug"],
                         params: { slug, size }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1651,11 +1647,11 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['pincode'] = pincode;
-            query['strategy'] = strategy;
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['pincode'] = pincode;
+            query_params['strategy'] = strategy;
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -1665,7 +1661,7 @@ class Catalog {
                         url: this._urls["getProductSellersBySlug"],
                         params: { slug, size }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1765,10 +1761,10 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['tag'] = tag;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
+            query_params['tag'] = tag;
             
 
             return APIClient.execute(
@@ -1778,7 +1774,7 @@ class Catalog {
                         url: this._urls["getCollections"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1866,12 +1862,12 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['f'] = f;
-            query['filters'] = filters;
-            query['sort_on'] = sortOn;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['f'] = f;
+            query_params['filters'] = filters;
+            query_params['sort_on'] = sortOn;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -1881,7 +1877,7 @@ class Catalog {
                         url: this._urls["getCollectionItemsBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -1977,7 +1973,7 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -1987,7 +1983,7 @@ class Catalog {
                         url: this._urls["getCollectionDetailBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2015,9 +2011,9 @@ class Catalog {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['slug'] = slug;
-            query['id'] = id;
+            const query_params = {};
+            query_params['slug'] = slug;
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2027,7 +2023,7 @@ class Catalog {
                         url: this._urls["getProductBundlesBySlug"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2109,11 +2105,11 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
-            query['assign_card_id'] = assignCardId;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
+            query_params['assign_card_id'] = assignCardId;
             
 
             return APIClient.execute(
@@ -2123,7 +2119,7 @@ class Cart {
                         url: this._urls["getCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2148,8 +2144,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2159,7 +2155,7 @@ class Cart {
                         url: this._urls["getCartLastModified"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2189,9 +2185,9 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -2201,7 +2197,7 @@ class Cart {
                         url: this._urls["addItems"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2234,10 +2230,10 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -2247,7 +2243,7 @@ class Cart {
                         url: this._urls["updateCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2272,8 +2268,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2283,7 +2279,7 @@ class Cart {
                         url: this._urls["getItemCount"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2308,8 +2304,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2319,7 +2315,7 @@ class Cart {
                         url: this._urls["getCoupons"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2355,11 +2351,11 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['i'] = i;
-            query['b'] = b;
-            query['p'] = p;
-            query['id'] = id;
+            const query_params = {};
+            query_params['i'] = i;
+            query_params['b'] = b;
+            query_params['p'] = p;
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2369,7 +2365,7 @@ class Cart {
                         url: this._urls["applyCoupon"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2394,8 +2390,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2405,7 +2401,7 @@ class Cart {
                         url: this._urls["removeCoupon"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2439,11 +2435,11 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['item_id'] = itemId;
-            query['article_id'] = articleId;
-            query['uid'] = uid;
-            query['slug'] = slug;
+            const query_params = {};
+            query_params['item_id'] = itemId;
+            query_params['article_id'] = articleId;
+            query_params['uid'] = uid;
+            query_params['slug'] = slug;
             
 
             return APIClient.execute(
@@ -2453,7 +2449,7 @@ class Cart {
                         url: this._urls["getBulkDiscountOffers"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2486,10 +2482,10 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -2499,7 +2495,7 @@ class Cart {
                         url: this._urls["applyRewardPoints"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2536,12 +2532,12 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['mobile_no'] = mobileNo;
-            query['checkout_mode'] = checkoutMode;
-            query['tags'] = tags;
-            query['is_default'] = isDefault;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['mobile_no'] = mobileNo;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['tags'] = tags;
+            query_params['is_default'] = isDefault;
             
 
             return APIClient.execute(
@@ -2551,7 +2547,7 @@ class Cart {
                         url: this._urls["getAddresses"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2575,7 +2571,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -2585,7 +2581,7 @@ class Cart {
                         url: this._urls["addAddress"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2625,12 +2621,12 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['mobile_no'] = mobileNo;
-            query['checkout_mode'] = checkoutMode;
-            query['tags'] = tags;
-            query['is_default'] = isDefault;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['mobile_no'] = mobileNo;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['tags'] = tags;
+            query_params['is_default'] = isDefault;
             
 
             return APIClient.execute(
@@ -2640,7 +2636,7 @@ class Cart {
                         url: this._urls["getAddressById"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2667,7 +2663,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -2677,7 +2673,7 @@ class Cart {
                         url: this._urls["updateAddress"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2702,7 +2698,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -2712,7 +2708,7 @@ class Cart {
                         url: this._urls["removeAddress"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2745,10 +2741,10 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -2758,7 +2754,7 @@ class Cart {
                         url: this._urls["selectAddress"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2785,8 +2781,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2796,7 +2792,7 @@ class Cart {
                         url: this._urls["selectPaymentMode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2836,13 +2832,13 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['address_id'] = addressId;
-            query['payment_mode'] = paymentMode;
-            query['payment_identifier'] = paymentIdentifier;
-            query['aggregator_name'] = aggregatorName;
-            query['merchant_code'] = merchantCode;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['address_id'] = addressId;
+            query_params['payment_mode'] = paymentMode;
+            query_params['payment_identifier'] = paymentIdentifier;
+            query_params['aggregator_name'] = aggregatorName;
+            query_params['merchant_code'] = merchantCode;
             
 
             return APIClient.execute(
@@ -2852,7 +2848,7 @@ class Cart {
                         url: this._urls["validateCouponForPayment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2886,11 +2882,11 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['p'] = p;
-            query['id'] = id;
-            query['address_id'] = addressId;
-            query['area_code'] = areaCode;
+            const query_params = {};
+            query_params['p'] = p;
+            query_params['id'] = id;
+            query_params['address_id'] = addressId;
+            query_params['area_code'] = areaCode;
             
 
             return APIClient.execute(
@@ -2900,7 +2896,7 @@ class Cart {
                         url: this._urls["getShipments"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -2924,7 +2920,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -2934,7 +2930,7 @@ class Cart {
                         url: this._urls["checkoutCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2961,8 +2957,8 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -2972,7 +2968,7 @@ class Cart {
                         url: this._urls["updateCartMeta"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -2996,7 +2992,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3006,7 +3002,7 @@ class Cart {
                         url: this._urls["getCartShareLink"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3031,7 +3027,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3041,7 +3037,7 @@ class Cart {
                         url: this._urls["getCartSharedItems"],
                         params: { token }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3069,7 +3065,7 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3079,7 +3075,7 @@ class Cart {
                         url: this._urls["updateCartWithSharedItems"],
                         params: { token, action }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3107,9 +3103,9 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['slug'] = slug;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['slug'] = slug;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -3119,7 +3115,7 @@ class Cart {
                         url: this._urls["getPromotionOffers"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3150,10 +3146,10 @@ class Cart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['slug'] = slug;
-            query['promotion_id'] = promotionId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['slug'] = slug;
+            query_params['promotion_id'] = promotionId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -3163,7 +3159,7 @@ class Cart {
                         url: this._urls["getLadderOffers"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3175,6 +3171,7 @@ class Common {
     constructor(_conf) {
         this._conf = _conf;
         this._relativeUrls = {
+            searchApplication: "/service/common/configuration/v1.0/application/search-application",
             getLocations: "/service/common/configuration/v1.0/location"
             
         }
@@ -3191,6 +3188,45 @@ class Common {
         }
     }
 
+    
+    /**
+    *
+    * @summary: Search Application
+    * @description: Search Application.
+    * @param {Object} arg - arg object.
+    * @param {string} [arg.authorization] - 
+    * @param {string} [arg.query] - Provide application name
+    
+    
+    * @return {Promise<ApplicationResponse>} - success response
+    **/
+        searchApplication({
+            authorization,
+            query
+            
+        } = {}) {
+            const { error } = CommonValidator.searchApplication().validate({ authorization,
+            query
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query_params = {};
+            query_params['query'] = query;
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "get",
+                    constructUrl({
+                        url: this._urls["searchApplication"],
+                        params: {  }
+                    }),
+                    query_params,
+                     undefined ,
+            );
+        }
+        
     
     /**
     *
@@ -3214,9 +3250,9 @@ class Common {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['location_type'] = locationType;
-            query['id'] = id;
+            const query_params = {};
+            query_params['location_type'] = locationType;
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -3226,7 +3262,7 @@ class Common {
                         url: this._urls["getLocations"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3280,7 +3316,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3290,7 +3326,7 @@ class Lead {
                         url: this._urls["getTicket"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3317,7 +3353,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3327,7 +3363,7 @@ class Lead {
                         url: this._urls["createHistory"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3351,7 +3387,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3361,7 +3397,7 @@ class Lead {
                         url: this._urls["createTicket"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3386,7 +3422,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3396,7 +3432,7 @@ class Lead {
                         url: this._urls["getCustomForm"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3423,7 +3459,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3433,7 +3469,7 @@ class Lead {
                         url: this._urls["submitCustomForm"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3458,7 +3494,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3468,7 +3504,7 @@ class Lead {
                         url: this._urls["getParticipantsInsideVideoRoom"],
                         params: { uniqueName }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3493,7 +3529,7 @@ class Lead {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3503,7 +3539,7 @@ class Lead {
                         url: this._urls["getTokenForVideoRoom"],
                         params: { uniqueName }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3554,7 +3590,7 @@ class Theme {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3564,7 +3600,7 @@ class Theme {
                         url: this._urls["getAllPages"],
                         params: { themeId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3592,7 +3628,7 @@ class Theme {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3602,7 +3638,7 @@ class Theme {
                         url: this._urls["getPage"],
                         params: { themeId, pageValue }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3624,7 +3660,7 @@ class Theme {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3634,7 +3670,7 @@ class Theme {
                         url: this._urls["getAppliedTheme"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3659,7 +3695,7 @@ class Theme {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3669,7 +3705,7 @@ class Theme {
                         url: this._urls["getThemeForPreview"],
                         params: { themeId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -3751,8 +3787,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3762,7 +3798,7 @@ class User {
                         url: this._urls["loginWithFacebook"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3789,8 +3825,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3800,7 +3836,7 @@ class User {
                         url: this._urls["loginWithGoogle"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3827,8 +3863,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3838,7 +3874,7 @@ class User {
                         url: this._urls["loginWithGoogleAndroid"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3865,8 +3901,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3876,7 +3912,7 @@ class User {
                         url: this._urls["loginWithGoogleIOS"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3903,8 +3939,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3914,7 +3950,7 @@ class User {
                         url: this._urls["loginWithAppleIOS"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3941,8 +3977,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -3952,7 +3988,7 @@ class User {
                         url: this._urls["loginWithOTP"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -3976,7 +4012,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -3986,7 +4022,7 @@ class User {
                         url: this._urls["loginWithEmailAndPassword"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4013,8 +4049,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4024,7 +4060,7 @@ class User {
                         url: this._urls["sendResetPasswordEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4048,7 +4084,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4058,7 +4094,7 @@ class User {
                         url: this._urls["forgotPassword"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4082,7 +4118,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4092,7 +4128,7 @@ class User {
                         url: this._urls["sendResetToken"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4116,7 +4152,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4126,7 +4162,7 @@ class User {
                         url: this._urls["loginWithToken"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4153,8 +4189,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4164,7 +4200,7 @@ class User {
                         url: this._urls["registerWithForm"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4188,7 +4224,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4198,7 +4234,7 @@ class User {
                         url: this._urls["verifyEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4222,7 +4258,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4232,7 +4268,7 @@ class User {
                         url: this._urls["verifyMobile"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4254,7 +4290,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4264,7 +4300,7 @@ class User {
                         url: this._urls["hasPassword"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4288,7 +4324,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4298,7 +4334,7 @@ class User {
                         url: this._urls["updatePassword"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4320,7 +4356,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4330,7 +4366,7 @@ class User {
                         url: this._urls["logout"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4357,8 +4393,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4368,7 +4404,7 @@ class User {
                         url: this._urls["sendOTPOnMobile"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4395,8 +4431,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4406,7 +4442,7 @@ class User {
                         url: this._urls["verifyMobileOTP"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4433,8 +4469,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4444,7 +4480,7 @@ class User {
                         url: this._urls["sendOTPOnEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4471,8 +4507,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4482,7 +4518,7 @@ class User {
                         url: this._urls["verifyEmailOTP"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4504,7 +4540,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4514,7 +4550,7 @@ class User {
                         url: this._urls["getLoggedInUser"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4536,7 +4572,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4546,7 +4582,7 @@ class User {
                         url: this._urls["getListOfActiveSessions"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4571,8 +4607,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['name'] = name;
+            const query_params = {};
+            query_params['name'] = name;
             
 
             return APIClient.execute(
@@ -4582,7 +4618,7 @@ class User {
                         url: this._urls["getPlatformConfig"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4609,8 +4645,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4620,7 +4656,7 @@ class User {
                         url: this._urls["updateProfile"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4647,8 +4683,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4658,7 +4694,7 @@ class User {
                         url: this._urls["addMobileNumber"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4698,13 +4734,13 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
-            query['active'] = active;
-            query['primary'] = primary;
-            query['verified'] = verified;
-            query['country_code'] = countryCode;
-            query['phone'] = phone;
+            const query_params = {};
+            query_params['platform'] = platform;
+            query_params['active'] = active;
+            query_params['primary'] = primary;
+            query_params['verified'] = verified;
+            query_params['country_code'] = countryCode;
+            query_params['phone'] = phone;
             
 
             return APIClient.execute(
@@ -4714,7 +4750,7 @@ class User {
                         url: this._urls["deleteMobileNumber"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4738,7 +4774,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4748,7 +4784,7 @@ class User {
                         url: this._urls["setMobileNumberAsPrimary"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4775,8 +4811,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4786,7 +4822,7 @@ class User {
                         url: this._urls["sendVerificationLinkToMobile"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4813,8 +4849,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4824,7 +4860,7 @@ class User {
                         url: this._urls["addEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4861,12 +4897,12 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
-            query['active'] = active;
-            query['primary'] = primary;
-            query['verified'] = verified;
-            query['email'] = email;
+            const query_params = {};
+            query_params['platform'] = platform;
+            query_params['active'] = active;
+            query_params['primary'] = primary;
+            query_params['verified'] = verified;
+            query_params['email'] = email;
             
 
             return APIClient.execute(
@@ -4876,7 +4912,7 @@ class User {
                         url: this._urls["deleteEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -4900,7 +4936,7 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -4910,7 +4946,7 @@ class User {
                         url: this._urls["setEmailAsPrimary"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -4937,8 +4973,8 @@ class User {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['platform'] = platform;
+            const query_params = {};
+            query_params['platform'] = platform;
             
 
             return APIClient.execute(
@@ -4948,7 +4984,7 @@ class User {
                         url: this._urls["sendVerificationLinkToEmail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -5011,7 +5047,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5021,7 +5057,7 @@ class Content {
                         url: this._urls["getAnnouncements"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5049,8 +5085,8 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['root_id'] = rootId;
+            const query_params = {};
+            query_params['root_id'] = rootId;
             
 
             return APIClient.execute(
@@ -5060,7 +5096,7 @@ class Content {
                         url: this._urls["getBlog"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5088,9 +5124,9 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -5100,7 +5136,7 @@ class Content {
                         url: this._urls["getBlogs"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5163,7 +5199,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5173,7 +5209,7 @@ class Content {
                         url: this._urls["getDataLoaders"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5195,7 +5231,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5205,7 +5241,7 @@ class Content {
                         url: this._urls["getFaqs"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5227,7 +5263,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5237,7 +5273,7 @@ class Content {
                         url: this._urls["getFaqCategories"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5262,7 +5298,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5272,7 +5308,7 @@ class Content {
                         url: this._urls["getFaqBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5297,7 +5333,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5307,7 +5343,7 @@ class Content {
                         url: this._urls["getFaqCategoryBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5332,7 +5368,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5342,7 +5378,7 @@ class Content {
                         url: this._urls["getFaqsByCategorySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5364,7 +5400,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5374,7 +5410,7 @@ class Content {
                         url: this._urls["getLandingPage"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5396,7 +5432,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5406,7 +5442,7 @@ class Content {
                         url: this._urls["getLegalInformation"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5434,9 +5470,9 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -5446,7 +5482,7 @@ class Content {
                         url: this._urls["getNavigations"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5509,7 +5545,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5519,7 +5555,7 @@ class Content {
                         url: this._urls["getSEOConfiguration"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5547,9 +5583,9 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -5559,7 +5595,7 @@ class Content {
                         url: this._urls["getSlideshows"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5625,7 +5661,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5635,7 +5671,7 @@ class Content {
                         url: this._urls["getSlideshow"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5657,7 +5693,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5667,7 +5703,7 @@ class Content {
                         url: this._urls["getSupportInformation"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5689,7 +5725,7 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5699,7 +5735,7 @@ class Content {
                         url: this._urls["getTags"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5727,8 +5763,8 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['root_id'] = rootId;
+            const query_params = {};
+            query_params['root_id'] = rootId;
             
 
             return APIClient.execute(
@@ -5738,7 +5774,7 @@ class Content {
                         url: this._urls["getPage"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5766,9 +5802,9 @@ class Content {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -5778,7 +5814,7 @@ class Content {
                         url: this._urls["getPages"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5866,7 +5902,7 @@ class Communication {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5876,7 +5912,7 @@ class Communication {
                         url: this._urls["getCommunicationConsent"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -5900,7 +5936,7 @@ class Communication {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5910,7 +5946,7 @@ class Communication {
                         url: this._urls["upsertCommunicationConsent"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -5934,7 +5970,7 @@ class Communication {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -5944,7 +5980,7 @@ class Communication {
                         url: this._urls["upsertAppPushtoken"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -5995,7 +6031,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6005,7 +6041,7 @@ class Share {
                         url: this._urls["getApplicationQRCode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6030,7 +6066,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6040,7 +6076,7 @@ class Share {
                         url: this._urls["getProductQRCodeBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6065,7 +6101,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6075,7 +6111,7 @@ class Share {
                         url: this._urls["getCollectionQRCodeBySlug"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6100,8 +6136,8 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['url'] = url;
+            const query_params = {};
+            query_params['url'] = url;
             
 
             return APIClient.execute(
@@ -6111,7 +6147,7 @@ class Share {
                         url: this._urls["getUrlQRCode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6135,7 +6171,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6145,7 +6181,7 @@ class Share {
                         url: this._urls["createShortLink"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -6170,7 +6206,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6180,7 +6216,7 @@ class Share {
                         url: this._urls["getShortLinkByHash"],
                         params: { hash }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6205,7 +6241,7 @@ class Share {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6215,7 +6251,7 @@ class Share {
                         url: this._urls["getOriginalShortLinkByHash"],
                         params: { hash }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6285,7 +6321,7 @@ This operation will return the URL of the uploaded file.
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6295,7 +6331,7 @@ This operation will return the URL of the uploaded file.
                         url: this._urls["startUpload"],
                         params: { namespace }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -6340,7 +6376,7 @@ This operation will return the URL of the uploaded file.
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6350,7 +6386,7 @@ This operation will return the URL of the uploaded file.
                         url: this._urls["completeUpload"],
                         params: { namespace }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -6374,7 +6410,7 @@ This operation will return the URL of the uploaded file.
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6384,7 +6420,7 @@ This operation will return the URL of the uploaded file.
                         url: this._urls["signUrls"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -6443,7 +6479,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6453,7 +6489,7 @@ class Configuration {
                         url: this._urls["getApplication"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6475,7 +6511,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6485,7 +6521,7 @@ class Configuration {
                         url: this._urls["getOwnerInfo"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6507,7 +6543,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6517,7 +6553,7 @@ class Configuration {
                         url: this._urls["getBasicDetails"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6539,7 +6575,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6549,7 +6585,7 @@ class Configuration {
                         url: this._urls["getIntegrationTokens"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6580,10 +6616,10 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['q'] = q;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
+            query_params['q'] = q;
             
 
             return APIClient.execute(
@@ -6593,7 +6629,7 @@ class Configuration {
                         url: this._urls["getOrderingStores"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6666,7 +6702,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6676,7 +6712,7 @@ class Configuration {
                         url: this._urls["getStoreDetailById"],
                         params: { storeId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6698,7 +6734,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6708,7 +6744,7 @@ class Configuration {
                         url: this._urls["getFeatures"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6730,7 +6766,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6740,7 +6776,7 @@ class Configuration {
                         url: this._urls["getContactInfo"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6762,7 +6798,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6772,7 +6808,7 @@ class Configuration {
                         url: this._urls["getCurrencies"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6797,7 +6833,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6807,7 +6843,7 @@ class Configuration {
                         url: this._urls["getCurrencyById"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6829,7 +6865,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6839,7 +6875,7 @@ class Configuration {
                         url: this._urls["getAppCurrencies"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6861,7 +6897,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6871,7 +6907,7 @@ class Configuration {
                         url: this._urls["getLanguages"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6895,7 +6931,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6905,7 +6941,7 @@ class Configuration {
                         url: this._urls["getOrderingStoreCookie"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -6927,7 +6963,7 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -6937,7 +6973,7 @@ class Configuration {
                         url: this._urls["removeOrderingStoreCookie"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -6968,10 +7004,10 @@ class Configuration {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['order_incent'] = orderIncent;
-            query['ordering_store'] = orderingStore;
-            query['user'] = user;
+            const query_params = {};
+            query_params['order_incent'] = orderIncent;
+            query_params['ordering_store'] = orderingStore;
+            query_params['user'] = user;
             
 
             return APIClient.execute(
@@ -6981,7 +7017,7 @@ class Configuration {
                         url: this._urls["getAppStaffs"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7058,8 +7094,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['refresh'] = refresh;
+            const query_params = {};
+            query_params['refresh'] = refresh;
             
 
             return APIClient.execute(
@@ -7069,7 +7105,7 @@ class Payment {
                         url: this._urls["getAggregatorsConfig"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7093,7 +7129,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7103,7 +7139,7 @@ class Payment {
                         url: this._urls["attachCardToCustomer"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7128,8 +7164,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['refresh'] = refresh;
+            const query_params = {};
+            query_params['refresh'] = refresh;
             
 
             return APIClient.execute(
@@ -7139,7 +7175,7 @@ class Payment {
                         url: this._urls["getActiveCardAggregator"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7164,8 +7200,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['force_refresh'] = forceRefresh;
+            const query_params = {};
+            query_params['force_refresh'] = forceRefresh;
             
 
             return APIClient.execute(
@@ -7175,7 +7211,7 @@ class Payment {
                         url: this._urls["getActiveUserCards"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7199,7 +7235,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7209,7 +7245,7 @@ class Payment {
                         url: this._urls["deleteUserCard"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7233,7 +7269,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7243,7 +7279,7 @@ class Payment {
                         url: this._urls["verifyCustomerForPayment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7267,7 +7303,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7277,7 +7313,7 @@ class Payment {
                         url: this._urls["verifyAndChargePayment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7301,7 +7337,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7311,7 +7347,7 @@ class Payment {
                         url: this._urls["initialisePayment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7335,7 +7371,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7345,7 +7381,7 @@ class Payment {
                         url: this._urls["checkAndUpdatePaymentStatus"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7388,14 +7424,14 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['amount'] = amount;
-            query['cart_id'] = cartId;
-            query['pincode'] = pincode;
-            query['checkout_mode'] = checkoutMode;
-            query['refresh'] = refresh;
-            query['card_reference'] = cardReference;
-            query['user_details'] = userDetails;
+            const query_params = {};
+            query_params['amount'] = amount;
+            query_params['cart_id'] = cartId;
+            query_params['pincode'] = pincode;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['refresh'] = refresh;
+            query_params['card_reference'] = cardReference;
+            query_params['user_details'] = userDetails;
             
 
             return APIClient.execute(
@@ -7405,7 +7441,7 @@ class Payment {
                         url: this._urls["getPaymentModeRoutes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7451,15 +7487,15 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['amount'] = amount;
-            query['cart_id'] = cartId;
-            query['pincode'] = pincode;
-            query['checkout_mode'] = checkoutMode;
-            query['refresh'] = refresh;
-            query['card_reference'] = cardReference;
-            query['order_type'] = orderType;
-            query['user_details'] = userDetails;
+            const query_params = {};
+            query_params['amount'] = amount;
+            query_params['cart_id'] = cartId;
+            query_params['pincode'] = pincode;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['refresh'] = refresh;
+            query_params['card_reference'] = cardReference;
+            query_params['order_type'] = orderType;
+            query_params['user_details'] = userDetails;
             
 
             return APIClient.execute(
@@ -7469,7 +7505,7 @@ class Payment {
                         url: this._urls["getPosPaymentModeRoutes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7491,7 +7527,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7501,7 +7537,7 @@ class Payment {
                         url: this._urls["getRupifiBannerDetails"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7523,7 +7559,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7533,7 +7569,7 @@ class Payment {
                         url: this._urls["getEpaylaterBannerDetails"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7555,7 +7591,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7565,7 +7601,7 @@ class Payment {
                         url: this._urls["getActiveRefundTransferModes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7589,7 +7625,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7599,7 +7635,7 @@ class Payment {
                         url: this._urls["enableOrDisableRefundTransferMode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7624,8 +7660,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['order_id'] = orderId;
+            const query_params = {};
+            query_params['order_id'] = orderId;
             
 
             return APIClient.execute(
@@ -7635,7 +7671,7 @@ class Payment {
                         url: this._urls["getUserBeneficiariesDetail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7660,8 +7696,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['ifsc_code'] = ifscCode;
+            const query_params = {};
+            query_params['ifsc_code'] = ifscCode;
             
 
             return APIClient.execute(
@@ -7671,7 +7707,7 @@ class Payment {
                         url: this._urls["verifyIfscCode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7696,8 +7732,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['order_id'] = orderId;
+            const query_params = {};
+            query_params['order_id'] = orderId;
             
 
             return APIClient.execute(
@@ -7707,7 +7743,7 @@ class Payment {
                         url: this._urls["getOrderBeneficiariesDetail"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7731,7 +7767,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7741,7 +7777,7 @@ class Payment {
                         url: this._urls["verifyOtpAndAddBeneficiaryForBank"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7765,7 +7801,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7775,7 +7811,7 @@ class Payment {
                         url: this._urls["addBeneficiaryDetails"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7799,7 +7835,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7809,7 +7845,7 @@ class Payment {
                         url: this._urls["addRefundBankAccountUsingOTP"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7833,7 +7869,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7843,7 +7879,7 @@ class Payment {
                         url: this._urls["verifyOtpAndAddBeneficiaryForWallet"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7867,7 +7903,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -7877,7 +7913,7 @@ class Payment {
                         url: this._urls["updateDefaultBeneficiary"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -7902,8 +7938,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['aggregator'] = aggregator;
+            const query_params = {};
+            query_params['aggregator'] = aggregator;
             
 
             return APIClient.execute(
@@ -7913,7 +7949,7 @@ class Payment {
                         url: this._urls["CustomerCreditSummary"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7938,8 +7974,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['source'] = source;
+            const query_params = {};
+            query_params['source'] = source;
             
 
             return APIClient.execute(
@@ -7949,7 +7985,7 @@ class Payment {
                         url: this._urls["RedirectToAggregator"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -7974,8 +8010,8 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['aggregator'] = aggregator;
+            const query_params = {};
+            query_params['aggregator'] = aggregator;
             
 
             return APIClient.execute(
@@ -7985,7 +8021,7 @@ class Payment {
                         url: this._urls["CheckCredit"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8009,7 +8045,7 @@ class Payment {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8019,7 +8055,7 @@ class Payment {
                         url: this._urls["CustomerOnboard"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8088,12 +8124,12 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
-            query['from_date'] = fromDate;
-            query['to_date'] = toDate;
-            query['status'] = status;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
+            query_params['from_date'] = fromDate;
+            query_params['to_date'] = toDate;
+            query_params['status'] = status;
             
 
             return APIClient.execute(
@@ -8103,7 +8139,7 @@ class Order {
                         url: this._urls["getOrders"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8128,7 +8164,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8138,7 +8174,7 @@ class Order {
                         url: this._urls["getOrderById"],
                         params: { orderId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8163,7 +8199,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8173,7 +8209,7 @@ class Order {
                         url: this._urls["getShipmentById"],
                         params: { shipmentId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8198,7 +8234,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8208,7 +8244,7 @@ class Order {
                         url: this._urls["getShipmentReasons"],
                         params: { shipmentId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8235,7 +8271,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8245,7 +8281,7 @@ class Order {
                         url: this._urls["updateShipmentStatus"],
                         params: { shipmentId }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8270,7 +8306,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8280,7 +8316,7 @@ class Order {
                         url: this._urls["trackShipment"],
                         params: { shipmentId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8305,7 +8341,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8315,7 +8351,7 @@ class Order {
                         url: this._urls["getPosOrderById"],
                         params: { orderId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8343,7 +8379,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8353,7 +8389,7 @@ class Order {
                         url: this._urls["getCustomerDetailsByShipmentId"],
                         params: { orderId, shipmentId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8381,7 +8417,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8391,7 +8427,7 @@ class Order {
                         url: this._urls["sendOtpToShipmentCustomer"],
                         params: { orderId, shipmentId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8421,7 +8457,7 @@ class Order {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8431,7 +8467,7 @@ class Order {
                         url: this._urls["verifyOtpShipmentCustomer"],
                         params: { orderId, shipmentId }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8484,7 +8520,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8494,7 +8530,7 @@ class Rewards {
                         url: this._urls["getPointsOnProduct"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8519,7 +8555,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8529,7 +8565,7 @@ class Rewards {
                         url: this._urls["getOfferByName"],
                         params: { name }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8553,7 +8589,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8563,7 +8599,7 @@ class Rewards {
                         url: this._urls["getOrderDiscount"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8585,7 +8621,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8595,7 +8631,7 @@ class Rewards {
                         url: this._urls["getUserPoints"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8623,9 +8659,9 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -8635,7 +8671,7 @@ class Rewards {
                         url: this._urls["getUserPointsHistory"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8700,7 +8736,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8710,7 +8746,7 @@ class Rewards {
                         url: this._urls["getUserReferralDetails"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -8734,7 +8770,7 @@ class Rewards {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8744,7 +8780,7 @@ class Rewards {
                         url: this._urls["redeemReferralCode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8816,7 +8852,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8826,7 +8862,7 @@ class Feedback {
                         url: this._urls["createAbuseReport"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8850,7 +8886,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -8860,7 +8896,7 @@ class Feedback {
                         url: this._urls["updateAbuseReport"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -8897,10 +8933,10 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -8910,7 +8946,7 @@ class Feedback {
                         url: this._urls["getAbuseReports"],
                         params: { entityId, entityType }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9002,9 +9038,9 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -9014,7 +9050,7 @@ class Feedback {
                         url: this._urls["getAttributes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9079,7 +9115,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9089,7 +9125,7 @@ class Feedback {
                         url: this._urls["createAttribute"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9114,7 +9150,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9124,7 +9160,7 @@ class Feedback {
                         url: this._urls["getAttribute"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9151,7 +9187,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9161,7 +9197,7 @@ class Feedback {
                         url: this._urls["updateAttribute"],
                         params: { slug }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9185,7 +9221,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9195,7 +9231,7 @@ class Feedback {
                         url: this._urls["createComment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9219,7 +9255,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9229,7 +9265,7 @@ class Feedback {
                         url: this._urls["updateComment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9269,12 +9305,12 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['entity_id'] = entityId;
-            query['user_id'] = userId;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['entity_id'] = entityId;
+            query_params['user_id'] = userId;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -9284,7 +9320,7 @@ class Feedback {
                         url: this._urls["getComments"],
                         params: { entityType }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9383,7 +9419,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9393,7 +9429,7 @@ class Feedback {
                         url: this._urls["checkEligibility"],
                         params: { entityType, entityId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9418,8 +9454,8 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['ids'] = ids;
+            const query_params = {};
+            query_params['ids'] = ids;
             
 
             return APIClient.execute(
@@ -9429,7 +9465,7 @@ class Feedback {
                         url: this._urls["deleteMedia"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9453,7 +9489,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9463,7 +9499,7 @@ class Feedback {
                         url: this._urls["createMedia"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9487,7 +9523,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9497,7 +9533,7 @@ class Feedback {
                         url: this._urls["updateMedia"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9537,11 +9573,11 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['type'] = type;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['type'] = type;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -9551,7 +9587,7 @@ class Feedback {
                         url: this._urls["getMedias"],
                         params: { entityType, entityId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9659,10 +9695,10 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -9672,7 +9708,7 @@ class Feedback {
                         url: this._urls["getReviewSummaries"],
                         params: { entityType, entityId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -9760,7 +9796,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9770,7 +9806,7 @@ class Feedback {
                         url: this._urls["createReview"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9794,7 +9830,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -9804,7 +9840,7 @@ class Feedback {
                         url: this._urls["updateReview"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -9865,18 +9901,18 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['user_id'] = userId;
-            query['media'] = media;
-            query['rating'] = rating;
-            query['attribute_rating'] = attributeRating;
-            query['facets'] = facets;
-            query['sort'] = sort;
-            query['active'] = active;
-            query['approve'] = approve;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['user_id'] = userId;
+            query_params['media'] = media;
+            query_params['rating'] = rating;
+            query_params['attribute_rating'] = attributeRating;
+            query_params['facets'] = facets;
+            query_params['sort'] = sort;
+            query_params['active'] = active;
+            query_params['approve'] = approve;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -9886,7 +9922,7 @@ class Feedback {
                         url: this._urls["getReviews"],
                         params: { entityType, entityId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10037,10 +10073,10 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['template_id'] = templateId;
-            query['entity_id'] = entityId;
-            query['entity_type'] = entityType;
+            const query_params = {};
+            query_params['template_id'] = templateId;
+            query_params['entity_id'] = entityId;
+            query_params['entity_type'] = entityType;
             
 
             return APIClient.execute(
@@ -10050,7 +10086,7 @@ class Feedback {
                         url: this._urls["getTemplates"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10074,7 +10110,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -10084,7 +10120,7 @@ class Feedback {
                         url: this._urls["createQuestion"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10108,7 +10144,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -10118,7 +10154,7 @@ class Feedback {
                         url: this._urls["updateQuestion"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10161,12 +10197,12 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['user_id'] = userId;
-            query['show_answer'] = showAnswer;
-            query['page_id'] = pageId;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['user_id'] = userId;
+            query_params['show_answer'] = showAnswer;
+            query_params['page_id'] = pageId;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -10176,7 +10212,7 @@ class Feedback {
                         url: this._urls["getQuestionAndAnswers"],
                         params: { entityType, entityId }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10288,11 +10324,11 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['ref_type'] = refType;
-            query['page_no'] = pageNo;
-            query['page_size'] = pageSize;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['ref_type'] = refType;
+            query_params['page_no'] = pageNo;
+            query_params['page_size'] = pageSize;
             
 
             return APIClient.execute(
@@ -10302,7 +10338,7 @@ class Feedback {
                         url: this._urls["getVotes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10381,7 +10417,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -10391,7 +10427,7 @@ class Feedback {
                         url: this._urls["createVote"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10415,7 +10451,7 @@ class Feedback {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -10425,7 +10461,7 @@ class Feedback {
                         url: this._urls["updateVote"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10508,11 +10544,11 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
-            query['assign_card_id'] = assignCardId;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
+            query_params['assign_card_id'] = assignCardId;
             
 
             return APIClient.execute(
@@ -10522,7 +10558,7 @@ class PosCart {
                         url: this._urls["getCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10547,8 +10583,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -10558,7 +10594,7 @@ class PosCart {
                         url: this._urls["getCartLastModified"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10588,9 +10624,9 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -10600,7 +10636,7 @@ class PosCart {
                         url: this._urls["addItems"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10633,10 +10669,10 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -10646,7 +10682,7 @@ class PosCart {
                         url: this._urls["updateCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10671,8 +10707,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -10682,7 +10718,7 @@ class PosCart {
                         url: this._urls["getItemCount"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10707,8 +10743,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -10718,7 +10754,7 @@ class PosCart {
                         url: this._urls["getCoupons"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10754,11 +10790,11 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['i'] = i;
-            query['b'] = b;
-            query['p'] = p;
-            query['id'] = id;
+            const query_params = {};
+            query_params['i'] = i;
+            query_params['b'] = b;
+            query_params['p'] = p;
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -10768,7 +10804,7 @@ class PosCart {
                         url: this._urls["applyCoupon"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10793,8 +10829,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -10804,7 +10840,7 @@ class PosCart {
                         url: this._urls["removeCoupon"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10838,11 +10874,11 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['item_id'] = itemId;
-            query['article_id'] = articleId;
-            query['uid'] = uid;
-            query['slug'] = slug;
+            const query_params = {};
+            query_params['item_id'] = itemId;
+            query_params['article_id'] = articleId;
+            query_params['uid'] = uid;
+            query_params['slug'] = slug;
             
 
             return APIClient.execute(
@@ -10852,7 +10888,7 @@ class PosCart {
                         url: this._urls["getBulkDiscountOffers"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10885,10 +10921,10 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -10898,7 +10934,7 @@ class PosCart {
                         url: this._urls["applyRewardPoints"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -10935,12 +10971,12 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['mobile_no'] = mobileNo;
-            query['checkout_mode'] = checkoutMode;
-            query['tags'] = tags;
-            query['is_default'] = isDefault;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['mobile_no'] = mobileNo;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['tags'] = tags;
+            query_params['is_default'] = isDefault;
             
 
             return APIClient.execute(
@@ -10950,7 +10986,7 @@ class PosCart {
                         url: this._urls["getAddresses"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -10974,7 +11010,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -10984,7 +11020,7 @@ class PosCart {
                         url: this._urls["addAddress"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11024,12 +11060,12 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['mobile_no'] = mobileNo;
-            query['checkout_mode'] = checkoutMode;
-            query['tags'] = tags;
-            query['is_default'] = isDefault;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['mobile_no'] = mobileNo;
+            query_params['checkout_mode'] = checkoutMode;
+            query_params['tags'] = tags;
+            query_params['is_default'] = isDefault;
             
 
             return APIClient.execute(
@@ -11039,7 +11075,7 @@ class PosCart {
                         url: this._urls["getAddressById"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11066,7 +11102,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11076,7 +11112,7 @@ class PosCart {
                         url: this._urls["updateAddress"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11101,7 +11137,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11111,7 +11147,7 @@ class PosCart {
                         url: this._urls["removeAddress"],
                         params: { id }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11144,10 +11180,10 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['cart_id'] = cartId;
-            query['i'] = i;
-            query['b'] = b;
+            const query_params = {};
+            query_params['cart_id'] = cartId;
+            query_params['i'] = i;
+            query_params['b'] = b;
             
 
             return APIClient.execute(
@@ -11157,7 +11193,7 @@ class PosCart {
                         url: this._urls["selectAddress"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11184,8 +11220,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -11195,7 +11231,7 @@ class PosCart {
                         url: this._urls["selectPaymentMode"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11235,13 +11271,13 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
-            query['address_id'] = addressId;
-            query['payment_mode'] = paymentMode;
-            query['payment_identifier'] = paymentIdentifier;
-            query['aggregator_name'] = aggregatorName;
-            query['merchant_code'] = merchantCode;
+            const query_params = {};
+            query_params['id'] = id;
+            query_params['address_id'] = addressId;
+            query_params['payment_mode'] = paymentMode;
+            query_params['payment_identifier'] = paymentIdentifier;
+            query_params['aggregator_name'] = aggregatorName;
+            query_params['merchant_code'] = merchantCode;
             
 
             return APIClient.execute(
@@ -11251,7 +11287,7 @@ class PosCart {
                         url: this._urls["validateCouponForPayment"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11294,14 +11330,14 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['pick_at_store_uid'] = pickAtStoreUid;
-            query['ordering_store_id'] = orderingStoreId;
-            query['p'] = p;
-            query['id'] = id;
-            query['address_id'] = addressId;
-            query['area_code'] = areaCode;
-            query['order_type'] = orderType;
+            const query_params = {};
+            query_params['pick_at_store_uid'] = pickAtStoreUid;
+            query_params['ordering_store_id'] = orderingStoreId;
+            query_params['p'] = p;
+            query_params['id'] = id;
+            query_params['address_id'] = addressId;
+            query_params['area_code'] = areaCode;
+            query_params['order_type'] = orderType;
             
 
             return APIClient.execute(
@@ -11311,7 +11347,7 @@ class PosCart {
                         url: this._urls["getShipments"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11350,12 +11386,12 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['i'] = i;
-            query['p'] = p;
-            query['id'] = id;
-            query['address_id'] = addressId;
-            query['order_type'] = orderType;
+            const query_params = {};
+            query_params['i'] = i;
+            query_params['p'] = p;
+            query_params['id'] = id;
+            query_params['address_id'] = addressId;
+            query_params['order_type'] = orderType;
             
 
             return APIClient.execute(
@@ -11365,7 +11401,7 @@ class PosCart {
                         url: this._urls["updateShipments"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11392,8 +11428,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -11403,7 +11439,7 @@ class PosCart {
                         url: this._urls["checkoutCart"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11430,8 +11466,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['id'] = id;
+            const query_params = {};
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -11441,7 +11477,7 @@ class PosCart {
                         url: this._urls["updateCartMeta"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11469,9 +11505,9 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['area_code'] = areaCode;
-            query['id'] = id;
+            const query_params = {};
+            query_params['area_code'] = areaCode;
+            query_params['id'] = id;
             
 
             return APIClient.execute(
@@ -11481,7 +11517,7 @@ class PosCart {
                         url: this._urls["getAvailableDeliveryModes"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11506,8 +11542,8 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
-            query['store_uid'] = storeUid;
+            const query_params = {};
+            query_params['store_uid'] = storeUid;
             
 
             return APIClient.execute(
@@ -11517,7 +11553,7 @@ class PosCart {
                         url: this._urls["getStoreAddressByUid"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11541,7 +11577,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11551,7 +11587,7 @@ class PosCart {
                         url: this._urls["getCartShareLink"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11576,7 +11612,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11586,7 +11622,7 @@ class PosCart {
                         url: this._urls["getCartSharedItems"],
                         params: { token }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11614,7 +11650,7 @@ class PosCart {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11624,7 +11660,7 @@ class PosCart {
                         url: this._urls["updateCartWithSharedItems"],
                         params: { token, action }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }
@@ -11672,7 +11708,7 @@ class Logistic {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11682,7 +11718,7 @@ class Logistic {
                         url: this._urls["getTatProduct"],
                         params: {  }
                     }),
-                    query,
+                    query_params,
                     body,
             );
         }
@@ -11707,7 +11743,7 @@ class Logistic {
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
             }
-            const query = {};
+            const query_params = {};
             
 
             return APIClient.execute(
@@ -11717,7 +11753,7 @@ class Logistic {
                         url: this._urls["getPincodeCity"],
                         params: { pincode }
                     }),
-                    query,
+                    query_params,
                      undefined ,
             );
         }

@@ -2,7 +2,6 @@ const querystring = require("query-string");
 const { fdkAxios } = require("../common/AxiosHelper");
 const { sign } = require("../common/RequestSigner");
 const { FDKTokenIssueError, FDKOAuthCodeError } = require("../common/FDKError");
-
 class OAuthClient {
   constructor(config) {
     this.config = config;
@@ -11,10 +10,27 @@ class OAuthClient {
     this.retryOAuthTokenTimer = null;
     this.raw_token = null;
     this.token_expires_in = null;
+    this.token_expires_at = 0;
+    this.useAutoRenewTimer = config.useAutoRenewTimer || true;
   }
 
-  getAccessToken(){
+  async getAccessToken(){
+    if (!this.useAutoRenewTimer && this.refreshToken && this.isTokenExpired(120)) {
+      // Check if token is about to expire in less than 2 mins. 
+      // Renew if to be expired and auto renew timer is not enabled.
+      await this.renewAccessToken();
+    }
     return this.token;
+  }
+
+  // default TTL checked 0 seconds
+  isTokenExpired(ttl=0) {
+    const currentTimestamp = (new Date()).getTime();
+    // Check if token is about to expire in less than 2 mins
+    if (((this.token_expires_at - currentTimestamp)/1000) < ttl) {
+      return true
+    }
+    return false;
   }
 
   setToken(token) {
@@ -22,7 +38,7 @@ class OAuthClient {
     this.token_expires_in = token.expires_in;
     this.token = token.access_token;
     this.refreshToken = token.refresh_token ? token.refresh_token : null;
-    if (this.refreshToken) {
+    if (this.refreshToken && this.useAutoRenewTimer) {
       this.retryOAuthToken(token.expires_in);
     }
   }
@@ -76,6 +92,7 @@ class OAuthClient {
         code: query.code,
       });
       this.setToken(res);
+      this.token_expires_at = (new Date()).getTime() + this.token_expires_in;
     } catch (error) {
       if (error.isAxiosError) {
         throw new FDKTokenIssueError(error.message);
@@ -91,6 +108,7 @@ class OAuthClient {
         refresh_token: this.refreshToken
       });
       this.setToken(res);
+      this.token_expires_at = (new Date()).getTime() + this.token_expires_in;
       return res;
     } catch (error) {
       if (error.isAxiosError) {
