@@ -13,7 +13,7 @@ class PlatformConfig {
     this.domain = config.domain || 'https://api.fynd.com';
     this.apiKey = config.apiKey;
     this.apiSecret = config.apiSecret;
-    this.useAutoRenewTimer = config.useAutoRenewTimer || true;
+    this.useAutoRenewTimer = config.useAutoRenewTimer !== undefined? config.useAutoRenewTimer: true;
     this.oauthClient = new OauthClient(this);
   }
   async getAccessToken() {

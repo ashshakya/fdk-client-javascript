@@ -11,7 +11,7 @@ class OAuthClient {
     this.raw_token = null;
     this.token_expires_in = null;
     this.token_expires_at = 0;
-    this.useAutoRenewTimer = config.useAutoRenewTimer || true;
+    this.useAutoRenewTimer = config.useAutoRenewTimer !== undefined? config.useAutoRenewTimer: true;
   }
 
   async getAccessToken(){
