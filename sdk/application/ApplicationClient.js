@@ -63,7 +63,7 @@ class ApplicationClient{
         
     }
     setCookie(cookie){
-        APIClient.setCookie(cookie);
+        this.config.cookie = cookie;
     }
 }
 
@@ -90,8 +90,8 @@ class Catalog {
             getDepartments: "/service/application/catalog/v1.0/departments/",
             getSearchResults: "/service/application/catalog/v1.0/auto-complete/",
             getFollowedListing: "/service/application/catalog/v1.0/follow/{collection_type}/",
-            unfollowById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             followById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
+            unfollowById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/",
             getFollowerCountById: "/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/",
             getFollowIds: "/service/application/catalog/v1.0/follow/ids/",
             getStores: "/service/application/catalog/v1.0/locations/",
@@ -1116,44 +1116,6 @@ class Catalog {
     
     /**
     *
-    * @summary: Unfollow an entity (product/brand/collection)
-    * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
-    * @param {Object} arg - arg object.
-    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
-    * @param {string} arg.collectionId - The ID of the collection type.
-    
-    
-    * @return {Promise<FollowPostResponse>} - success response
-    **/
-        unfollowById({
-            collectionType,
-            collectionId
-            
-        } = {}) {
-            const { error } = CatalogValidator.unfollowById().validate({ collectionType,
-            collectionId
-             },{ abortEarly: false });
-            if (error) {
-                return Promise.reject(new FDKClientValidationError(error));
-            }
-            const query_params = {};
-            
-
-            return APIClient.execute(
-                    this._conf,
-                    "delete",
-                    constructUrl({
-                        url: this._urls["unfollowById"],
-                        params: { collectionType, collectionId }
-                    }),
-                    query_params,
-                     undefined ,
-            );
-        }
-        
-    
-    /**
-    *
     * @summary: Follow an entity (product/brand/collection)
     * @description: Follow a particular entity such as product, brand, collection specified by its ID.
     * @param {Object} arg - arg object.
@@ -1182,6 +1144,44 @@ class Catalog {
                     "post",
                     constructUrl({
                         url: this._urls["followById"],
+                        params: { collectionType, collectionId }
+                    }),
+                    query_params,
+                     undefined ,
+            );
+        }
+        
+    
+    /**
+    *
+    * @summary: Unfollow an entity (product/brand/collection)
+    * @description: You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+    * @param {Object} arg - arg object.
+    * @param {string} arg.collectionType - Type of collection followed, i.e. products, brands, or collections.
+    * @param {string} arg.collectionId - The ID of the collection type.
+    
+    
+    * @return {Promise<FollowPostResponse>} - success response
+    **/
+        unfollowById({
+            collectionType,
+            collectionId
+            
+        } = {}) {
+            const { error } = CatalogValidator.unfollowById().validate({ collectionType,
+            collectionId
+             },{ abortEarly: false });
+            if (error) {
+                return Promise.reject(new FDKClientValidationError(error));
+            }
+            const query_params = {};
+            
+
+            return APIClient.execute(
+                    this._conf,
+                    "delete",
+                    constructUrl({
+                        url: this._urls["unfollowById"],
                         params: { collectionType, collectionId }
                     }),
                     query_params,
@@ -7056,10 +7056,10 @@ class Payment {
             addRefundBankAccountUsingOTP: "/service/application/payment/v1.0/refund/account/otp",
             verifyOtpAndAddBeneficiaryForWallet: "/service/application/payment/v1.0/refund/verification/wallet",
             updateDefaultBeneficiary: "/service/application/payment/v1.0/refund/beneficiary/default",
-            CustomerCreditSummary: "/service/application/payment/v1.0/payment/credit-summary/",
-            RedirectToAggregator: "/service/application/payment/v1.0/payment/redirect-to-aggregator/",
-            CheckCredit: "/service/application/payment/v1.0/check-credits/",
-            CustomerOnboard: "/service/application/payment/v1.0/credit-onboard/"
+            customerCreditSummary: "/service/application/payment/v1.0/payment/credit-summary/",
+            redirectToAggregator: "/service/application/payment/v1.0/payment/redirect-to-aggregator/",
+            checkCredit: "/service/application/payment/v1.0/check-credits/",
+            customerOnboard: "/service/application/payment/v1.0/credit-onboard/"
             
         }
         this._urls = Object.entries(this._relativeUrls).reduce((urls, [method, relativeUrl]) => {
@@ -7933,11 +7933,11 @@ class Payment {
     
     * @return {Promise<CustomerCreditSummaryResponse>} - success response
     **/
-        CustomerCreditSummary({
+        customerCreditSummary({
             aggregator
             
         } = {}) {
-            const { error } = PaymentValidator.CustomerCreditSummary().validate({ aggregator
+            const { error } = PaymentValidator.customerCreditSummary().validate({ aggregator
              },{ abortEarly: false });
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
@@ -7950,7 +7950,7 @@ class Payment {
                     this._conf,
                     "get",
                     constructUrl({
-                        url: this._urls["CustomerCreditSummary"],
+                        url: this._urls["customerCreditSummary"],
                         params: {  }
                     }),
                     query_params,
@@ -7969,11 +7969,11 @@ class Payment {
     
     * @return {Promise<RedirectToAggregatorResponse>} - success response
     **/
-        RedirectToAggregator({
+        redirectToAggregator({
             source
             
         } = {}) {
-            const { error } = PaymentValidator.RedirectToAggregator().validate({ source
+            const { error } = PaymentValidator.redirectToAggregator().validate({ source
              },{ abortEarly: false });
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
@@ -7986,7 +7986,7 @@ class Payment {
                     this._conf,
                     "get",
                     constructUrl({
-                        url: this._urls["RedirectToAggregator"],
+                        url: this._urls["redirectToAggregator"],
                         params: {  }
                     }),
                     query_params,
@@ -8005,11 +8005,11 @@ class Payment {
     
     * @return {Promise<CheckCreditResponse>} - success response
     **/
-        CheckCredit({
+        checkCredit({
             aggregator
             
         } = {}) {
-            const { error } = PaymentValidator.CheckCredit().validate({ aggregator
+            const { error } = PaymentValidator.checkCredit().validate({ aggregator
              },{ abortEarly: false });
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
@@ -8022,7 +8022,7 @@ class Payment {
                     this._conf,
                     "get",
                     constructUrl({
-                        url: this._urls["CheckCredit"],
+                        url: this._urls["checkCredit"],
                         params: {  }
                     }),
                     query_params,
@@ -8040,11 +8040,11 @@ class Payment {
     * @param {CustomerOnboardingRequest} arg.body
     * @return {Promise<CustomerOnboardingResponse>} - success response
     **/
-        CustomerOnboard({
+        customerOnboard({
             body
             
         } = {}) {
-            const { error } = PaymentValidator.CustomerOnboard().validate({ body
+            const { error } = PaymentValidator.customerOnboard().validate({ body
              },{ abortEarly: false });
             if (error) {
                 return Promise.reject(new FDKClientValidationError(error));
@@ -8056,7 +8056,7 @@ class Payment {
                     this._conf,
                     "post",
                     constructUrl({
-                        url: this._urls["CustomerOnboard"],
+                        url: this._urls["customerOnboard"],
                         params: {  }
                     }),
                     query_params,

@@ -35,10 +35,7 @@ function requestInterceptorFn() {
       url = combineURLs(config.baseURL, config.url);
     }
     const { host, pathname, search } = new URL(url);
-    const { data, headers, method, params, cookie } = config;
-    if(cookie){
-      headers["cookie"] = cookie;
-    }
+    const { data, headers, method, params } = config;
     headers["x-fp-sdk-version"] = "0.1.14"
     let querySearchObj = querystring.parse(search);
     querySearchObj = { ...querySearchObj, ...params };

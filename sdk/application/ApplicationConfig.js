@@ -11,7 +11,6 @@ class ApplicationConfig {
         this.opts = _opts || {};
         this.domain = _conf.domain || 'https://api.fynd.com';
         this.validate();
-        this.cookie;
     }
 
     setCookie(cookie){
