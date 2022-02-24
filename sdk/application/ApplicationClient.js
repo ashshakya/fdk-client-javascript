@@ -42,7 +42,6 @@ const constructUrl = ({url, params}) => {
 class ApplicationClient{
 
     constructor(config){
-        this.config = config;
         this.catalog = new Catalog(config);
         this.cart = new Cart(config);
         this.common = new Common(config);
@@ -61,9 +60,6 @@ class ApplicationClient{
         this.posCart = new PosCart(config);
         this.logistic = new Logistic(config);
         
-    }
-    setCookie(cookie){
-        this.config.cookie = cookie;
     }
 }
 

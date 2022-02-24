@@ -2,6 +2,8 @@ const querystring = require("query-string");
 const { fdkAxios } = require("../common/AxiosHelper");
 const { sign } = require("../common/RequestSigner");
 const { FDKTokenIssueError, FDKOAuthCodeError } = require("../common/FDKError");
+const { Logger } = require('../common/Logger');
+
 class OAuthClient {
   constructor(config) {
     this.config = config;
@@ -10,27 +12,10 @@ class OAuthClient {
     this.retryOAuthTokenTimer = null;
     this.raw_token = null;
     this.token_expires_in = null;
-    this.token_expires_at = 0;
-    this.useAutoRenewTimer = config.useAutoRenewTimer !== undefined? config.useAutoRenewTimer: true;
   }
 
-  async getAccessToken(){
-    if (!this.useAutoRenewTimer && this.refreshToken && this.isTokenExpired(120)) {
-      // Check if token is about to expire in less than 2 mins. 
-      // Renew if to be expired and auto renew timer is not enabled.
-      await this.renewAccessToken();
-    }
+  getAccessToken(){
     return this.token;
-  }
-
-  // default TTL checked 0 seconds
-  isTokenExpired(ttl=0) {
-    const currentTimestamp = (new Date()).getTime();
-    // Check if token is about to expire in less than 2 mins
-    if (((this.token_expires_at - currentTimestamp)/1000) < ttl) {
-      return true
-    }
-    return false;
   }
 
   setToken(token) {
@@ -38,12 +23,14 @@ class OAuthClient {
     this.token_expires_in = token.expires_in;
     this.token = token.access_token;
     this.refreshToken = token.refresh_token ? token.refresh_token : null;
-    if (this.refreshToken && this.useAutoRenewTimer) {
+    if (this.refreshToken) {
       this.retryOAuthToken(token.expires_in);
     }
+    Logger({type: 'INFO', message: 'Token set.'});
   }
 
   retryOAuthToken(expires_in) {
+    Logger({type: 'INFO', message: 'Retrying OAuth Token...'});
     if (this.retryOAuthTokenTimer) {
       clearTimeout(this.retryOAuthTokenTimer);
     }
@@ -55,6 +42,7 @@ class OAuthClient {
   }
 
   startAuthorization(options) {
+    Logger({type: 'INFO', message: 'Starting Authorization...'});
     let query = {
       client_id: this.config.apiKey,
       scope: options.scope.join(","),
@@ -75,7 +63,8 @@ class OAuthClient {
       signQuery: true,
     };
     signingOptions = sign(signingOptions);
-
+    Logger({type: 'INFO', message: 'Authorization successful.!'});
+    
     return `${this.config.domain}${signingOptions.path}`;
   }
 
@@ -92,7 +81,6 @@ class OAuthClient {
         code: query.code,
       });
       this.setToken(res);
-      this.token_expires_at = (new Date()).getTime() + this.token_expires_in;
     } catch (error) {
       if (error.isAxiosError) {
         throw new FDKTokenIssueError(error.message);
@@ -102,13 +90,14 @@ class OAuthClient {
   }
 
   async renewAccessToken() {
+    Logger({type: 'INFO', message: 'Renewing Access token...'});
     try {
       let res = await this.getAccesstokenObj({
         grant_type:'refresh_token',
         refresh_token: this.refreshToken
       });
       this.setToken(res);
-      this.token_expires_at = (new Date()).getTime() + this.token_expires_in;
+      Logger({type: 'INFO', message: 'Done.'});
       return res;
     } catch (error) {
       if (error.isAxiosError) {
@@ -119,6 +108,7 @@ class OAuthClient {
   }
 
   async getAccesstokenObj({ grant_type, refresh_token, code }) {
+    Logger({type: 'INFO', message: 'Processing Access token object...'});
     let reqData = {
       grant_type: grant_type,
     };
@@ -142,6 +132,7 @@ class OAuthClient {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     };
+    Logger({type: 'INFO', message: 'Done.'});
     return fdkAxios.request(rawRequest);
   }
 }
