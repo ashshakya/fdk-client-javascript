@@ -4699,23 +4699,6 @@ Success
 
  
  
- #### [DataItems](#DataItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | to | string |  no  |  |
- | cc | string |  no  |  |
- | bcc | string |  no  |  |
- | country_code | string |  no  |  |
- | phone_number | string |  no  |  |
- | ref_user | string |  no  |  |
- | ref_application | string |  no  |  |
-
----
-
-
- 
- 
  #### [PayloadEmailTemplateStructure](#PayloadEmailTemplateStructure)
 
  | Properties | Type | Nullable | Description |
@@ -4790,7 +4773,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [[DataItems](#DataItems)] |  no  |  |
+ | data | [string] |  no  |  |
  | email | [PayloadEmailStructure](#PayloadEmailStructure) |  no  |  |
  | sms | [PayloadSmsStructure](#PayloadSmsStructure) |  no  |  |
  | application | string |  no  |  |
