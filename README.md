@@ -60,7 +60,6 @@ let platformConfig = new PlatformConfig({
   apiKey: "API_KEY", 
   apiSecret: "API_SECRET", 
   domain: "DOMAIN",
-  useAutoRenewTimer: true
 });
 
 async function getData() {
