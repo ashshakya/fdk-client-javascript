@@ -2,11 +2,11 @@ const { fdkAxios } = require("../common/AxiosHelper");
 
 class APIClient {
   /**
-   * @param  {object} conf
-   * @param  {string} method
-   * @param  {string} url
-   * @param  {object} query
-   * @param  {object} body
+   * @param {object} conf
+   * @param {string} method
+   * @param {string} url
+   * @param {object} query
+   * @param {object} body
    */
   static async execute(conf, method, url, query, body) {
     const token = await conf.oauthClient.getAccessToken();
