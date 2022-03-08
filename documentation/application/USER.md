@@ -3018,6 +3018,19 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [BlockUserRequestSchema](#BlockUserRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | boolean |  no  |  |
+ | user_id | [string] |  no  |  |
+ | reason | string |  no  |  |
+
+---
+
+
+ 
+ 
  #### [EditEmailRequestSchema](#EditEmailRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3433,6 +3446,17 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [BlockUserSuccess](#BlockUserSuccess)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | boolean |  no  |  |
+
+---
+
+
+ 
+ 
  #### [OtpSuccess](#OtpSuccess)
 
  | Properties | Type | Nullable | Description |
@@ -3551,6 +3575,17 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | has_next | boolean |  no  |  |
  | type | string |  no  |  |
  | current | number |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionListResponseSchema](#SessionListResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | [string] |  no  |  |
 
 ---
 
