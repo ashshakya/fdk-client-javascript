@@ -1115,7 +1115,7 @@ declare class Cart {
      *   identifier of a product. You can get slug value from the endpoint
      *   /service/application/catalog/v1.0/products/
      * @param {string} [arg.storeId] - Store uid of assigned store on PDP page.
-     *   If not passed default first created ladder will be assigned
+     *   If not passed default first created ladder will be returned
      * @param {string} [arg.promotionId] - Get ladder information of given
      *   promotion id explicitely
      * @param {number} [arg.pageSize] - Number of offers to be fetched to show
