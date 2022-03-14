@@ -5120,6 +5120,12 @@ class Validator {
     });
   }
 
+  static DataLoadersSchema() {
+    return Joi.object({
+      items: Joi.array().items(this.DataLoaderSchema()),
+    });
+  }
+
   static TagDeleteSuccessResponse() {
     return Joi.object({
       success: Joi.boolean(),

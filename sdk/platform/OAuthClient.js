@@ -160,6 +160,20 @@ class OAuthClient {
     return fdkAxios.request(rawRequest);
   }
 
+  async getOfflineAccessToken(scopes, code) {
+    Logger({ type: "INFO", message: "Getting Offline Access token..." });
+    try {
+      let res = await this.getOfflineAccessTokenObj(scopes, code);
+      Logger({ type: "INFO", message: "Done." });
+      return res;
+    } catch (error) {
+      if (error.isAxiosError) {
+        throw new FDKTokenIssueError(error.message);
+      }
+      throw error;
+    }
+  }
+
   async getOfflineAccessTokenObj(scopes, code) {
     let url = `${this.config.domain}/service/panel/authentication/v1.0/company/${this.config.companyId}/oauth/offline-token`;
     let data = {
@@ -176,7 +190,7 @@ class OAuthClient {
     const rawRequest = {
       method: "post",
       url: url,
-      data: querystring.stringify(data),
+      data: data,
       headers: {
         Authorization: `Basic ${token}`,
         "Content-Type": "application/json",

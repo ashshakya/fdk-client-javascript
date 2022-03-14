@@ -692,6 +692,7 @@ export class Validator {
     static CreateTagRequestSchema(): any;
     static DataLoaderSchema(): any;
     static DataLoaderSourceSchema(): any;
+    static DataLoadersSchema(): any;
     static TagDeleteSuccessResponse(): any;
     static ContentAPIError(): any;
     static CategorySchema(): any;
