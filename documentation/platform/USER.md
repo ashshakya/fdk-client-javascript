@@ -83,7 +83,6 @@ Success. Refer `CustomerListResponseSchema` for more details.
           "Ark-Qnatemplate-FullAccess"
         ],
         "active": true,
-        "uid": "23106198",
         "emails": [
           {
             "active": true,
@@ -210,7 +209,6 @@ Success. Returns first name, last name, emails, phone number and gender of the u
           "email": "akashmane@uniket.store"
         }
       ],
-      "uid": "61",
       "account_type": "user",
       "first_name": "Akash",
       "last_name": "Mane",
@@ -307,7 +305,6 @@ User create
         "email": "akashmane@uniket.store"
       }
     ],
-    "uid": "61",
     "external_id": "100002000036789",
     "account_type": "user",
     "first_name": "Akash",
@@ -465,7 +462,6 @@ User update
         "email": "akashmane@uniket.store"
       }
     ],
-    "uid": "61",
     "external_id": "100002000036789",
     "account_type": "user",
     "first_name": "Akash",
@@ -562,7 +558,7 @@ Create user session
 
 
 ### getActiveSessions
-Get a list of all sections for a user
+Get a list of all session for a user
 
 
 
@@ -584,7 +580,7 @@ const data = await client.application("<APPLICATION_ID>").user.getActiveSessions
 
 
 
-Use this API to retrieve a list of customers who have registered in the application.
+Use this API to retrieve a list of session of customers who have registered in the application.
 
 *Returned Response:*
 
@@ -631,7 +627,7 @@ Success. Refer `SessionListResponseSchema` for more details.
 
 
 ### deleteActiveSessions
-Get a list of all sections for a user
+Delete a list of all session for a user
 
 
 
@@ -653,16 +649,16 @@ const data = await client.application("<APPLICATION_ID>").user.deleteActiveSessi
 
 
 
-Use this API to retrieve a list of customers who have registered in the application.
+Use this API to Delete a list of session of customers who have registered in the application.
 
 *Returned Response:*
 
 
 
 
-[SessionListResponseSchema](#SessionListResponseSchema)
+[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
 
-Success. Refer `SessionListResponseSchema` for more details.
+Success. Refer `SessionDeleteResponseSchema` for more details.
 
 
 
@@ -1261,7 +1257,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | [UserSchema](#UserSchema) |  no  |  |
- | resend_email_token | string |  no  |  |
  | register_token | string |  no  |  |
  | user_exists | boolean |  no  |  |
  | verify_email_link | boolean |  no  |  |
@@ -1504,6 +1499,17 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  
  
  #### [SessionListResponseSchema](#SessionListResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | [string] |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -1977,6 +1983,8 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | application_id | string |  no  |  |
+ | user_id | string |  no  |  |
  | first_name | string |  no  |  |
  | meta | string |  no  |  |
  | last_name | string |  no  |  |
@@ -1988,7 +1996,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | profile_pic_url | string |  no  |  |
  | username | string |  no  |  |
  | account_type | string |  no  |  |
- | uid | string |  no  |  |
  | debug | [Debug](#Debug) |  no  |  |
  | has_old_password_hash | boolean |  no  |  |
  | _id | string |  no  |  |

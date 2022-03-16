@@ -9,8 +9,6 @@ declare class ApplicationConfig {
     applicationToken: any;
     opts: any;
     domain: any;
-    logLevel: any;
-    setLogLevel(level: any): void;
     setCookie(cookie: any): void;
     cookie: any;
     validate(): void;
